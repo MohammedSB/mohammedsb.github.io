@@ -107,6 +107,12 @@ h1 {
     text-align: justify;
 }
 
+.greeting {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #800020;
+}
+
 .interests {
     margin-top: 2rem;
 }
