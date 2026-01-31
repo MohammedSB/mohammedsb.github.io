@@ -155,6 +155,113 @@ h1 {
     text-align: center;
 }
 
+.papers {
+    margin-top: 2rem;
+    margin-left: 0;
+    margin-right: calc(-4rem - 260px - 1rem);
+}
+
+.papers h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #800020;
+    margin-bottom: 1.5rem;
+}
+
+.paper-item {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    align-items: start;
+    margin-bottom: 2.5rem;
+}
+
+.paper-figure {
+    width: 300px;
+    height: auto;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.paper-figure img,
+.paper-figure embed {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.paper-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.paper-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.paper-title a {
+    color: #800020;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.paper-title a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+.paper-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333333;
+}
+
+.paper-publication {
+    font-size: 1rem;
+    color: #800020;
+    font-style: italic;
+}
+
+.papers-section {
+    margin-left: 80px;
+    padding: 3rem 2rem;
+    background: #ffffff;
+    border-top: 1px solid #e0e0e0;
+}
+
+.papers-section h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #800020;
+    margin-bottom: 2rem;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5rem;
+}
+
+.papers-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
 @media (max-width: 900px) {
     .container {
         max-width: 100%;
@@ -173,4 +280,76 @@ h1 {
     .sidebar {
         max-width: 340px;
     }
+    
+    .papers {
+        margin-right: 0;
+    }
+    
+    .paper-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .paper-figure {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
+.expandable-image {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.expandable-image:hover {
+    opacity: 0.85;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.modal.show {
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+.modal-content {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    transform: scale(0.7);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.modal-close:hover {
+    opacity: 0.7;
 }

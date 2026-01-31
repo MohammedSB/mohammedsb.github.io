@@ -38,11 +38,77 @@
                 <h2>Outside of work</h2>
                 <p>For fun, I love rock climbing, reading Middle Eastern history, drinking tea, and listening to classical Arabic music.</p>
             </section>
+            <section class="papers">
+                <h2>My Proudest papers</h2>
+                <div class="paper-item">
+                    <div class="paper-figure">
+                        <img src="paper_figures/radgame_bk.jpg" alt="Paper figure" class="expandable-image">
+                    </div>
+                    <div class="paper-details">
+                        <h3 class="paper-title"><a href="https://arxiv.org/abs/2509.13270" target="_blank" rel="noopener noreferrer">RadGame: An AI-Powered Platform for Radiology Education</a></h3>
+                        <p class="paper-description">RadGame is an AI-powered gamified platform for radiology education that trains learners on localizing findings and generating reports. The platform uses automated AI-driven feedback, comparing user performance against radiologist annotations from public datasets. In a prospective evaluation, participants using RadGame achieved a 68% improvement in localization accuracy (vs. 17% with traditional methods) and a 31% improvement in report-writing accuracy (vs. 4% with traditional methods).</p>
+                        <p class="paper-publication">Published in: Machine Learning for Health (ML4H) 2025, European Congress of Radiology (ECR) 2026</p>
+                    </div>
+                </div>
+                <div class="paper-item">
+                    <div class="paper-figure">
+                        <img src="paper_figures/harmony_bk.png" alt="Paper figure" class="expandable-image">
+                    </div>
+                    <div class="paper-details">
+                        <h3 class="paper-title"><a href="https://arxiv.org/abs/2405.14239" target="_blank" rel="noopener noreferrer">Harmony: A Joint Self-Supervised and Weakly-Supervised Framework for Learning General Purpose Visual Representations</a></h3>
+                        <p class="paper-description">Harmony combines vision-language training with discriminative and generative self-supervision to learn visual features that generalize across different vision tasks. Unlike CLIP, which lacks localized features for dense prediction tasks, Harmony optimizes five different objectives simultaneously and works efficiently on web-scraped data without requiring negative examples. Harmony significantly outperforms baseline CLIP and leading methods like SLIP, MaskCLIP, and DetailCLIP.</p>
+                        <p class="paper-publication">Published in: Transactions of Machine Learning Research (TMLR) 2025</p>
+                    </div>
+                </div>
+            </section>
         </div>
         <div class="sidebar">
             <img class="profile-photo" src="visual/portrait.jpg" alt="Portrait of Mohammed Baharoon">
             <p class="location">Boston, Massachusetts, United States</p>
         </div>
     </div>
+    
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    
+    <script>
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.modal-close');
+        const expandableImages = document.querySelectorAll('.expandable-image');
+        
+        expandableImages.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+                setTimeout(() => {
+                    modal.classList.add('show');
+                }, 10);
+            });
+        });
+        
+        function closeModal() {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+        
+        closeBtn.addEventListener('click', closeModal);
+        
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
