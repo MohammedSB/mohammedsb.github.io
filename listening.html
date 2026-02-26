@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What I'm Listening To — Mohammed Baharoon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="visual/tea.png">
+</head>
+<body>
+    <div class="banner"></div>
+    <header class="site-header">
+        <nav class="nav-links">
+            <a class="nav-item" href="index.html" title="Home">Home</a>
+            <a class="nav-item" href="docs/CV.pdf" target="_blank" rel="noopener noreferrer" title="CV">CV</a>
+            <a class="nav-item" href="https://scholar.google.com/citations?user=U-LgNOwAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" title="Google Scholar">Google Scholar</a>
+            <a class="nav-item" href="https://mohammedbaharoon.substack.com/" target="_blank" rel="noopener noreferrer" title="Blog">Blog</a>
+            <a class="nav-item" href="listening.html" title="Listening">Listening</a>
+        </nav>
+    </header>
+
+    <div class="listening-page">
+        <h1 class="listening-title">What I'm listening to</h1>
+        <p class="listening-subtitle">A window into my current rotation — mostly classical Arabic music, with occasional detours. These are my most listened to songs in the last 30 days.</p>
+        <div class="song-list" id="song-list">
+            <p style="color:#999; font-style:italic;">Loading...</p>
+        </div>
+    </div>
+
+    <script>
+        fetch('listening.json')
+            .then(r => {
+                if (!r.ok) throw new Error('No data yet');
+                return r.json();
+            })
+            .then(songs => {
+                const list = document.getElementById('song-list');
+                if (!songs.length) {
+                    list.innerHTML = '<p style="color:#999; font-style:italic;">No songs found.</p>';
+                    return;
+                }
+                list.innerHTML = songs.slice(0, 30).map(s => `
+                    <div class="song-item">
+                        <div class="song-info">
+                            <p class="song-name">${s.title}</p>
+                            <p class="song-artist">${s.artist}</p>
+                        </div>
+                        ${s.url ? `<a class="song-link" href="${s.url}" target="_blank" rel="noopener noreferrer">Listen →</a>` : ''}
+                    </div>
+                `).join('');
+            })
+            .catch(() => {
+                document.getElementById('song-list').innerHTML =
+                    '<p style="color:#999; font-style:italic;">Run <code>python fetch_listening.py</code> to populate this list.</p>';
+            });
+    </script>
+</body>
+</html>

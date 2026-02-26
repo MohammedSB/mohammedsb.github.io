@@ -14,6 +14,7 @@
             <a class="nav-item" href="docs/CV.pdf" target="_blank" rel="noopener noreferrer" title="CV">CV</a>
             <a class="nav-item" href="https://scholar.google.com/citations?user=U-LgNOwAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" title="Google Scholar">Google Scholar</a>
             <a class="nav-item" href="https://mohammedbaharoon.substack.com/" target="_blank" rel="noopener noreferrer" title="Blog">Blog</a>
+            <a class="nav-item" href="listening.html" title="Listening">Listening</a>
         </nav>
     </header>
     <div class="container">
@@ -22,11 +23,11 @@
             <p class="affiliation">Harvard Medical School, Harvard University.</p>
             <p class="contact-inline">mohammed_baharoon@hms.harvard.edu</p>
             <p class="bio">
-                <span class="greeting">Ahlan!</span> I am currently a master's student in Biomedical Informatics at Harvard Medical School working with Pranav Rajpurkar. 
+                <span class="greeting">Ahlan (</span><span class="greeting-arabic" tabindex="0">أهلاً<span class="greeting-tooltip"><span class="tooltip-note">Arabic greeting, literally "you are among family"</span></span></span><span class="greeting">)!!</span>
 
-                <br> 
+                <br><br>
 
-                I am interested in self-supervised learning and multimodal learning applied to medicine, with emphasis on computer vision and applications in report generation and referring segmentation. I am also interested in using AI to improve medical education. My work has been published in conferences such as MICCAI, ML4H, and MLHC.
+                I am an incoming PhD student in the AI in Medicine program in Biomedical Informatics at Harvard Medical School. Currently, I am a master's student in Biomedical Informatics at Harvard Medical School, advised by Pranav Rajpurkar. My work focuses on self-supervised learning and multimodal learning applied to medicine, with emphasis on computer vision and applications in report generation and referring segmentation. I am also interested in using AI to improve medical education. My work has been published in conferences such as MICCAI, ML4H, and MLHC.
 
                 <br><br>
 
@@ -36,7 +37,7 @@
             </p>
             <section class="interests">
                 <h2>Outside of work</h2>
-                <p>For fun, I love rock climbing, reading Middle Eastern history, drinking tea, and listening to classical Arabic music.</p>
+                <p>For fun, I love rock climbing, reading Middle Eastern history, drinking tea, and listening to <a class="listening-link" href="listening.html" title="What I'm listening to">classical Arabic music</a>.</p>
             </section>
             <section class="papers">
                 <h2>My Proudest papers</h2>
@@ -52,7 +53,7 @@
                 </div>
                 <div class="paper-item">
                     <div class="paper-figure">
-                        <img src="paper_figures/harmony_bk.png" alt="Paper figure" class="expandable-image">
+                        <img src="paper_figures/harmony_bk.png" data-modal-src="paper_figures/harmony.jpg" alt="Paper figure" class="expandable-image">
                     </div>
                     <div class="paper-details">
                         <h3 class="paper-title"><a href="https://arxiv.org/abs/2405.14239" target="_blank" rel="noopener noreferrer">Harmony: A Joint Self-Supervised and Weakly-Supervised Framework for Learning General Purpose Visual Representations</a></h3>
@@ -82,7 +83,7 @@
         expandableImages.forEach(img => {
             img.addEventListener('click', function() {
                 modal.style.display = 'flex';
-                modalImg.src = this.src;
+                modalImg.src = this.getAttribute('data-modal-src') || this.src;
                 setTimeout(() => {
                     modal.classList.add('show');
                 }, 10);

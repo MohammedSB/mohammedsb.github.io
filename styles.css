@@ -50,7 +50,7 @@ body {
     left: 0;
     width: 80px;
     height: 100vh;
-    background-image: url("visual/sado.png");
+    background-image: url("visual/sado_pixel.jpg");
     background-repeat: repeat-y;
     background-size: 80px auto;
     background-position: top left;
@@ -113,6 +113,55 @@ h1 {
     color: #800020;
 }
 
+.greeting-arabic {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #800020;
+    position: relative;
+    cursor: default;
+    border-bottom: 1px dashed #800020;
+}
+
+.greeting-tooltip {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+    background: #fff;
+    border: 1px solid rgba(128, 0, 32, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    z-index: 100;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.greeting-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 16px;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-left: 1px solid rgba(128, 0, 32, 0.2);
+    border-top: 1px solid rgba(128, 0, 32, 0.2);
+    transform: rotate(45deg);
+}
+
+.greeting-arabic:hover .greeting-tooltip,
+.greeting-arabic:focus .greeting-tooltip {
+    display: flex;
+}
+
+.tooltip-note {
+    font-size: 0.82rem;
+    color: #666666;
+    font-style: italic;
+}
+
 .interests {
     margin-top: 2rem;
 }
@@ -130,6 +179,89 @@ h1 {
     font-size: 1rem;
     line-height: 1.7;
     color: #333333;
+}
+
+.listening-link {
+    color: #800020;
+    text-decoration: none;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+}
+
+.listening-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+/* ── Listening page ── */
+
+.listening-page {
+    max-width: 700px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
+
+.listening-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #111111;
+    margin-bottom: 0.5rem;
+}
+
+.listening-subtitle {
+    font-size: 1rem;
+    color: #666666;
+    font-style: italic;
+    margin-bottom: 3rem;
+}
+
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.song-item:first-child {
+    border-top: 1px solid #e8e8e8;
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.song-name {
+    font-size: 1rem;
+    color: #111111;
+    font-weight: 500;
+}
+
+.song-artist {
+    font-size: 0.9rem;
+    color: #666666;
+}
+
+.song-link {
+    font-size: 0.85rem;
+    color: #800020;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+}
+
+.song-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
 }
 
 .sidebar {
@@ -325,8 +457,8 @@ h1 {
 }
 
 .modal-content {
-    max-width: 95%;
-    max-height: 95%;
+    max-width: 90%;
+    max-height: 90%;
     object-fit: contain;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
     transform: scale(0.7);
@@ -341,13 +473,14 @@ h1 {
 
 .modal-close {
     position: absolute;
-    top: 30px;
-    right: 50px;
+    top: 20px;
+    right: 30px;
     color: #ffffff;
     font-size: 50px;
     font-weight: 300;
     cursor: pointer;
     transition: opacity 0.2s ease;
+    z-index: 1001;
 }
 
 .modal-close:hover {
