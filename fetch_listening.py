@@ -54,11 +54,6 @@ def scrape_listening():
         print("Waiting 20 seconds — solve any CAPTCHA in the browser window...")
         time.sleep(20)
 
-        # Save HTML for debugging
-        html = page.content()
-        with open("anghami_debug.html", "w", encoding="utf-8") as f:
-            f.write(html)
-
         # Extract songs using correct Anghami selectors
         # Use parallel extraction from the full page (avoids nested-tag issues inside rows)
         songs = page.evaluate("""() => {
@@ -83,7 +78,7 @@ def scrape_listening():
         browser.close()
 
         if not songs:
-            print("No songs found — check anghami_debug.html to inspect the page structure.")
+            print("No songs found.")
             return
 
         print(f"Found {len(songs)} songs. Saving top 30.")
