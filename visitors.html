@@ -198,34 +198,7 @@
                     return;
                 } catch (e) { /* try next */ }
             }
-            // Fallback: browser geolocation + reverse geocode for city/country
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(pos) {
-                    var lat = pos.coords.latitude;
-                    var lng = pos.coords.longitude;
-                    // Reverse geocode to get city/country
-                    fetch('https://nominatim.openstreetmap.org/reverse?lat=' + lat + '&lon=' + lng + '&format=json&zoom=10')
-                        .then(function(r) { return r.json(); })
-                        .then(function(d) {
-                            var city = (d.address && (d.address.city || d.address.town || d.address.village)) || '';
-                            var country = (d.address && d.address.country) || '';
-                            var label = [city, country].filter(Boolean).join(', ');
-                            locationEl.textContent = label || 'Your approximate area';
-                            saveVisitor({ lat: lat, lon: lng, city: city, country: country });
-                            addVisitorDot(lat, lng, label || 'Your location', true);
-                        })
-                        .catch(function() {
-                            locationEl.textContent = 'Your approximate area';
-                            saveVisitor({ lat: lat, lon: lng, city: '', country: '' });
-                            addVisitorDot(lat, lng, 'Your location', true);
-                        });
-                    map.setView([lat, lng], 3, { animate: true });
-                }, function() {
-                    locationEl.textContent = 'Location blocked';
-                });
-            } else {
-                locationEl.textContent = 'Location unavailable';
-            }
+            locationEl.textContent = 'IP lookup unavailable';
         }
 
         // ── Boot ──
