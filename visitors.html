@@ -118,15 +118,15 @@
 
         async function loadVisitorLocation() {
             try {
-                // ip-api.com: free, CORS-enabled, no key required
-                const response = await fetch('https://ip-api.com/json/?fields=status,city,regionName,country,lat,lon,query');
+                // ipwho.is: free, HTTPS, CORS-enabled, no key required
+                const response = await fetch('https://ipwho.is/');
                 const data = await response.json();
 
-                if (data.status !== 'success') throw new Error('lookup failed');
+                if (!data.success) throw new Error('lookup failed');
 
-                const latitude = Number(data.lat);
-                const longitude = Number(data.lon);
-                const label = [data.city, data.regionName, data.country].filter(Boolean).join(', ');
+                const latitude = Number(data.latitude);
+                const longitude = Number(data.longitude);
+                const label = [data.city, data.region, data.country].filter(Boolean).join(', ');
 
                 locationEl.textContent = label;
 
