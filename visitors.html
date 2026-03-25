@@ -30,7 +30,7 @@
             <h1 class="visitors-title">See where visits are coming from</h1>
             <div class="visitors-stats">
                 <div class="visitors-stat-card">
-                    <span class="visitors-stat-label">Total visits</span>
+                    <span class="visitors-stat-label">Total locations</span>
                     <span class="visitors-stat-value" id="visitor-total">Loading...</span>
                 </div>
                 <div class="visitors-stat-card">
@@ -49,23 +49,19 @@
             </section>
 
             <aside class="visitors-panel visitors-summary-panel">
-                <h2 class="visitors-section-title">What this does</h2>
+                <h2 class="visitors-section-title">About the map</h2>
                 <p class="visitors-note">
-                    The map centers on your approximate city or region when available. If location data is blocked,
-                    the page falls back to a world view and still shows the total visit count.
+                    Every visitor's approximate location is recorded and shown as a dot on the map.
+                    Your current location is highlighted with a brighter marker.
                 </p>
                 <div class="visitors-summary-list">
                     <div class="visitors-summary-item">
-                        <span class="visitors-summary-key">Location source</span>
+                        <span class="visitors-summary-key">Tracking</span>
                         <span class="visitors-summary-value">IP-based geolocation</span>
                     </div>
                     <div class="visitors-summary-item">
-                        <span class="visitors-summary-key">Counter</span>
-                        <span class="visitors-summary-value">GoatCounter analytics</span>
-                    </div>
-                    <div class="visitors-summary-item">
                         <span class="visitors-summary-key">Privacy</span>
-                        <span class="visitors-summary-value">No cookies required</span>
+                        <span class="visitors-summary-value">No cookies</span>
                     </div>
                 </div>
             </aside>
@@ -74,10 +70,28 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Firebase SDK (compat mode for simplicity) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+
     <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBKN89D7xDeOrbZcaHskF5eX8CJM4Q5tPU",
+            authDomain: "baharoon-visitors.firebaseapp.com",
+            databaseURL: "https://baharoon-visitors-default-rtdb.firebaseio.com",
+            projectId: "baharoon-visitors",
+            storageBucket: "baharoon-visitors.firebasestorage.app",
+            messagingSenderId: "16202229023",
+            appId: "1:16202229023:web:5e967877c4dc566fe73c2a"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
         const totalEl = document.getElementById('visitor-total');
         const locationEl = document.getElementById('visitor-location');
 
+        // ── Map setup ──
         const map = L.map('visitor-map', {
             worldCopyJump: true,
             zoomControl: true,
@@ -85,70 +99,140 @@
         }).setView([20, 0], 2);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 6,
-            minZoom: 1,
+            maxZoom: 8,
+            minZoom: 2,
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        const marker = L.circleMarker([20, 0], {
-            radius: 6,
-            color: '#800020',
-            weight: 2,
-            fillColor: '#f1c6cf',
-            fillOpacity: 0.9
-        }).addTo(map);
-
-        async function loadTotalVisits() {
-            try {
-                // GoatCounter public counter API for this page
-                // Requires: Settings → Sites → "Allow public access to counter API" enabled
-                const response = await fetch('https://mohammedsb.goatcounter.com/counter/%2Fvisitors.html.json');
-                if (!response.ok) throw new Error('not ok');
-                const data = await response.json();
-                totalEl.textContent = Number(data.count).toLocaleString();
-            } catch (error) {
-                totalEl.textContent = 'Enable public API in GoatCounter settings';
-            }
+        // ── Total visits from Firebase ──
+        function loadTotalVisits() {
+            db.ref('visitors').once('value').then(function(snapshot) {
+                var data = snapshot.val();
+                totalEl.textContent = data ? Object.keys(data).length : '0';
+            }).catch(function() { totalEl.textContent = '—'; });
         }
 
-        function describeLocation(data) {
-            const parts = [data.city, data.region, data.country_name].filter(Boolean);
-            return parts.length > 0 ? parts.join(', ') : 'Approximate location unavailable';
+        // ── Draw a past-visitor dot on the map ──
+        function addVisitorDot(lat, lng, label, isCurrent) {
+            L.circleMarker([lat, lng], {
+                radius: isCurrent ? 7 : 5,
+                color: isCurrent ? '#800020' : '#800020',
+                weight: isCurrent ? 2.5 : 1,
+                fillColor: isCurrent ? '#f1c6cf' : '#800020',
+                fillOpacity: isCurrent ? 0.95 : 0.45
+            }).addTo(map).bindPopup('<strong>' + label + '</strong>');
         }
 
+        // ── Load ALL past visitors from Firebase and draw them ──
+        function loadAllVisitors() {
+            db.ref('visitors').once('value').then(function(snapshot) {
+                var data = snapshot.val();
+                if (!data) return;
+                Object.values(data).forEach(function(v) {
+                    if (v.lat && v.lng) {
+                        var label = [v.city, v.country].filter(Boolean).join(', ') || 'Unknown';
+                        addVisitorDot(v.lat, v.lng, label, false);
+                    }
+                });
+            });
+        }
+
+        // ── Save current visitor's location to Firebase ──
+        function saveVisitor(geo) {
+            var key = [
+                Math.round(geo.lat * 100),
+                Math.round(geo.lon * 100)
+            ].join('_');
+
+            // Use lat/lng grid key to avoid duplicate dots in the same spot
+            db.ref('visitors/' + key).set({
+                lat: Math.round(geo.lat * 100) / 100,
+                lng: Math.round(geo.lon * 100) / 100,
+                city: geo.city || '',
+                country: geo.country || '',
+                lastSeen: new Date().toISOString()
+            });
+        }
+
+        // ── IP geolocation providers (fallback chain) ──
+        async function tryIpwho() {
+            var r = await fetch('https://ipwho.is/');
+            var d = await r.json();
+            if (!d.success) throw new Error('fail');
+            return { lat: d.latitude, lon: d.longitude, city: d.city, country: d.country };
+        }
+        async function tryIpapi() {
+            var r = await fetch('https://ipapi.co/json/');
+            var d = await r.json();
+            if (d.error) throw new Error('fail');
+            return { lat: d.latitude, lon: d.longitude, city: d.city, country: d.country_name };
+        }
+        async function tryFreeIpapi() {
+            var r = await fetch('https://freeipapi.com/api/json/');
+            var d = await r.json();
+            if (!d.latitude) throw new Error('fail');
+            return { lat: d.latitude, lon: d.longitude, city: d.cityName, country: d.countryName };
+        }
+
+        // ── Detect current visitor, save to Firebase, highlight on map ──
         async function loadVisitorLocation() {
-            try {
-                // ipwho.is: free, HTTPS, CORS-enabled, no key required
-                const response = await fetch('https://ipwho.is/');
-                const data = await response.json();
+            var providers = [tryIpwho, tryIpapi, tryFreeIpapi];
+            for (var i = 0; i < providers.length; i++) {
+                try {
+                    var geo = await providers[i]();
+                    var lat = Number(geo.lat);
+                    var lng = Number(geo.lon);
+                    if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
 
-                if (!data.success) throw new Error('lookup failed');
+                    var label = [geo.city, geo.country].filter(Boolean).join(', ');
+                    locationEl.textContent = label || 'Detected';
 
-                const latitude = Number(data.latitude);
-                const longitude = Number(data.longitude);
-                const label = [data.city, data.region, data.country].filter(Boolean).join(', ');
+                    // Save this visitor to Firebase
+                    saveVisitor(geo);
 
-                locationEl.textContent = label;
+                    // Highlight current visitor with a distinct marker
+                    addVisitorDot(lat, lng, label + ' (you)', true);
 
-                map.setView([latitude, longitude], 4, { animate: true });
-                marker.setLatLng([latitude, longitude]);
-                marker.bindPopup(`<strong>${label}</strong>`).openPopup();
-
-                L.circle([latitude, longitude], {
-                    radius: 40000,
-                    color: '#800020',
-                    weight: 1,
-                    fillColor: '#800020',
-                    fillOpacity: 0.12
-                }).addTo(map);
-            } catch (error) {
+                    // Gently zoom to current visitor
+                    map.setView([lat, lng], 3, { animate: true });
+                    return;
+                } catch (e) { /* try next */ }
+            }
+            // Fallback: browser geolocation + reverse geocode for city/country
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(pos) {
+                    var lat = pos.coords.latitude;
+                    var lng = pos.coords.longitude;
+                    // Reverse geocode to get city/country
+                    fetch('https://nominatim.openstreetmap.org/reverse?lat=' + lat + '&lon=' + lng + '&format=json&zoom=10')
+                        .then(function(r) { return r.json(); })
+                        .then(function(d) {
+                            var city = (d.address && (d.address.city || d.address.town || d.address.village)) || '';
+                            var country = (d.address && d.address.country) || '';
+                            var label = [city, country].filter(Boolean).join(', ');
+                            locationEl.textContent = label || 'Your approximate area';
+                            saveVisitor({ lat: lat, lon: lng, city: city, country: country });
+                            addVisitorDot(lat, lng, label || 'Your location', true);
+                        })
+                        .catch(function() {
+                            locationEl.textContent = 'Your approximate area';
+                            saveVisitor({ lat: lat, lon: lng, city: '', country: '' });
+                            addVisitorDot(lat, lng, 'Your location', true);
+                        });
+                    map.setView([lat, lng], 3, { animate: true });
+                }, function() {
+                    locationEl.textContent = 'Location blocked';
+                });
+            } else {
                 locationEl.textContent = 'Location unavailable';
             }
         }
 
+        // ── Boot ──
         window.addEventListener('load', function() {
             loadTotalVisits();
-            loadVisitorLocation();
+            loadAllVisitors();   // draw all past visitors first
+            loadVisitorLocation(); // then detect + highlight current visitor
         });
     </script>
 </body>
