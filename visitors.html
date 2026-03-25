@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visitors – Mohammed Baharoon</title>
+    <title>Visitors</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="visual/tea.png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -100,14 +100,14 @@
 
         async function loadTotalVisits() {
             try {
-                // GoatCounter public API – returns JSON with total page count
-                const response = await fetch('https://mohammedsb.goatcounter.com/counter/TOTAL.json');
+                // GoatCounter public counter API for this page
+                // Requires: Settings → Sites → "Allow public access to counter API" enabled
+                const response = await fetch('https://mohammedsb.goatcounter.com/counter/%2Fvisitors.html.json');
+                if (!response.ok) throw new Error('not ok');
                 const data = await response.json();
-                totalEl.textContent = data.count_unique
-                    ? Number(data.count_unique).toLocaleString()
-                    : Number(data.count).toLocaleString();
+                totalEl.textContent = Number(data.count).toLocaleString();
             } catch (error) {
-                totalEl.textContent = 'Unavailable';
+                totalEl.textContent = 'Enable public API in GoatCounter settings';
             }
         }
 
@@ -118,21 +118,21 @@
 
         async function loadVisitorLocation() {
             try {
-                const response = await fetch('https://ipapi.co/json/');
+                // ip-api.com: free, CORS-enabled, no key required
+                const response = await fetch('https://ip-api.com/json/?fields=status,city,regionName,country,lat,lon,query');
                 const data = await response.json();
-                const latitude = Number(data.latitude);
-                const longitude = Number(data.longitude);
 
-                if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
-                    throw new Error('Missing coordinates');
-                }
+                if (data.status !== 'success') throw new Error('lookup failed');
 
-                const label = describeLocation(data);
+                const latitude = Number(data.lat);
+                const longitude = Number(data.lon);
+                const label = [data.city, data.regionName, data.country].filter(Boolean).join(', ');
+
                 locationEl.textContent = label;
 
                 map.setView([latitude, longitude], 4, { animate: true });
                 marker.setLatLng([latitude, longitude]);
-                marker.bindPopup(`<strong>${label}</strong><br>${data.ip || 'IP unavailable'}`).openPopup();
+                marker.bindPopup(`<strong>${label}</strong>`).openPopup();
 
                 L.circle([latitude, longitude], {
                     radius: 40000,
@@ -142,8 +142,7 @@
                     fillOpacity: 0.12
                 }).addTo(map);
             } catch (error) {
-                locationEl.textContent = 'Approximate world view';
-                marker.bindPopup('Location unavailable').openPopup();
+                locationEl.textContent = 'Location unavailable';
             }
         }
 
