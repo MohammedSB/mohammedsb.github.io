@@ -30,6 +30,10 @@
             <h1 class="visitors-title">See where visits are coming from</h1>
             <div class="visitors-stats">
                 <div class="visitors-stat-card">
+                    <span class="visitors-stat-label">Unique visitors</span>
+                    <span class="visitors-stat-value" id="visitor-unique">Loading...</span>
+                </div>
+                <div class="visitors-stat-card">
                     <span class="visitors-stat-label">Total locations</span>
                     <span class="visitors-stat-value" id="visitor-total">Loading...</span>
                 </div>
@@ -71,28 +75,21 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-    <!-- Firebase SDK (compat mode for simplicity) -->
+    <!-- Firebase SDK + shared visitor tracking -->
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+    <script src="track.js"></script>
 
     <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyBKN89D7xDeOrbZcaHskF5eX8CJM4Q5tPU",
-            authDomain: "baharoon-visitors.firebaseapp.com",
-            databaseURL: "https://baharoon-visitors-default-rtdb.firebaseio.com",
-            projectId: "baharoon-visitors",
-            storageBucket: "baharoon-visitors.firebasestorage.app",
-            messagingSenderId: "16202229023",
-            appId: "1:16202229023:web:5e967877c4dc566fe73c2a"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.database();
+        // Firebase is already initialised by track.js
+        var db = firebase.database();
 
-        const totalEl = document.getElementById('visitor-total');
-        const locationEl = document.getElementById('visitor-location');
+        var uniqueEl = document.getElementById('visitor-unique');
+        var totalEl = document.getElementById('visitor-total');
+        var locationEl = document.getElementById('visitor-location');
 
         // ── Map setup ──
-        const map = L.map('visitor-map', {
+        var map = L.map('visitor-map', {
             worldCopyJump: true,
             zoomControl: true,
             attributionControl: true
@@ -104,19 +101,25 @@
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        // ── Total visits from Firebase ──
+        // ── Counts from Firebase ──
         function loadTotalVisits() {
             db.ref('visitors').once('value').then(function(snapshot) {
                 var data = snapshot.val();
                 totalEl.textContent = data ? Object.keys(data).length : '0';
             }).catch(function() { totalEl.textContent = '—'; });
         }
+        function loadUniqueVisitors() {
+            db.ref('unique_visitors').once('value').then(function(snapshot) {
+                var data = snapshot.val();
+                uniqueEl.textContent = data ? Object.keys(data).length : '0';
+            }).catch(function() { uniqueEl.textContent = '—'; });
+        }
 
-        // ── Draw a past-visitor dot on the map ──
+        // ── Draw a dot on the map ──
         function addVisitorDot(lat, lng, label, isCurrent) {
             L.circleMarker([lat, lng], {
                 radius: isCurrent ? 7 : 5,
-                color: isCurrent ? '#800020' : '#800020',
+                color: '#800020',
                 weight: isCurrent ? 2.5 : 1,
                 fillColor: isCurrent ? '#f1c6cf' : '#800020',
                 fillOpacity: isCurrent ? 0.95 : 0.45
@@ -137,63 +140,22 @@
             });
         }
 
-        // ── Save current visitor's location to Firebase ──
-        function saveVisitor(geo) {
-            var key = [
-                Math.round(geo.lat * 100),
-                Math.round(geo.lon * 100)
-            ].join('_');
-
-            // Use lat/lng grid key to avoid duplicate dots in the same spot
-            db.ref('visitors/' + key).set({
-                lat: Math.round(geo.lat * 100) / 100,
-                lng: Math.round(geo.lon * 100) / 100,
-                city: geo.city || '',
-                country: geo.country || '',
-                lastSeen: new Date().toISOString()
-            });
-        }
-
-        // ── IP geolocation providers (fallback chain) ──
-        async function tryIpwho() {
-            var r = await fetch('https://ipwho.is/');
-            var d = await r.json();
-            if (!d.success) throw new Error('fail');
-            return { lat: d.latitude, lon: d.longitude, city: d.city, country: d.country };
-        }
-        async function tryIpapi() {
-            var r = await fetch('https://ipapi.co/json/');
-            var d = await r.json();
-            if (d.error) throw new Error('fail');
-            return { lat: d.latitude, lon: d.longitude, city: d.city, country: d.country_name };
-        }
-        async function tryFreeIpapi() {
-            var r = await fetch('https://freeipapi.com/api/json/');
-            var d = await r.json();
-            if (!d.latitude) throw new Error('fail');
-            return { lat: d.latitude, lon: d.longitude, city: d.cityName, country: d.countryName };
-        }
-
-        // ── Detect current visitor, save to Firebase, highlight on map ──
+        // ── Highlight current visitor on map (IP lookup for display only) ──
         async function loadVisitorLocation() {
-            var providers = [tryIpwho, tryIpapi, tryFreeIpapi];
+            var providers = [
+                function() { return fetch('https://ipwho.is/').then(function(r){return r.json()}).then(function(d){ if(!d.success) throw 0; return {lat:d.latitude,lon:d.longitude,city:d.city,country:d.country}; }); },
+                function() { return fetch('https://ipapi.co/json/').then(function(r){return r.json()}).then(function(d){ if(d.error) throw 0; return {lat:d.latitude,lon:d.longitude,city:d.city,country:d.country_name}; }); },
+                function() { return fetch('https://freeipapi.com/api/json/').then(function(r){return r.json()}).then(function(d){ if(!d.latitude) throw 0; return {lat:d.latitude,lon:d.longitude,city:d.cityName,country:d.countryName}; }); }
+            ];
             for (var i = 0; i < providers.length; i++) {
                 try {
                     var geo = await providers[i]();
                     var lat = Number(geo.lat);
                     var lng = Number(geo.lon);
                     if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
-
                     var label = [geo.city, geo.country].filter(Boolean).join(', ');
                     locationEl.textContent = label || 'Detected';
-
-                    // Save this visitor to Firebase
-                    saveVisitor(geo);
-
-                    // Highlight current visitor with a distinct marker
                     addVisitorDot(lat, lng, label + ' (you)', true);
-
-                    // Gently zoom to current visitor
                     map.setView([lat, lng], 3, { animate: true });
                     return;
                 } catch (e) { /* try next */ }
@@ -204,8 +166,9 @@
         // ── Boot ──
         window.addEventListener('load', function() {
             loadTotalVisits();
-            loadAllVisitors();   // draw all past visitors first
-            loadVisitorLocation(); // then detect + highlight current visitor
+            loadUniqueVisitors();
+            loadAllVisitors();
+            loadVisitorLocation();
         });
     </script>
 </body>
