@@ -70,6 +70,13 @@
                 </div>
             </aside>
         </div>
+
+        <section class="visitors-panel" style="margin-top: 2rem; padding: 1.5rem;">
+            <h2 class="visitors-section-title">Recent visits</h2>
+            <div id="recent-visits-list" class="visitors-summary-list">
+                <p class="visitors-note">Loading...</p>
+            </div>
+        </section>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -160,7 +167,42 @@
                     return;
                 } catch (e) { /* try next */ }
             }
-            locationEl.textContent = 'IP lookup unavailable';
+            // Fallback: get location from the most recent Firebase entry
+            try {
+                var snap = await db.ref('recent_visits').orderByChild('time').limitToLast(1).once('value');
+                var data = snap.val();
+                if (data) {
+                    var last = Object.values(data)[0];
+                    var label = [last.city, last.country].filter(Boolean).join(', ');
+                    locationEl.textContent = label || 'Unknown';
+                    return;
+                }
+            } catch (e) { /* ignore */ }
+            locationEl.textContent = 'Unknown';
+        }
+
+        // ── Load last 5 recent visits ──
+        function loadRecentVisits() {
+            var listEl = document.getElementById('recent-visits-list');
+            db.ref('recent_visits').orderByChild('time').limitToLast(5).once('value').then(function(snapshot) {
+                var data = snapshot.val();
+                if (!data) { listEl.innerHTML = '<p class="visitors-note">No visits yet.</p>'; return; }
+                var entries = Object.values(data).sort(function(a, b) {
+                    return b.time.localeCompare(a.time);
+                });
+                listEl.innerHTML = '';
+                entries.forEach(function(v) {
+                    var loc = [v.city, v.country].filter(Boolean).join(', ') || 'Unknown';
+                    var when = new Date(v.time);
+                    var timeStr = when.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
+                        + ' at ' + when.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+                    var item = document.createElement('div');
+                    item.className = 'visitors-summary-item';
+                    item.innerHTML = '<span class="visitors-summary-key">' + loc + '</span>'
+                        + '<span class="visitors-summary-value">' + timeStr + '</span>';
+                    listEl.appendChild(item);
+                });
+            }).catch(function() { listEl.innerHTML = '<p class="visitors-note">Could not load recent visits.</p>'; });
         }
 
         // ── Boot ──
@@ -169,6 +211,7 @@
             loadUniqueVisitors();
             loadAllVisitors();
             loadVisitorLocation();
+            loadRecentVisits();
         });
     </script>
 </body>

@@ -43,6 +43,13 @@
                 lastSeen: new Date().toISOString()
             });
         }
+
+        // Push to recent visits log (keeps every page view)
+        db.ref('recent_visits').push({
+            city: geo.city || '',
+            country: geo.country || '',
+            time: new Date().toISOString()
+        });
     }
 
     async function tryIpwho() {
