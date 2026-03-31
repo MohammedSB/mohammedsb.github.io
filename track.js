@@ -26,11 +26,11 @@
     // Detect OS from user agent
     function getOS() {
         var ua = navigator.userAgent;
+        if (/iPhone|iPad|iPod/.test(ua)) return 'macOS/iOS';
+        if (/Mac OS X/.test(ua)) return 'macOS/iOS';
         if (/Windows/.test(ua)) return 'Windows';
-        if (/Mac OS X/.test(ua)) return 'macOS';
         if (/CrOS/.test(ua)) return 'ChromeOS';
         if (/Android/.test(ua)) return 'Android';
-        if (/iPhone|iPad|iPod/.test(ua)) return 'iOS';
         if (/Linux/.test(ua)) return 'Linux';
         return 'Unknown';
     }

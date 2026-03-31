@@ -766,6 +766,25 @@ h1 {
     color: #222222;
 }
 
+.visitors-you {
+    background: rgba(128, 0, 32, 0.06);
+    border-color: rgba(128, 0, 32, 0.3);
+}
+
+.visitors-you-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #800020;
+    padding: 0.15em 0.5em;
+    border-radius: 8px;
+    margin-left: 0.4em;
+    vertical-align: middle;
+}
+
 @media (max-width: 900px) {
     .visitors-layout {
         grid-template-columns: 1fr;
