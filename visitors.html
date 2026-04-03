@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visitors</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=4">
     <link rel="icon" type="image/png" href="visual/tea.png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
@@ -70,6 +70,25 @@
                 </div>
             </aside>
         </div>
+
+        <section class="visitors-panel visitors-analytics-panel" style="margin-top: 2rem; padding: 1.5rem;">
+            <h2 class="visitors-section-title" style="margin-bottom: 1.25rem;">Analytics</h2>
+            <div class="visitors-analytics-grid">
+                <div class="visitors-analytics-col">
+                    <h3 class="visitors-analytics-subtitle">Countries</h3>
+                    <div id="analytics-countries" class="visitors-analytics-list"></div>
+                </div>
+                <div class="visitors-analytics-col">
+                    <h3 class="visitors-analytics-subtitle">Devices</h3>
+                    <div id="analytics-devices" class="visitors-analytics-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="visitors-panel" style="margin-top: 2rem; padding: 1.5rem;">
+            <h2 class="visitors-section-title" style="margin-bottom: 1rem;">Visitors over time</h2>
+            <canvas id="visitors-chart" height="150" style="width:100%;"></canvas>
+        </section>
 
         <section class="visitors-panel" style="margin-top: 2rem; padding: 1.5rem;">
             <h2 class="visitors-section-title" style="margin-bottom: 1rem;">Recent visits</h2>

@@ -44,6 +44,7 @@
             lat: Math.round(geo.lat * 100) / 100,
             lng: Math.round(geo.lon * 100) / 100,
             city: geo.city || '',
+            region: geo.region || '',
             country: geo.country || '',
             countryCode: geo.countryCode || '',
             os: getOS(),
@@ -64,19 +65,19 @@
         var r = await fetch('https://ipwho.is/');
         var d = await r.json();
         if (!d.success) throw new Error('fail');
-        return { lat: d.latitude, lon: d.longitude, city: d.city, country: d.country, countryCode: d.country_code, ip: d.ip };
+        return { lat: d.latitude, lon: d.longitude, city: d.city, country: d.country, countryCode: d.country_code, region: d.region, ip: d.ip };
     }
     async function tryIpapi() {
         var r = await fetch('https://ipapi.co/json/');
         var d = await r.json();
         if (d.error) throw new Error('fail');
-        return { lat: d.latitude, lon: d.longitude, city: d.city, country: d.country_name, countryCode: d.country_code, ip: d.ip };
+        return { lat: d.latitude, lon: d.longitude, city: d.city, country: d.country_name, countryCode: d.country_code, region: d.region, ip: d.ip };
     }
     async function tryFreeIpapi() {
         var r = await fetch('https://freeipapi.com/api/json/');
         var d = await r.json();
         if (!d.latitude) throw new Error('fail');
-        return { lat: d.latitude, lon: d.longitude, city: d.cityName, country: d.countryName, countryCode: d.countryCode, ip: d.ipAddress };
+        return { lat: d.latitude, lon: d.longitude, city: d.cityName, country: d.countryName, countryCode: d.countryCode, region: d.regionName, ip: d.ipAddress };
     }
 
     async function trackVisitor() {

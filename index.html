@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Baharoon</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=3">
     <link rel="icon" type="image/png" href="visual/tea.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
     <div class="banner"></div>
@@ -21,6 +26,7 @@
     <div class="container">
         <div class="content">
             <h1><span class="first-name">Mohammed</span> Baharoon</h1>
+            <p class="name-arabic">محمد باهارون</p>
             <p class="affiliation">Harvard Medical School, Harvard University.</p>
             <p class="contact-inline">mohammed_baharoon@hms.harvard.edu</p>
             <p class="bio">
@@ -28,12 +34,15 @@
 
                 <br><br>
 
-                I am an incoming PhD student in the AI in Medicine program in Biomedical Informatics at Harvard Medical School. Currently, I am a master's student in Biomedical Informatics at Harvard Medical School, advised by Pranav Rajpurkar. My work focuses on self-supervised learning and multimodal learning applied to medicine, with emphasis on computer vision and applications in report generation and referring segmentation. I am also interested in using AI to improve medical education. My work has been published in conferences such as MICCAI, ML4H, and MLHC.
+                I am an incoming PhD student in the AI in Medicine program in Biomedical Informatics at Harvard Medical School. Currently, I am a master's student in Biomedical Informatics at Harvard Medical School, advised by <a href="https://www.linkedin.com/in/pranavrajpurkar/" target="_blank" rel="noopener noreferrer">Pranav Rajpurkar</a>. My work focuses on self-supervised learning and multimodal learning applied to medicine, with emphasis on computer vision and applications in report generation and referring segmentation. I am also interested in using AI to improve medical education. My work has been published in conferences such as MICCAI, ML4H, and MLHC.
 
                 <br><br>
 
-                Previously, I worked at the Vector Institute and the University of Toronto with Bo Wang, and at King Abdullah University for Science and Technology (KAUST) with Dominik L. Michels. 
-                
+                Previously, I worked at the Vector Institute and the University of Toronto with <a href="https://www.linkedin.com/in/bo-wang-a6065240/" target="_blank" rel="noopener noreferrer">Bo Wang</a>, at King Abdullah University for Science and Technology (KAUST) with <a href="https://www.linkedin.com/in/dominik-l-michels/" target="_blank" rel="noopener noreferrer">Dominik L. Michels</a>, and at King Abdullah International Medical Research Center (KAIMRC) with <a href="https://www.linkedin.com/in/aljouie/" target="_blank" rel="noopener noreferrer">Abdulrhman Aljouie</a>.
+
+                <br><br>
+
+                I am originally from, and grew up in, Riyadh, Saudi Arabia.
 
             </p>
             <section class="interests">
@@ -41,7 +50,7 @@
                 <p>For fun, I love rock climbing, reading Middle Eastern history, drinking tea, and listening to <a class="listening-link" href="listening.html" title="What I'm listening to">classical Arabic music</a>.</p>
             </section>
             <section class="papers">
-                <h2>My Proudest papers</h2>
+                <h2>My Proudest works</h2>
                 <div class="paper-item">
                     <div class="paper-figure">
                         <img src="paper_figures/radgame_bk.jpg" alt="Paper figure" class="expandable-image">
@@ -69,7 +78,22 @@
             <p class="location">Boston, Massachusetts</p>
         </div>
     </div>
+
+    <hr class="section-divider">
     
+    <section class="journey-section">
+        <h2 class="journey-title">My Journey</h2>
+        <div class="journey-map-wrap">
+            <div id="journey-map" class="journey-map"></div>
+        </div>
+    </section>
+
+    <footer class="proverb-footer">
+        <p class="proverb-arabic" id="proverb-ar"></p>
+        <p class="proverb-english" id="proverb-en"></p>
+        <p class="proverb-source">Source: <a href="https://faculty.kfupm.edu.sa/coe/gutub/Arabic_Misc/Hundred_Advise_Arabic.htm" target="_blank" rel="noopener noreferrer">100 حكمة عالمية وعصرية</a></p>
+    </footer>
+
     <div id="imageModal" class="modal">
         <span class="modal-close">&times;</span>
         <img class="modal-content" id="modalImage">
@@ -111,6 +135,24 @@
                 closeModal();
             }
         });
+    </script>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="journey-map.js"></script>
+    <script>
+        // ── Arabic proverb rotator (loaded from proverbs.json) ──
+        fetch('proverbs.json')
+            .then(function(r) { return r.json(); })
+            .then(function(proverbs) {
+                var p = proverbs[Math.floor(Math.random() * proverbs.length)];
+                document.getElementById('proverb-ar').textContent = '« ' + p.ar + ' »';
+                document.getElementById('proverb-en').textContent = p.en;
+            })
+            .catch(function() {
+                document.getElementById('proverb-ar').textContent = '« من جدّ وجد »';
+                document.getElementById('proverb-en').textContent = 'He who strives, finds.';
+            });
     </script>
 
     <!-- Firebase SDK + visitor tracking -->
