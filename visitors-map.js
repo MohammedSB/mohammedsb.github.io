@@ -1,5 +1,8 @@
 // ── visitors-map.js — Map, stats, and recent visits for visitors.html ──
 // Requires: Leaflet, Firebase (initialised by track.js)
+// Schema: visitors/{ipHash} = { lat, lng, city, region, country, countryCode,
+//   os, browser, language, referrer, screenWidth, screenHeight,
+//   firstSeen, lastSeen, visits, dates/{YYYY-MM-DD}: true, pages/{path}: true }
 
 (function () {
     var db = firebase.database();
@@ -8,6 +11,20 @@
     var uniqueEl  = document.getElementById('visitor-unique');
     var totalEl   = document.getElementById('visitor-total');
     var locationEl = document.getElementById('visitor-location');
+
+    // ── Shared data cache (loaded once, used by all sections) ──
+    var allVisitors = null; // array of visitor objects
+
+    function loadVisitors() {
+        return db.ref('visitors').once('value').then(function (snap) {
+            var data = snap.val();
+            allVisitors = data ? Object.values(data) : [];
+            return allVisitors;
+        }).catch(function () {
+            allVisitors = [];
+            return allVisitors;
+        });
+    }
 
     // ── Leaflet map ──
     var map = L.map('visitor-map', {
@@ -23,18 +40,18 @@
     }).addTo(map);
 
     // ── Stat counters ──
-    function loadTotalLocations() {
-        db.ref('visitors').once('value').then(function (snap) {
-            var data = snap.val();
-            totalEl.textContent = data ? Object.keys(data).length : '0';
-        }).catch(function () { totalEl.textContent = '—'; });
-    }
+    function loadStats() {
+        // Unique visitors = total entries (one per IP hash)
+        uniqueEl.textContent = allVisitors.length.toString();
 
-    function loadUniqueVisitors() {
-        db.ref('unique_visitors').once('value').then(function (snap) {
-            var data = snap.val();
-            uniqueEl.textContent = data ? Object.keys(data).length : '0';
-        }).catch(function () { uniqueEl.textContent = '—'; });
+        // Total locations = unique lat/lng pairs
+        var seen = {};
+        allVisitors.forEach(function (v) {
+            if (v.lat != null && v.lng != null) {
+                seen[v.lat + '_' + v.lng] = true;
+            }
+        });
+        totalEl.textContent = Object.keys(seen).length.toString();
     }
 
     // ── Map dots ──
@@ -48,23 +65,22 @@
         }).addTo(map).bindPopup('<strong>' + label + '</strong>');
     }
 
+    function buildLabel(v) {
+        var parts = [v.city];
+        if (v.country === 'United States' && v.region) parts.push(v.region);
+        parts.push(v.country);
+        return parts.filter(Boolean).join(', ') || 'Unknown';
+    }
+
     function loadAllDots() {
-        db.ref('visitors').once('value').then(function (snap) {
-            var data = snap.val();
-            if (!data) return;
-            Object.values(data).forEach(function (v) {
-                if (v.lat && v.lng) {
-                    var label = [v.city, v.country].filter(Boolean).join(', ') || 'Unknown';
-                    addDot(v.lat, v.lng, label, false);
-                }
-            });
+        allVisitors.forEach(function (v) {
+            if (v.lat && v.lng) {
+                addDot(v.lat, v.lng, buildLabel(v), false);
+            }
         });
     }
 
-    // ── Current visitor location (for map highlight + stat card) ──
-    // Stores the current visitor's grid key so we can highlight them in recent visits
-    var currentVisitorKey = null;
-
+    // ── Current visitor location ──
     async function detectCurrentVisitor() {
         var providers = [
             function () {
@@ -88,7 +104,6 @@
                 var lng = Number(geo.lon);
                 if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
 
-                currentVisitorKey = Math.round(lat * 100) + '_' + Math.round(lng * 100);
                 var parts = [geo.city];
                 if (geo.country === 'United States' && geo.region) parts.push(geo.region);
                 parts.push(geo.country);
@@ -100,19 +115,6 @@
             } catch (e) { /* try next */ }
         }
 
-        // Fallback: read most recent Firebase entry
-        try {
-            var snap = await db.ref('visitors').orderByChild('lastSeen').limitToLast(1).once('value');
-            var data = snap.val();
-            if (data) {
-                var key = Object.keys(data)[0];
-                var last = data[key];
-                currentVisitorKey = key;
-                var label = [last.city, last.country].filter(Boolean).join(', ');
-                locationEl.textContent = label || 'Unknown';
-                return;
-            }
-        } catch (e) { /* ignore */ }
         locationEl.textContent = 'Unknown';
     }
 
@@ -147,81 +149,67 @@
         return code ? flagImg(code) : '';
     }
 
-    function normalizeOS(os) {
-        if (os === 'macOS') return 'macOS/iOS';
-        return os || '';
-    }
-
     // ── Analytics ──
     function loadAnalytics() {
-        db.ref('visitors').once('value').then(function (snap) {
-            var raw = snap.val();
-            if (!raw) return;
-            var all = Object.values(raw);
+        // Country distribution
+        var countryCounts = {};
+        allVisitors.forEach(function (v) {
+            var c = v.country || 'Unknown';
+            countryCounts[c] = (countryCounts[c] || 0) + 1;
+        });
+        var topCountries = Object.entries(countryCounts)
+            .sort(function (a, b) { return b[1] - a[1]; })
+            .slice(0, 6);
+        var maxC = topCountries[0] ? topCountries[0][1] : 1;
+        var countriesEl = document.getElementById('analytics-countries');
+        countriesEl.innerHTML = '';
+        topCountries.forEach(function (entry) {
+            var code = COUNTRY_CODES[entry[0]] || '';
+            var flag = code ? flagImg(code) : '';
+            var pct = Math.round((entry[1] / maxC) * 100);
+            var row = document.createElement('div');
+            row.className = 'visitors-analytics-row';
+            row.innerHTML =
+                '<span class="visitors-analytics-label">' + flag + entry[0] + '</span>' +
+                '<div class="visitors-analytics-bar-wrap"><div class="visitors-analytics-bar" style="width:' + pct + '%"></div></div>' +
+                '<span class="visitors-analytics-count">' + entry[1] + '</span>';
+            countriesEl.appendChild(row);
+        });
 
-            // Country distribution
-            var countryCounts = {};
-            all.forEach(function (v) {
-                var c = v.country || 'Unknown';
-                countryCounts[c] = (countryCounts[c] || 0) + 1;
-            });
-            var topCountries = Object.entries(countryCounts)
-                .sort(function (a, b) { return b[1] - a[1]; })
-                .slice(0, 6);
-            var maxC = topCountries[0] ? topCountries[0][1] : 1;
-            var countriesEl = document.getElementById('analytics-countries');
-            countriesEl.innerHTML = '';
-            topCountries.forEach(function (entry) {
-                var code = COUNTRY_CODES[entry[0]] || '';
-                var flag = code ? flagImg(code) : '';
-                var pct = Math.round((entry[1] / maxC) * 100);
-                var row = document.createElement('div');
-                row.className = 'visitors-analytics-row';
-                row.innerHTML =
-                    '<span class="visitors-analytics-label">' + flag + entry[0] + '</span>' +
-                    '<div class="visitors-analytics-bar-wrap"><div class="visitors-analytics-bar" style="width:' + pct + '%"></div></div>' +
-                    '<span class="visitors-analytics-count">' + entry[1] + '</span>';
-                countriesEl.appendChild(row);
-            });
-
-            // Device / OS distribution
-            var osCounts = {};
-            all.forEach(function (v) {
-                var os = normalizeOS(v.os) || 'Unknown';
-                osCounts[os] = (osCounts[os] || 0) + 1;
-            });
-            var topOS = Object.entries(osCounts)
-                .sort(function (a, b) { return b[1] - a[1]; });
-            var maxO = topOS[0] ? topOS[0][1] : 1;
-            var devicesEl = document.getElementById('analytics-devices');
-            devicesEl.innerHTML = '';
-            topOS.forEach(function (entry) {
-                var pct = Math.round((entry[1] / maxO) * 100);
-                var row = document.createElement('div');
-                row.className = 'visitors-analytics-row';
-                row.innerHTML =
-                    '<span class="visitors-analytics-label">' + entry[0] + '</span>' +
-                    '<div class="visitors-analytics-bar-wrap"><div class="visitors-analytics-bar" style="width:' + pct + '%"></div></div>' +
-                    '<span class="visitors-analytics-count">' + entry[1] + '</span>';
-                devicesEl.appendChild(row);
-            });
+        // Device / OS distribution
+        var osCounts = {};
+        allVisitors.forEach(function (v) {
+            var os = v.os || 'Unknown';
+            osCounts[os] = (osCounts[os] || 0) + 1;
+        });
+        var topOS = Object.entries(osCounts)
+            .sort(function (a, b) { return b[1] - a[1]; });
+        var maxO = topOS[0] ? topOS[0][1] : 1;
+        var devicesEl = document.getElementById('analytics-devices');
+        devicesEl.innerHTML = '';
+        topOS.forEach(function (entry) {
+            var pct = Math.round((entry[1] / maxO) * 100);
+            var row = document.createElement('div');
+            row.className = 'visitors-analytics-row';
+            row.innerHTML =
+                '<span class="visitors-analytics-label">' + entry[0] + '</span>' +
+                '<div class="visitors-analytics-bar-wrap"><div class="visitors-analytics-bar" style="width:' + pct + '%"></div></div>' +
+                '<span class="visitors-analytics-count">' + entry[1] + '</span>';
+            devicesEl.appendChild(row);
         });
     }
 
     // ── Visitors over time chart ──
     function loadVisitorsChart() {
-        db.ref('unique_visitors').once('value').then(function (snap) {
-            var raw = snap.val();
-            if (!raw) return;
-            var all = Object.values(raw);
-
-            // Group by date (YYYY-MM-DD)
-            var dayCounts = {};
-            all.forEach(function (v) {
-                if (!v.lastSeen) return;
-                var day = v.lastSeen.substring(0, 10);
+        // Count first appearance of each unique visitor by date
+        var dayCounts = {};
+        allVisitors.forEach(function (v) {
+            if (!v.firstSeen) return;
+            var day = v.firstSeen.substring(0, 10);
+            if (/^\d{4}-\d{2}-\d{2}$/.test(day)) {
                 dayCounts[day] = (dayCounts[day] || 0) + 1;
-            });
+            }
+        });
 
             // Sort dates and build cumulative totals
             var dates = Object.keys(dayCounts).sort();
@@ -330,52 +318,43 @@
     // ── Recent visits ──
     function loadRecentVisits() {
         var listEl = document.getElementById('recent-visits-list');
+        if (!allVisitors.length) {
+            listEl.innerHTML = '<p class="visitors-note">No visits yet.</p>';
+            return;
+        }
 
-        db.ref('visitors').orderByChild('lastSeen').limitToLast(10).once('value').then(function (snap) {
-            var raw = snap.val();
-            if (!raw) { listEl.innerHTML = '<p class="visitors-note">No visits yet.</p>'; return; }
+        var sorted = allVisitors.slice().sort(function (a, b) {
+            return (b.lastSeen || '').localeCompare(a.lastSeen || '');
+        });
 
-            // Build array with keys so we can match the current visitor
-            var entries = Object.keys(raw).map(function (k) {
-                return { key: k, data: raw[k] };
-            }).sort(function (a, b) {
-                return (b.data.lastSeen || '').localeCompare(a.data.lastSeen || '');
-            });
+        listEl.innerHTML = '';
+        sorted.slice(0, 10).forEach(function (v) {
+            var flag = getFlag(v);
+            var loc = buildLabel(v);
+            var os = v.os || '';
+            var when = v.lastSeen ? new Date(v.lastSeen) : null;
+            var timeStr = when && !isNaN(when.getTime())
+                ? when.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
+                  + ' at ' + when.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })
+                : 'Unknown date';
 
-            listEl.innerHTML = '';
-            entries.forEach(function (entry) {
-                var v = entry.data;
-                var isYou = currentVisitorKey && entry.key === currentVisitorKey;
-                var flag = getFlag(v);
-                var locParts = [v.city];
-                if (v.country === 'United States' && v.region) locParts.push(v.region);
-                locParts.push(v.country);
-                var loc = locParts.filter(Boolean).join(', ') || 'Unknown';
-                var os   = normalizeOS(v.os);
-                var when = new Date(v.lastSeen);
-                var timeStr = when.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
-                    + ' at ' + when.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
-
-                var item = document.createElement('div');
-                item.className = 'visitors-summary-item' + (isYou ? ' visitors-you' : '');
-                item.innerHTML =
-                    '<span class="visitors-summary-key">' + flag + loc + '</span>' +
-                    '<span class="visitors-summary-value">' + timeStr + (os ? ' · ' + os : '') + '</span>';
-                listEl.appendChild(item);
-            });
-        }).catch(function () {
-            listEl.innerHTML = '<p class="visitors-note">Could not load recent visits.</p>';
+            var item = document.createElement('div');
+            item.className = 'visitors-summary-item';
+            item.innerHTML =
+                '<span class="visitors-summary-key">' + flag + loc + '</span>' +
+                '<span class="visitors-summary-value">' + timeStr + (os ? ' · ' + os : '') + '</span>';
+            listEl.appendChild(item);
         });
     }
 
     // ── Boot ──
     window.addEventListener('load', async function () {
-        loadTotalLocations();
-        loadUniqueVisitors();
+        await loadVisitors();
+        loadStats();
         loadAllDots();
         loadAnalytics();
         loadVisitorsChart();
-        await detectCurrentVisitor();
         loadRecentVisits();
+        detectCurrentVisitor();
     });
 })();

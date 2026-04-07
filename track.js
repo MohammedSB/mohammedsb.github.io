@@ -10,7 +10,6 @@
         appId: "1:16202229023:web:5e967877c4dc566fe73c2a"
     };
 
-    // Only init if not already initialised (visitors.html inits its own)
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
     }
@@ -23,11 +22,10 @@
         return h.toString(36);
     }
 
-    // Detect OS from user agent
     function getOS() {
         var ua = navigator.userAgent;
-        if (/iPhone|iPad|iPod/.test(ua)) return 'macOS/iOS';
-        if (/Mac OS X/.test(ua)) return 'macOS/iOS';
+        if (/iPhone|iPad|iPod/.test(ua)) return 'iOS';
+        if (/Mac OS X/.test(ua)) return 'macOS';
         if (/Windows/.test(ua)) return 'Windows';
         if (/CrOS/.test(ua)) return 'ChromeOS';
         if (/Android/.test(ua)) return 'Android';
@@ -35,30 +33,53 @@
         return 'Unknown';
     }
 
+    function getBrowser() {
+        var ua = navigator.userAgent;
+        if (/Edg\//.test(ua)) return 'Edge';
+        if (/OPR\/|Opera/.test(ua)) return 'Opera';
+        if (/Chrome\//.test(ua)) return 'Chrome';
+        if (/Safari\//.test(ua) && !/Chrome/.test(ua)) return 'Safari';
+        if (/Firefox\//.test(ua)) return 'Firefox';
+        return 'Other';
+    }
+
     function saveVisitor(geo, ip) {
-        var key = [
-            Math.round(geo.lat * 100),
-            Math.round(geo.lon * 100)
-        ].join('_');
-        db.ref('visitors/' + key).set({
-            lat: Math.round(geo.lat * 100) / 100,
-            lng: Math.round(geo.lon * 100) / 100,
-            city: geo.city || '',
-            region: geo.region || '',
-            country: geo.country || '',
-            countryCode: geo.countryCode || '',
-            os: getOS(),
-            lastSeen: new Date().toISOString()
+        var now = new Date();
+        var isoNow = now.toISOString();
+        var dateKey = isoNow.split('T')[0];
+        var ipKey = hashStr(ip);
+        var page = location.pathname || '/';
+        var ref = db.ref('visitors/' + ipKey);
+
+        // Read once to preserve firstSeen/dates/pages, then write complete object
+        ref.once('value').then(function (snap) {
+            var existing = snap.val() || {};
+            var dates = existing.dates || {};
+            dates[dateKey] = true;
+            var pages = existing.pages || {};
+            pages[page.replace(/\//g, '_')] = true;
+
+            var record = {
+                lat: Math.round(geo.lat * 100) / 100,
+                lng: Math.round(geo.lon * 100) / 100,
+                city: geo.city || '',
+                region: geo.region || '',
+                country: geo.country || '',
+                countryCode: geo.countryCode || '',
+                os: getOS(),
+                browser: getBrowser(),
+                language: navigator.language || '',
+                referrer: document.referrer || '',
+                screenWidth: screen.width || 0,
+                screenHeight: screen.height || 0,
+                firstSeen: existing.firstSeen || isoNow,
+                lastSeen: isoNow,
+                visits: (existing.visits || 0) + 1,
+                dates: dates,
+                pages: pages
+            };
+            ref.set(record);
         });
-
-        // Record unique visitor by hashed IP
-        if (ip) {
-            var ipKey = hashStr(ip);
-            db.ref('unique_visitors/' + ipKey).set({
-                lastSeen: new Date().toISOString()
-            });
-        }
-
     }
 
     async function tryIpwho() {
