@@ -312,7 +312,6 @@
                 var label = parts[1] + '/' + parts[2];
                 ctx.fillText(label, x, padT + plotH + 10);
             }
-        });
     }
 
     // ── Recent visits ──

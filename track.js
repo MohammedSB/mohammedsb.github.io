@@ -60,14 +60,14 @@
             pages[page.replace(/\//g, '_')] = true;
 
             var record = {
-                lat: Math.round(geo.lat * 100) / 100,
-                lng: Math.round(geo.lon * 100) / 100,
-                city: geo.city || '',
-                region: geo.region || '',
-                country: geo.country || '',
-                countryCode: geo.countryCode || '',
-                os: getOS(),
-                browser: getBrowser(),
+                lat: Math.round(geo.lat * 100) / 100 || existing.lat || 0,
+                lng: Math.round(geo.lon * 100) / 100 || existing.lng || 0,
+                city: geo.city || existing.city || '',
+                region: geo.region || existing.region || '',
+                country: geo.country || existing.country || '',
+                countryCode: geo.countryCode || existing.countryCode || '',
+                os: existing.os || getOS(),
+                browser: existing.browser || getBrowser(),
                 language: navigator.language || '',
                 referrer: document.referrer || '',
                 screenWidth: screen.width || 0,
