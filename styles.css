@@ -257,6 +257,25 @@ h1 {
     background: #f0f0f0;
 }
 
+.journey-number {
+    background: none !important;
+    border: none !important;
+}
+.journey-number span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #800020;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
 /* ── Proverb footer ── */
 
 .proverb-footer {
@@ -863,6 +882,11 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
+}
+
+.visitors-summary-item.highlight-current {
+    background: #fffafa;
+    border-color: #f1c6cf;
 }
 
 .visitors-summary-key {

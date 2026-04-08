@@ -29,9 +29,10 @@
         dashArray: '8, 8'
     }).addTo(map);
 
-    // Draw stop markers
+    // Draw numbered stop markers
     stops.forEach(function(s, i) {
         var isLast = i === stops.length - 1;
+        var num = i + 1;
         L.circleMarker([s.lat, s.lng], {
             radius: isLast ? 8 : 6,
             color: '#800020',
@@ -41,6 +42,14 @@
         }).addTo(map).bindPopup(
             '<strong>' + s.label + '</strong><br><em>' + s.years + '</em>'
         );
+        L.marker([s.lat, s.lng], {
+            icon: L.divIcon({
+                className: 'journey-number',
+                html: '<span>' + num + '</span>',
+                iconSize: [16, 16],
+                iconAnchor: [8, 22]
+            })
+        }).addTo(map);
     });
 
     // Fit all stops in view
