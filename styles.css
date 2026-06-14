@@ -14,7 +14,8 @@ body {
 
 .site-header {
     padding: 1rem 1.5rem 0;
-    margin-left: 80px;
+    max-width: 960px;
+    margin: 0 auto;
 }
 
 .nav-links {
@@ -666,7 +667,6 @@ h1 {
     }
 
     .site-header {
-        margin-left: 50px;
         padding: 0.75rem 1rem 0;
     }
 
@@ -751,12 +751,11 @@ h1 {
     }
 
     .site-header {
-        margin-left: 32px;
         padding: 0.6rem 0.75rem 0;
     }
 
     .nav-links {
-        justify-content: flex-start;
+        justify-content: flex-end;
     }
 
     .nav-item {

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Dailies — Mohammed Baharoon</title>
+    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="icon" type="image/png" href="visual/tea.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <style>
+        .dailies-wrap {
+            max-width: 960px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ── Archive view ──────────────────────────── */
+        .archive-header {
+            margin-bottom: 2rem;
+        }
+
+        .archive-title {
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #800020;
+            margin-bottom: 0.4rem;
+        }
+
+        .archive-subtitle {
+            font-size: 0.88rem;
+            color: #999;
+        }
+
+        .archive-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .archive-columns { grid-template-columns: 1fr; }
+        }
+
+        .archive-col-title {
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #800020;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #800020;
+        }
+
+        .archive-col-title.news-title {
+            color: #0050a0;
+            border-bottom-color: #0050a0;
+        }
+
+        .archive-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .archive-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            background: #fff;
+            border-radius: 6px;
+            box-shadow: 0 1px 5px rgba(0,0,0,.06);
+            cursor: pointer;
+            transition: box-shadow 0.15s ease, transform 0.1s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .archive-row:hover {
+            box-shadow: 0 4px 12px rgba(128,0,32,.12);
+            transform: translateY(-1px);
+        }
+
+        .archive-row.news-row:hover {
+            box-shadow: 0 4px 12px rgba(0,80,160,.12);
+        }
+
+        .archive-date {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #222;
+        }
+
+        .archive-arrow {
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+
+        .archive-empty {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* ── Digest view ──────────────────────────── */
+        .digest-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.75rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .digest-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.88rem;
+            color: #800020;
+            background: none;
+            border: 1px solid rgba(128, 0, 32, 0.25);
+            border-radius: 999px;
+            padding: 0.3rem 0.85rem;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.15s ease, color 0.15s ease;
+            text-decoration: none;
+        }
+
+        .digest-back:hover {
+            background: #800020;
+            color: #fff;
+        }
+
+        .date-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .date-btn {
+            background: none;
+            border: 1px solid rgba(128, 0, 32, 0.25);
+            color: #800020;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.15s ease, color 0.15s ease;
+            line-height: 1;
+        }
+
+        .date-btn:hover:not(:disabled) {
+            background: #800020;
+            color: #fff;
+        }
+
+        .date-btn:disabled {
+            opacity: 0.25;
+            cursor: default;
+        }
+
+        .date-display {
+            font-size: 1rem;
+            color: #444;
+            font-weight: 400;
+            min-width: 160px;
+            text-align: center;
+        }
+
+        .dailies-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 0;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            padding: 0.5rem 1rem;
+            font-size: 0.95rem;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.15s ease, border-color 0.15s ease;
+            font-family: inherit;
+        }
+
+        .tab-btn.active {
+            color: #800020;
+            border-bottom-color: #800020;
+            font-weight: 500;
+        }
+
+        .tab-btn:hover:not(.active) {
+            color: #444;
+        }
+
+        .digest-content {
+            min-height: 300px;
+        }
+
+        .digest-status {
+            text-align: center;
+            padding: 4rem 1rem;
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .digest-status .status-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner"></div>
+    <header class="site-header">
+        <nav class="nav-links">
+            <a class="nav-item" href="index.html" title="Home">Home</a>
+            <a class="nav-item" href="docs/CV.pdf" target="_blank" rel="noopener noreferrer" title="CV">CV</a>
+            <a class="nav-item" href="https://scholar.google.com/citations?user=U-LgNOwAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" title="Google Scholar">Google Scholar</a>
+            <a class="nav-item" href="visitors.html" title="Visitors">Visitors</a>
+            <a class="nav-item" href="dailies.html" title="Dailies">Dailies</a>
+            <span class="nav-group">
+                <a class="nav-item" href="https://mohammedbaharoon.substack.com/" target="_blank" rel="noopener noreferrer" title="Writing">Writing</a>
+                <a class="nav-item" href="speaking.html" title="Speaking">Speaking</a>
+                <a class="nav-item" href="listening.html" title="Listening">Listening</a>
+            </span>
+        </nav>
+    </header>
+
+    <div class="dailies-wrap">
+        <!-- Archive view (default) -->
+        <div id="view-archive">
+            <div class="archive-header">
+                <div class="archive-title">Dailies</div>
+                <div class="archive-subtitle">Daily research &amp; news digests, generated each morning at 8 AM EST.</div>
+            </div>
+            <div class="archive-columns">
+                <div>
+                    <div class="archive-col-title">Research Papers</div>
+                    <div class="archive-list" id="archive-list-research">
+                        <div class="archive-empty">Loading…</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="archive-col-title news-title">Middle East News</div>
+                    <div class="archive-list" id="archive-list-news">
+                        <div class="archive-empty">Loading…</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Digest view (when a date is selected) -->
+        <div id="view-digest" style="display:none">
+            <div class="digest-nav">
+                <button class="digest-back" id="back-btn">&#8592; All dailies</button>
+                <div class="date-nav">
+                    <button class="date-btn" id="prev-day" title="Previous day">&#8592;</button>
+                    <span class="date-display" id="date-display"></span>
+                    <button class="date-btn" id="next-day" title="Next day">&#8594;</button>
+                </div>
+            </div>
+
+            <div class="dailies-tabs">
+                <button class="tab-btn active" data-tab="research">Research Papers</button>
+                <button class="tab-btn" data-tab="news">Middle East News</button>
+            </div>
+
+            <div class="digest-content" id="digest-content"></div>
+        </div>
+    </div>
+
+    <script>
+        // ── Helpers ────────────────────────────────────────────────────────────
+        function todayStr() {
+            return new Date().toISOString().slice(0, 10);
+        }
+
+        function offsetDate(str, days) {
+            const d = new Date(str + 'T12:00:00Z');
+            d.setUTCDate(d.getUTCDate() + days);
+            return d.toISOString().slice(0, 10);
+        }
+
+        function formatDate(str) {
+            return new Date(str + 'T12:00:00Z').toLocaleDateString('en-US', {
+                year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'
+            });
+        }
+
+        function parseQuery() {
+            const p = new URLSearchParams(window.location.search);
+            return { date: p.get('date'), tab: p.get('tab') || 'research' };
+        }
+
+        // ── State ────────────────────────────────────────────────────────────
+        let manifest = [];   // [{date, research, news}] sorted newest first
+        let state = { view: 'archive', date: null, tab: 'research' };
+
+        // ── Manifest ──────────────────────────────────────────────────────────
+        async function loadManifest() {
+            try {
+                const resp = await fetch('digests/manifest.json?_=' + Date.now());
+                if (!resp.ok) throw new Error();
+                manifest = (await resp.json()).entries || [];
+            } catch (_) {
+                manifest = [];
+            }
+            manifest.sort((a, b) => b.date.localeCompare(a.date));
+        }
+
+        // ── Archive view ─────────────────────────────────────────────────────
+        function renderArchive() {
+            document.getElementById('view-archive').style.display = '';
+            document.getElementById('view-digest').style.display = 'none';
+            document.title = 'Dailies — Mohammed Baharoon';
+
+            const researchEntries = manifest.filter(e => e.research);
+            const newsEntries     = manifest.filter(e => e.news);
+
+            const listR = document.getElementById('archive-list-research');
+            const listN = document.getElementById('archive-list-news');
+
+            listR.innerHTML = researchEntries.length
+                ? researchEntries.map(e => `<a class="archive-row" href="dailies.html?date=${e.date}&tab=research">
+                    <span class="archive-date">${formatDate(e.date)}</span>
+                    <span class="archive-arrow">→</span>
+                  </a>`).join('')
+                : '<div class="archive-empty">None yet.</div>';
+
+            listN.innerHTML = newsEntries.length
+                ? newsEntries.map(e => `<a class="archive-row news-row" href="dailies.html?date=${e.date}&tab=news">
+                    <span class="archive-date">${formatDate(e.date)}</span>
+                    <span class="archive-arrow">→</span>
+                  </a>`).join('')
+                : '<div class="archive-empty">None yet.</div>';
+        }
+
+        // ── Digest view ──────────────────────────────────────────────────────
+        let injectedStyleId = 'digest-injected-style';
+
+        // Scope a flat stylesheet under a container selector so its rules
+        // (e.g. `body{max-width:860px;margin:0 auto}`) can't leak onto this page.
+        function scopeCSS(css, scope) {
+            css = css.replace(/\/\*[\s\S]*?\*\//g, '');   // strip comments
+            return css.replace(/([^{}]+)\{([^{}]*)\}/g, (_m, selectors, body) => {
+                const scoped = selectors.split(',').map(sel => {
+                    sel = sel.trim();
+                    if (!sel) return sel;
+                    if (sel === 'body' || sel === 'html') return scope;
+                    return scope + ' ' + sel;
+                }).join(', ');
+                return scoped + '{' + body + '}';
+            });
+        }
+
+        function updateDigestControls() {
+            document.getElementById('date-display').textContent = formatDate(state.date);
+
+            // prev/next only among dates that exist in manifest
+            const dates = manifest.map(e => e.date).sort();
+            const idx = dates.indexOf(state.date);
+            document.getElementById('prev-day').disabled = idx <= 0;
+            document.getElementById('next-day').disabled = idx < 0 || idx >= dates.length - 1;
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === state.tab);
+            });
+        }
+
+        async function loadDigestContent() {
+            updateDigestControls();
+            document.title = formatDate(state.date) + ' — Dailies';
+
+            const content = document.getElementById('digest-content');
+            content.innerHTML = '<div class="digest-status"><span class="status-icon">⋯</span>Loading…</div>';
+
+            const old = document.getElementById(injectedStyleId);
+            if (old) old.remove();
+
+            try {
+                const resp = await fetch(`digests/${state.tab}/${state.date}.html`);
+                if (!resp.ok) throw new Error(resp.status);
+                const html = await resp.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+
+                const digestStyles = Array.from(doc.head.querySelectorAll('style'))
+                    .map(s => s.textContent).join('\n');
+                if (digestStyles) {
+                    const styleEl = document.createElement('style');
+                    styleEl.id = injectedStyleId;
+                    styleEl.textContent = scopeCSS(digestStyles, '#digest-content');
+                    document.head.appendChild(styleEl);
+                }
+                content.innerHTML = doc.body.innerHTML;
+            } catch (_) {
+                const label = state.tab === 'research' ? 'Research' : 'News';
+                content.innerHTML = `<div class="digest-status">
+                    <span class="status-icon">○</span>
+                    No ${label} digest for ${formatDate(state.date)}.
+                </div>`;
+            }
+        }
+
+        function showDigest(date, tab) {
+            state = { view: 'digest', date, tab };
+            document.getElementById('view-archive').style.display = 'none';
+            document.getElementById('view-digest').style.display = '';
+            loadDigestContent();
+        }
+
+        function showArchive() {
+            state = { view: 'archive', date: null, tab: 'research' };
+            renderArchive();
+        }
+
+        // ── URL / history ────────────────────────────────────────────────────
+        function pushState(date, tab) {
+            history.pushState({ view: 'digest', date, tab }, '', `dailies.html?date=${date}&tab=${tab}`);
+        }
+
+        function pushArchive() {
+            history.pushState({ view: 'archive' }, '', 'dailies.html');
+        }
+
+        // ── Event handlers ───────────────────────────────────────────────────
+        document.getElementById('back-btn').addEventListener('click', () => {
+            pushArchive();
+            showArchive();
+        });
+
+        document.getElementById('prev-day').addEventListener('click', () => {
+            const dates = manifest.map(e => e.date).sort();
+            const idx = dates.indexOf(state.date);
+            if (idx > 0) {
+                const d = dates[idx - 1];
+                pushState(d, state.tab);
+                showDigest(d, state.tab);
+            }
+        });
+
+        document.getElementById('next-day').addEventListener('click', () => {
+            const dates = manifest.map(e => e.date).sort();
+            const idx = dates.indexOf(state.date);
+            if (idx < dates.length - 1) {
+                const d = dates[idx + 1];
+                pushState(d, state.tab);
+                showDigest(d, state.tab);
+            }
+        });
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                state.tab = btn.dataset.tab;
+                pushState(state.date, state.tab);
+                loadDigestContent();
+            });
+        });
+
+        window.addEventListener('popstate', e => {
+            const s = e.state;
+            if (!s || s.view === 'archive') {
+                showArchive();
+            } else {
+                showDigest(s.date, s.tab || 'research');
+            }
+        });
+
+        // ── Init ─────────────────────────────────────────────────────────────
+        (async () => {
+            await loadManifest();
+            const q = parseQuery();
+            if (q.date) {
+                // Deep-linked to a specific digest
+                history.replaceState({ view: 'digest', date: q.date, tab: q.tab }, '');
+                showDigest(q.date, q.tab);
+            } else {
+                history.replaceState({ view: 'archive' }, '');
+                renderArchive();
+            }
+        })();
+    </script>
+</body>
+</html>
