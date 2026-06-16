@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — June 16, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.75rem}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — June 16, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.16991" target="_blank">A Multi-Center Benchmark for Abdominal Disease Diagnosis and Report Generation from Non-Contrast CT</a></h3>
+<p class="meta">Mariam Elbakry, Aliaa Sayed Sheha, Salma Hassan Tantawy, Aya Yassin et al. (8 authors) &nbsp;·&nbsp; <code>2606.16991</code></p>
+<p class="field"><span class="label">TL;DR:</span> A multi-center benchmark for multi-organ abdominal disease diagnosis and automated radiology report generation from non-contrast CT, aiming to reduce reliance on contrast-enhanced CT.</p><p class="field"><span class="label">Problem:</span> Multiphasic contrast-enhanced CT is standard for abdominal lesion characterization but carries contrast-induced nephropathy risk, increases acquisition burden, and adds to radiologist workload. There is no standardized resource for diagnosis and report generation from safer non-contrast CT.</p><p class="field"><span class="label">Method:</span> The authors introduce a novel multi-center benchmark covering multi-organ abdominal disease diagnosis and automated radiology report generation from non-contrast CT. It provides paired imaging and report data across centers to support training and evaluation of diagnosis and generation models.</p><p class="field"><span class="label">Results:</span> The benchmark establishes baselines for disease diagnosis and report generation on non-contrast CT across multiple institutions, enabling standardized comparison.</p><p class="field"><span class="label">Why it matters:</span> Directly targets radiology report generation and chest/abdominal imaging AI with multi-center evaluation — squarely in the reader's interests in report generation and evaluation of generative radiology reports.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.16484" target="_blank">Unified Multimodal Model for Brain MRI Imputation and Understanding</a></h3>
+<p class="meta">Zhiyun Song, Che Liu, Tian Xia, Avinash Kori et al. (5 authors) &nbsp;·&nbsp; <code>2606.16484</code></p>
+<p class="field"><span class="label">TL;DR:</span> A unified multimodal LLM that jointly performs brain MRI modality imputation and natural-language understanding, addressing scarce data and missing modalities.</p><p class="field"><span class="label">Problem:</span> Medical MLLMs inherit knowledge from LLMs and can integrate multiple modalities, but the field is held back by scarce high-quality training data and the frequent occurrence of missing modalities in real-world MRI acquisitions.</p><p class="field"><span class="label">Method:</span> The work proposes a unified model that handles both brain MRI imputation (synthesizing missing modalities) and understanding (language-based interpretation) within a single multimodal framework, leveraging LLM knowledge alongside imaging modalities.</p><p class="field"><span class="label">Results:</span> The unified approach enables imputation of missing brain MRI modalities while supporting natural-language understanding of the scans, mitigating the missing-data problem.</p><p class="field"><span class="label">Why it matters:</span> Combines multimodal foundation-model learning with medical imaging and missing-modality handling — central to the reader's focus on multimodal and self-supervised learning for medical imaging.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.16583" target="_blank">Uncertainty Is Not a Safety Net for Clinical VQA, but Can It Anticipate Model Failure?</a></h3>
+<p class="meta">Arnisa Fazla, Alberto Testoni, Ameen Abu-Hanna, Barbara Plank et al. (5 authors) &nbsp;·&nbsp; <code>2606.16583</code></p>
+<p class="field"><span class="label">TL;DR:</span> A systematic study showing current uncertainty estimation methods do not provide a reliable safety net for clinical vision-language models, though they may help anticipate model failure.</p><p class="field"><span class="label">Problem:</span> Safe deployment of clinical VLMs requires reliable uncertainty estimation to signal when predictions should be trusted or escalated to a clinician, but it is unclear whether existing methods actually deliver this signal.</p><p class="field"><span class="label">Method:</span> The authors benchmark 8 uncertainty estimation methods across 12 vision-language models on clinical visual question answering, analyzing whether uncertainty quality is an intrinsic property and whether it can anticipate failures.</p><p class="field"><span class="label">Results:</span> They find uncertainty quality is not an intrinsic property of the method but varies, and that uncertainty is not a dependable safety net — though it shows some capacity to anticipate model failure.</p><p class="field"><span class="label">Why it matters:</span> Addresses evaluation, reliability, and uncertainty of clinical VLMs in medical VQA — directly relevant to the reader's interests in medical vision-language models and evaluation metrics.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.16658" target="_blank">Vision-Language Models as Zero-Annotation Oracles in Histopathology</a></h3>
+<p class="meta">Vishal Jain, Giorgio Buzzanca, Sarah Cechnicka, Maarten Naesens et al. (9 authors) &nbsp;·&nbsp; <code>2606.16658</code></p>
+<p class="abstract">Foreground segmentation is the critical first step of every computational pathology pipeline, yet existing methods rely on hand-tuned heuristics or supervised models that overfit to narrow stain and scanner distributions, failing silently on specialised stains such as Jones silver or Elastica van Gieson. We propose a coarse-to-fine approach that recasts foreground segmentation as a visual percepti</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.16122" target="_blank">Thinking with Visual Grounding</a></h3>
+<p class="meta">Junkai Zhang, Yihe Deng, Kai-Wei Chang, Wei Wang &nbsp;·&nbsp; <code>2606.16122</code></p>
+<p class="abstract">Visual thinking should not only sound right; it should show its evidence. While recent vision-language models (VLMs) can produce natural-language reasoning traces, these traces often leave the supporting image regions implicit, making them hard to verify and difficult to supervise. We introduce visually grounded thinking, a reasoning process in which models interleave natural-language thoughts wit</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.16153" target="_blank">A Comprehensive Survey of Medical Image Segmentation: Challenges, Benchmarks, and Beyond</a></h3>
+<p class="meta">Pengyu Zhu, Xiaojing Zhang, Kunbo Zhang, Chunyan Zhang et al. (5 authors) &nbsp;·&nbsp; <code>2606.16153</code></p>
+<p class="abstract">Medical image segmentation plays a critical role in clinical diagnostics, treatment planning, disease monitoring, and neurological disorder identification. This article presents a comprehensive review of its systematic development, covering widely used public datasets, representative methods built on the U-Net, Transformer, and SAM architectures, and key evaluation metrics with their differences, </p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2606.16325" target="_blank">Attention-Based Prototype Calibration for Multi-Rater Few-Shot Medical Image Segmentation</a></h3>
+<p class="meta">Truong Vu, Minh Khoi Ho, Yutong Xie &nbsp;·&nbsp; <code>2606.16325</code></p>
+<p class="abstract">Few-shot medical image segmentation methods typically assume a single ground-truth annotation, overlooking systematic variability across expert raters commonly observed in clinical datasets. We propose an attention-based prototype calibration framework for few-shot multi-rater segmentation that models rater-specific deviations from a consensus representation in prototype space. A lightweight yet p</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2606.16721" target="_blank">Medical world models: representing medical states, modelling clinical dynamics and guiding intervention policies</a></h3>
+<p class="meta">Ke Liu, Mengxuan Li, Yanyi Bao, Tianyun Zhang et al. (7 authors) &nbsp;·&nbsp; <code>2606.16721</code></p>
+<p class="abstract">Medical diagnosis and treatment are dynamic processes in which patient states evolve over time and clinical interventions alter future outcomes. Although current medical AI can detect disease, estimate risk and generate reports, many systems still return static labels or scores, offering limited insight into how illness may progress or how alternative interventions may reshape its trajectory. Medi</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2606.16234" target="_blank">Propagating Structural Guidance: Synthesizing Fluorescein Angiography from Fundus Images and Sparse OCT Scans</a></h3>
+<p class="meta">Tengfei Ma, Ruiqi Wu, Chenran Zhang, Ye Geng et al. (9 authors) &nbsp;·&nbsp; <code>2606.16234</code></p>
+<p class="abstract">Fundus fluorescein angiography (FFA) is critical for assessing retinal vascular abnormalities, but its acquisition is invasive and not always feasible. In contrast, color fundus photography (CFP) is non-invasive and widely accessible, which has motivated studies on CFP-to-FFA synthesis. However, prior works rely solely on CFP surface texture, fundamentally limiting the ability to reconstruct funct</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2606.16212" target="_blank">LUCID: Learned Undersampling-Adaptive Consistency-Guided Inference with Deterministic Flow Matching for Sparse-View CT Reconstruction</a></h3>
+<p class="meta">Jigang Duan, Jiayi Wang, Heran Wang, Ping Yang et al. (6 authors) &nbsp;·&nbsp; <code>2606.16212</code></p>
+<p class="abstract">Sparse-view CT reduces radiation dose and scanning time by acquiring fewer projection views, but angular undersampling makes reconstruction severely ill-posed, causing streak artifacts, structural blurring, and loss of fine details. Existing supervised methods are often tied to specific sampling settings, whereas generative methods may introduce anatomically inconsistent hallucination-like structu</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2606.16362" target="_blank">Input-Dependent Fisher Information for Local Sensitivity Analysis of Medical Image Classifiers</a></h3>
+<p class="meta">Sourya Sengupta. Mark A. Anastasio &nbsp;·&nbsp; <code>2606.16362</code></p>
+<p class="abstract">Deep neural networks have achieved strong performance in medical image classification, but often work like black-box. Commonly used post-hoc interpretation methods often provide heuristic visualizations whose relationship to the classifier's predictive distribution is indirect. This work introduces a local sensitivity analysis framework based on the input-dependent Fisher Information Matrix (iFIM)</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2606.16196" target="_blank">When Confidence Lacks Concepts: Interpretable OOD Detection via Representation Perturbations</a></h3>
+<p class="meta">Anju Chhetri, Pratik Shrestha, Ramesh Rana, Prashnna Gyawali et al. (5 authors) &nbsp;·&nbsp; <code>2606.16196</code></p>
+<p class="abstract">Deep neural networks have achieved remarkable performance across medical imaging tasks, yet their tendency to overgeneralize under distributional shifts poses a major obstacle to safe clinical deployment. Out-of-Distribution (OOD) detection methods aim to mitigate this risk, but most existing approaches rely on opaque internal signals with poorly understood semantic meaning, limiting trust in safe</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2606.16193" target="_blank">Cascaded Sparse Autoencoders Learn Multi-Level Visual Concepts in Multimodal LLMs</a></h3>
+<p class="meta">Yusong Zhao, Hengyi Wang, Tanuja Ganu, Akshay Nambi et al. (5 authors) &nbsp;·&nbsp; <code>2606.16193</code></p>
+<p class="abstract">Multimodal Large Language Models (MLLMs) have demonstrated strong performance on vision-language tasks, yet their internal visual representations remain difficult to interpret. Sparse Autoencoders (SAEs) provide a scalable way to decompose dense model activations into sparse, interpretable features. However, existing SAE architectures primarily recover flat feature dictionaries and are less suited</p>
+</div>
+</body></html>
