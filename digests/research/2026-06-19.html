@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — June 19, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.75rem}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — June 19, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.20477" target="_blank">Scalable Training of Spatially Grounded 2D Vision-Language Models for Radiology</a></h3>
+<p class="meta">Yusuf Salcan, Simon Ging, Robin Schirrmeister, Philipp Arnold et al. (7 authors) &nbsp;·&nbsp; <code>2606.20477</code></p>
+<p class="field"><span class="label">TL;DR:</span> RefRad2D trains spatially grounded radiology vision-language models on 1.2M CT/MR image-text pairs without any manual spatial annotations.</p><p class="field"><span class="label">Problem:</span> Visually grounded radiology VLMs normally require costly manual spatial annotations linking text findings to image regions, which limits scalability.</p><p class="field"><span class="label">Method:</span> The authors build a large-scale bilingual (German/English) dataset of CT/MR image-text pairs with task-specific VQA and spatial-grounding subsets, generated automatically via LLM-based curation and automated segmentation. A 2D VLM is trained on these to produce both answers and spatial grounding.</p><p class="field"><span class="label">Results:</span> The model achieves visually grounded radiology understanding (VQA + grounding) without human spatial labels, validated across the curated subsets.</p><p class="field"><span class="label">Why it matters:</span> Directly central to the reader's interests in radiology VLMs, referring/spatial grounding, and scalable annotation-free training for medical imaging.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.19950" target="_blank">Confidence Calibration for Multimodal LLMs: An Empirical Study through Medical VQA</a></h3>
+<p class="meta">Yuetian Du, Yucheng Wang, Ming Kong, Tian Liang et al. (7 authors) &nbsp;·&nbsp; <code>2606.19950</code></p>
+<p class="field"><span class="label">TL;DR:</span> A first comprehensive study of confidence calibration in medical multimodal LLMs via medical VQA, with a multi-strategy fusion method to align confidence with accuracy.</p><p class="field"><span class="label">Problem:</span> Medical MLLMs often express confidence that is misaligned with their actual accuracy, risking misdiagnosis or dismissal of correct advice.</p><p class="field"><span class="label">Method:</span> The work systematically analyzes the accuracy-confidence relationship across medical MLLMs and proposes a method combining multi-strategy fusion to better calibrate elicited confidence on medical VQA tasks.</p><p class="field"><span class="label">Results:</span> The proposed approach improves alignment between confidence and accuracy compared to baseline elicitation, demonstrated empirically on medical VQA.</p><p class="field"><span class="label">Why it matters:</span> Trustworthy/calibrated vision-language models for medicine bear directly on deploying generative and VQA systems in radiology and clinical settings.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.19838" target="_blank">OTCHA: Optimal Transport-driven Confidence-aware Latent Hub Alignment for Multi-View Medical Image Classification</a></h3>
+<p class="meta">Jiwoong Yang, Haejun Chung, Ikbeom Jang &nbsp;·&nbsp; <code>2606.19838</code></p>
+<p class="field"><span class="label">TL;DR:</span> OTCHA uses optimal-transport-driven, confidence-aware latent hub alignment to fuse unregistered multi-view medical images (mammography, chest radiography) for classification.</p><p class="field"><span class="label">Problem:</span> Multi-view medical images are often unregistered and carry view-specific artifacts and irrelevant background, so naive fusion lets noise contaminate the joint embedding.</p><p class="field"><span class="label">Method:</span> OTCHA aligns per-view representations through a confidence-aware latent hub using optimal transport, suppressing irrelevant content before fusion rather than directly concatenating view features.</p><p class="field"><span class="label">Results:</span> The method improves multi-view classification by producing cleaner fused embeddings on standard multi-view modalities including chest radiography and mammography.</p><p class="field"><span class="label">Why it matters:</span> Multi-view fusion for chest radiography is squarely within the reader's focus on chest X-ray analysis and multimodal medical imaging.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.20419" target="_blank">Spectral Query-Key Product Weight Steering for Training-Free VLM Hallucination Mitigation</a></h3>
+<p class="meta">Karn Tiwari, Varnith Chordia, Prathosh A P &nbsp;·&nbsp; <code>2606.20419</code></p>
+<p class="abstract">Vision-language models (VLMs) often generate fluent but visually unsupported descriptions, especially by mentioning objects absent from the image. We propose QK Product Steering, a data-free, training-free, and zero-inference-cost weight edit for reducing object hallucination. The method directly edits the per-head query-key product, the operator that produces pre-softmax attention logits, by supp</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.20112" target="_blank">Pixel-Level Residual Diffusion Transformer: Scalable 3D CT Volume Generation</a></h3>
+<p class="meta">Zhenkai Zhang, Markus Hiller, Krista A. Ehinger, Tom Drummond &nbsp;·&nbsp; <code>2606.20112</code></p>
+<p class="abstract">Generating high-resolution 3D CT volumes with fine details remains challenging due to substantial computational demands and optimization difficulties inherent to existing generative models. In this paper, we propose the Pixel-Level Residual Diffusion Transformer (PRDiT), a scalable generative framework that synthesizes high-quality 3D medical volumes directly at voxel-level. PRDiT introduces a two</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.20244" target="_blank">SPOT-E: Test-Time Entropy Shaping with Visual Spotlights for Frozen VLMs</a></h3>
+<p class="meta">Bo Yin, Xiaobin Hu, Chengming Xu, Ruolin Shen et al. (9 authors) &nbsp;·&nbsp; <code>2606.20244</code></p>
+<p class="abstract">Vision-language models (VLMs) often underperform on evidence intensive tasks because decisive visual evidence are small, localized, and easy to overlook, leading to failures in evidence readout even when high-level reasoning is intact. Prior inference-time visual interventions can improve grounding without retraining, but they are largely open-loop and lack a mechanism to verify whether highlighte</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2606.20077" target="_blank">The Hidden Evolution of Disguised Visual Context inside the VLM</a></h3>
+<p class="meta">Wish Suharitdamrong, Tony Alex, Muhammad Awais, Sara Atito &nbsp;·&nbsp; <code>2606.20077</code></p>
+<p class="abstract">Visual tokens enter Large Language Models (LLMs) as raw, foreign signals. How they are transformed into meaningful representations and interact with the language space depends entirely on the integration architecture. Whether by treating visual tokens as in-context prompts within the input sequence or injecting them directly into the LLM's intermediate layers. A controlled comparison and understan</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2606.19882" target="_blank">Multimodal Concept Bottleneck Models</a></h3>
+<p class="meta">Tongqing Shi, Ge Yan, Tuomas Oikarinen, Tsui-Wei Weng &nbsp;·&nbsp; <code>2606.19882</code></p>
+<p class="abstract">Concept Bottleneck Models (CBMs) enhance the interpretability of deep learning networks by aligning the features extracted from images with natural concepts. However, existing CBMs are constrained in their ability to generalize beyond a fixed set of predefined classes and the risk of non-concept information leakage, where predictive signals outside the intended concepts are inadvertently exploited</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2606.20250" target="_blank">Single-Stage Hierarchical Rectification for Weakly Supervised Histopathology Segmentation</a></h3>
+<p class="meta">Duc T. Nguyen, Hoang-Long Nguyen, Thanh-Ha DO, Huy-Hieu Pham &nbsp;·&nbsp; <code>2606.20250</code></p>
+<p class="abstract">Existing weakly supervised semantic segmentation (WSSS) methods in computational pathology rely on a multi-stage paradigm: class activation map (CAM) generation, offline pseudo-mask refinement, and fully supervised retraining. While established, this decoupled approach presents fundamental limitations. The multi-stage process not only incurs high computational training costs but also suffers from </p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2606.20027" target="_blank">QG-MIL: A Gated Transformer Aggregator for Domain-Agnostic Multiple Instance Learning in Medical Imaging</a></h3>
+<p class="meta">Luca Zedda, Davide Antonio Mura, Cecilia Di Ruberto, Maurizio Atzori et al. (7 authors) &nbsp;·&nbsp; <code>2606.20027</code></p>
+<p class="abstract">Attention-based Multiple Instance Learning aggregators in medical imaging are prone to attention concentration, producing overconfident and unstable predictions. We introduce QG-MIL, a gated transformer aggregator that addresses this through four synergistic architectural components: RMSNorm-based pre-normalization, per-head QK normalization, fine-grained attention output gating, and SwiGLU-style </p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2606.20108" target="_blank">EFIQA: Explainable Fundus Image Quality Assessment via Anatomical Priors</a></h3>
+<p class="meta">Pengwei Wang, José Morano, Qian Wan, Hrvoje Bogunović &nbsp;·&nbsp; <code>2606.20108</code></p>
+<p class="abstract">Image quality control is vital for a wide range of downstream applications. Deep learning-based image quality assessment methods typically train classifiers on dataset-specific quality labels, inheriting two limitations: (1) generalization is tied to the labeling criteria of the training set and (2) these methods cannot provide spatial feedback on where the quality is degraded, lacking explainabil</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2606.19824" target="_blank">CSWinUNETR: Segmentation of Thin Anatomical Structures in Medical Images</a></h3>
+<p class="meta">Junho Moon, Haejun Chung, Ikbeom Jang &nbsp;·&nbsp; <code>2606.19824</code></p>
+<p class="abstract">Accurate segmentation of thin, tortuous anatomical structures, such as retinal vessels, cerebral vasculature, and facial wrinkles, remains challenging due to low contrast, frequent discontinuities, and severe class imbalance. Although recent convolutional and Transformer-based models have improved performance, they often yield fragmented predictions and fail to recover fine branches. We propose CS</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2606.20280" target="_blank">ELVA: Exploring Ranking-Driven Universal Multimodal Retrieval</a></h3>
+<p class="meta">Yuhan Liu, Pei Fu, Hang Li, Yukun Qi et al. (11 authors) &nbsp;·&nbsp; <code>2606.20280</code></p>
+<p class="abstract">Leveraging Multimodal Large Language Models (MLLMs) via contrastive learning has become a mainstream paradigm for improving the performance of Universal Multimodal Retrieval (UMR). However, previous works have ignored the grain blindness when adapting the contrastive paradigm into retrieval tasks. Grain blindness refers to the tendency of the model to overlook grain-level information contained in </p>
+</div>
+</body></html>
