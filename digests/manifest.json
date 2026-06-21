@@ -9,7 +9,8 @@
     {
       "date": "2026-06-21",
       "research": false,
-      "news": true
+      "news": true,
+      "journals": false
     },
     {
       "date": "2026-06-20",
