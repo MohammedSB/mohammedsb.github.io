@@ -111,6 +111,26 @@
             font-size: 0.9rem;
         }
 
+        .row-tag {
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 0.15em 0.55em;
+            border-radius: 999px;
+            flex-shrink: 0;
+        }
+
+        .tag-arxiv {
+            background: #f0e6e9;
+            color: #800020;
+        }
+
+        .tag-journal {
+            background: #800020;
+            color: #fff;
+        }
+
         /* ── Digest view ──────────────────────────── */
         .digest-nav {
             display: flex;
@@ -209,8 +229,13 @@
             font-weight: 500;
         }
 
-        .tab-btn:hover:not(.active) {
+        .tab-btn:hover:not(.active):not(:disabled) {
             color: #444;
+        }
+
+        .tab-btn:disabled {
+            color: #ccc;
+            cursor: default;
         }
 
         .digest-content {
@@ -253,7 +278,7 @@
         <div id="view-archive">
             <div class="archive-header">
                 <div class="archive-title">Dailies</div>
-                <div class="archive-subtitle">Daily research &amp; news digests, generated each morning at 8 AM EST.</div>
+                <div class="archive-subtitle">Daily arXiv &amp; news digests each morning; a peer-reviewed journals roundup every Monday.</div>
             </div>
             <div class="archive-columns">
                 <div>
@@ -283,7 +308,8 @@
             </div>
 
             <div class="dailies-tabs">
-                <button class="tab-btn active" data-tab="research">Research Papers</button>
+                <button class="tab-btn active" data-tab="research">arXiv Papers</button>
+                <button class="tab-btn" data-tab="journals">Journals</button>
                 <button class="tab-btn" data-tab="news">Middle East News</button>
             </div>
 
@@ -307,6 +333,13 @@
             return new Date(str + 'T12:00:00Z').toLocaleDateString('en-US', {
                 year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'
             });
+        }
+
+        const KIND_LABEL = { research: 'arXiv', journals: 'Journals', news: 'News' };
+
+        // journals are a weekly roundup → label them "week of …"
+        function rowLabel(kind, date) {
+            return (kind === 'journals' ? 'Week of ' : '') + formatDate(date);
         }
 
         function parseQuery() {
@@ -336,21 +369,27 @@
             document.getElementById('view-digest').style.display = 'none';
             document.title = 'Dailies — Mohammed Baharoon';
 
-            const researchEntries = manifest.filter(e => e.research);
-            const newsEntries     = manifest.filter(e => e.news);
+            // Research column: arXiv (daily) + Journals (weekly) rows, tagged, newest first
+            const researchRows = manifest.flatMap(e => {
+                const rows = [];
+                if (e.research) rows.push({ date: e.date, kind: 'research' });
+                if (e.journals) rows.push({ date: e.date, kind: 'journals' });
+                return rows;
+            }).sort((a, b) => b.date.localeCompare(a.date) || (a.kind < b.kind ? 1 : -1));
+            const newsEntries = manifest.filter(e => e.news);
 
             const listR = document.getElementById('archive-list-research');
             const listN = document.getElementById('archive-list-news');
 
-            listR.innerHTML = researchEntries.length
-                ? researchEntries.map(e => `<a class="archive-row" href="dailies.html?date=${e.date}&tab=research">
-                    <span class="archive-date">${formatDate(e.date)}</span>
-                    <span class="archive-arrow">→</span>
+            listR.innerHTML = researchRows.length
+                ? researchRows.map(r => `<a class="archive-row" href="dailies.html?date=${r.date}&tab=${r.kind}" data-date="${r.date}" data-kind="${r.kind}">
+                    <span class="archive-date">${rowLabel(r.kind, r.date)}</span>
+                    <span class="row-tag ${r.kind === 'journals' ? 'tag-journal' : 'tag-arxiv'}">${KIND_LABEL[r.kind]}</span>
                   </a>`).join('')
                 : '<div class="archive-empty">None yet.</div>';
 
             listN.innerHTML = newsEntries.length
-                ? newsEntries.map(e => `<a class="archive-row news-row" href="dailies.html?date=${e.date}&tab=news">
+                ? newsEntries.map(e => `<a class="archive-row news-row" href="dailies.html?date=${e.date}&tab=news" data-date="${e.date}" data-kind="news">
                     <span class="archive-date">${formatDate(e.date)}</span>
                     <span class="archive-arrow">→</span>
                   </a>`).join('')
@@ -375,17 +414,26 @@
             });
         }
 
-        function updateDigestControls() {
-            document.getElementById('date-display').textContent = formatDate(state.date);
+        // dates that have a digest of the given kind, oldest → newest
+        function datesForKind(kind) {
+            return manifest.filter(e => e[kind]).map(e => e.date).sort();
+        }
 
-            // prev/next only among dates that exist in manifest
-            const dates = manifest.map(e => e.date).sort();
+        function updateDigestControls() {
+            document.getElementById('date-display').textContent = rowLabel(state.tab, state.date);
+
+            // prev/next navigate within the current kind (arXiv daily, journals weekly, …)
+            const dates = datesForKind(state.tab);
             const idx = dates.indexOf(state.date);
             document.getElementById('prev-day').disabled = idx <= 0;
             document.getElementById('next-day').disabled = idx < 0 || idx >= dates.length - 1;
 
+            // a tab is available only if this date has that kind
+            const entry = manifest.find(e => e.date === state.date) || {};
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.tab === state.tab);
+                const k = btn.dataset.tab;
+                btn.classList.toggle('active', k === state.tab);
+                btn.disabled = !entry[k];
             });
         }
 
@@ -416,10 +464,9 @@
                 }
                 content.innerHTML = doc.body.innerHTML;
             } catch (_) {
-                const label = state.tab === 'research' ? 'Research' : 'News';
                 content.innerHTML = `<div class="digest-status">
                     <span class="status-icon">○</span>
-                    No ${label} digest for ${formatDate(state.date)}.
+                    No ${KIND_LABEL[state.tab] || ''} digest for ${rowLabel(state.tab, state.date)}.
                 </div>`;
             }
         }
@@ -446,13 +493,27 @@
         }
 
         // ── Event handlers ───────────────────────────────────────────────────
+        // Archive rows navigate in-page (SPA) instead of a full reload, so Back
+        // re-renders from the live manifest rather than a stale bfcache snapshot.
+        function archiveClick(e) {
+            const a = e.target.closest('.archive-row');
+            if (!a) return;
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // allow open-in-new-tab
+            e.preventDefault();
+            const d = a.dataset.date, k = a.dataset.kind;
+            pushState(d, k);
+            showDigest(d, k);
+        }
+        document.getElementById('archive-list-research').addEventListener('click', archiveClick);
+        document.getElementById('archive-list-news').addEventListener('click', archiveClick);
+
         document.getElementById('back-btn').addEventListener('click', () => {
             pushArchive();
             showArchive();
         });
 
         document.getElementById('prev-day').addEventListener('click', () => {
-            const dates = manifest.map(e => e.date).sort();
+            const dates = datesForKind(state.tab);
             const idx = dates.indexOf(state.date);
             if (idx > 0) {
                 const d = dates[idx - 1];
@@ -462,9 +523,9 @@
         });
 
         document.getElementById('next-day').addEventListener('click', () => {
-            const dates = manifest.map(e => e.date).sort();
+            const dates = datesForKind(state.tab);
             const idx = dates.indexOf(state.date);
-            if (idx < dates.length - 1) {
+            if (idx >= 0 && idx < dates.length - 1) {
                 const d = dates[idx + 1];
                 pushState(d, state.tab);
                 showDigest(d, state.tab);
