@@ -17,51 +17,50 @@ h3 a:hover{text-decoration:underline}
 .abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
 .card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 .card.journal{border-left:3px solid #800020}
-
 hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
 code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
 </style></head><body>
 <h1>From the Journals — week of June 22, 2026</h1>
 <p class="cats">NEJM AI, Nature Medicine, Nature, Nature Machine Intelligence, Nature Biomedical Engineering, npj Digital Medicine, Radiology: AI, Lancet Digital Health, Medical Image Analysis, IEEE Trans. Medical Imaging, Patterns (Cell Press)</p>
 <div class="card journal">
-<h3>1. <a href="https://www.nature.com/articles/s41746-026-02907-9" target="_blank">FetalCLIP: a visual-language foundation model for fetal ultrasound image analysis</a></h3>
+<h3>1. <a href="https://www.nature.com/articles/s41591-026-04457-9" target="_blank">General-purpose chatbots outperform clinical AI tools on physicians’ real-world questions</a></h3>
+<p class="meta">Nature Medicine &nbsp;·&nbsp; Jun 17, 2026</p>
+<p class="tags"><span class="tag">Clinical AI</span><span class="tag">LLM Evaluation</span></p>
+<p class="field">This Nature Medicine study found that general-purpose chatbots (like ChatGPT) answered physicians' real-world clinical questions better than purpose-built clinical AI tools. It raises important questions about how specialized medical AI systems should be benchmarked and whether foundation models are outpacing bespoke clinical software.</p>
+</div><div class="card journal">
+<h3>2. <a href="https://www.nature.com/articles/s41586-026-10675-5" target="_blank">Towards autonomous medical artificial intelligence agents</a></h3>
+<p class="meta">Nature &nbsp;·&nbsp; Jun 17, 2026</p>
+<p class="tags"><span class="tag">Medical AI Agents</span><span class="tag">Clinical AI</span><span class="tag">Foundation Models</span></p>
+<p class="field">A perspective on building autonomous medical AI agents that can reason, plan, and act across clinical workflows rather than performing single isolated tasks. It outlines the technical and safety roadmap needed to move from narrow diagnostic models toward agentic systems in medicine.</p>
+</div><div class="card journal">
+<h3>3. <a href="https://www.nature.com/articles/s41746-026-02916-8" target="_blank">Development of a multimodal large language model for early warning and diagnosis of chronic ocular GVHD</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Jun 22, 2026</p>
+<p class="tags"><span class="tag">Multimodal Learning</span><span class="tag">Vision-Language Models</span><span class="tag">Clinical AI</span></p>
+<p class="field">Researchers developed a multimodal large language model that integrates imaging and clinical data for early warning and diagnosis of chronic ocular graft-versus-host disease. The work demonstrates how vision-language models can be specialized for early detection in a narrow but high-impact clinical setting.</p>
+</div><div class="card journal">
+<h3>4. <a href="https://www.nature.com/articles/s41746-026-02905-x" target="_blank">An expert-level vision-language model for multitask diagnostic morphology in clinical laboratories</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Jun 22, 2026</p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Medical Imaging</span><span class="tag">Foundation Models</span></p>
+<p class="field">This paper presents an expert-level vision-language model for multitask diagnostic morphology in clinical laboratories, handling tasks like cell and tissue classification across modalities. It shows that a single VLM can approach specialist performance across diverse diagnostic morphology tasks.</p>
+</div><div class="card journal">
+<h3>5. <a href="https://www.nature.com/articles/s41746-026-02907-9" target="_blank">FetalCLIP: a visual-language foundation model for fetal ultrasound image analysis</a></h3>
 <p class="meta">npj Digital Medicine &nbsp;·&nbsp; Jun 20, 2026</p>
 <p class="tags"><span class="tag">Foundation Models</span><span class="tag">Vision-Language Models</span><span class="tag">Medical Imaging</span></p>
-<p class="field">FetalCLIP is a CLIP-style vision-language foundation model trained on paired fetal ultrasound images and text, enabling zero-shot and transferable performance across fetal imaging tasks. It directly aligns with CLIP-style multimodal foundation model work, extending contrastive image-text pretraining into a new medical imaging domain.</p>
+<p class="field">FetalCLIP is a CLIP-style visual-language foundation model trained on fetal ultrasound image-text pairs for downstream analysis tasks. It directly extends CLIP-style contrastive pretraining into a specialized medical imaging domain, offering a transferable backbone for fetal ultrasound.</p>
 </div><div class="card journal">
-<h3>2. <a href="https://doi.org/10.1109/TMI.2026.3704460" target="_blank">Myocardial Temporal-Mechanical Self-Supervision Model for Contrast-Free Myocardial Infarction Segmentation with Label-Free Training.</a></h3>
+<h3>6. <a href="https://doi.org/10.1109/TMI.2026.3704035" target="_blank">REN: Anatomically-Informed Mixture-of-Experts for Interstitial Lung Disease Diagnosis.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Jun 17, 2026</p>
+<p class="tags"><span class="tag">Medical Imaging</span><span class="tag">Deep Learning Architectures</span></p>
+<p class="field">REN is an anatomically-informed Mixture-of-Experts architecture for interstitial lung disease diagnosis that routes inputs based on anatomical structure rather than domain-agnostic gating. It tailors conditional computation to the regional heterogeneity of disease in medical images.</p>
+</div><div class="card journal">
+<h3>7. <a href="https://doi.org/10.1109/TMI.2026.3704460" target="_blank">Myocardial Temporal-Mechanical Self-Supervision Model for Contrast-Free Myocardial Infarction Segmentation with Label-Free Training.</a></h3>
 <p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Jun 17, 2026</p>
 <p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Medical Imaging</span><span class="tag">Segmentation</span></p>
-<p class="field">This work introduces a temporal-mechanical self-supervised model for contrast-free myocardial infarction segmentation that trains without labels and avoids reliance on strictly paired CINE and contrast-enhanced sequences. It is relevant for its label-free, self-supervised approach to a clinically important segmentation problem.</p>
+<p class="field">This work introduces a temporal-mechanical self-supervised model for contrast-free myocardial infarction segmentation that requires no labels and avoids reliance on paired contrast-enhanced images. It is a strong example of label-free self-supervision applied to a clinically valuable segmentation problem.</p>
 </div><div class="card journal">
-<h3>3. <a href="https://doi.org/10.1016/j.media.2026.104161" target="_blank">FlowLet: Conditional 3D brain MRI synthesis using wavelet flow matching.</a></h3>
-<p class="meta">Medical Image Analysis &nbsp;·&nbsp; Jun 15, 2026</p>
-<p class="tags"><span class="tag">Generative Models</span><span class="tag">Medical Imaging</span></p>
-<p class="field">FlowLet uses conditional wavelet flow matching to synthesize 3D brain MRI with strong anatomical fidelity and diversity while drastically cutting the sampling steps required by diffusion models. It is a fast, high-quality generative approach to volumetric medical image synthesis.</p>
-</div><div class="card journal">
-<h3>4. <a href="https://www.nature.com/articles/s41746-026-02902-0" target="_blank">Segmenting with confidence through uncertainty quantification for brain tumor imaging</a></h3>
-<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Jun 19, 2026</p>
-<p class="tags"><span class="tag">Segmentation</span><span class="tag">Uncertainty Quantification</span><span class="tag">Medical Imaging</span></p>
-<p class="field">This study applies uncertainty quantification to brain tumor segmentation so that model confidence accompanies predicted masks, improving trustworthiness for clinical use. It is relevant to segmentation research where calibrated reliability matters as much as accuracy.</p>
-</div><div class="card journal">
-<h3>5. <a href="https://www.nature.com/articles/s41551-026-01719-2" target="_blank">BRIDGE: benchmarking large language models for understanding real-world clinical practice texts</a></h3>
-<p class="meta">Nature Biomedical Engineering &nbsp;·&nbsp; Jun 17, 2026</p>
-<p class="tags"><span class="tag">LLM Evaluation</span><span class="tag">Clinical AI</span><span class="tag">Benchmarks</span></p>
-<p class="field">BRIDGE is a benchmark for evaluating large language models on understanding real-world clinical practice texts across diverse tasks and settings. It provides a rigorous evaluation framework directly relevant to assessing clinical and generative-text models.</p>
-</div><div class="card journal">
-<h3>6. <a href="https://www.nature.com/articles/s41586-026-10675-5" target="_blank">Towards autonomous medical artificial intelligence agents</a></h3>
-<p class="meta">Nature &nbsp;·&nbsp; Jun 17, 2026</p>
-<p class="tags"><span class="tag">Medical AI Agents</span><span class="tag">Clinical AI</span><span class="tag">LLM</span></p>
-<p class="field">This perspective lays out a roadmap toward autonomous medical AI agents that can reason, plan, and act across clinical workflows rather than performing single isolated tasks. It frames the emerging agentic paradigm for LLM-based systems in medicine.</p>
-</div><div class="card journal">
-<h3>7. <a href="https://www.nature.com/articles/s41591-026-04457-9" target="_blank">General-purpose chatbots outperform clinical AI tools on physicians’ real-world questions</a></h3>
-<p class="meta">Nature Medicine &nbsp;·&nbsp; Jun 17, 2026</p>
-<p class="tags"><span class="tag">LLM Evaluation</span><span class="tag">Clinical AI</span></p>
-<p class="field">This study found that general-purpose chatbots outperformed specialized clinical AI tools when answering physicians' real-world questions. The finding is an important evaluation result for how foundation-model chatbots compare to purpose-built clinical systems.</p>
-</div><div class="card journal">
-<h3>8. <a href="https://doi.org/10.1148/ryai.250017" target="_blank">Clinical Implementation of AI for Pulmonary Embolism Detection in over 30 000 CT Pulmonary Angiography Examinations.</a></h3>
+<h3>8. <a href="https://doi.org/10.1148/ryai.250988" target="_blank">Artificial Intelligence for Digital Breast Tomosynthesis Screening with and without Prior Examinations in BreastScreen Norway.</a></h3>
 <p class="meta">Radiology: AI &nbsp;·&nbsp; Jul 2026</p>
-<p class="tags"><span class="tag">Clinical AI</span><span class="tag">Radiology AI</span><span class="tag">Deployment</span></p>
-<p class="field">This work reports real-world clinical implementation of an FDA-cleared AI tool for pulmonary embolism detection across more than 30,000 CT pulmonary angiography exams, measuring concordance with AI-informed radiologists. It offers practical evidence on radiology AI performance and human-AI agreement at scale in deployment.</p>
+<p class="tags"><span class="tag">Radiology AI</span><span class="tag">Clinical AI</span><span class="tag">Medical Imaging</span></p>
+<p class="field">This BreastScreen Norway study evaluated an AI model for digital breast tomosynthesis screening, with and without access to prior examinations, against double radiologist reading. It quantifies how incorporating prior imaging affects AI cancer-detection performance in a real screening program.</p>
 </div>
 </body></html>
