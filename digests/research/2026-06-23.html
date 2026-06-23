@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — June 23, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — June 23, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.23487" target="_blank">CADRE: Stable, Parameter Efficient Adaptation of Medical Vision Language Models with Bounded Forgetting and Prior Drift</a></h3>
+<p class="meta">Amrita Singh, Rishabh Jha &nbsp;·&nbsp; <code>2606.23487</code></p>
+<p class="tags"><span class="tag">Medical Vision-Language Models</span><span class="tag">Parameter-Efficient Adaptation</span><span class="tag">Continual Learning</span></p>
+<p class="field"><span class="label">TL;DR:</span> CADRE adapts medical VLMs (e.g. BiomedCLIP) to new clinical imaging services with bounded catastrophic forgetting and bounded drift from the trustworthy pretrained prior.</p><p class="field"><span class="label">Problem:</span> Updating a deployed medical VLM for a new imaging modality can silently harm patients by forgetting previously handled modalities or drifting away from the safe pretrained prior. Adaptation is therefore as much a safety problem as an accuracy problem.</p><p class="field"><span class="label">Method:</span> CADRE is a parameter-efficient adaptation method that explicitly constrains how far the model can move during fine-tuning, providing formal bounds on forgetting of prior modalities and on prior drift. It treats safe adaptation as a constrained optimization over the pretrained representation.</p><p class="field"><span class="label">Results:</span> The framework stably adapts BiomedCLIP-style models to new modalities while preserving prior-task performance and staying close to the original prior.</p><p class="field"><span class="label">Why it matters:</span> Directly relevant to building and safely deploying CLIP-style vision-language foundation models in clinical radiology workflows, a core interest of the reader.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.22943" target="_blank">Evaluating self-supervised echocardiographic representations across downstream extraction strategies for left-ventricular segmentation and ejection fraction estimation</a></h3>
+<p class="meta">Sylwia Majchrowska, Philip Teare &nbsp;·&nbsp; <code>2606.22943</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Echocardiography</span><span class="tag">Cardiac Segmentation</span></p>
+<p class="field"><span class="label">TL;DR:</span> A systematic study showing that judging self-supervised echocardiographic representations by a single downstream setup conflates representation quality with the capacity of the readout model.</p><p class="field"><span class="label">Problem:</span> SSL is increasingly used in medical imaging to cut annotation cost, but representation quality is usually evaluated with one downstream protocol, which can confound the encoder's quality with the strength of the head used to extract task-relevant signal.</p><p class="field"><span class="label">Method:</span> The authors evaluate self-supervised echocardiography encoders across multiple downstream extraction strategies (varying probe/decoder capacity) on left-ventricular segmentation and ejection-fraction estimation. They compare how rankings of SSL methods change as the readout capacity changes.</p><p class="field"><span class="label">Results:</span> Conclusions about which SSL method is best shift depending on the downstream extraction strategy, exposing that single-setting evaluation is unreliable for dense cardiac tasks.</p><p class="field"><span class="label">Why it matters:</span> Speaks directly to the reader's work on self-supervised learning for medical imaging and to how SSL representations should be evaluated, not just trained.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.23494" target="_blank">Brain-Adapter: A Dual-Stream Vision-Language MIL Framework for Comprehensive 3D CT Diagnosis of Acute Intracranial Pathologies</a></h3>
+<p class="meta">Zhenyu Yi, Zhiyun Song, Yusong Sun, Zelin Liu et al. (9 authors) &nbsp;·&nbsp; <code>2606.23494</code></p>
+<p class="tags"><span class="tag">Medical Vision-Language Models</span><span class="tag">3D CT Diagnosis</span><span class="tag">Multiple Instance Learning</span></p>
+<p class="field"><span class="label">TL;DR:</span> Brain-Adapter transfers 2D vision-language foundation models to 3D brain CT for diagnosing acute intracranial pathologies via a dual-stream MIL framework.</p><p class="field"><span class="label">Problem:</span> Automated 3D brain CT diagnosis is critical for critical care but relies heavily on manual annotation, and conventional models have limited semantic understanding. Transferring powerful 2D VLMs to 3D volumes remains unsolved.</p><p class="field"><span class="label">Method:</span> Brain-Adapter is a dual-stream vision-language multiple-instance-learning framework that adapts pretrained 2D VLMs to 3D CT, treating slices/regions as instances and aligning visual features with textual semantics for comprehensive diagnosis.</p><p class="field"><span class="label">Results:</span> The method achieves strong, comprehensive diagnosis of acute intracranial pathologies on 3D CT while reducing reliance on dense manual annotations.</p><p class="field"><span class="label">Why it matters:</span> Combines vision-language foundation models with 3D medical imaging diagnosis, intersecting the reader's interests in multimodal learning and radiology AI.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.23687" target="_blank">Randomized YaRN Improves Length Generalization for Long-Context Reasoning</a></h3>
+<p class="meta">Manas Mehta, Fangcong Yin, Greg Durrett &nbsp;·&nbsp; <code>2606.23687</code></p>
+<p class="tags"><span class="tag">Long-Context LLMs</span><span class="tag">Positional Encoding</span><span class="tag">Length Generalization</span></p>
+<p class="field"><span class="label">TL;DR:</span> Randomized YaRN combines YaRN positional extrapolation with randomized positional encoding to improve LLM generalization to very long sequences.</p><p class="field"><span class="label">Problem:</span> LLMs pretrained on short sequences and extended for longer contexts still fail to generalize to very long sequences during reasoning. Existing extension methods plateau.</p><p class="field"><span class="label">Method:</span> Randomized YaRN is a training method that fuses YaRN-based positional extrapolation with randomized positional encoding and a learned schedule, exposing the model to a wider range of effective positions during training.</p><p class="field"><span class="label">Results:</span> The approach improves length generalization for long-context reasoning beyond standard YaRN-extended baselines.</p><p class="field"><span class="label">Why it matters:</span> Long-context handling is foundational for multimodal and document-heavy models, including report generation pipelines that the reader works with.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.22938" target="_blank">Provable Benefits of RLVR over SFT for Reasoning Models: Learning to Backtrack Efficiently</a></h3>
+<p class="meta">Stanley Wei, Juno Kim &nbsp;·&nbsp; <code>2606.22938</code></p>
+<p class="tags"><span class="tag">Reinforcement Learning</span><span class="tag">LLM Reasoning</span><span class="tag">Learning Theory</span></p>
+<p class="field"><span class="label">TL;DR:</span> A theoretical account of why reinforcement fine-tuning (RLVR) yields better reasoning than supervised fine-tuning, framed as learning to backtrack efficiently.</p><p class="field"><span class="label">Problem:</span> RLVR empirically improves LLM reasoning over SFT, but the theoretical reason for this advantage has been unclear.</p><p class="field"><span class="label">Method:</span> The authors model chain-of-thought reasoning as path search and analyze the training dynamics, showing that reinforcement fine-tuning induces efficient backtracking behavior that purely supervised methods cannot acquire.</p><p class="field"><span class="label">Results:</span> They prove a provable separation: RLVR learns to backtrack efficiently and reach correct reasoning paths where SFT fails, explaining the empirical reasoning gains.</p><p class="field"><span class="label">Why it matters:</span> Clarifies a key mechanism behind reasoning-model training, useful for understanding and applying RL-based post-training in vision-language reasoning systems.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.22787" target="_blank">Visual Geometry Transformer in the Wild: Distractor-Free 3D Reconstruction</a></h3>
+<p class="meta">Tianbo Pan, Xingyi Yang, Shizun Wang, Xinchao Wang &nbsp;·&nbsp; <code>2606.22787</code></p>
+<p class="tags"><span class="tag">3D Reconstruction</span><span class="tag">Vision Foundation Models</span><span class="tag">Robust Perception</span></p>
+<p class="field"><span class="label">TL;DR:</span> A visual geometry transformer that performs distractor-free end-to-end multi-view 3D reconstruction robustly in real-world, non-static scenes.</p><p class="field"><span class="label">Problem:</span> End-to-end multi-view 3D reconstruction methods assume distractor-free static scenes with perfect cross-view geometry, so they fail in the wild where transient distractors and occlusions appear.</p><p class="field"><span class="label">Method:</span> The method extends a feed-forward visual geometry transformer to identify and discount transient distractors and occluded regions, enabling robust reconstruction without the idealized static-scene assumption.</p><p class="field"><span class="label">Results:</span> It achieves reliable 3D reconstruction in real-world settings where prior state-of-the-art end-to-end methods break down.</p><p class="field"><span class="label">Why it matters:</span> Robust feed-forward geometric foundation models are increasingly relevant to medical and general multi-view imaging where clean inputs are rare.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.23172" target="_blank">A Benchmark of (MRI-) Foundation Models to Predict IDH Mutational Status in Glioma</a></h3>
+<p class="meta">Nathan Hollet, Elise Robinson, Efthymios Georgiou, Ekin Ermis et al. (6 authors) &nbsp;·&nbsp; <code>2606.23172</code></p>
+<p class="tags"><span class="tag">MRI Foundation Models</span><span class="tag">Glioma</span><span class="tag">Benchmark</span></p>
+<p class="abstract">Non-invasive prediction of glioma molecular status from routine magnetic resonance imaging (MRI) has shown promising performance, but model generalization remains challenging given small-scale matched imaging-genomic datasets. Foundation models may address this bottleneck, but a comprehensive benchmark is needed to establish the impact of diverse architectures, pre-training domains, and objectives</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.22963" target="_blank">Concept Alignment Contrast and Long-Short Prompt Memory for Test-Time Adaptation of SAM3 in Medical Image Segmentation</a></h3>
+<p class="meta">Yubo Zhou, Jianghao Wu, Ping Ye, Shaoting Zhang et al. (5 authors) &nbsp;·&nbsp; <code>2606.22963</code></p>
+<p class="tags"><span class="tag">SAM3</span><span class="tag">Test-Time Adaptation</span><span class="tag">Medical Image Segmentation</span></p>
+<p class="abstract">Concept segmentation models like Segment Anything Model 3 (SAM3) show strong generalization on natural images, yet their performance degrades in medical imaging due to the domain gap caused by different imaging principles and styles. Test-Time Adaptation (TTA) is essential for improving the testing performance by updating the model on the fly without annotations. However, existing vision-language </p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.23200" target="_blank">NGPS: Structure-Preserving Self-Supervised Denoising via Neighbor-Guided Patch Sampling</a></h3>
+<p class="meta">Jaehyun Cho, YoungJoon Yoo &nbsp;·&nbsp; <code>2606.23200</code></p>
+<p class="tags"><span class="tag">Self-Supervised Denoising</span><span class="tag">Volumetric Medical Imaging</span></p>
+<p class="abstract">Neighboring-slice self-supervised denoising is attractive for volumetric medical imaging, yet inter-slice misalignment breaks anatomical correspondence and often yields ghosting and blurred margins when adjacent slices are used naively as targets. We propose Neighbor-Guided Patch Sampling (NGPS), a lightweight framework that constructs neighboring supervision under local inter-slice misalignment w</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2606.23177" target="_blank">Interpretable Probabilistic Medical Image Segmentation via Gaussian Process with Explicit Modelling of Annotation Bias and Variability</a></h3>
+<p class="meta">Qi Li, Yuliang Huang, Shaheer U. Saeed, Qianye Yang et al. (10 authors) &nbsp;·&nbsp; <code>2606.23177</code></p>
+<p class="tags"><span class="tag">Probabilistic Segmentation</span><span class="tag">Annotation Variability</span><span class="tag">Medical Imaging</span></p>
+<p class="abstract">Deep learning-based medical image segmentation models are trained using annotations that exhibit systematic bias and variability across raters. While probabilistic multi-rater approaches can emulate annotator-specific delineations, annotator characteristics are typically encoded implicitly in deep latent feature space, making direct analysis of their influence on predictive distributions less stra</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2606.23503" target="_blank">UniverSat: Resolution- and Modality-Agnostic Transformers for Earth Observation</a></h3>
+<p class="meta">Yohann Perron, Guillaume Astruc, Nicolas Gonthier, Clement Mallet et al. (5 authors) &nbsp;·&nbsp; <code>2606.23503</code></p>
+<p class="tags"><span class="tag">Earth Observation Foundation Models</span><span class="tag">Vision Transformers</span><span class="tag">Multimodal</span></p>
+<p class="abstract">Vision Transformers (ViT) dominate computer vision. However, their reliance on rigid patch projectors hinders transfer to Earth Observation (EO), where input modalities, scales, and resolutions vary widely. We introduce UniverSat, a ViT-style backbone built around a Universal Patch Encoder that maps patches from arbitrary spatial, spectral, and temporal resolutions, and from both optical and non-o</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2606.22749" target="_blank">RaysUp: Ultra-light Universal Feature Upsampling via Geometry-Aware Ray Representation</a></h3>
+<p class="meta">Yuchuan Ding, Linfei Li, Lin Zhang, Ying Shen &nbsp;·&nbsp; <code>2606.22749</code></p>
+<p class="tags"><span class="tag">Feature Upsampling</span><span class="tag">Vision Foundation Models</span><span class="tag">Dense Prediction</span></p>
+<p class="abstract">Pre-trained Vision Foundation Models (VFMs) have become central to modern computer vision due to their powerful semantic representations and strong generalization ability. However, their patchified or pooled outputs are inherently low-resolution, limiting their effectiveness in tasks requiring fine-grained, pixel-level reasoning. Existing feature upsampling approaches either degrade semantic fidel</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2606.22874" target="_blank">SpotAttention: Plug-In Block-Sparse Routing for Pretrained Long-Context Transformers</a></h3>
+<p class="meta">Huzama Ahmad, Se-Young Yun &nbsp;·&nbsp; <code>2606.22874</code></p>
+<p class="tags"><span class="tag">Sparse Attention</span><span class="tag">Long-Context Transformers</span><span class="tag">Efficient Inference</span></p>
+<p class="abstract">Long contexts have become standard in pretrained LLMs, yet they remain expensive to run: prefill compute grows quadratically with sequence length, and every decode step re-reads a key-value cache that grows linearly with it. Sparse attention cuts these costs by attending only to a relevant subset of past tokens, but selecting that subset is itself expensive. We present SpotAttention, a lightweight</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2606.23301" target="_blank">EHR-Complex: Benchmarking Medical Agents for Complex Clinical Reasoning</a></h3>
+<p class="meta">Yitong Qiao, Lei Liu, Yue Shen, Jian Wang et al. (7 authors) &nbsp;·&nbsp; <code>2606.23301</code></p>
+<p class="tags"><span class="tag">Clinical Reasoning Agents</span><span class="tag">EHR</span><span class="tag">Benchmark</span></p>
+<p class="abstract">Clinical agents promise to democratize access to electronic health records (EHRs), yet existing benchmarks fail to reflect the complexity of practical EHR analysis, e.g., often operating on idealized, clean EHRs via static SQL generation rather than interactive execution. In this work, we introduce EHR-Complex, a large-scale benchmark designed for interactive clinical database reasoning. Built on </p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2606.23005" target="_blank">From Point Estimates to Distributions: GMM Pooling for MIL in Preterm Birth Prediction</a></h3>
+<p class="meta">Hussain Alasmawi, Numan Saeed, Soha Said, Mohammad Yaqub &nbsp;·&nbsp; <code>2606.23005</code></p>
+<p class="tags"><span class="tag">Multiple Instance Learning</span><span class="tag">Ultrasound</span><span class="tag">Preterm Birth Prediction</span></p>
+<p class="abstract">Preterm birth (PTB) prediction can enable targeted surveillance and timely intervention, yet most ultrasound-based models use a single selected transvaginal ultrasound (TVUS) frame per patient despite routine exams acquiring multiple cervical images. We formulate PTB prediction as a multiple instance learning (MIL) problem, representing each patient as a variable-sized bag of TVUS images with a si</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2606.22892" target="_blank">IViT: A Novel Interpretable Visual Transformer for Skin Disease Detection</a></h3>
+<p class="meta">Haibiao Li, Di Lin, Xue Jiang, Weiwei Wu et al. (6 authors) &nbsp;·&nbsp; <code>2606.22892</code></p>
+<p class="tags"><span class="tag">Interpretable Vision Transformer</span><span class="tag">Skin Disease Classification</span><span class="tag">Few-Shot Learning</span></p>
+<p class="abstract">The clinical diagnosis of skin diseases is susceptible to interference from inter-class similarity of skin lesions, and over-reliance on clinicians'experience easily leads to subjective bias. Although existing deep learning aided diagnosis methods achieve competitive accuracy, they suffer from the black-box opacity of Vision Transformer (ViT) and poor adaptability to medical few-shot scenarios. Mo</p>
+</div>
+</body></html>
