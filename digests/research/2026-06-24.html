@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — June 24, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — June 24, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.24570" target="_blank">Jolia: Concept-Level Vision-Language Alignment for 3D CT Contrastive Learning</a></h3>
+<p class="meta">Julien Khlaut, Charles Corbière, Baptiste Callard, Amaury Prat et al. (12 authors) &nbsp;·&nbsp; <code>2606.24570</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Medical Imaging</span><span class="tag">Contrastive Learning</span></p>
+<p class="field"><span class="label">TL;DR:</span> Jolia introduces concept-level vision-language alignment for CLIP-style contrastive pretraining of 3D CT foundation models, addressing the mismatch between multi-organ volumes and long structured radiology reports.</p><p class="field"><span class="label">Problem:</span> Standard CLIP-style pretraining aligns a whole 3D scan to a whole report, but medical volumes span dozens of organs and reports are long and multi-sectioned, so global alignment is too coarse and dilutes anatomy-specific signal.</p><p class="field"><span class="label">Method:</span> Jolia performs concept-level alignment between localized image regions/organs and the corresponding report concepts/sections rather than global scan-report matching, building a 3D CT vision-language foundation model from paired clinical scans and reports.</p><p class="field"><span class="label">Results:</span> The concept-level alignment yields stronger 3D CT representations and improved downstream transfer compared to global CLIP-style contrastive baselines.</p><p class="field"><span class="label">Why it matters:</span> Directly central to the reader's work on self-supervised/multimodal learning and CLIP-style vision-language foundation models for medical imaging, extending those ideas to 3D radiology.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.24115" target="_blank">A Benchmark for Hallucination Detection in VLMs for Gastrointestinal Endoscopy</a></h3>
+<p class="meta">Aminu Lawal, Niyoj Oli, Sachin Acharya, Prashnna Gyawali et al. (6 authors) &nbsp;·&nbsp; <code>2606.24115</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Hallucination Detection</span><span class="tag">Medical Imaging Benchmark</span></p>
+<p class="field"><span class="label">TL;DR:</span> A benchmark evaluating nine hallucination-detection methods for vision-language models on gastrointestinal endoscopy, a clinical imaging domain underexplored relative to radiology.</p><p class="field"><span class="label">Problem:</span> VLMs hallucinate, which blocks safe clinical deployment, yet hallucination detection has been studied almost exclusively on radiology benchmarks (e.g., MIMIC-CXR, VQA-RAD) and not on GI endoscopy.</p><p class="field"><span class="label">Method:</span> The authors assemble a GI endoscopy benchmark and systematically evaluate nine existing hallucination-detection methods, comparing their reliability for flagging unsupported VLM outputs in this clinical setting.</p><p class="field"><span class="label">Results:</span> The study quantifies how current detectors perform on endoscopy and reveals gaps versus their radiology-tuned behavior, establishing a reference point for the domain.</p><p class="field"><span class="label">Why it matters:</span> Speaks to the reader's interest in evaluation of generative/vision-language medical models and reliability of radiology-style VLMs, extending hallucination evaluation beyond chest X-ray benchmarks they already know.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.24883" target="_blank">BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases</a></h3>
+<p class="meta">Qi Chen, Wenxuan Li, Pedro R. A. S. Bassi, Xinze Zhou et al. (17 authors) &nbsp;·&nbsp; <code>2606.24883</code></p>
+<p class="tags"><span class="tag">Medical Imaging Benchmark</span><span class="tag">Cancer Detection</span><span class="tag">Robustness &amp; Bias</span></p>
+<p class="field"><span class="label">TL;DR:</span> BenchX benchmarks AI cancer detection and localization under demographic and imaging-protocol shifts, exposing inconsistent performance across real-world clinical conditions.</p><p class="field"><span class="label">Problem:</span> Medical imaging AI often performs inconsistently when patient demographics and acquisition protocols vary—e.g., small tumors, different contrast phases, or different ages—undermining clinical reliability.</p><p class="field"><span class="label">Method:</span> BenchX provides a structured evaluation that stratifies cancer detection/localization performance by demographic and protocol variables, measuring robustness and bias rather than aggregate accuracy alone.</p><p class="field"><span class="label">Results:</span> The benchmark surfaces substantial performance gaps across subgroups and protocols, demonstrating that headline metrics mask clinically meaningful inconsistencies.</p><p class="field"><span class="label">Why it matters:</span> Relevant to the reader's focus on robust evaluation of radiology AI; rigorous bias-aware benchmarking is directly applicable to chest X-ray and other imaging models they develop.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.24418" target="_blank">Data Augmentation: A Fourier Analysis Perspective</a></h3>
+<p class="meta">Behrooz Tahmasebi, Melanie Weber, Stefanie Jegelka &nbsp;·&nbsp; <code>2606.24418</code></p>
+<p class="tags"><span class="tag">Data Augmentation</span><span class="tag">Learning Theory</span><span class="tag">Fourier Analysis</span></p>
+<p class="field"><span class="label">TL;DR:</span> A Fourier-analytic theory of data augmentation that characterizes how group-based augmentation exploits invariances and shapes the learned function spectrum.</p><p class="field"><span class="label">Problem:</span> Data augmentation is universally applied to exploit known invariances, but its mechanism and limits are poorly understood theoretically.</p><p class="field"><span class="label">Method:</span> The authors analyze group-action augmentation through Fourier analysis, deriving how transformed copies of samples affect the spectral properties of the learned model and the effective invariances it captures.</p><p class="field"><span class="label">Results:</span> The framework yields principled characterizations of when and how augmentation helps, connecting augmentation to spectral regularization and group symmetry.</p><p class="field"><span class="label">Why it matters:</span> A foundational, model-agnostic result on a technique the reader uses constantly in self-supervised and vision pipelines, offering theory to guide augmentation design.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.24888" target="_blank">DiffusionBench: On Holistic Evaluation of Diffusion Transformers</a></h3>
+<p class="meta">Xingjian Leng, Jaskirat Singh, Zhanhao Liang, Ethan Smith et al. (8 authors) &nbsp;·&nbsp; <code>2606.24888</code></p>
+<p class="tags"><span class="tag">Diffusion Models</span><span class="tag">Generative Model Evaluation</span><span class="tag">Text-to-Image</span></p>
+<p class="field"><span class="label">TL;DR:</span> DiffusionBench argues that the field's reliance on ImageNet class-conditional FID is misleading and proposes a holistic evaluation suite for diffusion transformers including text-to-image generation.</p><p class="field"><span class="label">Problem:</span> DiT research has converged on a single benchmark (class-conditional ImageNet FID), making it unclear whether reported gains reflect genuine progress in generative modeling.</p><p class="field"><span class="label">Method:</span> DiffusionBench introduces a broader, holistic evaluation protocol spanning multiple settings (notably text-to-image), enabling more representative comparison of diffusion transformer methods.</p><p class="field"><span class="label">Results:</span> The benchmark reveals that improvements under the standard ImageNet setup do not always transfer, reframing how DiT progress should be measured.</p><p class="field"><span class="label">Why it matters:</span> Evaluation rigor for generative models is a recurring theme for the reader; the critique of narrow benchmarks parallels their interest in better generative-radiology evaluation metrics.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.24253" target="_blank">TuringViT: Making SOTA Vision Transformers Accessible to All</a></h3>
+<p class="meta">Qiman Wu, Hanlin Chen, Lyujie Chen, Rui Xin et al. (22 authors) &nbsp;·&nbsp; <code>2606.24253</code></p>
+<p class="tags"><span class="tag">Vision Transformers</span><span class="tag">Foundation Models</span><span class="tag">Efficient Training</span></p>
+<p class="field"><span class="label">TL;DR:</span> TuringViT aims to make training SOTA-level vision transformer encoders (SigLIP2-class) accessible without massive image-text data or prohibitive compute.</p><p class="field"><span class="label">Problem:</span> Modern VLM and VLA systems depend on off-the-shelf ViT encoders, but training customized SOTA-level ViTs requires enormous data and compute, putting it out of reach for most researchers.</p><p class="field"><span class="label">Method:</span> TuringViT provides a training recipe and architectural choices that reduce the data/compute barrier for producing strong ViT visual encoders tailored to downstream latency, resolution, and integration needs.</p><p class="field"><span class="label">Results:</span> The approach trains competitive ViT encoders at far lower cost, broadening who can build customized high-quality visual backbones.</p><p class="field"><span class="label">Why it matters:</span> The reader builds on CLIP-style vision encoders for medical imaging; an accessible path to training custom SOTA ViTs is directly enabling for domain-specific foundation models.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.24464" target="_blank">Boosting Text-Driven Video Segmentation via Geometry-Aware Distillation</a></h3>
+<p class="meta">Tianyu Zhu, Yingping Liang, Hesong Li, Ying Fu &nbsp;·&nbsp; <code>2606.24464</code></p>
+<p class="tags"><span class="tag">Referring Video Segmentation</span><span class="tag">Geometry-Aware Distillation</span></p>
+<p class="abstract">Text-driven Referring Video Object Segmentation (RVOS) aims to locate and segment target objects in videos given natural language. However, existing models are typically trained on 2D image or video datasets with naive segmentation losses, which overlooks the geometric consistency across frames and leads to weak spatial understanding. In this paper, we propose Geometry-enhanced Language-guided Vid</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.24740" target="_blank">BioMedVR: Confusion-Aware Mixture-of-Prompt Experts for Biomedical Visual Reprogramming</a></h3>
+<p class="meta">Jiaxiang Liu, Tianxiang Hu, Juwei Guan, Yujie Wu et al. (8 authors) &nbsp;·&nbsp; <code>2606.24740</code></p>
+<p class="tags"><span class="tag">Biomedical Vision-Language Models</span><span class="tag">Parameter-Efficient Adaptation</span></p>
+<p class="abstract">Recent advances in vision-language models (VLMs) such as CLIP have demonstrated strong generalization across natural-image domains. However, adapting these models to biomedical imaging is non-trivial: full-model fine-tuning is computationally expensive, while medical data are often scarce and exhibit subtle, fine-grained inter-class differences, making parameter-efficient adaptation particularly c</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.24567" target="_blank">Multilevel Stochastic Plug-and-Play for Sparse-View CT Reconstruction</a></h3>
+<p class="meta">Antoine De Paepe, Alexandre Bousse, Dimitris Visvikis &nbsp;·&nbsp; <code>2606.24567</code></p>
+<p class="tags"><span class="tag">CT Reconstruction</span><span class="tag">Plug-and-Play Priors</span></p>
+<p class="abstract">Sparse-view computed tomography (SVCT) reduces radiation exposure and acquisition time, but the limited number of projection views makes the reconstruction problem severely ill-posed and leads to streak artifacts when analytical methods are used. Plug-and-Play (PnP) methods provide an effective way to combine data fidelity with learned image priors, while stochastic PnP methods further improve rob</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2606.24313" target="_blank">Prob-BBDM: a Probabilistic Brownian Bridge Diffusion Model for MRI sequence image-to-image translation</a></h3>
+<p class="meta">Martin Valls, Pascal Bourdon, Christine Fernandez-Maloigne, Guillaume Herpe et al. (5 authors) &nbsp;·&nbsp; <code>2606.24313</code></p>
+<p class="tags"><span class="tag">MRI Synthesis</span><span class="tag">Diffusion Models</span></p>
+<p class="abstract">AI-driven image-to-image synthesis is rapidly advancing, with growing applications in medical imaging. Multi-modal image analysis plays a crucial role in optimizing examination quality, yet acquiring multiple imaging modalities in clinical settings remains resource-intensive and time-consuming, especially for 3D imaging. To address this challenge, we propose a novel image-to-image translation mode</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2606.24214" target="_blank">MorVess: Morphology-Aware Pulmonary Vessel Segmentation Network</a></h3>
+<p class="meta">Fuyou Mao, Yifei Chen, Beining Wu, Lixin Lin et al. (12 authors) &nbsp;·&nbsp; <code>2606.24214</code></p>
+<p class="tags"><span class="tag">Vessel Segmentation</span><span class="tag">Medical Image Segmentation</span></p>
+<p class="abstract">Accurate pulmonary vessel segmentation remains challenging due to the sparse, tortuous, and multi-scale nature of vascular structures, where small branches are easily lost and topology integrity is difficult to preserve under voxel-wise supervision. Existing deep segmentation models primarily optimize binary masks, lacking explicit geometric constraints, thus struggling to recover continuous tubul</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2606.24510" target="_blank">A specialized reasoning large language model for accelerating rare disease diagnosis: a randomized AI physician assistance trial</a></h3>
+<p class="meta">Haichao Chen, Songchi Zhou, Zhengyun Zhao, Shikai Hu et al. (31 authors) &nbsp;·&nbsp; <code>2606.24510</code></p>
+<p class="tags"><span class="tag">Clinical LLM</span><span class="tag">Rare Disease Diagnosis</span></p>
+<p class="abstract">Rare diseases affect millions of individuals worldwide, yet timely diagnosis remains a major public health challenge due to scarcity of specialized clinical expertise. While large language models (LLMs) show promise to support rare disease diagnosis, current models are constrained by insufficient clinical deployability, limited clinically grounded evidence, and scarcity of training data. Here we p</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2606.24102" target="_blank">PORTER: Language-Grounded Event Representations for Portable Structured EHR Foundation Models</a></h3>
+<p class="meta">Lin Lawrence Guo, Adam Paul Yan, Emily Vettese, Lillian Sung &nbsp;·&nbsp; <code>2606.24102</code></p>
+<p class="tags"><span class="tag">EHR Foundation Models</span><span class="tag">Clinical NLP</span></p>
+<p class="abstract">Most electronic health record (EHR) foundation models encode clinical events as discrete event tokens from a fixed vocabulary and therefore cannot directly represent events containing unseen concepts or new combinations of concepts and attributes such as numeric values. This limits transfer across institutions and even across deployment pipelines within the same institution. We introduce PORTER, a</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2606.24155" target="_blank">MedBench v5: A Dynamic, Process-Oriented, and Hallucination-Aware Benchmark for Clinical Multimodal Models</a></h3>
+<p class="meta">Ding Jinru, Jiang Chuchu, Lu Lu, Pang Wenrao et al. (14 authors) &nbsp;·&nbsp; <code>2606.24155</code></p>
+<p class="tags"><span class="tag">Clinical Multimodal Benchmark</span><span class="tag">Hallucination Evaluation</span></p>
+<p class="abstract">Existing medical AI benchmarks lack process visibility, atomic skill evaluation, and integrated hallucination detection. We introduce MedBench v5, a redesigned benchmark for clinical multimodal models (language, vision-language, and agent systems) that moves from static QA to dynamic, process-oriented evaluation. MedBench v5 features: (1) a dual-dimensional framework combining Clinical Cognitive R</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2606.24716" target="_blank">Evaluating the Interpretability of Sparse Autoencoders with Concept Annotations</a></h3>
+<p class="meta">Jonas Klotz, Cassio F. Dantas, Pallavi Jain, Diego Marcos et al. (5 authors) &nbsp;·&nbsp; <code>2606.24716</code></p>
+<p class="tags"><span class="tag">Sparse Autoencoders</span><span class="tag">Interpretability</span></p>
+<p class="abstract">Sparse autoencoders (SAEs) are increasingly used to extract interpretable concepts from vision and vision language models, yet existing evaluation methods largely rely on proxy metrics or qualitative inspection rather than measuring semantic correspondence. We present a human-grounded evaluation framework that quantifies alignment between SAE latents and human-annotated concepts, without requiring</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2606.24433" target="_blank">MedPCFM: Improving Medical Point Cloud Completion by Integrating Point Transformers and Flow Matching</a></h3>
+<p class="meta">Kamil Kwarciak, Marek Wodzinski &nbsp;·&nbsp; <code>2606.24433</code></p>
+<p class="tags"><span class="tag">Medical Point Cloud Completion</span><span class="tag">Flow Matching</span></p>
+<p class="abstract">Medical point cloud completion is important for anatomical reconstruction and downstream clinical workflows, yet generative modeling in this setting remains insufficiently studied. We investigate completion through continuous-time generative modeling and introduce PCFM, a PTv3-backed flow matching approach for medical point cloud completion. We evaluate on SkullFix and SkullBreak, and additionally</p>
+</div>
+</body></html>
