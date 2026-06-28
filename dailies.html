@@ -40,11 +40,15 @@
 
         .archive-columns {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 2rem;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
+            .archive-columns { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 500px) {
             .archive-columns { grid-template-columns: 1fr; }
         }
 
@@ -129,6 +133,16 @@
         .tag-journal {
             background: #800020;
             color: #fff;
+        }
+
+        .tag-citations {
+            background: #e6f0ff;
+            color: #0050a0;
+        }
+
+        .archive-col-title.citations-title {
+            color: #0050a0;
+            border-bottom-color: #0050a0;
         }
 
         /* ── Digest view ──────────────────────────── */
@@ -278,12 +292,18 @@
         <div id="view-archive">
             <div class="archive-header">
                 <div class="archive-title">Dailies</div>
-                <div class="archive-subtitle">Daily arXiv &amp; news digests each morning; a peer-reviewed journals roundup every Monday.</div>
+                <div class="archive-subtitle">Daily arXiv, citation tracking &amp; news digests; a peer-reviewed journals roundup every Monday.</div>
             </div>
             <div class="archive-columns">
                 <div>
                     <div class="archive-col-title">Research Papers</div>
                     <div class="archive-list" id="archive-list-research">
+                        <div class="archive-empty">Loading…</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="archive-col-title citations-title">Citations</div>
+                    <div class="archive-list" id="archive-list-citations">
                         <div class="archive-empty">Loading…</div>
                     </div>
                 </div>
@@ -310,6 +330,7 @@
             <div class="dailies-tabs">
                 <button class="tab-btn active" data-tab="research">arXiv Papers</button>
                 <button class="tab-btn" data-tab="journals">Journals</button>
+                <button class="tab-btn" data-tab="citations">Citations</button>
                 <button class="tab-btn" data-tab="news">Middle East News</button>
             </div>
 
@@ -335,7 +356,7 @@
             });
         }
 
-        const KIND_LABEL = { research: 'arXiv', journals: 'Journals', news: 'News' };
+        const KIND_LABEL = { research: 'arXiv', journals: 'Journals', citations: 'Citations', news: 'News' };
 
         // journals are a weekly roundup → label them "week of …"
         function rowLabel(kind, date) {
@@ -376,15 +397,26 @@
                 if (e.journals) rows.push({ date: e.date, kind: 'journals' });
                 return rows;
             }).sort((a, b) => b.date.localeCompare(a.date) || (a.kind < b.kind ? 1 : -1));
+            const citationsEntries = manifest.filter(e => e.citations);
             const newsEntries = manifest.filter(e => e.news);
 
             const listR = document.getElementById('archive-list-research');
+            const listC = document.getElementById('archive-list-citations');
             const listN = document.getElementById('archive-list-news');
+
+            const rowTagClass = k => ({ journals: 'tag-journal', citations: 'tag-citations' }[k] || 'tag-arxiv');
 
             listR.innerHTML = researchRows.length
                 ? researchRows.map(r => `<a class="archive-row" href="dailies.html?date=${r.date}&tab=${r.kind}" data-date="${r.date}" data-kind="${r.kind}">
                     <span class="archive-date">${rowLabel(r.kind, r.date)}</span>
-                    <span class="row-tag ${r.kind === 'journals' ? 'tag-journal' : 'tag-arxiv'}">${KIND_LABEL[r.kind]}</span>
+                    <span class="row-tag ${rowTagClass(r.kind)}">${KIND_LABEL[r.kind]}</span>
+                  </a>`).join('')
+                : '<div class="archive-empty">None yet.</div>';
+
+            listC.innerHTML = citationsEntries.length
+                ? citationsEntries.map(e => `<a class="archive-row" href="dailies.html?date=${e.date}&tab=citations" data-date="${e.date}" data-kind="citations">
+                    <span class="archive-date">${formatDate(e.date)}</span>
+                    <span class="row-tag tag-citations">Citations</span>
                   </a>`).join('')
                 : '<div class="archive-empty">None yet.</div>';
 
@@ -505,6 +537,7 @@
             showDigest(d, k);
         }
         document.getElementById('archive-list-research').addEventListener('click', archiveClick);
+        document.getElementById('archive-list-citations').addEventListener('click', archiveClick);
         document.getElementById('archive-list-news').addEventListener('click', archiveClick);
 
         document.getElementById('back-btn').addEventListener('click', () => {
