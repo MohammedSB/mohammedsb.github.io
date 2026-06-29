@@ -4,7 +4,8 @@
       "date": "2026-06-29",
       "research": false,
       "journals": true,
-      "news": true
+      "news": true,
+      "citations": true
     },
     {
       "date": "2026-06-28",

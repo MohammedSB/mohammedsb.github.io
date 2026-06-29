@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citations — June 29, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.subtitle{font-size:.85rem;color:#888;margin-bottom:2.5rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem;margin-bottom:.75rem}
+h2 em{font-style:italic;text-transform:none;font-size:1rem;letter-spacing:0}
+h3{font-size:1.05rem;font-weight:500;margin:0 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.83rem;color:#666;margin-bottom:.5rem}
+.summary{font-size:.95rem;line-height:1.65;margin:.5rem 0}
+.contexts{list-style:none;padding:0;margin:.6rem 0 0}
+.ctx{font-size:.88rem;line-height:1.6;color:#444;background:#fff;border-left:3px solid #d0b0b8;padding:.5rem .9rem;margin-bottom:.4rem;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:.75rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+</style></head><body>
+<h1>New Citations — June 29, 2026</h1>
+<p class="subtitle">5 new citations found via Semantic Scholar</p>
+<h2>Citing: <em>CRIMSON: A Clinically-Grounded LLM-Based Metric for Generative Radiology Report Evaluation</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2606.24570" target="_blank">Jolia: Concept-Level Vision-Language Alignment for 3D CT Contrastive Learning</a></h3>
+<p class="meta">J. Khlaut, Charles Corbière, Baptiste Callard, A. Prat et al. (12 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> CRIMSON is used as one of the LLM-as-judge metrics for clinical fidelity, run with GPT-5 as its underlying judge model, to evaluate generated radiology reports on the Merlin-Abd-CT test split (alongside GREEN, RadGraph-F1, and standard NLG metrics) via the RadEval framework.</p>
+<ul class='contexts'><li class="ctx">For GREEN [31] we use the released open-weights judge; for CRIMSON [32] we use the GPT-5.</li><li class="ctx">We evaluate on the Merlin-Abd-CT test split with LLM-as-judge clinical fidelity (GREEN [31], CRIMSON [32]), clinical entity overlap (RadGraph-F1 [33]), and standard NLG metrics (BLEU, ROUGE-L, BERTScore), all via the RadEval framework [34], against Merlin [9] (trained in-domain on this dataset),…</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2606.18797" target="_blank">Beyond Scalar Scores: Exploring LLM-based Metrics for Clinical Significance Evaluation in Radiology Reports</a></h3>
+<p class="meta">Qingyu Lu, Ruochen Li, Liang Ding, Yufei Xia et al. (6 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> CRIMSON is an LLM-based radiology report evaluation metric that fine-tunes MedGemma via LoRA on 140K report pairs labeled with GPT-5-generated severity labels, and it serves as a strong baseline: it attains the highest discrimination accuracy among score-based metrics (75.0) and the best maximin operating point (75.0, 80.5), and is especially good at detecting clinically significant errors involving size/distance, terminology, uncertainty, and severity—though it is less robust (80.5) than the authors' MedGemma SFT+RL evaluator (90.5), with no statistically significant difference from it or FineRadScore on top-line performance.</p>
+<ul class='contexts'><li class="ctx">CRIMSON achieves stronger discrimination accuracy (75.0 vs. 66.5), whereas our model achieves substantially higher robustness accuracy (90.5 vs. 80.5).</li><li class="ctx">However, several top-performing methods have no significant differences from each other, including CRIMSON, FineRadScore, and our MedGemma SFT+RL eval-uator.</li><li class="ctx">However, this comes with a trade-off in discrimination: CRIMSON remains better at detecting significant errors overall, especially for size/distance, terminology, uncertainty, and severity-related significant errors.</li></ul>
+</div><hr><h2>Citing: <em>3DReasonKnee: Advancing Grounded Reasoning in Medical Vision Language Models</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2606.27264" target="_blank">CORTEX: A Structured Reasoning Benchmark for Trustworthy 3D Chest CT MLLMs</a></h3>
+<p class="meta">H. Malik, A. Hashmi, Numan Saeed, Muzammal Naseer et al. (6 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> 3DReasonKnee is described as a volumetric medical reasoning effort that pairs knee MRI scans with expert-written rationales, but is criticized for being "largely unstructured" — it imposes no staged reasoning schema, unlike the structured, traceable reasoning the citing CORTEX benchmark advocates.</p>
+<ul class='contexts'><li class="ctx">Volumetric efforts remain largely unstructured: Med3D-R1 [12] emits free-form rationales for 3D abnormality diagnosis, and 3DReasonKnee [30] pairs knee MRI with expert rationales but imposes no staged schema.</li></ul>
+</div><hr><h2>Citing: <em>MedSAM2: Segment Anything in 3D Medical Images and Videos</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2606.25279" target="_blank">MRI2Rep: Autoregressive Structured Report Generation for 3D Liver MRI</a></h3>
+<p class="meta">Xinran Li, Junlin Yang, Annabella Shewarega, Zongwei Zhou et al. (7 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> The citing paper does not characterize MedSAM2 specifically. It is bundled into a group citation [21,22] about prior computational work that "focuses on classification of pre-segmented lesions rather than end-to-end report generation" — i.e., it's positioned as representative of lesion-level analysis on already-segmented data, in contrast to MRI2Rep's end-to-end approach.</p>
+<ul class='contexts'><li class="ctx">Prior computational work focuses on classification of pre-segmented lesions [21,22] rather than end-to-end report generation.</li></ul>
+</div><hr><h2>Citing: <em>Evaluating General Purpose Vision Foundation Models for Medical Image Analysis: An Experimental Study of DINOv2 on Radiology Benchmarks</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2606.17989" target="_blank">Recover Semantics First, Generate Better: Improved Latent Modeling for 3D MRI Reconstruction and Cross-Contrast Synthesis</a></h3>
+<p class="meta">Yonghao Chen, Sicheng Yang, Rui Tang, Lei Zhu · 2026</p>
+<p class="summary"><strong>What they say:</strong> This is a citation context question, not a coding task.
+
+The cited paper ("Evaluating General Purpose Vision Foundation Models...DINOv2 on Radiology Benchmarks") is referenced as one of the supporting citations [3,26,32] for the claim about DINO's strong representations:
+
+Cited as evidence that DINO/DINOv2-style self-supervised vision foundation models possess strong global representation capabilities, justifying the use of a DINO-pretrained ViT-B/16 as the semantic teacher in their framework — though it appears only as a supporting reference for this general claim rather than having its specific radiology-benchmark findings discussed.</p>
+<ul class='contexts'><li class="ctx">We adopt a DINO-pretrained ViT-B/16 [6] as the semantic teacher due to its strong global representation capabilities [3,26,32].</li></ul>
+</div>
+</body></html>
