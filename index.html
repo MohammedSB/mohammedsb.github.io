@@ -20,6 +20,7 @@
             <a class="nav-item" href="https://scholar.google.com/citations?user=U-LgNOwAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" title="Google Scholar">Google Scholar</a>
             <a class="nav-item" href="visitors.html" title="Visitors">Visitors</a>
             <a class="nav-item" href="dailies.html" title="Dailies">Dailies</a>
+            <a class="nav-item" href="#message" title="Message">Message</a>
             <span class="nav-group">
                 <a class="nav-item" href="https://mohammedbaharoon.substack.com/" target="_blank" rel="noopener noreferrer" title="Writing">Writing</a>
                 <a class="nav-item" href="speaking.html" title="Speaking">Speaking</a>
@@ -102,6 +103,29 @@
         </div>
     </section>
 
+    <section class="message-section" id="message">
+        <h2 class="message-section-title">Send me a anonymous message</h2>
+        <p class="message-section-sub">Criticism, a disagreement with something I wrote, something about me you think I should change, did we meet and I came across the wrong way — or just a hello. No name needed.</p>
+        <form id="message-form" class="message-form">
+            <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY">
+            <input type="hidden" name="subject" value="Anonymous message from your site">
+            <input type="hidden" name="from_name" value="Anonymous visitor">
+            <input type="checkbox" name="botcheck" style="display:none">
+            <textarea
+                id="msg-text"
+                name="message"
+                class="message-input"
+                placeholder="What's on your mind?"
+                required
+                minlength="10"
+            ></textarea>
+            <div class="message-form-footer">
+                <button type="submit" class="message-btn" id="msg-btn">Send</button>
+            </div>
+        </form>
+        <div class="message-status" id="msg-status"></div>
+    </section>
+
     <footer class="proverb-footer">
         <p class="proverb-arabic" id="proverb-ar"></p>
         <p class="proverb-english" id="proverb-en"></p>
@@ -167,6 +191,121 @@
                 document.getElementById('proverb-ar').textContent = '« من جدّ وجد »';
                 document.getElementById('proverb-en').textContent = 'He who strives, finds.';
             });
+    </script>
+
+    <style>
+        .message-section {
+            max-width: 960px;
+            margin: 0 auto 3rem;
+            padding: 0 1.5rem;
+        }
+        .message-section-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #800020;
+            margin-bottom: 0.3rem;
+        }
+        .message-section-sub {
+            font-size: 0.88rem;
+            color: #999;
+            margin-bottom: 1.1rem;
+        }
+        .message-form {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,.07);
+            max-width: 600px;
+        }
+        .message-input {
+            width: 100%;
+            min-height: 110px;
+            padding: 0.75rem 0.9rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: #222;
+            background: #fafafa;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 7px;
+            resize: vertical;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+        .message-input:focus {
+            border-color: #800020;
+            background: #fff;
+        }
+        .message-input::placeholder { color: #bbb; }
+        .message-form-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+        }
+        .anon-note {
+            font-size: 0.78rem;
+            color: #bbb;
+        }
+        .message-btn {
+            background: #800020;
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            padding: 0.5rem 1.4rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s, transform 0.1s;
+        }
+        .message-btn:hover:not(:disabled) { background: #600018; transform: translateY(-1px); }
+        .message-btn:disabled { opacity: 0.5; cursor: default; }
+        .message-status {
+            margin-top: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 7px;
+            font-size: 0.88rem;
+            display: none;
+        }
+        .message-status.success { background: #edf7f2; color: #1a6640; border-left: 3px solid #2a9d5c; }
+        .message-status.error   { background: #fff0f0; color: #a00;    border-left: 3px solid #cc3333; }
+    </style>
+    <script>
+        (function () {
+            const form   = document.getElementById('message-form');
+            const btn    = document.getElementById('msg-btn');
+            const status = document.getElementById('msg-status');
+            if (!form) return;
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                btn.disabled = true;
+                btn.textContent = 'Sending…';
+                status.style.display = 'none';
+                try {
+                    const res  = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+                    });
+                    const json = await res.json();
+                    if (res.ok && json.success) {
+                        status.className = 'message-status success';
+                        status.textContent = 'Message sent — thank you for reaching out.';
+                        form.reset();
+                    } else {
+                        throw new Error();
+                    }
+                } catch (_) {
+                    status.className = 'message-status error';
+                    status.textContent = 'Something went wrong. Please try again.';
+                }
+                status.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Send';
+            });
+        })();
     </script>
 
     <!-- Firebase SDK + visitor tracking -->
