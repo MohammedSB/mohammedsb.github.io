@@ -119,7 +119,6 @@
                 class="message-input"
                 placeholder="What's on your mind?"
                 required
-                minlength="10"
             ></textarea>
             <div class="message-form-footer">
                 <button type="submit" class="message-btn" id="msg-btn">Send</button>
@@ -280,9 +279,32 @@
             const form   = document.getElementById('message-form');
             const btn    = document.getElementById('msg-btn');
             const status = document.getElementById('msg-status');
+            const COOLDOWN_MS = 90000;
+            const LS_KEY = 'msg_last_sent';
             if (!form) return;
+
+            function showCooldown() {
+                const last = parseInt(localStorage.getItem(LS_KEY) || '0', 10);
+                const remaining = Math.ceil((last + COOLDOWN_MS - Date.now()) / 1000);
+                if (remaining > 0) {
+                    btn.disabled = true;
+                    status.className = 'message-status error';
+                    status.textContent = `Please wait ${remaining}s before sending another message.`;
+                    status.style.display = 'block';
+                    setTimeout(showCooldown, 1000);
+                } else {
+                    btn.disabled = false;
+                    status.style.display = 'none';
+                }
+            }
+
+            const last = parseInt(localStorage.getItem(LS_KEY) || '0', 10);
+            if (Date.now() - last < COOLDOWN_MS) showCooldown();
+
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
+                const last2 = parseInt(localStorage.getItem(LS_KEY) || '0', 10);
+                if (Date.now() - last2 < COOLDOWN_MS) { showCooldown(); return; }
                 btn.disabled = true;
                 btn.textContent = 'Sending…';
                 status.style.display = 'none';
@@ -294,9 +316,15 @@
                     });
                     const json = await res.json();
                     if (res.ok && json.success) {
+                        localStorage.setItem(LS_KEY, String(Date.now()));
                         status.className = 'message-status success';
-                        status.textContent = 'Message sent — thank you for reaching out.';
+                        status.textContent = 'Message sent, I will be sure to read it :)';
                         form.reset();
+                        btn.disabled = false;
+                        btn.textContent = 'Send';
+                        status.style.display = 'block';
+                        showCooldown();
+                        return;
                     } else {
                         throw new Error();
                     }

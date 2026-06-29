@@ -196,7 +196,6 @@
                     class="message-textarea"
                     placeholder="What's on your mind?"
                     required
-                    minlength="10"
                 ></textarea>
                 <p class="message-note">No name or email needed. I won't know who you are.</p>
 
@@ -213,27 +212,52 @@
         const form = document.getElementById('message-form');
         const btn  = document.getElementById('submit-btn');
         const status = document.getElementById('msg-status');
+        const COOLDOWN_MS = 90000;
+        const LS_KEY = 'msg_last_sent';
+
+        function showCooldown() {
+            const last = parseInt(localStorage.getItem(LS_KEY) || '0', 10);
+            const remaining = Math.ceil((last + COOLDOWN_MS - Date.now()) / 1000);
+            if (remaining > 0) {
+                btn.disabled = true;
+                status.className = 'message-status error';
+                status.textContent = `Please wait ${remaining}s before sending another message.`;
+                status.style.display = 'block';
+                setTimeout(showCooldown, 1000);
+            } else {
+                btn.disabled = false;
+                status.style.display = 'none';
+            }
+        }
+
+        const _last = parseInt(localStorage.getItem(LS_KEY) || '0', 10);
+        if (Date.now() - _last < COOLDOWN_MS) showCooldown();
 
         form.addEventListener('submit', async e => {
             e.preventDefault();
+            const last2 = parseInt(localStorage.getItem(LS_KEY) || '0', 10);
+            if (Date.now() - last2 < COOLDOWN_MS) { showCooldown(); return; }
             btn.disabled = true;
             btn.textContent = 'Sending…';
             status.style.display = 'none';
-
-            const data = Object.fromEntries(new FormData(form));
 
             try {
                 const res = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify(data),
+                    body: JSON.stringify(Object.fromEntries(new FormData(form))),
                 });
                 const json = await res.json();
                 if (res.ok && json.success) {
+                    localStorage.setItem(LS_KEY, String(Date.now()));
                     status.className = 'message-status success';
-                    status.textContent = 'Message sent. Thank you — I appreciate you taking the time.';
+                    status.textContent = 'Message sent, I will be sure to read it :)';
                     status.style.display = 'block';
                     form.reset();
+                    btn.disabled = false;
+                    btn.textContent = 'Send message';
+                    showCooldown();
+                    return;
                 } else {
                     throw new Error(json.message || 'Submission failed');
                 }
