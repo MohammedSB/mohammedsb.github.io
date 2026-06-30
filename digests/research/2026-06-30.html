@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — June 30, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — June 30, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.30201" target="_blank">SHOVIR: A Benchmark for Evaluating Vision Shortcut Learning in Radiology Report Generation</a></h3>
+<p class="meta">Filippo Ruffini, Marco Salmé, Rosa Sicilia, Valerio Guarrasi et al. (5 authors) &nbsp;·&nbsp; <code>2606.30201</code></p>
+<p class="tags"><span class="tag">Radiology Report Generation</span><span class="tag">Evaluation Metrics</span><span class="tag">Vision-Language Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> SHOVIR is a benchmark that tests whether radiology report generation models actually ground diagnostic statements in visual evidence rather than exploiting dataset shortcuts.</p><p class="field"><span class="label">Problem:</span> Standard RRG metrics measure report-level lexical overlap or aggregate clinical correctness, which lets models score well by exploiting learned priors and frequent findings without truly attending to image pathology. There is no protocol to check whether each diagnostic statement stems from the actual visible evidence.</p><p class="field"><span class="label">Method:</span> The authors build SHOVIR, a benchmark and evaluation protocol that isolates vision shortcut learning in VLMs for RRG, testing whether individual diagnostic statements are causally tied to the pathological evidence in the image. They evaluate VLM-based report generators against this statement-level grounding criterion rather than only report-level scores.</p><p class="field"><span class="label">Results:</span> Models that achieve competitive conventional scores are shown to rely substantially on shortcuts, revealing a gap between reported metrics and genuine visual grounding.</p><p class="field"><span class="label">Why it matters:</span> This sits squarely at the intersection of the reader's interests in radiology report generation and evaluation metrics for generative reports, offering a tool to expose and quantify a failure mode that standard metrics hide.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.29949" target="_blank">Data-Efficient Multimodal Alignment for Histopathology-based Molecular Prediction</a></h3>
+<p class="meta">Dominik Winter, Dominik Vonficht, Loïc Le Bescond, Christian Gebbe et al. (9 authors) &nbsp;·&nbsp; <code>2606.29949</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Multimodal Learning</span><span class="tag">Foundation Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> A lightweight alignment module on top of frozen histopathology and RNA-seq foundation models enables open-vocabulary molecular prompting from H&amp;E whole-slide images.</p><p class="field"><span class="label">Problem:</span> H&amp;E whole-slide images are abundant and spatially rich but lack molecular specificity, while bulk RNA-seq is transcriptome-wide but costly and rarely archived. Bridging the two data-efficiently is a key challenge for scalable molecular pathology.</p><p class="field"><span class="label">Method:</span> The authors train only a small alignment module that connects frozen pathology and RNA-seq foundation-model embeddings into a shared space. This enables querying H&amp;E slides with arbitrary molecular prompts (open-vocabulary molecular prediction) without retraining the large backbones.</p><p class="field"><span class="label">Results:</span> The data-efficient alignment yields open-vocabulary molecular prediction from histology, demonstrating that frozen foundation-model representations can be cheaply coupled across modalities.</p><p class="field"><span class="label">Why it matters:</span> Directly relevant to the reader's focus on self-supervised and multimodal learning for medical imaging and on vision-language-style foundation models applied in pathology.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.30020" target="_blank">Uncertainty Estimation in Pathology Foundation Models via Deep Mutual Learning</a></h3>
+<p class="meta">Gbègninougbo Aurel Davy Tchokponhoue, Sevda Öğüt, Ali Idri, Dorina Thanou et al. (5 authors) &nbsp;·&nbsp; <code>2606.30020</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Foundation Models</span><span class="tag">Uncertainty Estimation</span></p>
+<p class="field"><span class="label">TL;DR:</span> DICE is a plug-and-play deep mutual learning framework that adds reliable uncertainty estimates to pathology foundation models for whole-slide image analysis.</p><p class="field"><span class="label">Problem:</span> Pathology foundation models give generalizable WSI representations but lack trustworthy confidence estimates, and no single model is best across all tasks, undermining clinical adoption.</p><p class="field"><span class="label">Method:</span> The authors propose DICE, a deep mutual learning framework that combines multiple pathology foundation models so they teach each other, producing calibrated uncertainty estimates while leveraging complementary strengths. It is designed as a plug-and-play layer atop existing PFMs.</p><p class="field"><span class="label">Results:</span> DICE improves uncertainty quantification and robustness across tasks relative to relying on any individual foundation model.</p><p class="field"><span class="label">Why it matters:</span> Speaks to the reader's interest in medical-imaging foundation models and the practical evaluation/reliability concerns needed for clinical deployment.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.30638" target="_blank">Open-Vocabulary and Referring Segmentation for 3D Gaussians Using 2D Detectors</a></h3>
+<p class="meta">Jameel Hassan, Yasiru Ranasinghe, Vishal Patel &nbsp;·&nbsp; <code>2606.30638</code></p>
+<p class="tags"><span class="tag">Referring Segmentation</span><span class="tag">Open-Vocabulary Segmentation</span><span class="tag">3D Gaussian Splatting</span></p>
+<p class="field"><span class="label">TL;DR:</span> A method brings open-vocabulary and referring segmentation to 3D Gaussian Splatting scenes by distilling 2D detector and CLIP features into per-Gaussian semantics.</p><p class="field"><span class="label">Problem:</span> Extending 3DGS scene reconstruction with language-driven, open-vocabulary understanding is needed for embodied AI, but learning high-dimensional CLIP features per Gaussian is expensive and noisy.</p><p class="field"><span class="label">Method:</span> The approach assigns language-grounded semantics to 3D Gaussians by distilling features from off-the-shelf 2D detectors and CLIP, supporting both open-vocabulary and referring (text-conditioned) segmentation of the reconstructed scene without dense 3D annotation.</p><p class="field"><span class="label">Results:</span> The method enables text-driven and open-vocabulary segmentation directly on 3D Gaussian scenes using only 2D detectors as supervision.</p><p class="field"><span class="label">Why it matters:</span> Referring segmentation and CLIP-style vision-language grounding are core reader interests; this shows a clean transfer of those ideas into 3D reconstruction.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.29888" target="_blank">Same Concept, Different Directions: Cross-Modal Feature Heterogeneity in Sparse Autoencoders</a></h3>
+<p class="meta">Chungpa Lee, Jihoon Kwon, Kyle Min, Jy-yong Sohn &nbsp;·&nbsp; <code>2606.29888</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Sparse Autoencoders</span><span class="tag">Interpretability</span></p>
+<p class="field"><span class="label">TL;DR:</span> Sparse autoencoders reveal that the same concept is encoded along different directions for image and text in CLIP-style joint embedding spaces.</p><p class="field"><span class="label">Problem:</span> Vision-language models map images and text into a joint space, but those embeddings entangle multiple features and are hard to interpret; whether shared concepts use shared directions across modalities was untested.</p><p class="field"><span class="label">Method:</span> The authors apply sparse autoencoders to joint VLM embeddings and explicitly test the implicit assumption that a concept occupies the same direction for both modalities, characterizing cross-modal feature heterogeneity.</p><p class="field"><span class="label">Results:</span> They find systematic cross-modal heterogeneity—identical concepts point in different directions for vision and language—challenging assumptions behind controllability and interpretability of joint embeddings.</p><p class="field"><span class="label">Why it matters:</span> Bears directly on the reader's interest in CLIP-style vision-language foundation models and self-supervised/contrastive representation analysis.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.29814" target="_blank">Nemotron-Labs-Diffusion-Image: Advancing Masked Discrete Diffusion for High-Resolution Image Synthesis</a></h3>
+<p class="meta">Shufan Li, Greg Heinrich, Hanrong Ye, Yonggan Fu et al. (7 authors) &nbsp;·&nbsp; <code>2606.29814</code></p>
+<p class="tags"><span class="tag">Diffusion Models</span><span class="tag">Text-to-Image Generation</span><span class="tag">Foundation Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> Nemotron-Labs-Diffusion-Image is a state-of-the-art masked discrete diffusion model for high-resolution text-to-image synthesis.</p><p class="field"><span class="label">Problem:</span> Unlike continuous latent diffusion, standard masked discrete diffusion models lack the global self-consistency needed for high-resolution image generation, limiting their competitiveness.</p><p class="field"><span class="label">Method:</span> The authors design a masked discrete diffusion model that addresses self-consistency and high-resolution synthesis challenges of prior masked image generation, advancing the discrete-token generative paradigm for text-to-image.</p><p class="field"><span class="label">Results:</span> The model reaches state-of-the-art quality for high-resolution masked discrete diffusion image synthesis.</p><p class="field"><span class="label">Why it matters:</span> A notable advance in generative foundation models and diffusion architectures, relevant for the reader's broader interest in generative methods and self-supervised vision modeling.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.30209" target="_blank">A Multi Center Breast FNAC Whole-Slide Cytology Dataset for AI-Assisted Patch-Wise Classification Using C1 to C5 Reporting Categories</a></h3>
+<p class="meta">Garima Jain, Abhijeet Patil, Surabhi Jain, Sanghamitra Pati et al. (39 authors) &nbsp;·&nbsp; <code>2606.30209</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Cytology Dataset</span><span class="tag">Breast Cancer</span></p>
+<p class="abstract">We present a multi center breast fine needle aspiration cytology (FNAC) dataset designed for patch wise classification using C1 to C5 reporting labels. The prospective dataset includes 321 patients and 470 whole-slide images (WSIs) collected from participating tertiary medical centers in India between May 2023 and March 2026. Slides were stained using Papanicolaou (190 WSIs) or MayGrunwald Giemsa </p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.30374" target="_blank">Set-Inclusive Uncertainty Modeling for Robust Brain Tumor Segmentation</a></h3>
+<p class="meta">Seunghun Baek, Jihwan Park, Jaeyoon Sim, Hoseok Lee et al. (6 authors) &nbsp;·&nbsp; <code>2606.30374</code></p>
+<p class="tags"><span class="tag">Brain Tumor Segmentation</span><span class="tag">Multimodal MRI</span><span class="tag">Uncertainty Estimation</span></p>
+<p class="abstract">Multimodal MRI is essential for accurate brain tumor segmentation. However, acquiring all modalities at inference is often challenging in practice, which causes intrinsic uncertainty due to unavoidable information loss. Without modeling this uncertainty, existing methods encode incomplete evidence into deterministic representations that appear plausible but lack reliability. In this regime, we pro</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.30313" target="_blank">TRACE: A Concept Bottleneck Model for Longitudinal 3D Glioblastoma Response Assessment</a></h3>
+<p class="meta">Alia Tarek, Hamsa Saberr, Hamza Elghonemy, Youssef Afify et al. (8 authors) &nbsp;·&nbsp; <code>2606.30313</code></p>
+<p class="tags"><span class="tag">Concept Bottleneck Models</span><span class="tag">Glioblastoma</span><span class="tag">Longitudinal MRI</span></p>
+<p class="abstract">Longitudinal glioblastoma response assessment requires comparing subtle tumor changes across MRI time points using structured clinical criteria such as RANO. However, most deep learning methods predict response labels directly from imaging features, which limits clinical inspection, verification, and correction. We introduce TRACE, a RANO 2.0-aligned concept bottleneck model for interpretable 4-cl</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2606.30108" target="_blank">LETT-NeXt: A Lightweight RECIST-Guided Model for 3D CT Lesion Segmentation</a></h3>
+<p class="meta">Sebastian Aas, Elias Stenhede, Arian Ranjbar &nbsp;·&nbsp; <code>2606.30108</code></p>
+<p class="tags"><span class="tag">CT Lesion Segmentation</span><span class="tag">Foundation Models</span><span class="tag">Oncology</span></p>
+<p class="abstract">RECIST diameter measurements are widely used for tumor response assessment, but they provide only a limited 2D description of lesion extent. We present LETT-NeXt, a lightweight RECIST-guided model that predicts 3D lesion masks from CT volumes and RECIST markers for the CVPR 2026 Foundation Models for Pan-cancer Segmentation in CT Images competition. LETT-NeXt extracts a RECIST-centered regional cr</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2606.30417" target="_blank">Beyond Point Estimates for Glaucoma Visual Field Forecasting with Diffusion Models</a></h3>
+<p class="meta">Marta Colmenar Herrera, Pablo Márquez Neila, Şerife Seda Kucur Ergünay, Martin S. Zinkernagel et al. (5 authors) &nbsp;·&nbsp; <code>2606.30417</code></p>
+<p class="tags"><span class="tag">Diffusion Models</span><span class="tag">Glaucoma</span><span class="tag">Probabilistic Forecasting</span></p>
+<p class="abstract">Forecasting visual fields (VFs) is critical for personalized monitoring and treatment planning in glaucoma. This is inherently uncertain due to heterogeneous disease progression and measurement variability, yet most existing methods produce single deterministic predictions that fail to represent this uncertainty. We formulate VF forecasting as a probabilistic prediction problem and the use of cond</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2606.29715" target="_blank">Accurate Recognition of Pneumonia and COVID-19 by Geometric Shape Normalization of Lung Region using Automatic Landmark Detection and Piecewise Affine Warping</a></h3>
+<p class="meta">Salvador E. Ayala-Raggi, Rafael Alejandro Cruz-Ovando, Lauro Reyes-Cocoletzi, Aldrin Barreto-Flores &nbsp;·&nbsp; <code>2606.29715</code></p>
+<p class="tags"><span class="tag">Chest X-ray</span><span class="tag">Pneumonia/COVID Classification</span><span class="tag">Image Normalization</span></p>
+<p class="abstract">This paper presents an automatic system for recognizing pulmonary diseases in chest X-rays using geometric normalization of the lung region. The method combines three modules: (1) a ResNet-18 landmark detector with coordinate attention that predicts 15 lung-contour landmarks, achieving a mean localization error of 3.61 pixels through an ensemble of four models with test-time augmentation; (2) a ge</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2606.30244" target="_blank">Semantic-Driven Scale and Spatial Selection for Efficient Cross-Modal Alignment in Referring Remote Sensing Image Segmentation</a></h3>
+<p class="meta">Kun Li, Shengxi Gui, Francesco Nex, Michael Ying Yang &nbsp;·&nbsp; <code>2606.30244</code></p>
+<p class="tags"><span class="tag">Referring Segmentation</span><span class="tag">Remote Sensing</span><span class="tag">Cross-Modal Alignment</span></p>
+<p class="abstract">Referring Remote Sensing Image Segmentation (RRSIS) seeks to localize and segment the target object or region specified by a natural language expression in a remote sensing image. While existing RRSIS models have benefited from large-scale foundation models, they predominantly rely on full fine-tuning. These approaches are computationally intensive and may weaken the generalization ability of pre-</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2606.30625" target="_blank">Optimization Dynamics Imprint Semantic Specificity in Contrastive Embedding Norms</a></h3>
+<p class="meta">Ziwei Su, Junyu Ren, Victor Veitch &nbsp;·&nbsp; <code>2606.30625</code></p>
+<p class="tags"><span class="tag">Contrastive Learning</span><span class="tag">Embedding Geometry</span><span class="tag">Representation Analysis</span></p>
+<p class="abstract">Contrastive embedding models trained with scale-invariant losses are typically paired with distance metrics like cosine similarity, effectively ignoring embedding magnitudes. However, surprisingly, empirical studies reveal that despite this, these "discarded" norms seem to correlate with semantic properties such as concept specificity, token frequency, and human uncertainty. In this work, we provi</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2606.30534" target="_blank">Orca: The World is in Your Mind</a></h3>
+<p class="meta">Yihao Wang, Yuheng Ji, Mingyu Cao, Yanqing Shen et al. (57 authors) &nbsp;·&nbsp; <code>2606.30534</code></p>
+<p class="tags"><span class="tag">World Models</span><span class="tag">Foundation Models</span><span class="tag">Multimodal Learning</span></p>
+<p class="abstract">We introduce Orca, an initial instantiation of a general world foundation model. Orca learns a unified world latent space from multimodal world signals and exposes it through multimodal readout interfaces. Rather than optimizing isolated next-token, next-frame, or next-action prediction, we are centered on Next-State-Prediction modeling, offering a unified state-transition modeling route toward un</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2606.30054" target="_blank">Illuminating Unified Multimodal Model for Free-form Interleaved Text-Image Generation</a></h3>
+<p class="meta">Chonghuinan Wang, Zhikai Chen, Chunwei Wang, Yecong Wan et al. (12 authors) &nbsp;·&nbsp; <code>2606.30054</code></p>
+<p class="tags"><span class="tag">Unified Multimodal Models</span><span class="tag">Interleaved Text-Image Generation</span><span class="tag">Vision-Language Models</span></p>
+<p class="abstract">The advancement of generative AI models capable of producing text and image marks a critical step forward in the realm of multimodal intelligence, particularly for tasks involving the interleaving of both modalities. To advance this intelligence to the next stage, it is crucial for models to autonomously generate free-form interleaved text-image sequences. In this paper, we introduce ILLUME-X, an </p>
+</div>
+</body></html>
