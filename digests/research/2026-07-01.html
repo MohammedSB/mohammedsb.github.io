@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — July 1, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — July 1, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.31099" target="_blank">Seeing Through Multiple Views: Parameter-Efficient Fine-Tuning via Selective Neurons for Consistent Radiology Report Generation</a></h3>
+<p class="meta">Yucheng Chen, Jinjing Zhu, Yang Yu, Yufei Shi et al. (10 authors) &nbsp;·&nbsp; <code>2606.31099</code></p>
+<p class="tags"><span class="tag">Radiology Report Generation</span><span class="tag">Chest X-ray</span><span class="tag">Parameter-Efficient Fine-Tuning</span></p>
+<p class="field"><span class="label">TL;DR:</span> A parameter-efficient method that selects view-specific neurons to reconcile multi-view chest X-ray inputs for more consistent radiology report generation.</p><p class="field"><span class="label">Problem:</span> Existing radiology report generation (RRG) methods fuse multi-view X-ray features directly, ignoring clinical inconsistencies that arise when one model processes different views, which harms accuracy and clinical reliability.</p><p class="field"><span class="label">Method:</span> The authors propose a parameter-efficient fine-tuning approach that identifies and activates 'selective neurons' specialized for handling multiple X-ray views, rather than naive feature fusion. This view-aware selection preserves cross-view consistency while adapting a foundation model with minimal trainable parameters.</p><p class="field"><span class="label">Results:</span> The method improves both report quality and multi-view clinical consistency over direct feature-fusion baselines on RRG benchmarks.</p><p class="field"><span class="label">Why it matters:</span> Directly targets the reader's core interest in radiology report generation and chest X-ray analysis, with a practical PEFT recipe for multi-view clinical imaging.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.31599" target="_blank">Token-Sparse Medical Multimodal Reasoning via Dual-Stream Reinforcement Learning</a></h3>
+<p class="meta">Kaitao Chen, Weiqian Zhao, Jiamin Wu, Qihao Zheng et al. (9 authors) &nbsp;·&nbsp; <code>2606.31599</code></p>
+<p class="tags"><span class="tag">Medical Vision-Language Models</span><span class="tag">Reinforcement Learning</span><span class="tag">Visual Grounding</span></p>
+<p class="field"><span class="label">TL;DR:</span> A dual-stream RL framework prunes visual tokens outside clinically relevant regions to sharpen medical multimodal reasoning in VLMs.</p><p class="field"><span class="label">Problem:</span> Medical images offer extremely sparse visual evidence for clinical decisions, and standard RL-tuned vision-language models struggle to focus on the diagnostically important regions.</p><p class="field"><span class="label">Method:</span> The paper introduces a token-sparse dual-stream reinforcement learning framework that actively prunes visual tokens lying outside the grounding region, concentrating reasoning on informative medical evidence. The two streams jointly optimize grounding and reasoning within a unified RL objective.</p><p class="field"><span class="label">Results:</span> Pruning non-grounding visual tokens substantially improves medical reasoning performance compared to dense-token RL baselines.</p><p class="field"><span class="label">Why it matters:</span> Combines vision-language models, RL post-training, and visual grounding for medical imaging—squarely within the reader's multimodal medical-imaging and referring-segmentation interests.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.31245" target="_blank">HyperVLP: Enhancing Hierarchical Surgical Video-Language Pre-training in Hyperbolic Space</a></h3>
+<p class="meta">Yaojun Hu, Kun Yuan, Nassir Navab, Haochao Ying et al. (6 authors) &nbsp;·&nbsp; <code>2606.31245</code></p>
+<p class="tags"><span class="tag">Surgical Vision-Language Pretraining</span><span class="tag">Hierarchical Representation Learning</span><span class="tag">Foundation Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> HyperVLP pretrains surgical video-language representations in hyperbolic space to capture the multi-level hierarchy of surgical knowledge.</p><p class="field"><span class="label">Problem:</span> Surgical knowledge from lecture videos is inherently hierarchical—fine-grained action cues in narration, mid-level steps in headings, and global procedural context—yet standard vision-language pretraining in Euclidean space fails to model this structure.</p><p class="field"><span class="label">Method:</span> HyperVLP performs hierarchical surgical video-language pretraining in hyperbolic space, which naturally embeds tree-like hierarchies. It aligns visual features with multi-granularity textual signals (action, step, procedure) to transfer structured surgical knowledge into visual representations.</p><p class="field"><span class="label">Results:</span> The hyperbolic hierarchical alignment yields improved surgical video representations and downstream task performance over Euclidean vision-language baselines.</p><p class="field"><span class="label">Why it matters:</span> Advances self-supervised, multimodal foundation-model learning for medical imaging (surgical video), matching the reader's focus on CLIP-style vision-language models applied to medicine.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.32039" target="_blank">GEAR: Guided End-to-End AutoRegression for Image Synthesis</a></h3>
+<p class="meta">Bin Lin, Zheyuan Liu, Chenguo Lin, Sixiang Chen et al. (11 authors) &nbsp;·&nbsp; <code>2606.32039</code></p>
+<p class="tags"><span class="tag">Autoregressive Image Generation</span><span class="tag">Tokenizer Learning</span><span class="tag">Generative Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> GEAR jointly trains a VQ tokenizer end-to-end with the generator so the tokenizer learns representations the generator finds easy to model.</p><p class="field"><span class="label">Problem:</span> Standard visual generative pipelines train a tokenizer for reconstruction, freeze it, then train a generator on its codes—leaving the tokenizer unaware of what is actually easy for the generator to learn.</p><p class="field"><span class="label">Method:</span> GEAR (Guided End-to-end AutoRegression) trains a vector-quantized tokenizer and the autoregressive generator jointly, letting generator feedback guide the tokenizer's latent/discrete representation. This couples reconstruction and generation objectives that were previously decoupled.</p><p class="field"><span class="label">Results:</span> The end-to-end guided training improves image synthesis quality relative to conventional frozen-tokenizer autoregressive pipelines.</p><p class="field"><span class="label">Why it matters:</span> Addresses a foundational representation-learning question in generative modeling that transfers to tokenizer/encoder design broadly relevant to the reader's multimodal and self-supervised work.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.32026" target="_blank">AdaJEPA: An Adaptive Latent World Model</a></h3>
+<p class="meta">Ying Wang, Oumayma Bounou, Yann LeCun, Mengye Ren &nbsp;·&nbsp; <code>2606.32026</code></p>
+<p class="tags"><span class="tag">World Models</span><span class="tag">Test-Time Adaptation</span><span class="tag">Self-Supervised Learning</span></p>
+<p class="field"><span class="label">TL;DR:</span> AdaJEPA is a latent world model that adapts at test time to remain accurate under distribution shift during planning.</p><p class="field"><span class="label">Problem:</span> Latent world models are typically frozen at inference, so when their predictions become inaccurate under test-time distribution shift, planning fails.</p><p class="field"><span class="label">Method:</span> AdaJEPA performs test-time adaptation of a JEPA-style latent world model, updating the model online so its latent forward predictions stay reliable as observations drift. It integrates adaptation into the planning loop.</p><p class="field"><span class="label">Results:</span> The adaptive world model maintains planning accuracy under distribution shift where frozen latent world models degrade.</p><p class="field"><span class="label">Why it matters:</span> From a LeCun-led group, this advances self-supervised joint-embedding predictive architectures—directly connected to the reader's interest in self-supervised representation learning.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.31779" target="_blank">Bridging the Gap Between Latent and Explicit Reasoning with Looped Transformers</a></h3>
+<p class="meta">Ying Fan, Anej Svete, Kangwook Lee &nbsp;·&nbsp; <code>2606.31779</code></p>
+<p class="tags"><span class="tag">LLM Reasoning</span><span class="tag">Latent Chain-of-Thought</span><span class="tag">Looped Transformers</span></p>
+<p class="field"><span class="label">TL;DR:</span> Looped transformers are used to close the performance gap between efficient latent reasoning and explicit token-by-token chain-of-thought.</p><p class="field"><span class="label">Problem:</span> Latent chain-of-thought reasons in hidden states for efficiency but underperforms explicit CoT beyond 1B parameters, with the gap widening at scale.</p><p class="field"><span class="label">Method:</span> The authors bridge latent and explicit reasoning using looped transformers, which iterate computation in latent space to emulate multi-step reasoning while retaining efficiency. They analyze how looping recovers the expressivity lost by decoding-free latent reasoning.</p><p class="field"><span class="label">Results:</span> The looped-transformer approach narrows the latent-vs-explicit reasoning gap at larger model scales.</p><p class="field"><span class="label">Why it matters:</span> A general architecture/training insight into reasoning models that informs efficient multimodal reasoning relevant to the reader's broader ML interests.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2606.31825" target="_blank">Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning</a></h3>
+<p class="meta">Junha Jung, Minbyul Jeong, Suhyeon Lim, Sungwook Jung et al. (8 authors) &nbsp;·&nbsp; <code>2606.31825</code></p>
+<p class="tags"><span class="tag">Medical Multimodal Reasoning</span><span class="tag">Reinforcement Learning</span><span class="tag">Clinical Image Reasoning</span></p>
+<p class="abstract">Recent multimodal large language models have shown great promise in clinical image reasoning, but existing post-training pipelines remain predominantly outcome-centric, relying on final answer correctness or sequence-level preferences. This suffers from sparse credit assignment, making it difficult to optimize the reasoning process essential for clinical applications. Our analysis reveals that cas</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2606.31502" target="_blank">Fully Automated High-Precision Segmentation of Retinal Atrophy and Ellipsoid Zone Thickness in OCT: A Reliable Tool for Real-World GA Monitoring</a></h3>
+<p class="meta">Wolf-Dieter Vogl, Hlynur Skulason, Oliver Leingang, Ursula Schmidt-Erfurth et al. (6 authors) &nbsp;·&nbsp; <code>2606.31502</code></p>
+<p class="tags"><span class="tag">OCT Segmentation</span><span class="tag">Geographic Atrophy</span><span class="tag">Medical Imaging</span></p>
+<p class="abstract">Geographic atrophy (GA) secondary to age-related macular degeneration (AMD) requires precise monitoring of relevant structural biomarkers to assess disease stage, progression, and treatment response. This paper presents a fully automated, deep learning-based framework for the high-precision, pixel-wise segmentation of key biomarkers in optical coherence tomography (OCT) imaging: retinal pigment ep</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2606.31100" target="_blank">TaxoMIL: Taxonomy-Constrained Learning for Hierarchical Whole Slide Image Analysis</a></h3>
+<p class="meta">Chaeyeon Lee, Khang Nguyen Quoc, Jinsol Song, Yosep Chong et al. (6 authors) &nbsp;·&nbsp; <code>2606.31100</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Multiple Instance Learning</span><span class="tag">Whole Slide Imaging</span></p>
+<p class="abstract">Whole slide image (WSI) analysis is central to computational pathology, with multiple instance learning (MIL) emerging as the standard pipeline for slide-level diagnosis. However, conventional approaches formulate WSI diagnosis as a flat classification task over discrete labels, contradicting the inherently hierarchical, coarse-to-fine nature of clinical reasoning. Although recent hierarchical cla</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2606.31839" target="_blank">Towards Voxel Spacing Consistency for Medical Image Segmentation</a></h3>
+<p class="meta">Xin You, Runze Yang, Minghui Zhang, Hanxiao Zhang et al. (9 authors) &nbsp;·&nbsp; <code>2606.31839</code></p>
+<p class="tags"><span class="tag">Medical Image Segmentation</span><span class="tag">Voxel Spacing</span><span class="tag">Domain Robustness</span></p>
+<p class="abstract">Volumetric medical image segmentation is essential for both preoperative diagnosis and intraoperative guidance. While recent years have witnessed rapid progress in segmentation architectures, comparatively little attention is paid to the physical voxel spacing of anatomical data. Indeed, volumetric image resampling is a ubiquitous preprocessing step before segmentation, yet its interaction with do</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2606.31179" target="_blank">HealthAgentBench: A Unified Benchmark Suite of Realistic Agentic Healthcare Environments for Challenging Frontier AI Agents</a></h3>
+<p class="meta">Qianchu Liu, Sheng Zhang, Guanghui Qin, Jeya Maria Jose Valanarasu et al. (19 authors) &nbsp;·&nbsp; <code>2606.31179</code></p>
+<p class="tags"><span class="tag">Healthcare Agents</span><span class="tag">Benchmarking</span><span class="tag">Clinical LLMs</span></p>
+<p class="abstract">As AI agents become increasingly capable of complex, long-horizon reasoning, rigorous and holistic evaluation is essential for measuring progress toward real-world healthcare applications. We introduce HealthAgentBench, a suite of 54 agentic healthcare tasks across 7 categories each with its unique environment. The benchmark suite spans diverse workflows throughout the patient journey and a broad </p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2606.31676" target="_blank">REDI: Corpus Aware Patch Ranking for DINOv3 Token Reduction</a></h3>
+<p class="meta">Chanjong Im, Sebastian Diem, Thomas Mandl &nbsp;·&nbsp; <code>2606.31676</code></p>
+<p class="tags"><span class="tag">Token Reduction</span><span class="tag">Vision Transformers</span><span class="tag">DINOv3</span></p>
+<p class="abstract">Most token reduction methods for Vision Transformers seek favorable tradeoffs between accuracy and efficiency by pruning, merging, or pooling patch tokens. REDI (Relevance for DINOv3 Token Reduction) studies this question through a controlled supervised reference: how should a fixed token budget be allocated across patches for image classification? REDI quantizes final block DINOv3 patch represent</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2606.31982" target="_blank">ERA: Entropy-Guided Visual Token Pruning with Rectified Attention for Efficient MLLMs</a></h3>
+<p class="meta">Yuhao Wang, Mu Qiao, Haiwen Diao, Yunzhi Zhuge et al. (8 authors) &nbsp;·&nbsp; <code>2606.31982</code></p>
+<p class="tags"><span class="tag">Multimodal LLMs</span><span class="tag">Visual Token Pruning</span><span class="tag">Efficient Inference</span></p>
+<p class="abstract">Multimodal Large Language Models (MLLMs) incur prohibitive inference costs due to long visual token sequences. Training-free visual token reduction provides an efficient solution. However, existing methods distort attention distributions, giving rise to a phenomenon we term Attention Logit Collapse. To address this issue, we propose ERA, an Entropy-guided visual token pruning framework with Rectif</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2606.31576" target="_blank">Introduction to Stochastic Differential Equations for Generative Machine Learning: A Variational Perspective</a></h3>
+<p class="meta">Ole Winther, Paul Jeha, Sander Dieleman, Andriy Mnih et al. (6 authors) &nbsp;·&nbsp; <code>2606.31576</code></p>
+<p class="tags"><span class="tag">Diffusion Models</span><span class="tag">Stochastic Differential Equations</span><span class="tag">Generative Modeling</span></p>
+<p class="abstract">The use of ordinary and stochastic differential equations has led to substantial progress in generative machine learning with applications to, for example, image, video and biomolecule generation. This paper provides a self-contained and informal introduction to the differential equations, the probabilistic framework for using them in generative modeling and the Fokker--Planck equation that govern</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2606.31785" target="_blank">Self-Supervised Temporal Regularization for Landmark-Based Cardiac Segmentation with Automatic AHA Regional Mapping</a></h3>
+<p class="meta">David Montalvo-García, Nicolás Gaggion, María J. Ledesma-Carbayo, Enzo Ferrante &nbsp;·&nbsp; <code>2606.31785</code></p>
+<p class="tags"><span class="tag">Cardiac Segmentation</span><span class="tag">Self-Supervised Learning</span><span class="tag">Temporal Regularization</span></p>
+<p class="abstract">Graph-based cardiac segmentation with implicit anatomical correspondences provides topological guarantees and population-level analysis capabilities, but models trained on independent frames of image sequences exhibit temporal discontinuities that affect reliable clinical measurements, particularly in cardiac ultrasound. In this work, we introduce self-supervised temporal regularization as a post-</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2606.31095" target="_blank">Do Not Break the Vessels: Structure-Preserving Mean Flow for Vascular Image Translation</a></h3>
+<p class="meta">Changjin Sun, Zhuo Hu, Kaini Wang, Baixuan Wu et al. (9 authors) &nbsp;·&nbsp; <code>2606.31095</code></p>
+<p class="tags"><span class="tag">Medical Image Translation</span><span class="tag">Vascular Imaging</span><span class="tag">Flow Matching</span></p>
+<p class="abstract">Reconstructing anatomically faithful vascular structures from clinically accessible imaging modalities is of substantial clinical significance. However, existing cross-modal translation methods mainly emphasize pixel-level fidelity or visual realism and treat structure preservation as a property of the final output rather than an invariant of the generative process. This limitation often leads to </p>
+</div>
+</body></html>
