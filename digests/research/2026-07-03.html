@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — July 3, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — July 3, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.02024" target="_blank">Spatio-Temporal and Clinical Conditioning for Fine-Grained Radiology Report Retrieval</a></h3>
+<p class="meta">P. Sloan, E. Simpson, M. Mirmehdi &nbsp;·&nbsp; <code>2607.02024</code></p>
+<p class="tags"><span class="tag">Radiology Report Generation</span><span class="tag">Vision-Language Models</span><span class="tag">Medical Image Retrieval</span></p>
+<p class="field"><span class="label">TL;DR:</span> A retrieval-based radiology reporting method that conditions on spatio-temporal and clinical context for anatomically grounded, longitudinally-aware report generation.</p><p class="field"><span class="label">Problem:</span> Rising imaging demand and radiologist shortages strain reporting, yet existing retrieval-based report generation methods are rigid, lack anatomical grounding, and ignore longitudinal disease progression.</p><p class="field"><span class="label">Method:</span> The approach adds explicit anatomical/spatial grounding and conditions retrieval on both the imaging findings and clinical context, plus prior studies to capture longitudinal change, enabling fine-grained retrieval of report content matched to specific regions.</p><p class="field"><span class="label">Results:</span> The method yields more anatomically faithful and clinically conditioned report retrieval than rigid baselines (per the paper's reported gains on fine-grained retrieval).</p><p class="field"><span class="label">Why it matters:</span> Directly targets radiology report generation and evaluation—core interests—by improving anatomical grounding and longitudinal reasoning, which are exactly the weak points current report-generation systems face.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.01908" target="_blank">Towards Real-World Ultrasound Understanding: Large Vision-Language Models from Multi-Image Examinations with Long-Form Reports</a></h3>
+<p class="meta">Bingcong Yan, Chunlei Li, Jingliang Hu, Yilei Shi et al. (6 authors) &nbsp;·&nbsp; <code>2607.01908</code></p>
+<p class="tags"><span class="tag">Ultrasound</span><span class="tag">Vision-Language Models</span><span class="tag">Radiology Report Generation</span></p>
+<p class="field"><span class="label">TL;DR:</span> Scaling data from multi-image ultrasound examinations with long-form reports, rather than fancy architectures, unlocks real-world ultrasound understanding in LVLMs.</p><p class="field"><span class="label">Problem:</span> LVLMs perform well on many medical imaging tasks but struggle with ultrasound due to its complexity, multi-image exams, and variability that single-image, short-caption pipelines fail to capture.</p><p class="field"><span class="label">Method:</span> The authors revisit what is truly needed for ultrasound understanding, showing that scaling to realistic multi-image examinations paired with long-form clinical reports—instead of complex architectures or elaborate training tricks—is the key driver, and build LVLMs trained on this data.</p><p class="field"><span class="label">Results:</span> Data scale and realistic multi-image/long-report supervision substantially improve real-world ultrasound understanding over prior approaches.</p><p class="field"><span class="label">Why it matters:</span> Combines multimodal vision-language foundation models with radiology report generation on a challenging modality, reinforcing the reader's interest in data-centric VLM training for clinical reporting.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.01973" target="_blank">Assessing VLM Reliability for Medical Image Quality Evaluation Under Corruption and Bias</a></h3>
+<p class="meta">Sofiane Ouaari, Kevin Vorwalder, Nico Pfeifer &nbsp;·&nbsp; <code>2607.01973</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Medical Image Quality Assessment</span><span class="tag">Robustness Evaluation</span></p>
+<p class="field"><span class="label">TL;DR:</span> A study assessing how reliably VLMs perform medical image quality assessment under corruption and bias, exposing failure modes relevant to clinical safety.</p><p class="field"><span class="label">Problem:</span> VLMs are increasingly used for medical image quality assessment (MIQA) to support diagnostic accuracy, but their reliability under image corruption and dataset bias is poorly understood.</p><p class="field"><span class="label">Method:</span> The work evaluates VLM behavior on MIQA tasks by systematically applying corruptions and probing for bias, measuring whether quality judgments remain stable and trustworthy for clinical decision-making.</p><p class="field"><span class="label">Results:</span> VLMs show reliability gaps under corruption and bias, indicating they cannot yet be trusted for automated MIQA without safeguards.</p><p class="field"><span class="label">Why it matters:</span> Speaks directly to evaluation of vision-language models in medical imaging—an area central to the reader's focus on robust metrics and VLM foundation models for radiology.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.02404" target="_blank">Object-centric LeJEPA</a></h3>
+<p class="meta">Jakob Geusen, Ender Konukoglu &nbsp;·&nbsp; <code>2607.02404</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Object-Centric Learning</span><span class="tag">Representation Learning</span></p>
+<p class="field"><span class="label">TL;DR:</span> Object-centric LeJEPA aligns self-supervised representations at the object level rather than whole-scene, improving data efficiency of learned image encoders.</p><p class="field"><span class="label">Problem:</span> Image-level self-supervised methods like LeJEPA need large datasets; aligning representations at the object level promises data efficiency but doing so fully self-supervised requires jointly partitioning and representing scenes.</p><p class="field"><span class="label">Method:</span> The authors extend LeJEPA to operate at the level of objects, jointly discovering scene partitions and object representations without supervision, so alignment is computed per-object instead of over entire scenes.</p><p class="field"><span class="label">Results:</span> Object-level alignment improves data efficiency of the learned features relative to whole-scene self-supervision.</p><p class="field"><span class="label">Why it matters:</span> Self-supervised representation learning is a core interest; the object-centric, data-efficient framing is directly transferable to medical imaging where labeled data is scarce.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.02494" target="_blank">Towards Robustness against Typographic Attack with Training-free Concept Localization</a></h3>
+<p class="meta">Bohan Liu, Wenqian Ye, Guangzhi Xiong, Zhenghao He et al. (6 authors) &nbsp;·&nbsp; <code>2607.02494</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">CLIP</span><span class="tag">Adversarial Robustness</span></p>
+<p class="field"><span class="label">TL;DR:</span> A training-free concept localization method makes CLIP encoders robust to typographic attacks where in-image text confounds visual semantics.</p><p class="field"><span class="label">Problem:</span> CLIP encoders—the backbone of most LVLMs—are biased by irrelevant text appearing within images, shifting representations toward lexical meaning rather than true visual content.</p><p class="field"><span class="label">Method:</span> The paper introduces a training-free approach that localizes the text-driven concept within the image representation and suppresses its confounding influence, restoring visually-grounded features without retraining.</p><p class="field"><span class="label">Results:</span> The method improves robustness of CLIP-based encoders against typographic attacks while requiring no additional training.</p><p class="field"><span class="label">Why it matters:</span> CLIP-style foundation models and their failure modes are central to the reader's interests; understanding and fixing text-confound biases matters for any downstream medical VLM built on CLIP.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.02303" target="_blank">A Hippocampus for Linear Attention: An Exact Memory for What the Recurrent State Forgets</a></h3>
+<p class="meta">Wanyun Cui &nbsp;·&nbsp; <code>2607.02303</code></p>
+<p class="tags"><span class="tag">Linear Attention</span><span class="tag">Sequence Models</span><span class="tag">Memory Architectures</span></p>
+<p class="field"><span class="label">TL;DR:</span> HOLA gives linear-attention/state-space models a hippocampal exact-memory complement to recover facts that the compressed recurrent state forgets.</p><p class="field"><span class="label">Problem:</span> Linear-attention and state-space models compress the prefix into a fixed-size state, giving O(1) memory but lossy recall—earlier key-value associations get overwritten and needle retrieval degrades.</p><p class="field"><span class="label">Method:</span> Inspired by Complementary Learning Systems, HOLA (Hippocampal Linear Attention) pairs the fast lossy recurrent state with an exact hippocampal memory that stores associations the recurrent state cannot retain, enabling accurate recall without abandoning linear-time efficiency.</p><p class="field"><span class="label">Results:</span> The hybrid recovers needle-recall performance that pure linear attention loses while preserving efficiency benefits.</p><p class="field"><span class="label">Why it matters:</span> A general architecture advance addressing the long-context memory bottleneck in efficient sequence models—broadly impactful for scaling any transformer-alternative backbone.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.02497" target="_blank">Seek to Segment: Active Perception for Panoramic Referring Segmentation</a></h3>
+<p class="meta">Song Tang, Shuming Hu, Xincheng Shuai, Henghui Ding et al. (5 authors) &nbsp;·&nbsp; <code>2607.02497</code></p>
+<p class="tags"><span class="tag">Referring Segmentation</span><span class="tag">Active Perception</span><span class="tag">Embodied AI</span></p>
+<p class="abstract">Existing referring segmentation models passively process static images captured from fixed perspectives, limiting their applicability in Embodied AI, where agents must perform active perception in the continuous 360$^\circ$ environments. To bridge this gap, we introduce a novel task: Active Panoramic Referring Segmentation (APRS). In this setting, an agent is required to adjust its viewing directi</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.02490" target="_blank">Visually Grounded Self-Reflection for Vision-Language Models via Reinforcement Learning</a></h3>
+<p class="meta">Liyan Tang, Fangcong Yin, Greg Durrett &nbsp;·&nbsp; <code>2607.02490</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Reinforcement Learning</span><span class="tag">Visual Grounding</span></p>
+<p class="abstract">Large vision-language models can reason over multimodal inputs by generating textual chains of thought (CoT). A key capability exhibited in CoT reasoning is self-reflection: revisiting earlier decisions and correcting previous errors. However, existing LVLMs often fail to properly attend to visual inputs during reflection, limiting their ability to translate feedback into grounded corrections, esp</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.01987" target="_blank">Understanding Geometric Representations in Self-Supervised Vision Transformers via Subspace Intervention</a></h3>
+<p class="meta">Weichen Zhou, Yawen Zou, Chunzhi Gu, Ran Dong et al. (6 authors) &nbsp;·&nbsp; <code>2607.01987</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Vision Transformers</span><span class="tag">Representation Analysis</span></p>
+<p class="abstract">We introduce a controlled subspace intervention framework to investigate how self-supervised Vision Transformers (ViTs) encode dense geometric information. While linear probing is widely used to assess geometric representations, it treats features as a black box, failing to disentangle the underlying topology. To address this issue, we decompose the weights of converged linear probes to isolate th</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2607.02515" target="_blank">PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation</a></h3>
+<p class="meta">Haofei Xu, Rundi Wu, Philipp Henzler, Nikolai Kalischek et al. (10 authors) &nbsp;·&nbsp; <code>2607.02515</code></p>
+<p class="tags"><span class="tag">Diffusion Models</span><span class="tag">Monocular Geometry Estimation</span><span class="tag">3D Reconstruction</span></p>
+<p class="abstract">State-of-the-art single-image 3D reconstruction methods often rely on complex hybrid architectures and loss functions, or compress geometry into latent spaces in order to leverage pre-trained latent diffusion models. In this work, we show that such architectural overhead and intricate loss formulations are unnecessary. We introduce a minimalist pixel-space Diffusion Transformer, built on a plain V</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2607.02402" target="_blank">Show Me Examples: Inferring Visual Concepts from Image Sets</a></h3>
+<p class="meta">Nick Stracke, Kolja Bauer, Stefan Andreas Baumann, Miguel Angel Bautista et al. (6 authors) &nbsp;·&nbsp; <code>2607.02402</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Visual Concept Inference</span><span class="tag">In-Context Learning</span></p>
+<p class="abstract">Vision-language models (VLMs) can follow complex textual instructions, yet they struggle to reason from purely visual context. In particular, current models fail to infer shared concepts from sets of example images and apply them to new inputs. We introduce Visual Concept Inference from Sets (VICIS), a task that evaluates this capability. Given a small context set of images sharing a concept and a</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2607.02175" target="_blank">A rubric-based controlled comparison of frontier language models on expert-authored clinical reasoning tasks</a></h3>
+<p class="meta">Samiha A. Ismail, Fan X. Chen, Ali Merali &nbsp;·&nbsp; <code>2607.02175</code></p>
+<p class="tags"><span class="tag">Clinical Reasoning</span><span class="tag">LLM Evaluation</span><span class="tag">Medical AI</span></p>
+<p class="abstract">Multiple-choice medical benchmarks are increasingly saturated, and recent rubric-based evaluations such as HealthBench have shown that open-ended clinical performance is far from solved - its "Hard" subset top score remains 32%. We present a small, deliberately difficult evaluation dataset of five clinician-authored clinical scenarios spanning four specialties (anaesthesia, internal/family medicin</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2607.01675" target="_blank">HistoSeg++: Delving deeper with attention and multiscale feature fusion for biomarker segmentation</a></h3>
+<p class="meta">Saad Wazir, Rao Faizan, Daeyoung Kim &nbsp;·&nbsp; <code>2607.01675</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Semantic Segmentation</span><span class="tag">Biomarker Segmentation</span></p>
+<p class="abstract">Segmentation of biomarkers in medical images is frequently viewed as a first step towards medical image analysis in any bioinformatics or biomedical application. Despite progress, existing methods still struggle to capture information at multiple scales and to perform upsampling effectively across different datasets. These shortcomings often result in suboptimal generalization capabilities. Recent</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2607.01756" target="_blank">ProSAC-CT: Progressive Spectral-Anatomical Co-Guided Multi-Stage Diffusion Model for Low-Dose CT Denoising</a></h3>
+<p class="meta">Xuepeng Liu, Zetong Liu, Renyiming Li, Yan Li et al. (8 authors) &nbsp;·&nbsp; <code>2607.01756</code></p>
+<p class="tags"><span class="tag">Low-Dose CT</span><span class="tag">Diffusion Models</span><span class="tag">Medical Image Denoising</span></p>
+<p class="abstract">Low-dose computed tomography (LDCT) reduces radiation exposure but introduces stronger quantum noise, streak artifacts, and local texture degradation, which can obscure anatomical boundaries and weaken low-contrast structures. Diffusion models are promising for LDCT denoising by progressively recovering normal-dose CT (NDCT) images from degraded LDCT inputs, but existing methods often suffer from </p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2607.01751" target="_blank">MedStreamBench: A Time-Aware Benchmark for Streaming and Proactive Medical Video Understanding</a></h3>
+<p class="meta">Yuan Wang, Shujian Gao, Songtao Jiang, Zhengyu Hu et al. (5 authors) &nbsp;·&nbsp; <code>2607.01751</code></p>
+<p class="tags"><span class="tag">Medical Video Understanding</span><span class="tag">Streaming Benchmark</span><span class="tag">Multimodal Models</span></p>
+<p class="abstract">Existing medical video benchmarks primarily evaluate whether a model produces the correct answer, but rarely assess whether it answers at the right time. In real clinical settings, AI systems must decide not only what to predict, but also when to answer, defer judgment, or proactively raise alerts. This creates a critical gap between benchmark evaluation and deployment requirements. We present Med</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2607.02508" target="_blank">From SRA to Self-Flow: Data Augmentation or Self-Supervision?</a></h3>
+<p class="meta">Dengyang Jiang, Mengmeng Wang, Harry Yang, Jingdong Wang &nbsp;·&nbsp; <code>2607.02508</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Diffusion Transformers</span><span class="tag">Representation Alignment</span></p>
+<p class="abstract">Representation alignment has become an effective way to accelerate diffusion transformer training and improve generation quality. Recent self-alignment methods, such as SRA and Self-Flow, further remove the dependency on external pretrained encoders by constructing alignment within the diffusion model itself. However, the mechanism behind the improvement from SRA to Self-Flow, dual-time scheduling</p>
+</div>
+</body></html>
