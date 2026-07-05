@@ -78,10 +78,18 @@
         'Oman':'OM','Pakistan':'PK','Palestine':'PS','Peru':'PE','Philippines':'PH',
         'Poland':'PL','Portugal':'PT','Qatar':'QA','Romania':'RO','Russia':'RU',
         'Saudi Arabia':'SA','Singapore':'SG','South Africa':'ZA','South Korea':'KR',
+        'Republic of Korea':'KR','Korea':'KR',
         'Spain':'ES','Sri Lanka':'LK','Sudan':'SD','Sweden':'SE','Switzerland':'CH',
         'Syria':'SY','Taiwan':'TW','Thailand':'TH','Tunisia':'TN','Turkey':'TR',
         'Türkiye':'TR','Ukraine':'UA','United Arab Emirates':'AE','United Kingdom':'GB',
-        'United States':'US','Uzbekistan':'UZ','Vietnam':'VN','Yemen':'YE'
+        'United States':'US','Uzbekistan':'UZ','Vietnam':'VN','Yemen':'YE',
+        'Belarus':'BY','Guatemala':'GT','Zambia':'ZM','Slovakia':'SK',
+        'Slovenia':'SI','Croatia':'HR','Serbia':'RS','Bulgaria':'BG','Estonia':'EE',
+        'Latvia':'LV','Lithuania':'LT','Luxembourg':'LU','Iceland':'IS','Ecuador':'EC',
+        'Venezuela':'VE','Bolivia':'BO','Uruguay':'UY','Paraguay':'PY','Costa Rica':'CR',
+        'Panama':'PA','Dominican Republic':'DO','Kazakhstan':'KZ','Azerbaijan':'AZ',
+        'Georgia':'GE','Armenia':'AM','Tanzania':'TZ','Uganda':'UG','Zimbabwe':'ZW',
+        'Cameroon':'CM','Senegal':'SN','Ivory Coast':'CI','Rwanda':'RW','Mauritius':'MU'
     };
 
     function flagImg(code) {
@@ -93,12 +101,12 @@
         return code ? flagImg(code) : '';
     }
 
-    function buildAnalyticsRows(container, counts) {
+    function buildAnalyticsRows(container, counts, codeMap) {
         var sorted = Object.entries(counts).sort(function (a, b) { return b[1] - a[1]; });
         var max = sorted[0] ? sorted[0][1] : 1;
         container.innerHTML = '';
         sorted.forEach(function (entry) {
-            var code = COUNTRY_CODES[entry[0]] || '';
+            var code = (codeMap && codeMap[entry[0]]) || COUNTRY_CODES[entry[0]] || '';
             var flag = code ? flagImg(code) : '';
             var pct = Math.round((entry[1] / max) * 100);
             var row = document.createElement('div');
@@ -191,11 +199,14 @@
     function loadAnalytics() {
         var countryCounts = {};
         var osCounts = {};
+        var countryCodeMap = {};   // country name → code, learned from the visitor records themselves
         allVisitors.forEach(function (v) {
-            countryCounts[v.country || 'Unknown'] = (countryCounts[v.country || 'Unknown'] || 0) + 1;
+            var name = v.country || 'Unknown';
+            countryCounts[name] = (countryCounts[name] || 0) + 1;
+            if (v.countryCode && !countryCodeMap[name]) countryCodeMap[name] = v.countryCode;
             osCounts[v.os || 'Unknown'] = (osCounts[v.os || 'Unknown'] || 0) + 1;
         });
-        buildAnalyticsRows(document.getElementById('analytics-countries'), countryCounts);
+        buildAnalyticsRows(document.getElementById('analytics-countries'), countryCounts, countryCodeMap);
         buildAnalyticsRows(document.getElementById('analytics-devices'), osCounts);
     }
 
