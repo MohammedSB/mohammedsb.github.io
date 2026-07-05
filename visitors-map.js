@@ -92,6 +92,13 @@
         'Cameroon':'CM','Senegal':'SN','Ivory Coast':'CI','Rwanda':'RW','Mauritius':'MU'
     };
 
+    // Preferred display name per code, for countries whose name varies by provider.
+    var CANON_NAMES = {
+        'KR':'South Korea','GB':'United Kingdom','US':'United States',
+        'CZ':'Czechia','TR':'Türkiye','RU':'Russia','VN':'Vietnam',
+        'IR':'Iran','SY':'Syria','LA':'Laos','MK':'North Macedonia'
+    };
+
     function flagImg(code) {
         return '<img src="https://flagcdn.com/' + code.toLowerCase() + '.svg" width="20" height="15" alt="' + code + '" style="vertical-align:middle;margin-right:5px;border-radius:2px;">';
     }
@@ -197,14 +204,28 @@
 
     // ── Analytics ──
     function loadAnalytics() {
-        var countryCounts = {};
+        // Aggregate by country CODE so name variants from different geo-IP
+        // providers (e.g. "South Korea" vs "Republic of Korea") merge into one row.
+        var countByCode = {};      // code → count
+        var nameByCode  = {};      // code → display name
+        var countryCounts = {};    // display name → count
+        var countryCodeMap = {};   // display name → code
         var osCounts = {};
-        var countryCodeMap = {};   // country name → code, learned from the visitor records themselves
         allVisitors.forEach(function (v) {
             var name = v.country || 'Unknown';
-            countryCounts[name] = (countryCounts[name] || 0) + 1;
-            if (v.countryCode && !countryCodeMap[name]) countryCodeMap[name] = v.countryCode;
+            var code = v.countryCode || COUNTRY_CODES[name] || '';
+            if (code) {
+                countByCode[code] = (countByCode[code] || 0) + 1;
+                if (!nameByCode[code]) nameByCode[code] = CANON_NAMES[code] || name;
+            } else {
+                countryCounts[name] = (countryCounts[name] || 0) + 1;   // no code: keep by name
+            }
             osCounts[v.os || 'Unknown'] = (osCounts[v.os || 'Unknown'] || 0) + 1;
+        });
+        Object.keys(countByCode).forEach(function (code) {
+            var dName = nameByCode[code];
+            countryCounts[dName] = (countryCounts[dName] || 0) + countByCode[code];
+            countryCodeMap[dName] = code;
         });
         buildAnalyticsRows(document.getElementById('analytics-countries'), countryCounts, countryCodeMap);
         buildAnalyticsRows(document.getElementById('analytics-devices'), osCounts);
