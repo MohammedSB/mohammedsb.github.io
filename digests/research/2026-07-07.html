@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — July 7, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — July 7, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.05310" target="_blank">Evaluating and Understanding Model Editing for Medical Vision Language Models</a></h3>
+<p class="meta">Guli Zhu, Chenwei Wu, Liyue Shen &nbsp;·&nbsp; <code>2607.05310</code></p>
+<p class="tags"><span class="tag">Medical Vision-Language Models</span><span class="tag">Model Editing</span><span class="tag">Clinical Benchmarks</span></p>
+<p class="field"><span class="label">TL;DR:</span> Introduces M3Bench, a clinically grounded benchmark for evaluating knowledge/model editing of medical vision-language models after deployment.</p><p class="field"><span class="label">Problem:</span> Model editing promises fast, targeted correction of post-deployment errors in medical VLMs without retraining, but existing multimodal editing benchmarks are general-purpose and ignore realistic clinical requirements and variability.</p><p class="field"><span class="label">Method:</span> The authors build M3Bench, a benchmark reflecting clinical domain requirements, and use it to systematically evaluate and understand how existing multimodal model-editing methods behave on medical VLMs. They analyze reliability, generalization, and collateral effects of edits in the clinical setting.</p><p class="field"><span class="label">Results:</span> The study reveals that general-purpose editing methods fall short of clinical needs, exposing gaps in reliability and locality when applied to medical VLMs.</p><p class="field"><span class="label">Why it matters:</span> Directly targets vision-language foundation models in medicine — a core interest — and addresses how to maintain such models safely post-deployment, relevant for anyone building CLIP-style or generative medical VLMs.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.04694" target="_blank">Solve the Missing First Step: Can VLMs Standardize Raw Heterogeneous Medical Data?</a></h3>
+<p class="meta">Xin Chen, Dongliang Xu, Cunhao Zhu, Xudong Luo et al. (8 authors) &nbsp;·&nbsp; <code>2607.04694</code></p>
+<p class="tags"><span class="tag">Medical Vision-Language Models</span><span class="tag">Data Standardization</span><span class="tag">Clinical Deployment</span></p>
+<p class="field"><span class="label">TL;DR:</span> Asks whether VLMs can perform the overlooked 'first step' of standardizing raw, heterogeneous medical images and text before diagnosis.</p><p class="field"><span class="label">Problem:</span> Existing medical VLM benchmarks assume standardized images, text, or QA pairs are already prepared, but real clinical data is raw and heterogeneous, breaking this assumption in practice.</p><p class="field"><span class="label">Method:</span> The paper reframes the pipeline to evaluate whether VLMs can standardize raw heterogeneous medical data as a prerequisite task, constructing evaluation settings that reflect messy real-world clinical inputs rather than curated benchmarks.</p><p class="field"><span class="label">Results:</span> Findings characterize the extent to which current VLMs can (or cannot) handle unstandardized clinical inputs, highlighting a critical bottleneck for real deployment.</p><p class="field"><span class="label">Why it matters:</span> Highlights a practical, under-studied gap in deploying vision-language foundation models in real radiology/clinical workflows, complementing the reader's interest in multimodal medical AI.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.04740" target="_blank">DriftST: One-Step Generative Inference of Spatial Transcriptomics from H\&amp;E Histology</a></h3>
+<p class="meta">Yuhang Yang, Yonggan Bu, Shengyuan Zhou, Yiming Luo et al. (5 authors) &nbsp;·&nbsp; <code>2607.04740</code></p>
+<p class="tags"><span class="tag">Spatial Transcriptomics</span><span class="tag">Histopathology</span><span class="tag">Generative Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> DriftST is a one-step generative model that infers spatial transcriptomics gene expression directly from H&amp;E histology images.</p><p class="field"><span class="label">Problem:</span> Spatial transcriptomics preserves spatial gene expression context but is costly and low-throughput; predicting it from cheap, ubiquitous H&amp;E histology is attractive but existing regression methods over-smooth toward the conditional mean.</p><p class="field"><span class="label">Method:</span> DriftST uses a one-step generative inference approach that maps H&amp;E histology to spatial gene expression, avoiding the over-smoothing of regression by modeling the expression distribution rather than the mean.</p><p class="field"><span class="label">Results:</span> The method produces higher-fidelity, less-smoothed spatial expression predictions from histology than prior regression-based approaches.</p><p class="field"><span class="label">Why it matters:</span> Combines multimodal learning and generative modeling for medical imaging (histopathology), aligning with the reader's interest in multimodal and generative approaches in medical vision.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.05253" target="_blank">Repurposing CLIP to Localize at Pixel Level</a></h3>
+<p class="meta">Jiaxiang Fang, Shiqiang Ma, Jing Wang, Siyu Chen et al. (6 authors) &nbsp;·&nbsp; <code>2607.05253</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">CLIP</span><span class="tag">Dense Prediction</span></p>
+<p class="field"><span class="label">TL;DR:</span> CLIPix repurposes CLIP for pixel-level localization by tracing back its image-level classification signal to dense predictions.</p><p class="field"><span class="label">Problem:</span> CLIP shows strong open-set localization at the image level, but adapting it to pixel-level dense prediction is hard due to global feature biases.</p><p class="field"><span class="label">Method:</span> CLIPix is a simple framework that traces CLIP's classification decisions back to pixel-level evidence, converting image-level open-vocabulary capability into dense localization without heavy retraining.</p><p class="field"><span class="label">Results:</span> The approach enables effective pixel-level open-vocabulary localization from CLIP, demonstrating dense prediction capability was latent in the model.</p><p class="field"><span class="label">Why it matters:</span> Directly bridges CLIP-style vision-language foundation models and dense/segmentation prediction, closely matching the reader's interests in CLIP-style models and referring segmentation.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.05247" target="_blank">Vision Pretraining for Dense Spatial Perception</a></h3>
+<p class="meta">Zelin Fu, Bin Tan, Changjiang Sun, Shaohui Liu et al. (9 authors) &nbsp;·&nbsp; <code>2607.05247</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Vision Pretraining</span><span class="tag">Dense Spatial Perception</span></p>
+<p class="field"><span class="label">TL;DR:</span> Proposes boundary-centric vision pretraining to recover structured, metric spatial representations that semantic-invariance-focused foundation models miss.</p><p class="field"><span class="label">Problem:</span> Modern visual foundation models prioritize semantic invariance at the expense of detailed spatial understanding, limiting dense spatial perception needed for physical intelligence.</p><p class="field"><span class="label">Method:</span> The authors study vision pretraining through a boundary-centric lens, designing objectives that emphasize structure and metric spatial cues rather than only semantic invariance to learn dense, actionable representations.</p><p class="field"><span class="label">Results:</span> The boundary-centric pretraining yields representations better suited for dense spatial perception tasks than semantically-focused foundation models.</p><p class="field"><span class="label">Why it matters:</span> Advances self-supervised visual pretraining and representation learning — a core reader interest — with implications for any downstream dense prediction including medical imaging.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.05394" target="_blank">Weak-to-Strong Generalization via Direct On-Policy Distillation</a></h3>
+<p class="meta">Shiyuan Feng, Huan-ang Gao, Haohan Chi, Hanlin Wu et al. (10 authors) &nbsp;·&nbsp; <code>2607.05394</code></p>
+<p class="tags"><span class="tag">Weak-to-Strong Generalization</span><span class="tag">On-Policy Distillation</span><span class="tag">LLM Reasoning</span></p>
+<p class="field"><span class="label">TL;DR:</span> Runs RLVR on a small cheap model then transfers its improvements to a strong model via direct on-policy distillation, avoiding expensive rollouts on the large model.</p><p class="field"><span class="label">Problem:</span> RLVR improves LLM reasoning but is expensive to repeat per new strong model since the large target must generate many rollouts, making post-training a scaling bottleneck.</p><p class="field"><span class="label">Method:</span> The paper studies a weak-to-strong recipe: run RL on a smaller model where rollouts are cheap, then use direct on-policy distillation to transfer the learned improvements to the stronger model.</p><p class="field"><span class="label">Results:</span> The approach achieves strong-model reasoning gains at substantially reduced compute compared to running RLVR directly on the large model.</p><p class="field"><span class="label">Why it matters:</span> An impactful, general training-efficiency technique for LLM post-training that reflects broadly useful methodology for scaling model improvement.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.04912" target="_blank">Graph Representation Learning of Longitudinal Medical Imaging Trajectories for Treatment Response Prediction</a></h3>
+<p class="meta">Johannes Kiechle, Richard Osuala, Daniel M. Lang, Stefan M. Fischer et al. (8 authors) &nbsp;·&nbsp; <code>2607.04912</code></p>
+<p class="tags"><span class="tag">Medical Imaging</span><span class="tag">Graph Representation Learning</span><span class="tag">Treatment Response Prediction</span></p>
+<p class="abstract">In patients with breast cancer, pathological complete response (pCR) has been established as a clinically meaningful surrogate marker for long-term outcomes. While commonly treated with neoadjuvant chemotherapy (NACT), effective treatment decision-making remains challenging, as therapeutic response can vary substantially across patients, calling for predictive models capable of accurately estimati</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.04599" target="_blank">Displacement Preserving Relational Distillation for Robust Medical Segmentation</a></h3>
+<p class="meta">Zhicheng Ding, Xinyu Chu, Jung Im Choi, Qing Tian et al. (8 authors) &nbsp;·&nbsp; <code>2607.04599</code></p>
+<p class="tags"><span class="tag">Medical Image Segmentation</span><span class="tag">Knowledge Distillation</span><span class="tag">3D Segmentation</span></p>
+<p class="abstract">Accurate 3D medical segmentation is limited by anatomical variability and high computational costs. While knowledge distillation (KD) offers a route for model compression, conventional methods often fail to preserve complex structures and are overwhelmed by background noise. We propose Displacement-Preserving Relational Distillation (DPRD), which distills latent anatomical trajectories via vector </p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.05090" target="_blank">Be Indiscrete: The Benefits of Learning Continuous Spine Degeneration Severity Scores</a></h3>
+<p class="meta">Maria Monzon, Andrew Zisserman, Robin Y. Park, Catherine R. Jutzeler et al. (5 authors) &nbsp;·&nbsp; <code>2607.05090</code></p>
+<p class="tags"><span class="tag">Spine MRI</span><span class="tag">Ordinal Regression</span><span class="tag">Medical Imaging</span></p>
+<p class="abstract">Lumbar spine degeneration is a major contributor to chronic low back pain and is routinely assessed on MRI using ordinal grading systems, e.g. normal, mild, moderate, severe. Consequently, most approaches to train models to grade these MRIs formulate grading as a multi-class classification problem, treating ordinal grades as categorical, ignoring differences in misclassification severity, and impo</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2607.04638" target="_blank">Learning Structured Visual Compositional Representations for Weakly Supervised Referring Expression Comprehension</a></h3>
+<p class="meta">Lian Xu, Mohammed Bennamoun, Farid Boussaid, Hamid Laga et al. (6 authors) &nbsp;·&nbsp; <code>2607.04638</code></p>
+<p class="tags"><span class="tag">Referring Expression Comprehension</span><span class="tag">Weakly Supervised Learning</span><span class="tag">Vision-Language</span></p>
+<p class="abstract">Referring expression comprehension (REC) aims to localize the object in an image described by natural language. In Weakly supervised REC (WREC), existing approaches primarily operate on anchor-level visual representations. Even when enriched with auxiliary cues, relational interactions remain implicitly encoded within individual anchor features. The resulting visual representation remains flat and</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2607.04779" target="_blank">DGSeg: Dynamic Gating of Semantic-Spatial Guided Predictions for Reasoning Segmentation</a></h3>
+<p class="meta">Ruizhe Zeng, Siyu Cao, Lu Zhang, Zhiyong Liu &nbsp;·&nbsp; <code>2607.04779</code></p>
+<p class="tags"><span class="tag">Reasoning Segmentation</span><span class="tag">Multimodal LLMs</span><span class="tag">Semantic Segmentation</span></p>
+<p class="abstract">Reasoning segmentation aims to predict pixel-wise masks for targets given complex language queries. Existing approaches leverage Multimodal Large Language Models (MLLMs) for vision-language reasoning and generate intermediate target cues (e.g., points or boxes) to guide a segmentation model. However, compressing rich reasoning into sparse cues often introduces ambiguity and noise, preventing these</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2607.05268" target="_blank">Is the Geometry Doing the Work? An Operating-Point Audit of Hierarchy in Hyperbolic Vision-Language Models</a></h3>
+<p class="meta">Jaeyoung Kim, Eunseok Kim, Dongsuk Jang &nbsp;·&nbsp; <code>2607.05268</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Hyperbolic Representations</span><span class="tag">Model Analysis</span></p>
+<p class="abstract">Whether a hyperbolic representation model uses its geometry cannot be read off its curvature parameter: what matters is the dimensionless operating point $\sqrt{c}ρ$ and whether the radial and cone machinery is active there. We develop a battery of necessary-condition diagnostics and audit three published hyperbolic vision-language families -- MERU, HyCoCLIP, and PHyCLIP -- across released checkpo</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2607.04683" target="_blank">Does It Fail to See or Fail to Know? Attributing Errors in Vision-Language Models</a></h3>
+<p class="meta">Khang Nhat Hoang Vo, Artem Vazhentsev, Artem Shelmanov, Timothy Baldwin et al. (5 authors) &nbsp;·&nbsp; <code>2607.04683</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Uncertainty Quantification</span><span class="tag">Error Attribution</span></p>
+<p class="abstract">Vision-language models (VLMs) perform well on visual question answering with high-quality images but struggle when questions require knowledge beyond what is clearly and directly visible. In such settings, uncertainty quantification should not only indicate whether the model is likely to fail but also diagnose why it is uncertain, across dimensions such as perception, entity recognition, and knowl</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2607.04665" target="_blank">DiCE-CIR: Direct Composition Learning for Efficient Zero-Shot Composed Image Retrieval</a></h3>
+<p class="meta">Gwang-Ho Na, Ho-Joong Kim, Seong-Whan Lee &nbsp;·&nbsp; <code>2607.04665</code></p>
+<p class="tags"><span class="tag">Composed Image Retrieval</span><span class="tag">Zero-Shot Learning</span><span class="tag">Vision-Language</span></p>
+<p class="abstract">Zero-shot composed image retrieval (ZS-CIR) aims to retrieve a target image from a multimodal query consisting of a reference image and an edit text describing the desired modification. Recent ZS-CIR studies have relied on projection-based methods that map a reference image into pseudo-word tokens in the text embedding space. However, such methods require additional projection and re-encoding step</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2607.05008" target="_blank">Comparison of Loss Functions for Robust Deep Learning-based Echocardiography Segmentation when Learning with Partially Labelled Data from Multiple Domains</a></h3>
+<p class="meta">Iman Islam, Esther Puyol-Antón, Bram Ruijsink, Andrew J. Reader et al. (5 authors) &nbsp;·&nbsp; <code>2607.05008</code></p>
+<p class="tags"><span class="tag">Echocardiography</span><span class="tag">Medical Image Segmentation</span><span class="tag">Loss Functions</span></p>
+<p class="abstract">Echocardiography is the first imaging modality used for assessing cardiac function, and accurate segmentation of cardiac structures is essential for deriving biomarkers. However, the development of effective automated segmentation models for multiple cardiac structures is challenged by the difficulty of training on datasets from different sources that are often partially-labelled. This study aims </p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2607.05035" target="_blank">RUFNet: Query-Guided Support Mask Refinement and Uncertainty Fusion based on Hybrid Mamba for Few-Shot Brain Tumor Segmentation</a></h3>
+<p class="meta">Dongyi He, Xiangkai Wang, Binbing Xu, Bin Jiang et al. (8 authors) &nbsp;·&nbsp; <code>2607.05035</code></p>
+<p class="tags"><span class="tag">Brain Tumor Segmentation</span><span class="tag">Few-Shot Learning</span><span class="tag">Medical Imaging</span></p>
+<p class="abstract">Few-shot brain tumor segmentation remains challenging due to noisy support masks, inter-patient variations between support and query images, and the lack of pixel-wise confidence estimation. This study proposes RUFNet, a Hybrid Mamba-based few-shot framework that combines support mask refinement with uncertainty-aware posterior fusion. To preserve support-query dependencies with manageable cost, R</p>
+</div>
+</body></html>
