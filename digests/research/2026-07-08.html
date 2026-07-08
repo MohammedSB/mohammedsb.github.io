@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — July 8, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — July 8, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.05880" target="_blank">Harrison.Rad 1.5 Technical Report: A radiology foundation model that can draft reports from images, priors and clinical context</a></h3>
+<p class="meta">Suneeta Mall, Vladimir Nekrasov, Ashnil Kumar, Sajith Karunasena et al. (8 authors) &nbsp;·&nbsp; <code>2607.05880</code></p>
+<p class="tags"><span class="tag">Radiology Report Generation</span><span class="tag">Foundation Models</span><span class="tag">Vision-Language Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> Harrison.Rad 1.5 is a radiology foundation model that drafts structured reports directly from images, prior studies, and clinical context.</p><p class="field"><span class="label">Problem:</span> Imaging demand is outpacing the radiology workforce, creating reporting backlogs that recruitment alone cannot fix. The most direct lever is reducing the time radiologists spend interpreting images and drafting findings.</p><p class="field"><span class="label">Method:</span> The authors present a radiology foundation model that ingests images together with clinical history and prior studies to produce structured findings, mimicking the full reporting workflow rather than image-only captioning. It integrates multimodal priors and clinical context as conditioning inputs to draft reports.</p><p class="field"><span class="label">Results:</span> The technical report demonstrates the model can draft clinically usable structured reports by combining image interpretation with historical and contextual signals.</p><p class="field"><span class="label">Why it matters:</span> This is squarely in the reader's core interest of radiology report generation and vision-language foundation models, and integrating priors/clinical context is a frontier problem in the field.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.06268" target="_blank">MAC-XA: Multi-view Anatomy-Correspondence Fusion for Coronary Stenosis Reporting from X-ray Angiography</a></h3>
+<p class="meta">Chen Jia, Baochang Zhang, Fatia Kusuma Dewi, Amir Yousefi et al. (7 authors) &nbsp;·&nbsp; <code>2607.06268</code></p>
+<p class="tags"><span class="tag">Radiology Report Generation</span><span class="tag">Multi-View Fusion</span><span class="tag">Coronary Angiography</span></p>
+<p class="field"><span class="label">TL;DR:</span> MAC-XA generates coronary stenosis reports from multi-view X-ray angiography by explicitly modeling cross-projection anatomical correspondence.</p><p class="field"><span class="label">Problem:</span> Coronary X-ray angiography report generation is largely unexplored, and single-view modeling is incomplete because 3D vascular topology causes projection-dependent branch overlap and foreshortening. This makes lesion localization and stenosis grading unstable.</p><p class="field"><span class="label">Method:</span> MAC-XA is a multi-view anatomy-correspondence fusion framework that aligns branches across projections to resolve overlap and foreshortening. It fuses complementary view information to stabilize lesion localization and stenosis grading before generating the report.</p><p class="field"><span class="label">Results:</span> The approach establishes multi-view reasoning as a route to more reliable automated stenosis reporting from angiography.</p><p class="field"><span class="label">Why it matters:</span> A concrete radiology report generation task with a multi-view geometric fusion twist, directly relevant to the reader's report-generation and medical imaging focus.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.06356" target="_blank">TMF-RSE: Tri-Modal Fusion with Regional Semantics and Evidential Uncertainty for Lung Severity Scoring</a></h3>
+<p class="meta">Fadi Abdeladhim Zidi, Salah Eddine Bekhouche, Abdellah Zakaria Sellam, Gaby Maroun et al. (6 authors) &nbsp;·&nbsp; <code>2607.06356</code></p>
+<p class="tags"><span class="tag">Chest X-ray</span><span class="tag">Multimodal Fusion</span><span class="tag">Uncertainty Estimation</span></p>
+<p class="field"><span class="label">TL;DR:</span> TMF-RSE fuses appearance, segmentation-mask structure, and regional semantics with evidential uncertainty to score lung disease severity from chest imaging.</p><p class="field"><span class="label">Problem:</span> Accurate lung disease severity quantification from chest imaging is critical for triage and resource allocation but is hard to make both accurate and trustworthy. Existing methods often ignore structural and regional-semantic cues and provide no calibrated uncertainty.</p><p class="field"><span class="label">Method:</span> TMF-RSE is a tri-modal deep learning framework combining 2D chest appearance features, structural features from lung segmentation masks, and regional semantic features. It adds evidential uncertainty estimation to produce calibrated severity scores.</p><p class="field"><span class="label">Results:</span> The fusion of appearance, structure, and regional semantics with evidential modeling improves lung severity scoring while supplying uncertainty estimates.</p><p class="field"><span class="label">Why it matters:</span> Combines chest imaging, segmentation-driven structure, and uncertainty—hitting the reader's chest X-ray analysis and evaluation/reliability interests.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.05798" target="_blank">Segmentation before Answering: Pixel Grounding for MLLM Visual Reasoning</a></h3>
+<p class="meta">Yake Wei, Yuan Wang, Fengyun Rao, Jing Lyu et al. (5 authors) &nbsp;·&nbsp; <code>2607.05798</code></p>
+<p class="tags"><span class="tag">Referring Segmentation</span><span class="tag">Multimodal Large Language Models</span><span class="tag">Visual Reasoning</span></p>
+<p class="field"><span class="label">TL;DR:</span> SegAnswer performs pixel-level grounding (segmentation) before answering to make MLLM visual reasoning more reliable when zooming into regions of interest.</p><p class="field"><span class="label">Problem:</span> MLLMs that 'think with images' rely on zooming into regions (usually via bounding boxes) but hallucinate these regions prolifically, degrading reasoning. Bounding boxes are too coarse for precise grounding.</p><p class="field"><span class="label">Method:</span> The paper proposes segmentation before answering, replacing coarse bounding-box zooming with pixel-level grounding of regions of interest during the reasoning process. The MLLM segments the relevant region and then conditions its answer on that finer localization.</p><p class="field"><span class="label">Results:</span> Grounding at the pixel level before answering improves the fidelity of interleaved visual-language reasoning over box-based zooming.</p><p class="field"><span class="label">Why it matters:</span> Directly connects referring segmentation with vision-language reasoning—both central to the reader's CV and VLM interests—and the method transfers naturally to medical grounding tasks.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.06560" target="_blank">Vision as Unified Multimodal Generation</a></h3>
+<p class="meta">Xiaoyang Han, Jianhua Li, Kewang Deng, Zukai Chen et al. (17 authors) &nbsp;·&nbsp; <code>2607.06560</code></p>
+<p class="tags"><span class="tag">Unified Multimodal Models</span><span class="tag">Foundation Models</span><span class="tag">Vision Generation</span></p>
+<p class="field"><span class="label">TL;DR:</span> SenseNova-Vision reformulates computer vision as unified multimodal generation, expressing heterogeneous visual tasks in a single model's native text and image spaces without task-specific heads.</p><p class="field"><span class="label">Problem:</span> Vision systems typically require task-specific architectures for each task. A unified formulation that handles diverse visual tasks through natural-language instructions would greatly simplify deployment.</p><p class="field"><span class="label">Method:</span> SenseNova-Vision casts vision as unified multimodal generation, using natural-language instructions plus optional visual prompts to specify tasks, target regions/views, and decoding conventions. Tasks are expressed in the model's native text and image generation spaces rather than through specialized architectures.</p><p class="field"><span class="label">Results:</span> A single instruction-driven generative backbone handles heterogeneous visual tasks without per-task architectures.</p><p class="field"><span class="label">Why it matters:</span> Represents the CLIP-successor trajectory toward unified vision-language foundation models the reader tracks, with clear implications for generalist medical imaging models.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.05722" target="_blank">Nemotron-Labs-Diffusion: A Tri-Mode Language Model Unifying Autoregressive, Diffusion, and Self-Speculation Decoding</a></h3>
+<p class="meta">Yonggan Fu, Lexington Whalen, Abhinav Garg, Chengyue Wu et al. (26 authors) &nbsp;·&nbsp; <code>2607.05722</code></p>
+<p class="tags"><span class="tag">Language Model Architectures</span><span class="tag">Diffusion Language Models</span><span class="tag">Efficient Inference</span></p>
+<p class="field"><span class="label">TL;DR:</span> Nemotron-Labs-Diffusion unifies autoregressive, diffusion, and self-speculation decoding in one language model trained with a joint AR-diffusion objective.</p><p class="field"><span class="label">Problem:</span> AR and diffusion decoding each have distinct throughput/quality tradeoffs across deployment settings, and models are usually locked into one paradigm. A single model that can switch modes would sustain high throughput across concurrency levels.</p><p class="field"><span class="label">Method:</span> The authors train a tri-mode LM with a joint AR-diffusion objective so it can switch among autoregressive, diffusion, and self-speculation decoding at inference. They show the two objectives are complementary during training and enable mode switching for throughput.</p><p class="field"><span class="label">Results:</span> The unified model sustains high throughput across deployment settings and concurrency levels by selecting the decoding mode that fits the workload.</p><p class="field"><span class="label">Why it matters:</span> A notable training/architecture advance in efficient generative modeling and diffusion-LM unification, relevant to the reader's interest in new methods and training techniques.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.06553" target="_blank">From RGB Generation to Dense Field Readout: Pixel-Space Dense Prediction with Text-to-Image Models</a></h3>
+<p class="meta">Zanyi Wang, Xin Lin, Haodong Li, Dengyang Jiang et al. (6 authors) &nbsp;·&nbsp; <code>2607.06553</code></p>
+<p class="tags"><span class="tag">Dense Prediction</span><span class="tag">Text-to-Image Models</span><span class="tag">Transfer Learning</span></p>
+<p class="abstract">Large-scale text-to-image models are attractive backbones for dense prediction because RGB generation pretraining learns rich semantic, structural, and geometric priors. Existing generative and editing approaches reuse these priors by casting dense prediction as target generation: annotations such as depth, normals, alpha mattes, masks, and heatmaps are encoded into an RGB-trained VAE latent space</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.05716" target="_blank">Scene Graph Thinking: Reinforcing Structured Visual Reasoning for Multimodal Large Language Models</a></h3>
+<p class="meta">Zhiwei Yang, Yuanchen Wu, Nan Zhang, Yucong Meng et al. (6 authors) &nbsp;·&nbsp; <code>2607.05716</code></p>
+<p class="tags"><span class="tag">Scene Graphs</span><span class="tag">Multimodal Large Language Models</span><span class="tag">Visual Reasoning</span></p>
+<p class="abstract">Multimodal Large Language Models (MLLMs) have demonstrated strong perception and reasoning capabilities. However, most existing models focus on isolated objects and neglect structured relationships for efficient target navigation, limiting their performance on visually intensive tasks. To address this challenge, we introduce Scene Graph Thinking (SaGe), a novel paradigm that enables fine-grained a</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.05727" target="_blank">SAMPLe: SAM-based Optimizer for Prompt Learning in VLMs</a></h3>
+<p class="meta">Hossein Rajoli, Fatemeh Lotfi, Niloufar Alipour Talemi, Hossein Kashiani et al. (6 authors) &nbsp;·&nbsp; <code>2607.05727</code></p>
+<p class="tags"><span class="tag">Prompt Learning</span><span class="tag">Vision-Language Models</span><span class="tag">Sharpness-Aware Minimization</span></p>
+<p class="abstract">Pre-trained Vision-Language Models (VLMs) like CLIP have proven highly effective as foundation models for various downstream applications. However, prompt learning in VLMs encounters a performance-generalization dilemma: while prompts can be tuned to achieve high accuracy on seen distributions, this tuning process often undermines their generalizability to unseen data. The limited set of learnable</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2607.05978" target="_blank">Propose and Attend: Training-free MLLM Grounding Confidence via Multi-Token Localized Attention</a></h3>
+<p class="meta">Daniel Shalam, Emanuel Ben Baruch, Avi Ben Cohen, Tal Remez &nbsp;·&nbsp; <code>2607.05978</code></p>
+<p class="tags"><span class="tag">MLLM Grounding</span><span class="tag">Attention Analysis</span><span class="tag">Training-Free Methods</span></p>
+<p class="abstract">Multimodal large language models can emit localized predictions, bounding boxes for objects and temporal windows for video and audio events, but they hallucinate these regions prolifically. The model's own token log-probabilities are nearly uninformative: they conflate grounding quality with input ambiguity, and coordinate tokens become near-deterministic once the model commits. We propose Multi-T</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2607.06401" target="_blank">A Definition and Roadmap for World Models</a></h3>
+<p class="meta">Xinyuan Chen, Haoyu Guo, Shi Guo, Bingqi Jiang et al. (13 authors) &nbsp;·&nbsp; <code>2607.06401</code></p>
+<p class="tags"><span class="tag">World Models</span><span class="tag">Position Paper</span></p>
+<p class="abstract">World models -- internal simulators that learn the structure and dynamics of an environment -- have become one of the most actively debated concepts in AI. From model-based reinforcement learning and video generation to embodied robotics and ultimately, physical AI, researchers across AI subfields are building systems that they call "world models", yet there is no consensus on what a world model f</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2607.05825" target="_blank">Complementary Roles of Image Classification and Vessel Segmentation in AI-Based Screening for Retinopathy of Prematurity Plus Disease in a Kenyan Preterm Cohort</a></h3>
+<p class="meta">Fred Mutisya, Oscar Onyango, Sarah Sitati, Syokau Ilovi et al. (11 authors) &nbsp;·&nbsp; <code>2607.05825</code></p>
+<p class="tags"><span class="tag">Retinopathy of Prematurity</span><span class="tag">Vessel Segmentation</span><span class="tag">Medical Screening</span></p>
+<p class="abstract">Background. Retinopathy of prematurity (ROP) is a preventable cause of childhood blindness, with rising burden in low- and middle-income countries where ROP-trained ophthalmologists are scarce. Plus disease, marked by retinal vessel dilation and tortuosity, triggers treatment but is subjective and variable. Automated screening could extend specialist reach, but African evidence remains limited.   </p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2607.06309" target="_blank">Token-Based Dual-view Fusion and Adaptation of Large Vision Models for Breast Cancer Classification</a></h3>
+<p class="meta">Aysan Ghayouri Pirsoltan, Shima Babakordi, Mohammad Reza Mohammadi &nbsp;·&nbsp; <code>2607.06309</code></p>
+<p class="tags"><span class="tag">Breast Cancer Classification</span><span class="tag">Mammography</span><span class="tag">Multi-View Fusion</span></p>
+<p class="abstract">Accurate breast cancer classification from mammography requires effective integration of complementary information from craniocaudal (CC) and mediolateral oblique (MLO) views, which provide a more complete characterization of breast abnormalities. However, existing multi-view learning approaches typically rely on feature-level aggregation or single-stage cross-attention, which can entangle view-sp</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2607.06238" target="_blank">PhyMRI-SR: Toward Physics-Aware MRI Image Super-Resolution</a></h3>
+<p class="meta">Lihua Wei, Huatong Gao, Jia Gong, Zhiyu Tan et al. (7 authors) &nbsp;·&nbsp; <code>2607.06238</code></p>
+<p class="tags"><span class="tag">MRI Super-Resolution</span><span class="tag">Physics-Aware Modeling</span><span class="tag">Medical Imaging</span></p>
+<p class="abstract">Magnetic resonance imaging (MRI) super-resolution is vital for improving diagnostic accessibility, yet most methods treat it as a deterministic mapping from a fixed low-resolution input to a high-resolution target. This overlooks a key property of MRI acquisition physics: spatial resolution and signal-to-noise ratio (SNR) are inherently coupled, making any given low-resolution scan merely one of m</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2607.06019" target="_blank">KOAL: Knowledge-Driven Prostate Cancer Grading with Ordinal-Aware Learning</a></h3>
+<p class="meta">Zheng Guo, Jiaqi Cui, Haocheng Xiong, Jize Han et al. (8 authors) &nbsp;·&nbsp; <code>2607.06019</code></p>
+<p class="tags"><span class="tag">Prostate Cancer Grading</span><span class="tag">Multiparametric MRI</span><span class="tag">Ordinal Learning</span></p>
+<p class="abstract">Non-invasive prediction of Gleason Grade Group (GGG) in prostate cancer using multiparametric MRI (mpMRI) is clinically vital for reducing unnecessary biopsies. Existing GGG prediction methods face two major limitations. First, they often overlook non-image information critical for GGG prediction, including age, prostate-specific antigen (PSA), and expert priors embedded in radiology reports. Seco</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2607.06163" target="_blank">X-FEMR: A Token-level Explainable Approach for Electronic Health Records Foundation Models using Transformer-based Models</a></h3>
+<p class="meta">Jie Huang, Pengfei Yin, Zihan Xu, Daniel Capurro et al. (6 authors) &nbsp;·&nbsp; <code>2607.06163</code></p>
+<p class="tags"><span class="tag">EHR Foundation Models</span><span class="tag">Explainability</span><span class="tag">Clinical Prediction</span></p>
+<p class="abstract">Foundation Models for Electronic Health Records (FEMRs) are pretrained on large-scale structured patient data, enabling them to convert longitudinal patient trajectories into generalizable representations for diverse clinical prediction tasks. Despite their effectiveness, FEMRs remain black-box models, raising concerns about bias, interpretability, and clinical trust. To address this, we propose t</p>
+</div>
+</body></html>
