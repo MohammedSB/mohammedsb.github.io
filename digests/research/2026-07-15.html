@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — July 15, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — July 15, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.12602" target="_blank">Decouple and Reason: Anatomically Guided Two-Stage Voxel-Level Grounding of Free-Text Findings in 3D Chest CT</a></h3>
+<p class="meta">Kwang-Hyun Uhm, Inhwa Son, Sung-Jea Ko &nbsp;·&nbsp; <code>2607.12602</code></p>
+<p class="tags"><span class="tag">Chest CT</span><span class="tag">Report Grounding</span><span class="tag">Vision-Language Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> A two-stage, anatomically guided framework grounds free-text radiology findings to voxel-level regions in 3D chest CT.</p><p class="field"><span class="label">Problem:</span> Voxel-level localization of free-text findings in 3D chest CT is critical for clinical interpretability but is hard due to large volume spatial complexity and the heterogeneity of free-text descriptions.</p><p class="field"><span class="label">Method:</span> The authors decouple the task into two stages: first anatomically guiding/segmenting the relevant region, then reasoning to produce fine-grained voxel-level grounding of the textual finding. This anatomy-guided decomposition avoids the burden of learning localized features and text alignment simultaneously in a single end-to-end model.</p><p class="field"><span class="label">Results:</span> The decoupled approach improves grounding of free-text findings in 3D CT over end-to-end baselines (as reported on their chest CT grounding evaluation).</p><p class="field"><span class="label">Why it matters:</span> Directly at the intersection of radiology, report understanding, and vision-language grounding — core to the reader's work on radiology report generation and referring segmentation in medical imaging.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.12896" target="_blank">UniMedSeg: Unified In-Context Learning for Multi-Paradigm 2D/3D Medical Image Segmentation</a></h3>
+<p class="meta">Yunzhou Li, Jiesi Hu, Yanwu Yang, Hanyang Peng et al. (8 authors) &nbsp;·&nbsp; <code>2607.12896</code></p>
+<p class="tags"><span class="tag">Medical Image Segmentation</span><span class="tag">In-Context Learning</span><span class="tag">Foundation Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> UniMedSeg unifies visual in-context, interactive, and language-guided segmentation across both 2D and 3D medical images in one foundation model.</p><p class="field"><span class="label">Problem:</span> Medical segmentation foundation models remain fragmented by prompt paradigm (in-context, interactive, text-guided) and by spatial dimension (2D vs 3D), preventing true cross-scenario generalization.</p><p class="field"><span class="label">Method:</span> UniMedSeg proposes a unified in-context learning formulation that jointly handles multiple prompt paradigms and both 2D and 3D inputs within a single architecture, rather than training paradigm- or dimension-specific models.</p><p class="field"><span class="label">Results:</span> The unified model generalizes across diverse clinical segmentation scenarios and prompt types where prior universal methods were limited to a single paradigm or dimensionality.</p><p class="field"><span class="label">Why it matters:</span> A segmentation foundation model spanning referring/language-guided and interactive segmentation is squarely aligned with the reader's interests in medical imaging segmentation and vision-language foundation models.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.12278" target="_blank">Auditing Data Leakage in Whole-Slide Image Multimodal Benchmarks</a></h3>
+<p class="meta">Wenhao Zhang, Zhongliang Zhou, John Kang, Sheng Li &nbsp;·&nbsp; <code>2607.12278</code></p>
+<p class="tags"><span class="tag">Computational Pathology</span><span class="tag">Vision-Language Models</span><span class="tag">Benchmark Auditing</span></p>
+<p class="field"><span class="label">TL;DR:</span> An audit shows striking zero-shot pathology VLM results on whole-slide VQA benchmarks are compromised by patient- and institution-level data leakage.</p><p class="field"><span class="label">Problem:</span> Recent VLMs report impressive zero-shot performance on whole-slide image (WSI) visual question answering, but these claims may be inflated by data contamination between train and test splits.</p><p class="field"><span class="label">Method:</span> The authors systematically audit WSI multimodal VQA benchmarks, identifying two hierarchical leakage types: patient-level leakage (slides from the same case in both folds) and institutional-level leakage, and quantify their impact on reported scores.</p><p class="field"><span class="label">Results:</span> They find the striking zero-shot numbers are fundamentally compromised, with performance collapsing once leakage is controlled for.</p><p class="field"><span class="label">Why it matters:</span> Directly relevant to the reader's interest in evaluation metrics and trustworthy benchmarking of medical vision-language foundation models — a cautionary methodological contribution.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.12395" target="_blank">Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning</a></h3>
+<p class="meta">Xinyu Tang, Gangqiang Cao, Yurou Liu, Yuliang Zhan et al. (16 authors) &nbsp;·&nbsp; <code>2607.12395</code></p>
+<p class="tags"><span class="tag">Reinforcement Learning</span><span class="tag">LLM Reasoning</span><span class="tag">Scaling</span></p>
+<p class="field"><span class="label">TL;DR:</span> Ring-Zero scales zero-RL (RL with verifiable rewards, no human labels) to a trillion-parameter model, studying emergent chain-of-thought reasoning at scale.</p><p class="field"><span class="label">Problem:</span> Zero-RL has elicited strong chain-of-thought reasoning, but compute limits have confined prior studies to small models, leaving large-scale training dynamics and emergent capabilities unexplored.</p><p class="field"><span class="label">Method:</span> The authors train a trillion-parameter model with reinforcement learning from verifiable rewards and no human-annotated data, characterizing training dynamics and emergent reasoning behaviors at this unprecedented scale.</p><p class="field"><span class="label">Results:</span> The work demonstrates that zero-RL yields emergent reasoning capabilities that grow with scale, providing evidence on how these dynamics manifest at a trillion parameters.</p><p class="field"><span class="label">Why it matters:</span> A landmark scaling result for verifiable-reward RL and reasoning models — important context for anyone building or evaluating reasoning-capable foundation models, including medical reasoning systems.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.12450" target="_blank">Let RGB Be the Language of Vision</a></h3>
+<p class="meta">Timing Yang, Jinrui Yang, Xinlong Li, Yuhan Wang et al. (14 authors) &nbsp;·&nbsp; <code>2607.12450</code></p>
+<p class="tags"><span class="tag">Unified Vision Models</span><span class="tag">Image-to-Image</span><span class="tag">Representation Learning</span></p>
+<p class="field"><span class="label">TL;DR:</span> A unified paradigm represents all visual signals (masks, depth, structured maps) as RGB images, recasting general vision tasks as RGB-to-RGB image editing.</p><p class="field"><span class="label">Problem:</span> Vision tasks use heterogeneous output formats and task-specific heads, fragmenting model design and hindering unification across perception and generation.</p><p class="field"><span class="label">Method:</span> The authors propose representing diverse visual information — masks, depth maps, and other structured signals — uniformly as RGB images, so that arbitrary vision tasks become a common RGB-to-RGB image editing problem sharing one internal representation.</p><p class="field"><span class="label">Results:</span> The unified formulation lets a single model handle multiple structured-output vision tasks under a shared RGB representation.</p><p class="field"><span class="label">Why it matters:</span> A general-purpose unification of vision tasks that could simplify multimodal medical imaging pipelines (segmentation, depth, structured maps), connecting to the reader's interest in unified vision-language models.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.12297" target="_blank">MobileSAM2: Lightweight Segment Anything for Spatial Intelligence</a></h3>
+<p class="meta">Kai Jiang, Jiaxing Huang, Jingyi Zhang, Weiying Xie et al. (8 authors) &nbsp;·&nbsp; <code>2607.12297</code></p>
+<p class="tags"><span class="tag">Segment Anything</span><span class="tag">Model Distillation</span><span class="tag">Efficient Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> MobileSAM2 distills the heavyweight SAM2 video foundation model into a lightweight version deployable on mobile and resource-constrained devices.</p><p class="field"><span class="label">Problem:</span> SAM2 enables segment-anything in images and video but is too heavy for resource-constrained devices like phones and laptops, blocking many practical applications.</p><p class="field"><span class="label">Method:</span> The authors distill SAM2 into a compact, mobile-friendly model that preserves image/video segmentation ability while drastically reducing compute and memory footprint.</p><p class="field"><span class="label">Results:</span> MobileSAM2 achieves efficient segment-anything performance suitable for on-device deployment while retaining much of SAM2's capability.</p><p class="field"><span class="label">Why it matters:</span> Lightweight promptable segmentation foundation models are directly useful for the reader's work on medical image segmentation, including edge/point-of-care deployment.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.12937" target="_blank">Exact and Calibrated Diffusion Reconstruction for Digital Breast Tomosynthesis</a></h3>
+<p class="meta">Imade Bouftini &nbsp;·&nbsp; <code>2607.12937</code></p>
+<p class="tags"><span class="tag">Digital Breast Tomosynthesis</span><span class="tag">Diffusion Models</span><span class="tag">Medical Image Reconstruction</span></p>
+<p class="abstract">Limited-angle digital breast tomosynthesis (DBT) reconstructs a volume from a few low-dose projections over a narrow arc. At a representative nine-view, $25^{\circ}$ protocol more than 98% of image space is unmeasured, so a learned prior must supply structure in the missing wedge. Conditional diffusion priors achieve strong perceptual quality here but leave three clinical obstacles: inexact data c</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.12464" target="_blank">Steering Diffusion Models via Class-Contrastive Influence for Few-Shot Medical Classification</a></h3>
+<p class="meta">Jeeyung Kim, Erfan Esmaeili, Qiang Qiu &nbsp;·&nbsp; <code>2607.12464</code></p>
+<p class="tags"><span class="tag">Diffusion Models</span><span class="tag">Few-Shot Learning</span><span class="tag">Medical Image Classification</span></p>
+<p class="abstract">When labeled data are scarce, off-the-shelf diffusion models can augment training sets for few-shot medical image classification, but not all generated samples are equally useful for the downstream task. Existing approaches largely improve synthetic data by increasing realism, diversity, or domain adaptation, while overlooking a more fundamental question: how should sample usefulness for classific</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.12750" target="_blank">CRC-HGD: A Histopathological Image Dataset for Grading Colorectal Cancer</a></h3>
+<p class="meta">Elham Amjadi, Amin Bahreini, Sayed Mohammad Hasan Emami, Sayyed Mohammadreza Hakimian et al. (7 authors) &nbsp;·&nbsp; <code>2607.12750</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Colorectal Cancer</span><span class="tag">Dataset</span></p>
+<p class="abstract">Colorectal cancer (CRC) is the third most common cancer worldwide and the second leading cause of cancer-related deaths globally, with approximately 1,926,425 new cases and 904,019 deaths reported in 2022. Accurate histologic grading plays a critical role in prognosis and treatment planning for colorectal adenocarcinoma. In recent years, artificial intelligence and its subcategories, including mac</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2607.12556" target="_blank">CGRL: Concept-Guided Pruning and Representation Learning for Whole-Slide Image Classification</a></h3>
+<p class="meta">Thuc Huynh, Tuan Le, Doanh C. Bui &nbsp;·&nbsp; <code>2607.12556</code></p>
+<p class="tags"><span class="tag">Whole-Slide Imaging</span><span class="tag">Multiple Instance Learning</span><span class="tag">Computational Pathology</span></p>
+<p class="abstract">Weakly supervised whole-slide image (WSI) classification is widely used in computational pathology because slide-level labels are easier to obtain than dense region annotations. Existing multiple instance learning (MIL) methods often aggregate large bags of patch embeddings using mainly visual cues, which can retain many non-informative patches and provide weak alignment between instance features </p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2607.12785" target="_blank">ExtraGS: Enhancing Endoscopic View Extrapolation via Diffusion-Guided 3D Gaussian Splatting</a></h3>
+<p class="meta">Cheng-Tai Hsieh, Jiwei Shan, Han Fang, Jianshu Hu et al. (9 authors) &nbsp;·&nbsp; <code>2607.12785</code></p>
+<p class="tags"><span class="tag">Endoscopy</span><span class="tag">3D Gaussian Splatting</span><span class="tag">Novel View Synthesis</span></p>
+<p class="abstract">Robot-assisted minimally invasive surgery (MIS) critically depends on reliable endoscopic perception for navigation and safety. However, conventional endoscopes provide only a limited field of view, leaving large portions of surrounding anatomy unobserved. Recent neural rendering approaches, such as Neural Radiance Fields and 3D Gaussian Splatting, enable novel view synthesis from endoscopic video</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2607.12800" target="_blank">UniVR: Thinking in Visual Space for Unified Visual Reasoning</a></h3>
+<p class="meta">Zhongwei Ren, Yunchao Wei, Yao Zhao, Weibo Gong et al. (8 authors) &nbsp;·&nbsp; <code>2607.12800</code></p>
+<p class="tags"><span class="tag">Visual Reasoning</span><span class="tag">Reinforcement Learning</span><span class="tag">Vision-Language Models</span></p>
+<p class="abstract">Learning broad world knowledge directly from raw visual data is a fundamental capability of intelligence. We introduce UniVR, the first investigation into simultaneously learning complex reasoning, fine-grained physical dynamics, and long-term planning from pure visual demonstrations. At its core, UniVR features VR-GRPO, a reinforcement learning paradigm with complementary global and step-level re</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2607.12756" target="_blank">VisCo: Leveraging Large Language Models as Intrinsic Encoders for Visual Token Compression</a></h3>
+<p class="meta">Yupeng Zheng, Kai Zou, Bin Liu, Nenghai Yu &nbsp;·&nbsp; <code>2607.12756</code></p>
+<p class="tags"><span class="tag">Visual Token Compression</span><span class="tag">Vision-Language Models</span><span class="tag">Efficient Inference</span></p>
+<p class="abstract">Vision-language models (VLMs) process large numbers of visual tokens, resulting in substantial inference latency and memory overhead. This has motivated extensive research on visual token compression. While training-free strategies rely on heuristic metrics and suffer significant performance degradation under high compression ratios, many training-based methods introduce external compression modul</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2607.12279" target="_blank">A Shared Subcircuit Lets LLMs Count Down Across Tasks</a></h3>
+<p class="meta">Jacob Dunefsky, Wes Gurnee, Emmanuel Ameisen &nbsp;·&nbsp; <code>2607.12279</code></p>
+<p class="tags"><span class="tag">Mechanistic Interpretability</span><span class="tag">LLM Circuits</span><span class="tag">Reasoning</span></p>
+<p class="abstract">Writing a sentence of exactly twelve words; ending a DNA sequence at the right codon; formatting an ASCII table. These are all tasks that language models can do that requires tracking how many tokens remain before a target. In this work, we identify in Llama-3.1-70B-Instruct a general mechanism for performing these tasks: a "countdown subcircuit" that compares the current position to a goal length</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2607.13031" target="_blank">The Seriality Gap in Video Diffusion Models</a></h3>
+<p class="meta">Jorge Diaz Chao, Konpat Preechakul, Yuxi Liu, Yutong Bai &nbsp;·&nbsp; <code>2607.13031</code></p>
+<p class="tags"><span class="tag">Video Diffusion Models</span><span class="tag">Causal Reasoning</span><span class="tag">Generative Models</span></p>
+<p class="abstract">When one ball strikes another, then another, video models should predict the consequences of each bounce. In controlled experiments on multi-ball hard-sphere dynamics, we find that the performance of standard bidirectional video diffusion degrades as the causal chain lengthens, even when provided more denoising steps. In a length-matched single-ball control, where ball-ball interactions are absent</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2607.12829" target="_blank">Accelerating Masked Diffusion Large Language Models: A Survey of Efficient Inference Techniques</a></h3>
+<p class="meta">Daehoon Gwak, Minhyung Lee, Junwoo Park, Jaegul Choo &nbsp;·&nbsp; <code>2607.12829</code></p>
+<p class="tags"><span class="tag">Diffusion Language Models</span><span class="tag">Efficient Inference</span><span class="tag">Survey</span></p>
+<p class="abstract">Diffusion large language models (dLLMs) offer a theoretical advantage in parallel generation over standard autoregressive models. However, parallel generation alone does not guarantee practical speedups. Realizing this efficiency requires specialized inference mechanisms, such as diffusion-aware caching and reuse. Consequently, as inference efficiency becomes a prerequisite for practical deploymen</p>
+</div>
+</body></html>
