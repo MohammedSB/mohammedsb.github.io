@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — July 16, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — July 16, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.13892" target="_blank">Fine-Grained Vision-Language Pretraining with Organ-Conditioned Pattern Tokens for CT Understanding</a></h3>
+<p class="meta">Guoliang You, Xiaomeng Chu &nbsp;·&nbsp; <code>2607.13892</code></p>
+<p class="tags"><span class="tag">Vision-Language Pretraining</span><span class="tag">CT Imaging</span><span class="tag">Radiology Report Generation</span></p>
+<p class="field"><span class="label">TL;DR:</span> A CT vision-language pretraining method uses organ-conditioned pattern tokens to align paired volumes and radiology reports at fine, anatomy-aware granularity rather than by whole-scan contrast.</p><p class="field"><span class="label">Problem:</span> Global scan-report contrastive pretraining is scalable but blurs heterogeneous per-organ evidence, while naive organ-level alignment is too coarse because the same anatomy can present multiple distinct radiological appearances.</p><p class="field"><span class="label">Method:</span> The method introduces organ-conditioned pattern tokens that capture multiple appearance modes per organ and align these fine-grained visual patterns with report text, replacing single global scan-report contrast with structured organ-level correspondence.</p><p class="field"><span class="label">Results:</span> It improves CT-report alignment and downstream understanding over global-contrast baselines by capturing organ-specific radiological patterns.</p><p class="field"><span class="label">Why it matters:</span> Directly at the intersection of the reader's interests in multimodal/self-supervised learning for medical imaging, vision-language foundation models, and radiology report understanding, extended to 3D CT.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.13800" target="_blank">Prospective clinical indication, post-hoc report leakage, and fusion design in multi-image chest radiograph classification: a patient-clustered evaluation</a></h3>
+<p class="meta">Kamran Shahid, Muhammad Munwar Iqbal &nbsp;·&nbsp; <code>2607.13800</code></p>
+<p class="tags"><span class="tag">Chest X-ray</span><span class="tag">Report Leakage</span><span class="tag">Evaluation Methodology</span></p>
+<p class="field"><span class="label">TL;DR:</span> A patient-clustered evaluation of multi-image chest radiograph classification shows that report-derived inputs (Findings/Impression) leak post-hoc labels and inflate performance, and studies fusion designs for prospectively available clinical indication.</p><p class="field"><span class="label">Problem:</span> CXR datasets mix multiple images with Clinical Indication, Findings, and Impression text produced at different stages of care, so using downstream report text as model input causes post-hoc leakage that overstates real clinical utility.</p><p class="field"><span class="label">Method:</span> Using 15,000 ReXGradient-160K two-image studies and five CheXbert observations, frozen DenseNet-121 and Bio+ClinicalBERT encoders are compared across image-only, indication-only, and various fusion configurations under a patient-clustered split to isolate prospective vs. leaked signal.</p><p class="field"><span class="label">Results:</span> Findings/Impression inputs act as leakage inflating apparent accuracy, whereas prospectively available Clinical Indication provides legitimate gains, and fusion design materially affects the honest performance estimate.</p><p class="field"><span class="label">Why it matters:</span> Speaks to the reader's focus on chest X-ray analysis and rigorous evaluation of multimodal radiology models, exposing a subtle but critical methodological pitfall in report-conditioned CXR work.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.13386" target="_blank">FM$^2$: Unified Federated Foundation Models for Heterogeneous Multimodal Medical Imaging</a></h3>
+<p class="meta">Shengchao Chen, Ting Shu &nbsp;·&nbsp; <code>2607.13386</code></p>
+<p class="tags"><span class="tag">Federated Learning</span><span class="tag">Medical Foundation Models</span><span class="tag">Multimodal Imaging</span></p>
+<p class="field"><span class="label">TL;DR:</span> FM² is a federated foundation-model framework that unifies heterogeneous multimodal medical imaging across institutions without centralizing data.</p><p class="field"><span class="label">Problem:</span> Medical imaging foundation models need cross-institution data, but privacy rules forbid centralized aggregation, and existing federated models either transfer natural-image weights poorly or train single-modality models from scratch.</p><p class="field"><span class="label">Method:</span> FM² formulates the under-explored imaging-modality-heterogeneity challenge and trains a unified federated foundation model that flexibly spans multiple imaging modalities and tasks while keeping data local at each institution.</p><p class="field"><span class="label">Results:</span> The unified federated approach improves cross-modality transfer and task flexibility over natural-image fine-tuning and single-modality federated baselines.</p><p class="field"><span class="label">Why it matters:</span> Combines the reader's interests in foundation models and multimodal medical imaging with the practical privacy constraints of clinical deployment, a key axis for scaling medical AI.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.13660" target="_blank">The Hyperspherical Geometry of CLIP Latent Space: A Semantic Mixture Model</a></h3>
+<p class="meta">Zijie Yu, Gaowen Liu, Ramana Rao Kompella, Philip S. Yu et al. (5 authors) &nbsp;·&nbsp; <code>2607.13660</code></p>
+<p class="tags"><span class="tag">CLIP</span><span class="tag">Representation Geometry</span><span class="tag">Probabilistic Modeling</span></p>
+<p class="field"><span class="label">TL;DR:</span> This work proposes a hyperspherical semantic mixture density model for the CLIP latent space, replacing Gaussian assumptions with a directional model matched to cosine-similarity geometry.</p><p class="field"><span class="label">Problem:</span> CLIP embeddings live on a hypersphere governed by cosine similarity, yet existing probabilistic interpretations assume Gaussian structure that cannot capture the directional, multimodal nature of the space.</p><p class="field"><span class="label">Method:</span> The authors build a principled density model treating CLIP embeddings as samples from a mixture of directional (hyperspherical) components, yielding a semantic mixture model that respects the intrinsic geometry of the representation.</p><p class="field"><span class="label">Results:</span> The model captures the directional and multimodal structure of CLIP embeddings more faithfully than Gaussian baselines, enabling better semantic density estimation.</p><p class="field"><span class="label">Why it matters:</span> Offers foundational geometric insight into CLIP-style vision-language embeddings, directly informing the reader's work on CLIP, SLIP, and MaskCLIP-style foundation models.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.13661" target="_blank">Fine-grained CLIP fine-tuning with self-annotated region alignment</a></h3>
+<p class="meta">Chenyang Zhao, Wei Lin, Antoni B. Chan, Janet H. Hsiao &nbsp;·&nbsp; <code>2607.13661</code></p>
+<p class="tags"><span class="tag">CLIP</span><span class="tag">Dense Representation</span><span class="tag">Region Alignment</span></p>
+<p class="field"><span class="label">TL;DR:</span> A fine-grained CLIP fine-tuning method uses self-annotated region-text alignment to improve dense/local feature representations without pretraining from scratch.</p><p class="field"><span class="label">Problem:</span> CLIP's image-level pretraining yields weak fine-grained dense features, but fully re-pretraining a VLM for locality is prohibitively expensive.</p><p class="field"><span class="label">Method:</span> The approach fine-tunes CLIP with self-annotated region-level alignment, generating region-text correspondences internally and aligning local image regions to text to enrich dense features while preserving pretrained knowledge.</p><p class="field"><span class="label">Results:</span> It enhances CLIP's fine-grained and dense recognition ability over global-alignment fine-tuning baselines at modest cost.</p><p class="field"><span class="label">Why it matters:</span> Fine-grained/dense CLIP features underpin referring segmentation and grounded vision-language tasks central to the reader's computer-vision research.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.13431" target="_blank">Discrete Diffusion Models: A Unified Framework from Tokenization to Generation</a></h3>
+<p class="meta">Ye Yuan, Weien Li, Rui Song, Zeyu Li et al. (22 authors) &nbsp;·&nbsp; <code>2607.13431</code></p>
+<p class="tags"><span class="tag">Discrete Diffusion Models</span><span class="tag">Generative Modeling</span><span class="tag">Tokenization</span></p>
+<p class="field"><span class="label">TL;DR:</span> A unified framework analyzes discrete denoising diffusion models end-to-end, from tokenization and vocabulary design through the generation process.</p><p class="field"><span class="label">Problem:</span> Discrete diffusion models offer parallel, globally-refining generation as an alternative to autoregression, but unlike continuous diffusion their behavior is fundamentally shaped by discrete-state-space design choices that lack a unifying account.</p><p class="field"><span class="label">Method:</span> The paper presents a unified framework connecting tokenization schemes, vocabulary construction, and the denoising/generation formulation for discrete diffusion, clarifying how each design axis influences model behavior.</p><p class="field"><span class="label">Results:</span> It systematizes design decisions across the discrete diffusion pipeline and clarifies trade-offs between tokenization and generation quality.</p><p class="field"><span class="label">Why it matters:</span> Discrete diffusion is an increasingly important generative paradigm for text and multimodal data, and a unified treatment is broadly useful for the reader's generative and multimodal modeling work.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.13860" target="_blank">Towards Enhancing 3D Spatial Reasoning in Medical Multimodal Large Language Models</a></h3>
+<p class="meta">Zhuoyuan Fu, Zeshang Li, Yiqiong Zhang, Hangui Lin et al. (8 authors) &nbsp;·&nbsp; <code>2607.13860</code></p>
+<p class="tags"><span class="tag">Medical MLLM</span><span class="tag">3D Spatial Reasoning</span><span class="tag">Volumetric Imaging</span></p>
+<p class="abstract">While Multimodal Large Language Models (MLLMs) have demonstrated remarkable success in 2D medical image understanding, their extension to 3D volumetric imaging remains hindered by prohibitive annotation costs and dataset opacity. Current data formats, predominantly consisting of rigid Visual Question Answering (VQA) pairs or unstructured final clinical reports, typically fail to capture explicit c</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.13738" target="_blank">Anatomically Faithful but Temporally Blind: Auditing Attribution for Left-Ventricular Ejection-Fraction Estimation from Echocardiography</a></h3>
+<p class="meta">Hyunkyung Han, Min Jung Kim &nbsp;·&nbsp; <code>2607.13738</code></p>
+<p class="tags"><span class="tag">Echocardiography</span><span class="tag">Attribution Faithfulness</span><span class="tag">Model Interpretability</span></p>
+<p class="abstract">Background and Objective: Deep video models estimate left-ventricular ejection fraction (EF) from echocardiography with near-expert accuracy, and post-hoc attribution (Chefer relevance for transformers, Grad-CAM for CNNs) is increasingly used to certify that models "look at the right place." Yet whether these explanations are faithful both spatially and temporally is unaudited. Because EF is defin</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.13506" target="_blank">TRACE-PCa: Predicting Prostate Cancer Progression from Longitudinal MRI During Active Surveillance</a></h3>
+<p class="meta">Hongye Zeng, Shreeram Athreya, Dingyuan Dai, Steve Raman et al. (7 authors) &nbsp;·&nbsp; <code>2607.13506</code></p>
+<p class="tags"><span class="tag">Prostate Cancer</span><span class="tag">Longitudinal MRI</span><span class="tag">Risk Prediction</span></p>
+<p class="abstract">Active surveillance (AS) is the preferred strategy for favorable-risk prostate cancer, yet current protocols rely on scheduled repeat biopsies, most of which reveal no progression and are unnecessary. Existing risk-stratification tools operate on single time-point imaging or depend on explicit lesion segmentation, limiting their ability to capture longitudinal change and excluding patients without</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2607.14088" target="_blank">VideoRAE: Taming Video Foundation Models for Generative Modeling via Representation Autoencoders</a></h3>
+<p class="meta">Zhihao Xie, Junfeng Wu, Xinting Hu, Junchao Huang et al. (5 authors) &nbsp;·&nbsp; <code>2607.14088</code></p>
+<p class="tags"><span class="tag">Video Foundation Models</span><span class="tag">Representation Autoencoders</span><span class="tag">Generative Modeling</span></p>
+<p class="abstract">Video generative models commonly rely on latent spaces learned by 3D Variational Autoencoders (3D-VAEs). However, conventional 3D-VAEs are mainly optimized for pixel-level reconstruction, which can limit the semantic and spatio-temporal structure captured by their latents. Meanwhile, Video Foundation Models (VFMs) such as V-JEPA 2 and VideoMAEv2 show strong video understanding capabilities, yet wh</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2607.13805" target="_blank">AspectCLIP: Optimizing CLIP Representation Space via Aspect-Guided Consistency Regularization</a></h3>
+<p class="meta">Yiyang Yao, Shanglin Liu, Jianming Lv, Chengjun Wang et al. (7 authors) &nbsp;·&nbsp; <code>2607.13805</code></p>
+<p class="tags"><span class="tag">CLIP</span><span class="tag">Consistency Regularization</span><span class="tag">Representation Learning</span></p>
+<p class="abstract">Contrastive Language-Image Pretraining learns a shared representation space through large-scale contrastive learning. However, existing methods that enforce global consistency regularization overlook a key challenge: the inherent information asymmetry between images and text: captions typically describe only one specific aspect of an image, thus images with similar visual content can be paired wit</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2607.13500" target="_blank">Attention-Free and Lightweight Token Reduction for Efficient Vision-Language Models</a></h3>
+<p class="meta">Xuanyi Hao, Zuoyuan Zhang, Zhibo Wang, Xiaoyi Pang et al. (7 authors) &nbsp;·&nbsp; <code>2607.13500</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Token Reduction</span><span class="tag">Efficient Inference</span></p>
+<p class="abstract">Vision-Language Models (VLMs) have achieved strong performance in multimodal understanding, yet remain challenging to deploy on resource-constrained edge devices due to the substantial computational overhead of processing numerous visual tokens. Token reduction is a promising direction for accelerating VLMs inference, but existing approaches either rely on attention maps that are incompatible with</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2607.13712" target="_blank">Groc-PO: Grounded Context Preference Optimization for Truthful Multimodal LLMs</a></h3>
+<p class="meta">Zhixiao Zheng, Zheren Fu, Zhiyuan Yao, Chunxiao Liu et al. (6 authors) &nbsp;·&nbsp; <code>2607.13712</code></p>
+<p class="tags"><span class="tag">Multimodal LLMs</span><span class="tag">Hallucination</span><span class="tag">Preference Optimization</span></p>
+<p class="abstract">Despite the rapid progress of Multimodal Large Language Models (MLLMs), they still suffer from untruthfulness issues, such as visual hallucinations, content fabrication, and unfaithful reasoning, which substantially undermine their faithfulness and practical utility. Alignment methods based on human preference, such as Direct Preference Optimization (DPO), have been widely adopted to address these</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2607.13491" target="_blank">DeepLoop: Depth Scaling for Looped Transformers</a></h3>
+<p class="meta">Shuzhen Li, Yifan Zhang, Jiacheng Guo, Quanquan Gu et al. (5 authors) &nbsp;·&nbsp; <code>2607.13491</code></p>
+<p class="tags"><span class="tag">Looped Transformers</span><span class="tag">Depth Scaling</span><span class="tag">Architecture</span></p>
+<p class="abstract">Looped Transformers scale sequential computation by applying a compact stack of physical blocks for multiple rounds, increasing unrolled depth without increasing stored parameters. This reuse changes the residual-scaling problem: in an untied Transformer, each residual branch receives and applies its own parameter update, whereas in a looped Transformer one shared update aggregates gradients from </p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2607.13399" target="_blank">Demystifying On-Policy Distillation: Roles, Pathologies, and Regulations</a></h3>
+<p class="meta">Rui Wang, Hongru Wang, Yi Chen, Boyang Xue et al. (7 authors) &nbsp;·&nbsp; <code>2607.13399</code></p>
+<p class="tags"><span class="tag">On-Policy Distillation</span><span class="tag">LLM Post-Training</span><span class="tag">Reasoning</span></p>
+<p class="abstract">On-policy distillation (OPD) has become a key paradigm in LLM post-training, yet its training dynamics remain poorly understood. We present a systematic study examining the role, pathologies, and regulations of OPD. We first clarify the role of OPD as an exploration catalyst: it steers the student toward correct reasoning paths via dense token-level guidance, without expanding capability ceiling. </p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2607.13681" target="_blank">Towards Spatial Supersensing in the Wild</a></h3>
+<p class="meta">Tianjun Gu, Tianyu Xin, Kuan Zhang, Bowen Yang et al. (15 authors) &nbsp;·&nbsp; <code>2607.13681</code></p>
+<p class="tags"><span class="tag">Spatial Reasoning</span><span class="tag">World Models</span><span class="tag">Video Understanding</span></p>
+<p class="abstract">Humans can efficiently parse continuous sensory streams, from hours to years, scaffolding an internal world model that grounds spatial reasoning and prediction. To mimic this capacity, spatial supersensing challenges multimodal models to move beyond linguistic understanding toward true world modeling. However, their benchmark relies on synthetic long videos, formed by concatenating random short cl</p>
+</div>
+</body></html>
