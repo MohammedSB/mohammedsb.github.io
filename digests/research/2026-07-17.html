@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — July 17, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — July 17, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.14581" target="_blank">Multi-LLM Collaborative MRI Report Generation for Visual Instruction Tuning in Brain Oncology</a></h3>
+<p class="meta">Sinyoung Ra, Jonghun Kim, Hyunjin Park &nbsp;·&nbsp; <code>2607.14581</code></p>
+<p class="tags"><span class="tag">Radiology Report Generation</span><span class="tag">Vision-Language Models</span><span class="tag">Brain MRI</span></p>
+<p class="field"><span class="label">TL;DR:</span> A multi-LLM collaborative pipeline synthesizes paired 3D MRI-report data and visual instruction-tuning sets to enable report generation for brain oncology.</p><p class="field"><span class="label">Problem:</span> Medical VLMs are largely confined to 2D imaging (e.g., chest X-rays) because paired 3D imaging-text corpora barely exist, blocking report generation for volumetric modalities like brain MRI.</p><p class="field"><span class="label">Method:</span> The authors use multiple collaborating LLMs to generate and refine MRI reports, then build a visual instruction-tuning dataset that couples 3D brain oncology imaging with the generated text to train a report-generating VLM. This bypasses the scarcity of native paired 3D imaging-text supervision.</p><p class="field"><span class="label">Results:</span> The approach produces a usable 3D imaging-text instruction dataset and a VLM capable of generating brain oncology MRI reports where none was previously trainable.</p><p class="field"><span class="label">Why it matters:</span> Directly targets radiology report generation and vision-language foundation models for a 3D modality — a core interest and a rare extension beyond 2D chest X-ray work.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.14995" target="_blank">Multimodal Semantic-Aware Contrastive Learning For False Negative Mitigation in 3D Medical Imaging</a></h3>
+<p class="meta">Sara Ketabi, Matthias W. Wagner, Cynthia Hawkins, Uri Tabori et al. (6 authors) &nbsp;·&nbsp; <code>2607.14995</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Multimodal Contrastive Learning</span><span class="tag">3D Medical Imaging</span></p>
+<p class="field"><span class="label">TL;DR:</span> A semantic-aware contrastive learning framework mitigates false negatives when aligning modalities in 3D medical imaging.</p><p class="field"><span class="label">Problem:</span> Standard multimodal contrastive learning treats all non-matched samples as negatives, but in healthcare many 'negatives' are semantically similar patients/scans, creating false negatives that corrupt the learned alignment.</p><p class="field"><span class="label">Method:</span> The method injects semantic awareness into the contrastive objective so that semantically related cross-modal pairs are not wrongly pushed apart, correcting the instance-based positive/negative assumption for 3D medical data. This yields cleaner cross-modal representations for downstream tasks.</p><p class="field"><span class="label">Results:</span> The semantic-aware formulation improves representation quality and downstream performance over conventional instance-based contrastive baselines on 3D medical imaging.</p><p class="field"><span class="label">Why it matters:</span> Squarely in self-supervised and multimodal representation learning for medical imaging — the reader's primary methodological interest.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.14703" target="_blank">Pretraining Multiple Instance Learning Networks with Multi-Teacher Distillation from Pathology Slide Foundation Models</a></h3>
+<p class="meta">Mingxi Fu, Jiawen Li, Renao Yan, Jiali Hu et al. (7 authors) &nbsp;·&nbsp; <code>2607.14703</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Foundation Models</span><span class="tag">Multiple Instance Learning</span></p>
+<p class="field"><span class="label">TL;DR:</span> Multi-teacher distillation from pathology slide foundation models pretrains MIL aggregators so they no longer train from scratch per task.</p><p class="field"><span class="label">Problem:</span> Whole-slide image analysis relies on MIL aggregators that are trained from scratch for every downstream task using scarce slide-level labels, forcing them to learn aggregation and discrimination simultaneously and limiting robustness.</p><p class="field"><span class="label">Method:</span> The authors pretrain MIL networks via multi-teacher knowledge distillation from several pathology slide foundation models, transferring rich slide-level representations before fine-tuning. This decouples representation learning from the limited-label downstream objective.</p><p class="field"><span class="label">Results:</span> Pretrained MIL aggregators outperform train-from-scratch baselines and generalize better across computational pathology downstream tasks with limited labels.</p><p class="field"><span class="label">Why it matters:</span> Combines foundation models, distillation, and label-efficient learning for medical imaging (pathology), matching the reader's foundation-model and self-supervised interests.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.15265" target="_blank">SceneBind: Binding What and Where Across Vision, Audio and Language</a></h3>
+<p class="meta">Mingfei Chen, Zijun Cui, Ruoke Zhang, Hyeonggon Ryu et al. (5 authors) &nbsp;·&nbsp; <code>2607.15265</code></p>
+<p class="tags"><span class="tag">Multimodal Foundation Models</span><span class="tag">Representation Learning</span><span class="tag">3D Scene Understanding</span></p>
+<p class="field"><span class="label">TL;DR:</span> SceneBind is an omni-modal encoder that binds semantics ('what') and 3D spatial location ('where') across vision, audio, and language.</p><p class="field"><span class="label">Problem:</span> Existing omni-modal encoders capture instance-level semantics well but lack explicit spatial structure, so they know what is present in a scene but not where it is in 3D.</p><p class="field"><span class="label">Method:</span> SceneBind represents each scene as a semantic-spatial entity, jointly encoding what and where across vision, audio, and language into a shared space. This augments instance-level binding with explicit 3D spatial grounding.</p><p class="field"><span class="label">Results:</span> The model achieves joint semantic and spatial understanding across modalities that instance-level omni-modal encoders cannot, improving spatially grounded multimodal tasks.</p><p class="field"><span class="label">Why it matters:</span> A CLIP-style multimodal binding foundation model with spatial grounding — directly relevant to the reader's interest in vision-language foundation models and representation learning.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.14935" target="_blank">VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding</a></h3>
+<p class="meta">Xinhao Li, Yuhan Zhu, Xiangyu Zeng, Yuhao Dong et al. (27 authors) &nbsp;·&nbsp; <code>2607.14935</code></p>
+<p class="tags"><span class="tag">Video Understanding</span><span class="tag">Multimodal LLMs</span><span class="tag">Open-Source Foundation Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> VideoChat3 is a fully open, efficient generalist video MLLM that generalizes across diverse video types.</p><p class="field"><span class="label">Problem:</span> Open-source video MLLMs are narrow (effective only in specific domains) and computationally heavy, limiting real-world generalist video understanding.</p><p class="field"><span class="label">Method:</span> VideoChat3 is built as a fully open video MLLM with an efficiency-oriented design and training recipe spanning motion, long-video, and streaming interaction. It targets broad generalization while reducing computational demands.</p><p class="field"><span class="label">Results:</span> The model delivers generalist video understanding across heterogeneous video types with improved efficiency relative to existing open-source models.</p><p class="field"><span class="label">Why it matters:</span> A fully open multimodal foundation model for video — useful reference architecture for anyone building vision-language systems, including medical video applications.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.15054" target="_blank">Beyond Single Expert: Harmonizing Diverse Visual Priors in MLLMs for Spatial Understanding</a></h3>
+<p class="meta">Xiao Lin, Xiaohu Huang, Kai Han &nbsp;·&nbsp; <code>2607.15054</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Spatial Understanding</span><span class="tag">Visual Priors</span></p>
+<p class="field"><span class="label">TL;DR:</span> A method harmonizes complementary spatial priors from multiple pretrained foundation models to improve spatial reasoning in MLLMs.</p><p class="field"><span class="label">Problem:</span> MLLMs gain spatial awareness by injecting priors from a single foundation model, but different foundation models provide complementary spatial cues that a single-expert approach fails to exploit.</p><p class="field"><span class="label">Method:</span> The authors integrate diverse visual priors from multiple foundation models and design a mechanism to harmonize their complementary (and sometimes conflicting) spatial signals within an MLLM. This yields richer, more reliable spatial representations.</p><p class="field"><span class="label">Results:</span> Combining and harmonizing multiple expert priors improves MLLM spatial understanding over single-expert baselines.</p><p class="field"><span class="label">Why it matters:</span> Advances how visual foundation-model priors are fused into MLLMs — methodologically relevant to the reader's vision-language and representation-learning focus.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.15231" target="_blank">CRISP: Constrained Refinement via Iterative Squeezing Process for Robust Medical Image Segmentation under Domain Shift</a></h3>
+<p class="meta">Yizhou Fang, Pujin Cheng, Yixiang Liu, Xiaoying Tang et al. (5 authors) &nbsp;·&nbsp; <code>2607.15231</code></p>
+<p class="tags"><span class="tag">Medical Image Segmentation</span><span class="tag">Domain Adaptation</span></p>
+<p class="abstract">Distribution shift in medical imaging remains a central bottleneck for the clinical translation of medical AI. Failure to address it can lead to severe performance degradation in unseen environments and exacerbate health inequities. Existing methods for domain adaptation are inherently limited by exhausting predefined possibilities through simulated shifts or pseudo-supervision. Such strategies st</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.15047" target="_blank">Parameter-efficient Prompt Tuning of Vision Foundation Model With Adaptive Focal Loss for Interpretable MCI Screening</a></h3>
+<p class="meta">Javad Khoramdel, Farhad Hoseyni, Amirhossein Nikoofard &nbsp;·&nbsp; <code>2607.15047</code></p>
+<p class="tags"><span class="tag">Vision Foundation Models</span><span class="tag">Prompt Tuning</span><span class="tag">Alzheimer's Screening</span></p>
+<p class="abstract">Mild Cognitive Impairment is a critical early stage of cognitive decline that frequently precedes Alzheimer's disease, yet its automated detection from neuropsychological drawing tests remains fundamentally constrained by data scarcity, class imbalance, and diagnostic ambiguity near clinical boundaries. Existing methodologies attempt to bypass these constraints using computationally expensive, ful</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.14720" target="_blank">Causal-Adversarial Probing of Clinical Covariates for Prostate MRI Grading</a></h3>
+<p class="meta">Yipei Wang, Shiqi Huang, Wen Yan, Weixi Yi et al. (9 authors) &nbsp;·&nbsp; <code>2607.14720</code></p>
+<p class="tags"><span class="tag">Prostate MRI</span><span class="tag">Causal Reasoning</span><span class="tag">Cancer Grading</span></p>
+<p class="abstract">Deep learning models for prostate MRI-based cancer grading may encode clinical covariates that either reflect useful disease-related signal or non-generalising shortcut information, but their role is usually assumed. We propose a causal-reasoning framework for probing covariate dependence in MRI-based International Society of Urological Pathology (ISUP) Grade Group prediction. Rather than treating</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2607.15268" target="_blank">Motion-Conditioned Multi-View Fusion for Myocardial Infarction Localization from Echocardiography</a></h3>
+<p class="meta">Guang Yang, Wentian Xu, Siyu Wang, Betty Raman et al. (6 authors) &nbsp;·&nbsp; <code>2607.15268</code></p>
+<p class="tags"><span class="tag">Echocardiography</span><span class="tag">Multi-View Fusion</span><span class="tag">Cardiac Imaging</span></p>
+<p class="abstract">Myocardial infarction (MI) remains a leading cause of mortality worldwide. Echocardiography (Echo) is a widely available modality for MI assessment, where regional wall motion abnormality is a key indicator. Prior learning based methods for myocardial motion analysis often use handcrafted descriptors or densely supervised estimation, but the need for extensive annotation limits applicability. Foun</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2607.15241" target="_blank">Beyond the Leaderboard: Design Lessons for Trustworthy Multimodal VQA</a></h3>
+<p class="meta">Sushant Gautam, Vajira Thambawita, Michael A. Riegler, Pål Halvorsen et al. (5 authors) &nbsp;·&nbsp; <code>2607.15241</code></p>
+<p class="tags"><span class="tag">Medical Visual Question Answering</span><span class="tag">Multimodal Reliability</span></p>
+<p class="abstract">Healthcare multimodal AI must combine visual and textual evidence while remaining reliable and interpretable. Using MediaEval Medico 2025 as a retrospective GI endoscopy case study, we analyze design choices across nine documented systems for question answering and explanation quality. Parameter-efficient adaptation of pretrained backbones provides strong challenge performance, but answer-level ga</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2607.15216" target="_blank">Symbal: Detecting Systematic Misalignments in Model-Generated Captions</a></h3>
+<p class="meta">Maya Varma, Jean-Benoit Delbrouck, Sophie Ostmeier, Akshay Chaudhari et al. (5 authors) &nbsp;·&nbsp; <code>2607.15216</code></p>
+<p class="tags"><span class="tag">Image Captioning</span><span class="tag">Vision-Language Alignment</span><span class="tag">Error Detection</span></p>
+<p class="abstract">Multimodal large language models (MLLMs) often introduce errors when generating image captions, resulting in misaligned image-text pairs. Our work focuses on a class of captioning errors that we refer to as systematic misalignments, where a recurring error in MLLM-generated captions is closely associated with the presence of a specific visual feature in the paired image. Given a vision-language da</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2607.15094" target="_blank">AlphaWiSE: Adaptive Weight Interpolation for Continual Multimodal Representation Learning</a></h3>
+<p class="meta">Sarthak Jain, Qiran Hu, Zhen Zhu, Yaoyao Liu &nbsp;·&nbsp; <code>2607.15094</code></p>
+<p class="tags"><span class="tag">Continual Learning</span><span class="tag">CLIP</span><span class="tag">Multimodal Retrieval</span></p>
+<p class="abstract">Multimodal models such as CLIP learn a shared embedding space for cross-modal retrieval, but continual adaptation to sequentially arriving data can disrupt the cross-modal alignment acquired from earlier phases. Conventional continual-learning methods return a single checkpoint, which commits every retrieval direction to the same stability-plasticity trade-off. We propose AlphaWiSE, a post-hoc wei</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2607.15166" target="_blank">MedFailBench: A Clinician-Built Open-Source Benchmark for Medical AI Safety Boundary Inspection</a></h3>
+<p class="meta">Goktug Ozkan &nbsp;·&nbsp; <code>2607.15166</code></p>
+<p class="tags"><span class="tag">Medical AI Safety</span><span class="tag">Benchmarking</span></p>
+<p class="abstract">Most medical AI benchmarks measure whether a model knows the correct answer. MedFailBench asks a different question: which safety boundary failed? We present a clinician-built synthetic benchmark and failure atlas that labels medical AI errors by severity (1--5) and safety gate type (missed urgent escalation, unsafe remote dosing, unsafe discharge reassurance, evidence fabrication, unsafe protocol</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2607.15267" target="_blank">Pretraining Data Can Be Poisoned through Computational Propaganda</a></h3>
+<p class="meta">Victoria Graf, Hannaneh Hajishirzi, Noah A. Smith, David Kohlbrenner et al. (5 authors) &nbsp;·&nbsp; <code>2607.15267</code></p>
+<p class="tags"><span class="tag">Data Poisoning</span><span class="tag">LLM Pretraining</span><span class="tag">AI Safety</span></p>
+<p class="abstract">Poisoning pretraining data can introduce harmful behaviors to LMs that are difficult to detect and mitigate. Prior work on poisoning pretraining data has largely exploited established data sources such as Wikipedia, which do not represent the large scale and heterogeneity typical of pretraining corpora, and has ignored the interaction between poisoned data and data curation pipelines. We demonstra</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2607.14506" target="_blank">Non-vacuous Generalization Bounds for Reinforcement Learning with Verifiable Rewards</a></h3>
+<p class="meta">Yuxuan Zhu, Rohan Alur, Daniel Kang &nbsp;·&nbsp; <code>2607.14506</code></p>
+<p class="tags"><span class="tag">Reinforcement Learning</span><span class="tag">Generalization Bounds</span><span class="tag">RLVR</span></p>
+<p class="abstract">While reinforcement learning with verifiable rewards (RLVR) is widely used to improve the reasoning capabilities of large language models (LLMs), the generalizability of the resulting models remains poorly understood. In this work, we establish the first non-vacuous generalization bounds for parameter-efficient RLVR fine-tuning at the billion-parameter scale. Our approach adapts PAC-Bayes compress</p>
+</div>
+</body></html>
