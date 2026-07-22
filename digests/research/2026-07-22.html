@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — July 22, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — July 22, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.18988" target="_blank">DobicVLM: Aligning Chest X-Ray Report Generation with Clinically-Grounded Programmatic Rewards via Group Relative Policy Optimization</a></h3>
+<p class="meta">Thanni Adewuyi, Angelica Obayi, Andem Aniekan, Samuel Okoko et al. (13 authors) &nbsp;·&nbsp; <code>2607.18988</code></p>
+<p class="tags"><span class="tag">Chest X-ray</span><span class="tag">Radiology Report Generation</span><span class="tag">Vision-Language Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> A chest X-ray report-generation VLM fine-tuned with GRPO and clinically-grounded programmatic rewards to enforce structural, anatomical, and semantic fidelity.</p><p class="field"><span class="label">Problem:</span> Automated chest X-ray report generation still struggles with structural adherence, anatomical completeness, and semantic faithfulness, which purely supervised training does not reliably enforce.</p><p class="field"><span class="label">Method:</span> DobicVLM starts from supervised fine-tuning on MedGemma-4B, then applies Group Relative Policy Optimization (GRPO) with interpretable, clinically-grounded programmatic reward functions that score structural adherence, anatomical completeness, and semantic correctness of generated reports.</p><p class="field"><span class="label">Results:</span> The approach improves clinical quality of generated reports over SFT-only baselines by directly optimizing the programmatic clinical reward signals.</p><p class="field"><span class="label">Why it matters:</span> Directly hits the reader's core interests in radiology report generation, chest X-ray analysis, RL-based alignment of VLMs, and clinically-grounded evaluation metrics for generative reports.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.19261" target="_blank">PathAgentBench: Benchmarking Evidence-Seeking Vision-Language Models on Whole-Slide Pathology Image</a></h3>
+<p class="meta">Dankai Liao, Tianyi Zhang, Yufeng Wu, Xinyue Zhang et al. (9 authors) &nbsp;·&nbsp; <code>2607.19261</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Vision-Language Models</span><span class="tag">Agentic Benchmark</span></p>
+<p class="field"><span class="label">TL;DR:</span> PathAgentBench evaluates whether vision-language agents can actively seek diagnostic evidence directly from gigapixel whole-slide pathology images across magnifications.</p><p class="field"><span class="label">Problem:</span> Most pathology benchmarks test models on pre-cropped patches or pre-extracted features, leaving untested the real diagnostic workflow of locating relevant regions and integrating multi-scale evidence from whole-slide images.</p><p class="field"><span class="label">Method:</span> The authors build PathAgentBench, a benchmark that forces evidence-seeking VLMs to navigate whole-slide images (WSIs), zoom across magnifications, and aggregate multi-scale evidence, rather than reasoning over fixed inputs.</p><p class="field"><span class="label">Results:</span> The benchmark exposes substantial gaps in current pathology VLMs' ability to acquire evidence from gigapixel WSIs autonomously.</p><p class="field"><span class="label">Why it matters:</span> Connects medical imaging, vision-language foundation models, and evaluation design — all central to the reader's work on multimodal medical AI and rigorous benchmarking.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.18763" target="_blank">Posterior Samplings are Missing Modalities Generators for Medical Image Translation</a></h3>
+<p class="meta">Jonghun Kim &nbsp;·&nbsp; <code>2607.18763</code></p>
+<p class="tags"><span class="tag">Medical Imaging</span><span class="tag">MRI</span><span class="tag">Diffusion Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> Posterior sampling from diffusion models generates missing MRI modalities, framing multimodal medical image translation as conditional generation rather than fixed source-target mapping.</p><p class="field"><span class="label">Problem:</span> Multimodal MRI acquisitions are frequently incomplete due to time and protocol constraints, but conventional translation methods are locked to fixed source-target pairs and cannot flexibly fill arbitrary missing modalities.</p><p class="field"><span class="label">Method:</span> The work treats missing-modality synthesis as a posterior sampling problem, using a diffusion prior conditioned on available modalities to generate the absent contrasts, allowing flexible any-to-any imputation across MRI contrasts.</p><p class="field"><span class="label">Results:</span> The posterior-sampling formulation handles arbitrary missing-modality configurations while producing anatomically plausible translations, outperforming fixed source-target baselines.</p><p class="field"><span class="label">Why it matters:</span> Aligns with the reader's interests in multimodal medical imaging, self-supervised/generative learning, and MRI analysis where incomplete data is the norm.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.18885" target="_blank">KALE: Kernel Alignment with Loss Equilibration for Stable CLIP-DINOv2 Alignment at Web Scale</a></h3>
+<p class="meta">Michał Pawłowicz &nbsp;·&nbsp; <code>2607.18885</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">CLIP</span><span class="tag">Representation Alignment</span></p>
+<p class="field"><span class="label">TL;DR:</span> KALE stabilizes kernel-based alignment of CLIP toward a DINOv2 vision teacher at noisy web scale by dynamically balancing the alignment and contrastive losses.</p><p class="field"><span class="label">Problem:</span> Distilling DINOv2's visual structure into CLIP via a fixed trade-off weight works on curated ImageNet but collapses on noisy web-scale data (CC12M), where the alignment term's contribution shrinks to a negligible fraction of the loss.</p><p class="field"><span class="label">Method:</span> KALE (Kernel Alignment with Loss Equilibration) replaces the fixed alignment weight with an adaptive equilibration mechanism that keeps the CLIP–DINOv2 kernel-alignment term contributing meaningfully relative to the contrastive term throughout web-scale training.</p><p class="field"><span class="label">Results:</span> KALE preserves effective CLIP-DINOv2 alignment on noisy CC12M data where the fixed-weight baseline (KUEA) fails to maintain any meaningful alignment signal.</p><p class="field"><span class="label">Why it matters:</span> Squarely in the reader's zone of CLIP-style vision-language foundation models and improving visual representations while preserving text-encoder compatibility.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.18695" target="_blank">Attributes Should Come from Images, Not Class Names: Distribution-Conditioned Attribute Selection for Vision-Language Models</a></h3>
+<p class="meta">Gautam Rajendrakumar Gare, Jia Shi, Zhiqiu Lin, Deepak Pathak et al. (6 authors) &nbsp;·&nbsp; <code>2607.18695</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Zero-Shot Classification</span><span class="tag">CLIP</span></p>
+<p class="field"><span class="label">TL;DR:</span> LLM-generated class descriptors for zero-shot CLIP carry almost no visual evidence; the paper instead selects attributes conditioned on image distributions.</p><p class="field"><span class="label">Problem:</span> The popular interpretable zero-shot recipe of prompting CLIP with LLM-written class descriptors is shown to rely almost entirely on the class name itself — removing the name collapses ImageNet accuracy from 59.5% to 15.5%.</p><p class="field"><span class="label">Method:</span> The authors diagnose that descriptors are conditioned on labels rather than actual image appearance, and propose distribution-conditioned attribute selection that derives visually grounded attributes from image distributions instead of class names.</p><p class="field"><span class="label">Results:</span> Image-conditioned attributes provide genuine visual evidence and improve interpretable zero-shot classification over label-conditioned LLM descriptors.</p><p class="field"><span class="label">Why it matters:</span> A clean, rigorous critique and fix for CLIP-based zero-shot pipelines, directly relevant to the reader's CLIP/SLIP-style vision-language interests and interpretable classification.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.19064" target="_blank">Mage-Flow: An Efficient Native-Resolution Foundation Model for Image Generation and Editing</a></h3>
+<p class="meta">Xinjie Zhang, Peng Zhang, Shicheng Zheng, Jinghao Guo et al. (24 authors) &nbsp;·&nbsp; <code>2607.19064</code></p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Image Generation</span><span class="tag">Diffusion Transformers</span></p>
+<p class="field"><span class="label">TL;DR:</span> Mage-Flow is a compact 4B-scale native-resolution foundation stack for efficient text-to-image generation and instruction-based editing.</p><p class="field"><span class="label">Problem:</span> Large visual generators are increasingly capable but prohibitively costly to train, fine-tune, and deploy, motivating compact yet high-fidelity alternatives.</p><p class="field"><span class="label">Method:</span> Mage-Flow combines Mage-VAE, a lightweight high-fidelity latent tokenizer, with a Native-Resolution Multimodal Diffusion Transformer, co-designed to support both text-to-image generation and instruction-based editing at 4B scale.</p><p class="field"><span class="label">Results:</span> The stack achieves efficient, competitive text-to-image and editing quality at a fraction of the compute of larger generative systems.</p><p class="field"><span class="label">Why it matters:</span> Represents current efficient foundation-model design for generative vision — useful architectural reference for anyone building or adapting multimodal generative models.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.18801" target="_blank">ZeroSplat: Generalized Referring Segmentation in 3D Gaussian Splatting</a></h3>
+<p class="meta">Jiayu Ding, Meilu Song, Xiaoyi Zhang, Hongbo Jin et al. (6 authors) &nbsp;·&nbsp; <code>2607.18801</code></p>
+<p class="tags"><span class="tag">Referring Segmentation</span><span class="tag">3D Gaussian Splatting</span><span class="tag">Vision-Language Models</span></p>
+<p class="abstract">Recent advancements in 3D Gaussian Splatting (3DGS) have enabled language-guided scene understanding. However, existing Referring 3D Gaussian Splatting (R3DGS) methods are fundamentally restricted to single-target queries. To reflect the ambiguity of real-world instructions, we introduce the Generalized Referring 3D Gaussian Splatting Segmentation (GR3DGS) task, which requires dynamically segmenti</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.19086" target="_blank">Advancing Multimodal Fusion on Heterogeneous Medical Data with Hybrid Geometry Attention</a></h3>
+<p class="meta">Joy Dhar, Manish Kumar Pandey, Nayyar Zaidi, Chen Chen et al. (7 authors) &nbsp;·&nbsp; <code>2607.19086</code></p>
+<p class="tags"><span class="tag">Multimodal Fusion</span><span class="tag">Medical Imaging</span><span class="tag">Attention Mechanisms</span></p>
+<p class="abstract">Multimodal fusion learning (MFL) has shown great potential in the medical domain, where we are faced with disparate data modalities such as imaging, clinical records, and omics. However, existing MFL strategies face several major challenges. First, they struggle to capture complex cross-modal interactions effectively, which in turn limits performance improvements. Second, they incur high computati</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.18678" target="_blank">Cross-Dataset Generalization in Breast MRI Tumor Classification via Class-Wise Dataset Mixing</a></h3>
+<p class="meta">Mohammad Ali Dadrast, Hamid Usefi &nbsp;·&nbsp; <code>2607.18678</code></p>
+<p class="tags"><span class="tag">Breast MRI</span><span class="tag">Domain Generalization</span><span class="tag">Tumor Classification</span></p>
+<p class="abstract">Breast MRI is highly sensitive for detecting breast tumors, but exams contain many slices and require substantial reading time. Deep learning models often perform well on internal splits but can fail across institutions because of domain shift and dataset-origin bias. We study this failure mode for binary breast MRI tumor classification. EfficientNet-B3 and WaveViT-Small are trained using Duke Bre</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2607.18638" target="_blank">Deep Learning Estimation of Sex, Age, Height, and Weight from CT-derived Digitally Reconstructed Radiographs</a></h3>
+<p class="meta">Tomohiro Kikuchi, Kohei Yamamoto, Yukihiro Nomura, Yosuke Yamagishi et al. (9 authors) &nbsp;·&nbsp; <code>2607.18638</code></p>
+<p class="tags"><span class="tag">Radiography</span><span class="tag">Deep Learning</span><span class="tag">CT-derived DRR</span></p>
+<p class="abstract">Purpose: To develop and validate a deep learning ensemble for estimating adult sex, age, height, and weight from coronal digitally reconstructed radiographs (DRRs) generated from diagnostic CT. Materials and Methods: This retrospective study included 128,621 CT examinations from 80,004 adults at nine institutions in Japan. Three multitask models-ConvNeXt-Base, ViT-Base/16, and MaxViT-Base-were fin</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2607.18773" target="_blank">Privileged Lesion-Context Relational Distillation for Mask-Free Skin Lesion Classification</a></h3>
+<p class="meta">Abu Mukaddim Rahi, Md Mithun Hossain, Md Zulficar Hasan Joy, M. F. Mridha et al. (5 authors) &nbsp;·&nbsp; <code>2607.18773</code></p>
+<p class="tags"><span class="tag">Skin Lesion Classification</span><span class="tag">Knowledge Distillation</span><span class="tag">Medical Imaging</span></p>
+<p class="abstract">Accurate skin lesion classification can benefit from lesion segmentation masks, but requiring masks or an auxiliary segmentation model during inference reduces clinical practicality and increases computational complexity. This work introduces Privileged Lesion-Context Relational Distillation (PLCRD), a teacher-student framework that exploits lesion masks exclusively during training while preservin</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2607.18882" target="_blank">Local Label-Informed Feature Transfer for Generating Ground-Truth Medical Images: A Comparison of GAN- and Diffusion-Based Approaches</a></h3>
+<p class="meta">Rick Wilming, Irem Ozseker, Luca Matteo Cornils, Ahcène Boubekki et al. (7 authors) &nbsp;·&nbsp; <code>2607.18882</code></p>
+<p class="tags"><span class="tag">Medical Image Generation</span><span class="tag">Explainable AI</span><span class="tag">Diffusion Models</span></p>
+<p class="abstract">Validating Explainable Artificial Intelligence (XAI) methods in medical imaging requires ground-truth data with known locations of informative features. However, current approaches rely on expert annotations, which are prone to labeling errors, or on hand-crafted artificial perturbations superimposed onto healthy images to mimic lesions or malignant features, which lack clinical realism. We presen</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2607.19137" target="_blank">MIRAGE: Multi-scale Lesion-Informed Representation with Auxiliary Guidance for MRI Contrast Enhancement</a></h3>
+<p class="meta">Andrea Borghesi, Xin Wang, Jonas Teuwen, George Yiasemis &nbsp;·&nbsp; <code>2607.19137</code></p>
+<p class="tags"><span class="tag">Breast MRI</span><span class="tag">Contrast Enhancement</span><span class="tag">Generative Models</span></p>
+<p class="abstract">Inferring contrast enhancement from one pre-contrast breast MRI slice is underdetermined: post-contrast appearance contains physiological information that is not uniquely encoded in baseline anatomy. Optimizing only paired pixel fidelity can suppress uncertain lesion enhancement, whereas adversarial or stochastic generative objectives can favor realistic post-contrast appearance without guaranteei</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2607.19069" target="_blank">Delineate Anything v2: A Global Foundation Model for Field Delineation</a></h3>
+<p class="meta">Mykola Lavreniuk, Nataliia Kussul, Andrii Shelestov, Yevhenii Salii et al. (7 authors) &nbsp;·&nbsp; <code>2607.19069</code></p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Semantic Segmentation</span><span class="tag">Remote Sensing</span></p>
+<p class="abstract">Accurate agricultural field boundary delineation at large scale is a foundational task for food security, supply chain transparency, and carbon accounting. While vision foundation models like SAM show remarkable zero-shot capabilities, they frequently fail in geospatial domains due to topological complexity, cropland texturing patterns, and a lack of physical scale awareness. In this work, we intr</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2607.18759" target="_blank">Relative Positions Generalize, Absolute Positions Memorize: An Implicit-Bias Account of Length Generalization in Attention</a></h3>
+<p class="meta">Subham Singh, Ashutosh Mishra, Subha Raut &nbsp;·&nbsp; <code>2607.18759</code></p>
+<p class="tags"><span class="tag">Length Generalization</span><span class="tag">Positional Encoding</span><span class="tag">Transformers</span></p>
+<p class="abstract">Transformers with relative positional encodings often extrapolate to sequences longer than those seen during training, whereas transformers with learned absolute encodings typically do not. This is a robust empirical regularity, and the explanations offered for it so far are chiefly about expressivity, that is, about whether a length-generalizing solution exists. We give an optimization explanatio</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2607.18666" target="_blank">Fusion Embedding: A Unified Embedding Space for Text, Image, Video, and Audio</a></h3>
+<p class="meta">Abdul Basit Tonmoy, Kazi Fardinul Hoque, Md. Shahrier Islam Arham, Arman Luthra &nbsp;·&nbsp; <code>2607.18666</code></p>
+<p class="tags"><span class="tag">Multimodal Embeddings</span><span class="tag">Cross-Modal Retrieval</span><span class="tag">Representation Learning</span></p>
+<p class="abstract">A single embedding space that covers text, images, video, and audio lets one index serve every query a user can pose. Embedding models built on vision-language backbones now lead text/image/video retrieval benchmarks but lack audio entirely, while audio-text retrieval is led by specialist systems that serve no other modality. We present the Fusion Embedding family, which adds audio to a frozen vis</p>
+</div>
+</body></html>
