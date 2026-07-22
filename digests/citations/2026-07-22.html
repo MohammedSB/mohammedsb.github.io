@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citations — July 22, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.subtitle{font-size:.85rem;color:#888;margin-bottom:2.5rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem;margin-bottom:.75rem}
+h2 em{font-style:italic;text-transform:none;font-size:1rem;letter-spacing:0}
+h3{font-size:1.05rem;font-weight:500;margin:0 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.83rem;color:#666;margin-bottom:.5rem}
+.summary{font-size:.95rem;line-height:1.65;margin:.5rem 0}
+.contexts{list-style:none;padding:0;margin:.6rem 0 0}
+.ctx{font-size:.88rem;line-height:1.6;color:#444;background:#fff;border-left:3px solid #d0b0b8;padding:.5rem .9rem;margin-bottom:.4rem;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:.75rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+</style></head><body>
+<h1>New Citations — July 22, 2026</h1>
+<p class="subtitle">5 new citations found via Semantic Scholar</p>
+<h2>Citing: <em>CRIMSON: A Clinically-Grounded LLM-Based Metric for Generative Radiology Report Evaluation</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2607.18448" target="_blank">PathReportEval: A Systematic Benchmark for Pathology Report Generation</a></h3>
+<p class="meta">S. Singh, Sejuti Majumder, Beatrice S. Knudsen, J. Saltz et al. (5 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> Cited as an example of prior radiology work exploring structured entity-based or graph-based report evaluation, grouped with other such approaches to contrast against the lexical-overlap metrics (BLEU, ROUGE, METEOR) that the authors say fail to capture whether clinically important information is preserved.</p>
+<ul class='contexts'><li class="ctx">These metrics measure lexical overlap between generated and reference reports, but they do not directly assess whether clinically important information is preserved [15, 16].</li><li class="ctx">Prior work in radiology has explored structured entity-based or graph-based evaluation [22, 15, 16], and recent pathology report generation work has introduced fact-based metrics such as FACTent [23, 9].</li></ul>
+</div><hr><h2>Citing: <em>MedSAM2: Segment Anything in 3D Medical Images and Videos</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2607.17329" target="_blank">MIS-HCC: Hierarchical Channel Clustering for Efficient Medical Image Segmentation</a></h3>
+<p class="meta">Bo Zhao, Haoran Yu, Lifei Liu, Zongcheng Chu et al. (8 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> Med-SAM2 serves as the 3D segmentation backbone in the paper's experiments on the MICCAI FLARE 2021 dataset, where segmentation quality is evaluated with Dice and IoU metrics; because it requires retraining during pruning, the baseline CHEX is not evaluated on this MedSAM2-based 3D task.</p>
+<ul class='contexts'><li class="ctx">For 3D segmentation, we conduct experiments on the MICCAI FLARE 2021 [63] dataset using the Med-SAM2 [64] For performance evaluation, we adopt Dice coefficient and Intersection over Union (IoU) metrics to assess both 2D and 3D segmentation performance.</li><li class="ctx">Note that since CHEX [34] requires retraining during model pruning, we do not evaluate it on the 3D segmentation task with MedSAM2 [64] backbone.</li></ul>
+</div><div class="card">
+<h3><a href="https://doi.org/10.1038/s41746-026-02780-6" target="_blank">Reconstruction from multi-planar MRI with foundation models for uterine fibroid analysis</a></h3>
+<p class="meta">Junhao Wang, Jinbo Wang, Hanxiao Zhang, Junyang Wu et al. (8 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> With no citing sentences available, I can only infer from the abstract's framing. MedSAM2 is referenced as a foundation model for promptable segmentation of 3D medical images and videos, likely cited as a representative segmentation foundation model relevant to the paper's use of foundation models for segmenting fibroids across the sparse, anisotropic sagittal/coronal/transverse MRI views prior to 3D reconstruction.
+
+Note: I couldn't be more specific because no context snippets from the citing paper were provided — the exact claim (e.g., whether MedSAM2 is used as a backbone, a baseline, or merely cited as related work) can't be determined from the abstract alone.</p>
+
+</div><hr><h2>Citing: <em>Segment Anything in Medical Images and Videos: Benchmark and Deployment</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2607.18014" target="_blank">SAMRI-3D: Adapting SAM2 for 3D MRI Segmentation with Global Volume Tokens</a></h3>
+<p class="meta">Zhao Wang, Wei Dai, Hongfu Sun, Craig B. Engstrom et al. (5 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> Cited as an example of the recent efforts adapting SAM2 to medical imaging — a general-purpose medical segmentation model that treats MRI as just one modality among many, in contrast to SAMRI-3D's MRI-specific focus, and against which the limited scale of MRI-specific modelling and benchmarking is contrasted.
+
+Note: no context snippets were available, so this is inferred from the citing paper's abstract rather than its explicit citing sentences.</p>
+
+</div><hr><h2>Citing: <em>Evaluating General Purpose Vision Foundation Models for Medical Image Analysis: An Experimental Study of DINOv2 on Radiology Benchmarks</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2607.18819" target="_blank">In-Context Learning for Wound Classification with Small Multimodal Language Models</a></h3>
+<p class="meta">G. Martvel, Oskar Gustafsson, John Pavia, Ernst Ahlberg · 2026</p>
+<p class="summary"><strong>What they say:</strong> DINOv2, a general-purpose vision foundation model pretrained on natural images, has been evaluated on radiology benchmarks under settings such as kNN classification, few-shot learning, linear probing, and fine-tuning, demonstrating that natural-image pretraining can yield features useful for some medical imaging tasks.</p>
+<ul class='contexts'><li class="ctx">…transfer to medical images: for example, DINOv2 [54] has been evaluated on radiology benchmarks using settings such as k NN classification, few-shot learning, linear probing, and fine-tuning, showing that natural-image pretraining can provide useful features for some medical tasks [10].</li></ul>
+</div>
+</body></html>
