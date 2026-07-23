@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — July 23, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — July 23, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.20274" target="_blank">Self-supervision drives representational convergence in medical foundation models more than clinical supervision</a></h3>
+<p class="meta">Soroosh Tayebi Arasteh, Sebastian Ziegelmayer, Mahshad Lotfinia, Lisa Adams et al. (7 authors) &nbsp;·&nbsp; <code>2607.20274</code></p>
+<p class="tags"><span class="tag">Medical Foundation Models</span><span class="tag">Self-Supervised Learning</span><span class="tag">Representation Analysis</span></p>
+<p class="field"><span class="label">TL;DR:</span> A controlled dissection shows that self-supervised pretraining, more than clinical label supervision, is what drives medical image encoders toward a shared representational structure.</p><p class="field"><span class="label">Problem:</span> Medical image encoders from different groups are increasingly treated as interchangeable on the assumption that scale and clinical supervision converge their representations, but whether this convergence is real, what causes it, and whether it is clinically usable have not been rigorously tested.</p><p class="field"><span class="label">Method:</span> The authors run a controlled comparison of medical image encoders using robust representational similarity measures, isolating the contribution of self-supervised objectives versus clinical supervision to representational convergence and evaluating downstream clinical usability.</p><p class="field"><span class="label">Results:</span> They find that self-supervision, rather than clinical supervision, is the dominant driver of representational convergence across medical foundation models, and they characterize when this shared structure is clinically meaningful.</p><p class="field"><span class="label">Why it matters:</span> This directly addresses the reader's core interests in self-supervised learning and medical foundation models, offering evidence on how to build and compare medical image encoders.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.20087" target="_blank">Development of an automated, reliable, and clinically meaningful artificial intelligence (AI) tool for diagnosing cardiac disease from conventional cardiovascular magnetic resonance (CMR) images</a></h3>
+<p class="meta">Sina Amirrajab, Volker Vehof, Michael Bietenbeck, Nuriye Akyol et al. (9 authors) &nbsp;·&nbsp; <code>2607.20087</code></p>
+<p class="tags"><span class="tag">Cardiac MRI</span><span class="tag">Clinical Diagnosis</span><span class="tag">Medical Imaging</span></p>
+<p class="field"><span class="label">TL;DR:</span> An automated, clinically validated AI tool diagnoses cardiac disease from conventional cardiovascular magnetic resonance images.</p><p class="field"><span class="label">Problem:</span> CMR interpretation requires substantial expertise and could be supported by AI, but adoption is limited by labor-intensive data curation and suboptimal, hard-to-trust model performance.</p><p class="field"><span class="label">Method:</span> The authors develop an AI pipeline for diagnosing cardiac disease from conventional CMR images, emphasizing reliability and clinical meaningfulness while reducing the curation burden, and validate it against clinical standards.</p><p class="field"><span class="label">Results:</span> The tool provides automated, reliable, and clinically meaningful cardiac disease diagnosis from routine CMR acquisitions.</p><p class="field"><span class="label">Why it matters:</span> It sits squarely in radiology AI and medical imaging, illustrating how to make imaging models clinically deployable — relevant to the reader's radiology-AI focus.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.20159" target="_blank">SHFormer: Dynamic Spectral Filtering Convolutional Neural Network and High-pass Kernel Generation Transformer for Adaptive MRI Reconstruction</a></h3>
+<p class="meta">Sriprabha Ramanarayanan, Rahul G. S., Mohammad Al Fahim, Keerthi Ram et al. (6 authors) &nbsp;·&nbsp; <code>2607.20159</code></p>
+<p class="tags"><span class="tag">MRI Reconstruction</span><span class="tag">Transformer Architecture</span><span class="tag">Medical Imaging</span></p>
+<p class="field"><span class="label">TL;DR:</span> SHFormer combines a dynamic spectral-filtering CNN with a high-pass kernel-generation transformer for adaptive accelerated MRI reconstruction.</p><p class="field"><span class="label">Problem:</span> Attention-based models help accelerated MRI reconstruction by capturing non-local Fourier-domain relationships, but they are better at low-frequency content and struggle to recover high-frequency detail.</p><p class="field"><span class="label">Method:</span> SHFormer pairs a dynamic spectral-filtering convolutional network with a transformer that generates high-pass kernels, jointly modeling non-local low-frequency structure and locally adaptive high-frequency detail for reconstruction.</p><p class="field"><span class="label">Results:</span> The hybrid design yields improved adaptive MRI reconstruction quality relative to attention-only baselines, particularly on fine high-frequency structure.</p><p class="field"><span class="label">Why it matters:</span> MRI reconstruction methods and vision architectures for medical imaging are close to the reader's imaging and computer-vision interests.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.20351" target="_blank">Test-Time Training for Modality Order Consistency in Vision-Language Models</a></h3>
+<p class="meta">Aditi Gupta, Yossi Gandelsman &nbsp;·&nbsp; <code>2607.20351</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Test-Time Training</span><span class="tag">Robustness</span></p>
+<p class="field"><span class="label">TL;DR:</span> Vision-language models are systematically biased by whether the image or the question comes first, and an order-consistent test-time training method fixes it.</p><p class="field"><span class="label">Problem:</span> VLMs are sensitive to a semantically irrelevant change — the order in which image and question are presented — with image-first prompting consistently beating question-first, revealing a repeatable modality-order failure.</p><p class="field"><span class="label">Method:</span> The authors exploit the image-first/question-first performance gap as a self-supervision signal and design an order-consistent test-time training procedure that enforces consistent predictions across modality orderings.</p><p class="field"><span class="label">Results:</span> Across three models and three benchmarks the method reduces the modality-order sensitivity and improves robustness.</p><p class="field"><span class="label">Why it matters:</span> Vision-language models are central to the reader's interest in CLIP-style multimodal foundation models, and this reveals a general failure mode with a lightweight fix.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.20214" target="_blank">ELSAA: Efficient Low-Rank and Sparse Attention Approximation for Training Transformers</a></h3>
+<p class="meta">Mahdi Heidari, Mohammad Mahdi Rahimi, Jaekyun Moon &nbsp;·&nbsp; <code>2607.20214</code></p>
+<p class="tags"><span class="tag">Efficient Attention</span><span class="tag">Transformer Architecture</span><span class="tag">Low-Rank Approximation</span></p>
+<p class="field"><span class="label">TL;DR:</span> ELSAA combines low-rank and sparse attention approximation to train transformers efficiently on longer sequences.</p><p class="field"><span class="label">Problem:</span> The quadratic N×N attention score matrix blocks scaling transformers to long inputs; existing efficient methods use either sparsity or low-rank/kernel sketches but rarely both effectively.</p><p class="field"><span class="label">Method:</span> ELSAA jointly approximates attention with a combined low-rank plus sparse decomposition, capturing compressed global interactions while preserving important local sparse structure, for efficient transformer training.</p><p class="field"><span class="label">Results:</span> The approach reduces the attention bottleneck while maintaining accuracy, enabling longer-input transformer training.</p><p class="field"><span class="label">Why it matters:</span> Efficient attention and training techniques underpin the vision-language and imaging models the reader works with, where sequence length and compute are practical bottlenecks.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.20062" target="_blank">Solar Open 2 Technical Report</a></h3>
+<p class="meta">Sungrae Park, Sanghoon Kim, Gyoungjin Gim, Jungho Cho et al. (53 authors) &nbsp;·&nbsp; <code>2607.20062</code></p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Mixture-of-Experts</span><span class="tag">Long-Context LLMs</span></p>
+<p class="field"><span class="label">TL;DR:</span> Solar Open 2 is a 250B-parameter Mixture-of-Experts LLM with a 1M-token hybrid-attention window built for long-horizon agentic tasks.</p><p class="field"><span class="label">Problem:</span> Long-horizon agentic tasks require holding entire agent trajectories in context, which demands very long context windows without prohibitive attention cost.</p><p class="field"><span class="label">Method:</span> Solar Open 2 is a 250B-A15B MoE model scaled from Solar Open 1, reaching a 1M-token window via a hybrid attention stack that interleaves one softmax layer per three linear-attention layers, using no positional encoding and gating.</p><p class="field"><span class="label">Results:</span> The report presents a scaled MoE foundation model achieving 1M-token context suitable for full agent trajectories.</p><p class="field"><span class="label">Why it matters:</span> It documents current architectural techniques (MoE, hybrid/linear attention, long context) shaping foundation models the reader may build on or adapt.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2607.19864" target="_blank">PRISM-DR: Per-lesion Retinal Inference with Specialist Models for Diabetic Retinopathy</a></h3>
+<p class="meta">Zübeyr Özeren, Tansel Uyar &nbsp;·&nbsp; <code>2607.19864</code></p>
+<p class="tags"><span class="tag">Diabetic Retinopathy</span><span class="tag">Lesion Detection</span><span class="tag">Retinal Imaging</span></p>
+<p class="abstract">Diabetic retinopathy is a leading cause of preventable blindness; its early lesions are small, low contrast, and easily missed in manual screening. Most automated detectors handle the four non-proliferative DR lesions: microaneurysms, hemorrhages, hard exudates, and soft exudates, with a single multi-class model, even though these lesions differ sharply in size, color, morphology, and prevalence, </p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2607.19779" target="_blank">Frequency-Hierarchical Active k-Space Sampling for Diagnostic MRI</a></h3>
+<p class="meta">Ruru Xu, Kian Anvari Hamedani, Zhikai Yang, Ilkay Oksuz &nbsp;·&nbsp; <code>2607.19779</code></p>
+<p class="tags"><span class="tag">MRI Reconstruction</span><span class="tag">Active k-Space Sampling</span><span class="tag">Medical Imaging</span></p>
+<p class="abstract">Active sampling for accelerated MRI must distribute a tight sampling budget across spatial frequencies that carry very different kinds of information. Low frequencies hold most of the anatomical context; high frequencies carry the fine details that drive pathology assessment. Existing active samplers either treat both regions identically or restrict the action space to entire Cartesian rows, which</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2607.19943" target="_blank">SIINR: Structurally Informed Implicit Neural Representations for super-resolution with uncertainty quantification of clinical quality diffusion MRI datasets</a></h3>
+<p class="meta">Tom Hendriks, William Consagra, Anna Vilanova, Yogesh Rathi et al. (5 authors) &nbsp;·&nbsp; <code>2607.19943</code></p>
+<p class="tags"><span class="tag">Diffusion MRI</span><span class="tag">Implicit Neural Representations</span><span class="tag">Super-Resolution</span></p>
+<p class="abstract">Diffusion Magnetic Resonance Imaging (dMRI) is a powerful tool for probing brain microstructure, but clinical acquisitions are often limited by low out-of-plane resolution, resulting in degraded structural information and reduced utility for advanced analysis. We introduce SIINR (Structurally Informed Implicit Neural Representations), a general framework for super-resoltion of clinical dMRI datase</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2607.20028" target="_blank">A Systematic Benchmark of Intensity Normalisation Methods for 3D Knee MRI Segmentation and Cross-Domain Generalisability</a></h3>
+<p class="meta">Oliver Mills, Philip Conaghan, Samuel Relton &nbsp;·&nbsp; <code>2607.20028</code></p>
+<p class="tags"><span class="tag">Knee MRI Segmentation</span><span class="tag">Intensity Normalization</span><span class="tag">Domain Generalization</span></p>
+<p class="abstract">Robust out-of-the-box performance is essential for the clinical deployment of deep learning models in medical imaging. An important but underexplored factor affecting model generalisability is intensity normalisation, particularly for magnetic resonance imaging (MRI), where image intensities vary across scanners and protocols. In this study, we systematically compared seven normalisation methods a</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2607.19643" target="_blank">Domain Shift in Echocardiography: Interpretable Quantification and Prediction of Cross-Dataset Left Ventricular Segmentation</a></h3>
+<p class="meta">Soroush Elyasi, Nasim Dadashi Serej, Julie Wall, Massoud Zolgharni &nbsp;·&nbsp; <code>2607.19643</code></p>
+<p class="tags"><span class="tag">Echocardiography</span><span class="tag">Domain Shift</span><span class="tag">Left Ventricular Segmentation</span></p>
+<p class="abstract">Cross-dataset generalisation remains a major barrier to clinical deployment of echocardiographic left ventricular segmentation, yet the sources of this shift are rarely disentangled. We examined whether transfer degradation could be estimated before deployment using handcrafted ultrasound descriptors, VAE latent features, and segmentation-derived latent features across six echocardiographic datase</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2607.19696" target="_blank">PhenSPINE: A Standardized Benchmark for Spine Pathology Diagnosis</a></h3>
+<p class="meta">Duong Ngoc Vu, Hai Son Nguyen, Trong-Nghia Nguyen, Bien Tran Van et al. (7 authors) &nbsp;·&nbsp; <code>2607.19696</code></p>
+<p class="tags"><span class="tag">Spine MRI</span><span class="tag">Diagnostic Benchmark</span><span class="tag">Radiology AI</span></p>
+<p class="abstract">The accurate diagnosis of spinal pathologies depends heavily on radiological interpretation, yet automated systems are hindered by the lack of diverse, high-quality benchmarks. In this study, we present PhenSPINE, a Magnetic Resonance Imaging dataset comprising 16,813 images from 250 patients, curated to facilitate advanced deep learning research. We propose a robust diagnostic benchmark that inte</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2607.20238" target="_blank">Not All Patches are Equal: Sampling Matters for Visible-Infrared Pre-Training</a></h3>
+<p class="meta">Qiwei Ma, Bin Deng, Junjie Zhu, Qiangjuan Huang et al. (8 authors) &nbsp;·&nbsp; <code>2607.20238</code></p>
+<p class="tags"><span class="tag">Visible-Infrared Pretraining</span><span class="tag">Contrastive Learning</span><span class="tag">Multi-Sensor Perception</span></p>
+<p class="abstract">Visible-infrared (VIS-IR) alignment is a key pre-training task for robust multi-sensor perception. Most existing methods use uniform patch-wise contrastive learning, but this can be unreliable in VIS-IR data because imaging-physics differences make some spatially paired regions inherently less comparable, and aligning them with equal strength hinders representation learning and downstream transfer</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2607.19691" target="_blank">SLPO: Scaling Latent Reasoning via a Surrogate Policy</a></h3>
+<p class="meta">Runyang You, Zhiyuan Liu, Yongqi Li, Wenjie Li &nbsp;·&nbsp; <code>2607.19691</code></p>
+<p class="tags"><span class="tag">Latent Reasoning</span><span class="tag">Reinforcement Learning</span><span class="tag">LLM Efficiency</span></p>
+<p class="abstract">Reinforcement learning with verifiable rewards has become the predominant recipe for eliciting test-time scaling in explicit Chain-of-Thought reasoners. Yet this scaling path remains computationally costly, since every intermediate step must be decoded as a language token. Latent reasoning instead carries intermediate computation as continuous vectors and already matches or surpasses explicit CoT </p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2607.19686" target="_blank">Multi-Mask Diffusion Language Models for Few-Step Generation</a></h3>
+<p class="meta">Sijin Chen, Yinuo Ren, Heyang Zhao, Ziheng Cheng et al. (6 authors) &nbsp;·&nbsp; <code>2607.19686</code></p>
+<p class="tags"><span class="tag">Diffusion Language Models</span><span class="tag">Few-Step Generation</span><span class="tag">Masked Diffusion</span></p>
+<p class="abstract">Masked diffusion models (MDMs) are a promising family of language generators, but achieving high-quality few-step generation remains challenging. In MDMs, all forward trajectories collapse to a single fully masked state, leaving no terminal entropy for consistency-style few-step generation. While recent few-step alternatives based on uniform-state diffusion avoid this degeneracy, it becomes harder</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2607.20027" target="_blank">Zero-Shot Heart Rate Variability Forecasting from Consumer Wearables Using Time Series Foundation Models</a></h3>
+<p class="meta">Luukas Peräkylä, Fahad Sohrab, Ville Hautamäki, Merja Heinäniemi et al. (6 authors) &nbsp;·&nbsp; <code>2607.20027</code></p>
+<p class="tags"><span class="tag">Time Series Foundation Models</span><span class="tag">Wearables</span><span class="tag">Zero-Shot Forecasting</span></p>
+<p class="abstract">Short-term Heart Rate Variability (HRV) forecasting could provide clinicians with actionable lead time for detecting autonomic dysfunction and adverse cardiac events. Consumer wearable devices generate fragmented, artifact-rich HRV signals that challenge conventional forecasting approaches. In this study, we evaluated the forecasting ability of three Time Series Foundation Models (TSFMs), TimesFM,</p>
+</div>
+</body></html>
