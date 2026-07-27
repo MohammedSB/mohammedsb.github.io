@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "date": "2026-07-27",
+      "research": false,
+      "journals": false,
+      "news": true
+    },
+    {
       "date": "2026-07-26",
       "research": false,
       "journals": false,
