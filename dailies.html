@@ -74,6 +74,35 @@
             gap: 0.4rem;
         }
 
+        .archive-month {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .archive-month + .archive-month {
+            margin-top: 1.1rem;
+        }
+
+        .month-label {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: #999;
+            padding: 0 0.3rem 0.15rem;
+        }
+
+        .month-count {
+            font-weight: 400;
+            letter-spacing: 0;
+            text-transform: none;
+            color: #bbb;
+        }
+
         .archive-row {
             display: flex;
             align-items: center;
@@ -357,6 +386,45 @@
             });
         }
 
+        // ── Month grouping ───────────────────────────────────────────────────
+        // Rows inside a group don't repeat the month and year, since the heading
+        // carries them — so a long archive reads "July 2026 / Fri 31 / Thu 30 …"
+        // instead of forty identical-looking full dates.
+        function monthLabel(key) {
+            return new Date(key + '-01T12:00:00Z').toLocaleDateString('en-US', {
+                month: 'long', year: 'numeric', timeZone: 'UTC'
+            });
+        }
+
+        function dayLabel(date) {
+            const d = new Date(date + 'T12:00:00Z');
+            const opts = { timeZone: 'UTC' };
+            // en-US renders {weekday, day} as "31 Fri", so compose it by hand.
+            return d.toLocaleDateString('en-US', { ...opts, weekday: 'short' })
+                 + ' ' + d.toLocaleDateString('en-US', { ...opts, day: 'numeric' });
+        }
+
+        // Rows arrive newest-first, so consecutive runs are already whole months.
+        function groupByMonth(rows) {
+            const groups = [];
+            for (const r of rows) {
+                const key = r.date.slice(0, 7);
+                if (!groups.length || groups[groups.length - 1].key !== key) {
+                    groups.push({ key, rows: [] });
+                }
+                groups[groups.length - 1].rows.push(r);
+            }
+            return groups;
+        }
+
+        function groupedList(rows, rowHTML) {
+            if (!rows.length) return '<div class="archive-empty">None yet.</div>';
+            return groupByMonth(rows).map(g => `<div class="archive-month">
+                    <div class="month-label"><span>${monthLabel(g.key)}</span><span class="month-count">${g.rows.length}</span></div>
+                    ${g.rows.map(rowHTML).join('')}
+                  </div>`).join('');
+        }
+
         const KIND_LABEL = { research: 'arXiv', journals: 'Journals', citations: 'Impact', news: 'News' };
 
         // journals are a weekly roundup → label them "week of …"
@@ -407,26 +475,23 @@
 
             const rowTagClass = k => ({ journals: 'tag-journal', citations: 'tag-citations' }[k] || 'tag-arxiv');
 
-            listR.innerHTML = researchRows.length
-                ? researchRows.map(r => `<a class="archive-row" href="dailies.html?date=${r.date}&tab=${r.kind}" data-date="${r.date}" data-kind="${r.kind}">
-                    <span class="archive-date">${rowLabel(r.kind, r.date)}</span>
+            listR.innerHTML = groupedList(researchRows, r => `<a class="archive-row" href="dailies.html?date=${r.date}&tab=${r.kind}" data-date="${r.date}" data-kind="${r.kind}">
+                    <span class="archive-date">${r.kind === 'journals' ? 'Week of ' : ''}${dayLabel(r.date)}</span>
                     <span class="row-tag ${rowTagClass(r.kind)}">${KIND_LABEL[r.kind]}</span>
-                  </a>`).join('')
-                : '<div class="archive-empty">None yet.</div>';
+                  </a>`);
 
-            listC.innerHTML = citationsEntries.length
-                ? citationsEntries.map(e => `<a class="archive-row" href="dailies.html?date=${e.date}&tab=citations" data-date="${e.date}" data-kind="citations">
-                    <span class="archive-date">${formatDate(e.date)}</span>
-                    <span class="row-tag tag-citations">Impact</span>
-                  </a>`).join('')
-                : '<div class="archive-empty">None yet.</div>';
-
-            listN.innerHTML = newsEntries.length
-                ? newsEntries.map(e => `<a class="archive-row news-row" href="dailies.html?date=${e.date}&tab=news" data-date="${e.date}" data-kind="news">
-                    <span class="archive-date">${formatDate(e.date)}</span>
+            // No per-row tag here: the column heading already says Impact, and
+            // unlike Research this column only ever holds one kind. Arrow matches
+            // the News column, the other single-kind list.
+            listC.innerHTML = groupedList(citationsEntries, e => `<a class="archive-row" href="dailies.html?date=${e.date}&tab=citations" data-date="${e.date}" data-kind="citations">
+                    <span class="archive-date">${dayLabel(e.date)}</span>
                     <span class="archive-arrow">→</span>
-                  </a>`).join('')
-                : '<div class="archive-empty">None yet.</div>';
+                  </a>`);
+
+            listN.innerHTML = groupedList(newsEntries, e => `<a class="archive-row news-row" href="dailies.html?date=${e.date}&tab=news" data-date="${e.date}" data-kind="news">
+                    <span class="archive-date">${dayLabel(e.date)}</span>
+                    <span class="archive-arrow">→</span>
+                  </a>`);
         }
 
         // ── Digest view ──────────────────────────────────────────────────────
