@@ -103,6 +103,40 @@
             color: #bbb;
         }
 
+        /* Everything older than the newest month starts collapsed, so this page
+           stays a screenful after a year of daily entries. */
+        .archive-older {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-top: 1.1rem;
+        }
+
+        /* Needed explicitly: the display above would otherwise beat [hidden]. */
+        .archive-older[hidden] {
+            display: none;
+        }
+
+        .archive-more {
+            margin-top: 0.6rem;
+            padding: 0.55rem 1rem;
+            background: none;
+            border: 1px dashed #d8d8d8;
+            border-radius: 6px;
+            color: #999;
+            font-family: inherit;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: border-color 0.15s ease, color 0.15s ease;
+        }
+
+        .archive-more:hover {
+            border-color: #b0b0b0;
+            color: #555;
+        }
+
         .archive-row {
             display: flex;
             align-items: center;
@@ -417,12 +451,25 @@
             return groups;
         }
 
+        // Only the newest month is shown; the rest sit behind a button. Keyed off
+        // the newest group rather than today's date so the list is never empty on
+        // the 1st of a month before that day's digest has run.
         function groupedList(rows, rowHTML) {
             if (!rows.length) return '<div class="archive-empty">None yet.</div>';
-            return groupByMonth(rows).map(g => `<div class="archive-month">
+
+            const monthHTML = g => `<div class="archive-month">
                     <div class="month-label"><span>${monthLabel(g.key)}</span><span class="month-count">${g.rows.length}</span></div>
                     ${g.rows.map(rowHTML).join('')}
-                  </div>`).join('');
+                  </div>`;
+
+            const [newest, ...older] = groupByMonth(rows);
+            if (!older.length) return monthHTML(newest);
+
+            const label = `Show ${older.length} earlier month${older.length > 1 ? 's' : ''}`;
+            return monthHTML(newest)
+                + `<div class="archive-older" hidden>${older.map(monthHTML).join('')}</div>`
+                + `<button type="button" class="archive-more" aria-expanded="false"
+                     data-more="${label}" data-less="Hide earlier months">${label}</button>`;
         }
 
         const KIND_LABEL = { research: 'arXiv', journals: 'Journals', citations: 'Impact', news: 'News' };
@@ -602,9 +649,24 @@
             pushState(d, k);
             showDigest(d, k);
         }
-        document.getElementById('archive-list-research').addEventListener('click', archiveClick);
-        document.getElementById('archive-list-citations').addEventListener('click', archiveClick);
-        document.getElementById('archive-list-news').addEventListener('click', archiveClick);
+        // Expand / collapse the older months. Separate from archiveClick, which
+        // bails on anything that isn't a row, so the two coexist on one container.
+        function moreClick(e) {
+            const btn = e.target.closest('.archive-more');
+            if (!btn) return;
+            const older = btn.parentElement.querySelector('.archive-older');
+            if (!older) return;
+            const opening = older.hidden;
+            older.hidden = !opening;
+            btn.setAttribute('aria-expanded', String(opening));
+            btn.textContent = opening ? btn.dataset.less : btn.dataset.more;
+        }
+
+        for (const id of ['archive-list-research', 'archive-list-citations', 'archive-list-news']) {
+            const el = document.getElementById(id);
+            el.addEventListener('click', archiveClick);
+            el.addEventListener('click', moreClick);
+        }
 
         document.getElementById('back-btn').addEventListener('click', () => {
             pushArchive();
