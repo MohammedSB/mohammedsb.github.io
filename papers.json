@@ -1,0 +1,213 @@
+{
+  "generated": "2026-07-31T20:43:43Z",
+  "source": "semanticscholar:2253396549",
+  "count": 14,
+  "papers": [
+    {
+      "id": "84c65a406994d8d57628f09f1e47b3521196efc9",
+      "title": "CRIMSON: A Clinically-Grounded LLM-Based Metric for Generative Radiology Report Evaluation",
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2603.06183",
+      "arxiv": "2603.06183",
+      "doi": "10.48550/arXiv.2603.06183",
+      "venues": [
+        {
+          "name": "Medical Image Computing and Computer Assisted Intervention",
+          "short": "MICCAI",
+          "year": 2026
+        }
+      ],
+      "preprint": false,
+      "overridden": true
+    },
+    {
+      "id": "786a35096b3def0684f70119cece682b4ff43069",
+      "title": "ReXInTheWild: A Unified Benchmark for Medical Photograph Understanding",
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2603.19517",
+      "arxiv": "2603.19517",
+      "doi": "10.48550/arXiv.2603.19517",
+      "venues": [],
+      "preprint": true,
+      "overridden": false
+    },
+    {
+      "id": "412cbe4d7e7a1687dade7b8afaa9a6aa6e274eea",
+      "title": "3DReasonKnee: Advancing Grounded Reasoning in Medical Vision Language Models",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2510.20967",
+      "arxiv": "2510.20967",
+      "doi": "10.48550/arXiv.2510.20967",
+      "venues": [
+        {
+          "name": "Pacific Symposium on Biocomputing",
+          "short": "PSB"
+        }
+      ],
+      "preprint": false,
+      "overridden": false
+    },
+    {
+      "id": "5b9a78f720855b673c94a36aee147413f425cb3c",
+      "title": "Exploring the Design Space of 3D MLLMs for CT Report Generation",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2506.21535",
+      "arxiv": "2506.21535",
+      "doi": "10.48550/arXiv.2506.21535",
+      "venues": [
+        {
+          "name": "Medical Image Computing and Computer Assisted Intervention",
+          "short": "MICCAI"
+        }
+      ],
+      "preprint": false,
+      "overridden": false
+    },
+    {
+      "id": "5a89872997ebadb39ba5a18c703c5a192aa433ef",
+      "title": "MedSAM2: Segment Anything in 3D Medical Images and Videos",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2504.03600",
+      "arxiv": "2504.03600",
+      "doi": "10.48550/arXiv.2504.03600",
+      "venues": [],
+      "preprint": true,
+      "overridden": false
+    },
+    {
+      "id": "892a50c49dbf505ade91b3a9ea7e90f63e5e5a51",
+      "title": "RadGame: An AI-Powered Platform for Radiology Education",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2509.13270",
+      "arxiv": "2509.13270",
+      "doi": "10.48550/arXiv.2509.13270",
+      "venues": [
+        {
+          "name": "Machine Learning for Health",
+          "short": "ML4H",
+          "year": 2025
+        },
+        {
+          "name": "European Congress of Radiology",
+          "short": "ECR",
+          "year": 2026
+        }
+      ],
+      "preprint": false,
+      "overridden": true
+    },
+    {
+      "id": "4d0c1f6310fa9d1aaaa1cedede362fcc10e71113",
+      "title": "ReXGroundingCT: A 3D Chest CT Dataset for Segmentation of Findings from Free-Text Reports",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2507.22030",
+      "arxiv": "2507.22030",
+      "doi": "10.48550/arXiv.2507.22030",
+      "venues": [
+        {
+          "name": "NEJM AI",
+          "short": "NEJM AI"
+        }
+      ],
+      "preprint": false,
+      "overridden": false
+    },
+    {
+      "id": "ab2ca782e65947661fa7599a8576381f562d4f3d",
+      "title": "State-of-the-Art Text-Prompted Medical Segmentation Models Struggle to Ground Chest CT Findings",
+      "year": 2025,
+      "url": "https://www.semanticscholar.org/paper/ab2ca782e65947661fa7599a8576381f562d4f3d",
+      "arxiv": null,
+      "doi": null,
+      "venues": [
+        {
+          "name": "Machine Learning for Health Care",
+          "short": "MLHC"
+        }
+      ],
+      "preprint": false,
+      "overridden": false
+    },
+    {
+      "id": "19adf491bac2f1b507d0d5c4048c95c2092151d9",
+      "title": "Voice-guided Orchestrated Intelligence for Clinical Evaluation (VOICE): A Voice AI Agent System for Prehospital Stroke Assessment",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2507.22898",
+      "arxiv": "2507.22898",
+      "doi": "10.1109/AIxMHC65380.2025.00013",
+      "venues": [
+        {
+          "name": "Second International Conference on Artificial Intelligence for Medicine, Health and Care",
+          "short": "AIxMHC"
+        }
+      ],
+      "preprint": false,
+      "overridden": false
+    },
+    {
+      "id": "15dcd0029e53c702152a1b657ab4bab3cf9300ff",
+      "title": "Harmony: A Joint Self-Supervised and Weakly-Supervised Framework for Learning General Purpose Visual Representations",
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2405.14239",
+      "arxiv": "2405.14239",
+      "doi": "10.48550/arXiv.2405.14239",
+      "venues": [
+        {
+          "name": "Transactions on Machine Learning Research",
+          "short": "TMLR"
+        }
+      ],
+      "preprint": false,
+      "overridden": false
+    },
+    {
+      "id": "333e356f586f13b6daaff2cced4a67761e28a214",
+      "title": "HyMNet: A Multimodal Deep Learning System for Hypertension Prediction Using Fundus Images and Cardiometabolic Risk Factors",
+      "year": 2024,
+      "url": "https://doi.org/10.3390/bioengineering11111080",
+      "arxiv": null,
+      "doi": "10.3390/bioengineering11111080",
+      "venues": [
+        {
+          "name": "Bioengineering",
+          "short": "Bioengineering"
+        }
+      ],
+      "preprint": false,
+      "overridden": false
+    },
+    {
+      "id": "0a214a62d84e0f384ad1ab690c909bc63649b0cf",
+      "title": "Segment Anything in Medical Images and Videos: Benchmark and Deployment",
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2408.03322",
+      "arxiv": "2408.03322",
+      "doi": "10.48550/arXiv.2408.03322",
+      "venues": [],
+      "preprint": true,
+      "overridden": false
+    },
+    {
+      "id": "1b512970d989a22db8abe8351fc5ac8f6bbb35f6",
+      "title": "HyMNet: a Multimodal Deep Learning System for Hypertension Classification using Fundus Photographs and Cardiometabolic Risk Factors",
+      "year": 2023,
+      "url": "https://arxiv.org/abs/2310.01099",
+      "arxiv": "2310.01099",
+      "doi": "10.48550/arXiv.2310.01099",
+      "venues": [],
+      "preprint": true,
+      "overridden": false
+    },
+    {
+      "id": "cd281e29a0692b10f2617c91e2fae26b4eea17f3",
+      "title": "Towards General Purpose Vision Foundation Models for Medical Image Analysis: An Experimental Study of DINOv2 on Radiology Benchmarks",
+      "year": 2023,
+      "url": "https://www.semanticscholar.org/paper/cd281e29a0692b10f2617c91e2fae26b4eea17f3",
+      "arxiv": "2312.02366",
+      "doi": "10.48550/arXiv.2312.02366",
+      "venues": [],
+      "preprint": true,
+      "overridden": false
+    }
+  ]
+}

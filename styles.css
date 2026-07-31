@@ -198,6 +198,98 @@ h1 {
     font-style: italic;
 }
 
+/* Venue mentions in the bio: hover (or focus/tap) to see every paper published
+   there. Same reveal mechanism as .greeting-tooltip above — pure CSS on :hover
+   and :focus, with tabindex on the trigger so keyboard and touch both work,
+   since the site has no pointer:coarse handling anywhere. */
+.venue-ref {
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dashed #800020;
+}
+
+.venue-tooltip {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+    background: #fff;
+    border: 1px solid rgba(128, 0, 32, 0.2);
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    /* Unlike the greeting tooltip this must wrap: paper titles are long. */
+    white-space: normal;
+    width: max-content;
+    max-width: min(340px, 74vw);
+    z-index: 100;
+    flex-direction: column;
+    gap: 0.45rem;
+    text-align: left;
+}
+
+/* Anchored right when a left-anchored panel would run off screen. Set by JS,
+   which measures the trigger position rather than guessing. */
+.venue-ref.flip-tooltip .venue-tooltip {
+    left: auto;
+    right: 0;
+}
+
+.venue-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 16px;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-left: 1px solid rgba(128, 0, 32, 0.2);
+    border-top: 1px solid rgba(128, 0, 32, 0.2);
+    transform: rotate(45deg);
+}
+
+.venue-ref.flip-tooltip .venue-tooltip::before {
+    left: auto;
+    right: 16px;
+}
+
+.venue-ref:hover .venue-tooltip,
+.venue-ref:focus .venue-tooltip,
+.venue-ref:focus-within .venue-tooltip {
+    display: flex;
+}
+
+.venue-tooltip-head {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #800020;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid rgba(128, 0, 32, 0.12);
+}
+
+.venue-paper {
+    font-size: 0.84rem;
+    line-height: 1.45;
+    color: #333;
+    font-style: normal;
+}
+
+.venue-paper a {
+    color: #800020;
+    text-decoration: none;
+}
+
+.venue-paper a:hover {
+    text-decoration: underline;
+}
+
+.venue-paper-year {
+    color: #999;
+    font-size: 0.78rem;
+}
+
 .interests {
     margin-top: 2rem;
     padding-bottom: 2rem;

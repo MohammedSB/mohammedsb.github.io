@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Baharoon</title>
-    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="styles.css?v=10">
     <link rel="icon" type="image/png" href="visual/tea.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
 
                 <br><br>
 
-                I am a PhD student in the AI in Medicine program in Biomedical Informatics at Harvard Medical School, advised by <a href="https://www.linkedin.com/in/pranavrajpurkar/" target="_blank" rel="noopener noreferrer">Pranav Rajpurkar</a>. My work focuses on self-supervised learning and multimodal learning applied to medicine, with emphasis on computer vision and applications in report generation and referring segmentation. I am also interested in using AI to improve medical education. My work has been published in conferences such as MICCAI, ML4H, and MLHC, and journals like NEJM AI.
+                I am a PhD student in the AI in Medicine program in Biomedical Informatics at Harvard Medical School, advised by <a href="https://www.linkedin.com/in/pranavrajpurkar/" target="_blank" rel="noopener noreferrer">Pranav Rajpurkar</a>. My work focuses on self-supervised learning and multimodal learning applied to medicine, with emphasis on computer vision and applications in report generation and referring segmentation. I am also interested in using AI to improve medical education. My work has been published in conferences such as <span class="venue-ref" data-venue="MICCAI" tabindex="0">MICCAI</span>, <span class="venue-ref" data-venue="ML4H" tabindex="0">ML4H</span>, and <span class="venue-ref" data-venue="MLHC" tabindex="0">MLHC</span>, and journals like <span class="venue-ref" data-venue="NEJM AI" tabindex="0">NEJM AI</span>.
 
                 <br><br>
 
@@ -191,6 +191,73 @@
                 document.getElementById('proverb-ar').textContent = '« من جدّ وجد »';
                 document.getElementById('proverb-en').textContent = 'He who strives, finds.';
             });
+
+        // ── Venue hovers in the bio ──
+        // papers.json is regenerated monthly by arxiv-digest/papers_sync.py from
+        // Semantic Scholar. Reading the committed file rather than calling an API
+        // means an upstream outage can never break this page.
+        (function() {
+            var refs = document.querySelectorAll('.venue-ref');
+            if (!refs.length) return;
+
+            function esc(s) {
+                return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+
+            // Anchor right when a left-anchored panel would leave the viewport.
+            // Measured from the trigger, so it survives resizes and font changes.
+            var PANEL = 340;
+            function place() {
+                refs.forEach(function(ref) {
+                    var left = ref.getBoundingClientRect().left;
+                    ref.classList.toggle('flip-tooltip', left + PANEL > window.innerWidth - 12);
+                });
+            }
+
+            fetch('papers.json')
+                .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+                .then(function(data) {
+                    var papers = (data && data.papers) || [];
+                    refs.forEach(function(ref) {
+                        var key = (ref.dataset.venue || '').toLowerCase();
+                        var mine = papers.filter(function(p) {
+                            return (p.venues || []).some(function(v) {
+                                return (v.short || '').toLowerCase() === key;
+                            });
+                        });
+                        if (!mine.length) return;   // leave the plain text alone
+
+                        // Full venue name from the data, so the heading doesn't
+                        // have to repeat the acronym already in the sentence.
+                        var full = '';
+                        mine[0].venues.forEach(function(v) {
+                            if ((v.short || '').toLowerCase() === key) full = v.name || '';
+                        });
+
+                        var tip = document.createElement('span');
+                        tip.className = 'venue-tooltip';
+                        tip.innerHTML =
+                            '<span class="venue-tooltip-head">' + esc(full || ref.dataset.venue) +
+                            ' · ' + mine.length + (mine.length === 1 ? ' paper' : ' papers') + '</span>' +
+                            mine.map(function(p) {
+                                var yr = p.year ? '<span class="venue-paper-year"> ' + esc(p.year) + '</span>' : '';
+                                return '<span class="venue-paper"><a href="' + esc(p.url) +
+                                       '" target="_blank" rel="noopener noreferrer">' + esc(p.title) +
+                                       '</a>' + yr + '</span>';
+                            }).join('');
+                        ref.appendChild(tip);
+                    });
+                    place();
+                })
+                .catch(function() {
+                    // No data: the venue names stay as ordinary text. The dashed
+                    // underline would then promise something that never appears,
+                    // so remove the affordance too.
+                    refs.forEach(function(ref) { ref.style.borderBottom = 'none'; ref.style.cursor = 'inherit'; });
+                });
+
+            window.addEventListener('resize', place);
+        })();
     </script>
 
     <style>
