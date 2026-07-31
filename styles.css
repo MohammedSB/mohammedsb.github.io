@@ -204,7 +204,9 @@ h1 {
    since the site has no pointer:coarse handling anywhere. */
 .venue-ref {
     position: relative;
-    cursor: help;
+    /* default, not help: the question-mark cursor reads as "explain this word".
+       Matches .greeting-arabic, the site's other dashed-underline trigger. */
+    cursor: default;
     border-bottom: 1px dashed #800020;
 }
 
