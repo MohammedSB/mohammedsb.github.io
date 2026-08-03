@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journal Digest — week of August 3, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>From the Journals — week of August 3, 2026</h1>
+<p class="cats">NEJM AI, Nature Medicine, Nature, Nature Machine Intelligence, Nature Biomedical Engineering, npj Digital Medicine, Radiology: AI, Lancet Digital Health, Medical Image Analysis, IEEE Trans. Medical Imaging, Patterns (Cell Press)</p>
+<div class="card journal">
+<h3>1. <a href="https://www.nature.com/articles/s41591-026-04521-4" target="_blank">End-to-end multimodal pathology foundation model with clinical dialogue</a></h3>
+<p class="meta">Nature Medicine &nbsp;·&nbsp; Jul 31, 2026</p>
+<p class="meta">Eugene Vorontsov, George Shaikovski, Adam Casson, Julian Viret et al. (19 authors)</p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Multimodal Learning</span><span class="tag">Computational Pathology</span></p>
+<p class="field">Researchers built an end-to-end pathology foundation model that reads whole-slide images and also converses with clinicians in natural language about the findings. It unifies image understanding and clinical dialogue in one system rather than bolting a chatbot onto a separate vision encoder, making it a direct template for report-generation-style medical vision-language models.</p>
+</div><div class="card journal">
+<h3>2. <a href="https://www.nature.com/articles/s41746-026-03030-5" target="_blank">Intersectional fairness in vision-language models for medical image disease classification</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 3, 2026</p>
+<p class="meta">Yupeng Zhang, Adam G. Dunn, Usman Naseem, Jinman Kim</p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Fairness</span><span class="tag">Medical Imaging</span></p>
+<p class="field">This study audits CLIP-style vision-language models on medical image disease classification and finds performance gaps that only appear when demographic attributes are considered jointly (e.g. race and sex together) rather than one at a time. It argues that single-axis fairness reporting hides real subgroup failures, which matters for anyone benchmarking VLMs on chest X-ray or similar datasets.</p>
+</div><div class="card journal">
+<h3>3. <a href="https://doi.org/10.1109/TMI.2026.3718445" target="_blank">LIGHT: Learning Image-text Grounding for Hierarchical Tumor Localization and Subtype Classification in Multimodal Brain MRI.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Jul 31, 2026</p>
+<p class="meta">Zhaoyu Qiu, Yuxiao Liu, Jianrui Li, Lei Jin et al. (7 authors)</p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Grounding And Localization</span><span class="tag">Medical Imaging</span></p>
+<p class="field">LIGHT learns to align multimodal brain MRI with radiology-report language so that tumors are localized at the same anatomical granularity radiologists actually write about, while jointly predicting subtype. Instead of treating localization and classification as separate label-prediction heads, it uses hierarchical image-text grounding — closely related to referring segmentation and report-grounded evaluation.</p>
+</div><div class="card journal">
+<h3>4. <a href="https://www.nature.com/articles/s41591-026-04567-4" target="_blank">Learning from routine health system data builds better neuroimaging AI models</a></h3>
+<p class="meta">Nature Medicine &nbsp;·&nbsp; Jul 31, 2026</p>
+
+<p class="tags"><span class="tag">Clinical AI</span><span class="tag">Medical Imaging</span><span class="tag">Real-World Data</span></p>
+<p class="field">This piece shows that training neuroimaging AI on messy, routinely collected health system scans yields models that generalize better than those trained only on clean curated research cohorts. The practical implication is that heterogeneity in real clinical archives is a feature to exploit for pretraining, not just noise to filter out.</p>
+</div><div class="card journal">
+<h3>5. <a href="https://www.nature.com/articles/s41746-026-03062-x" target="_blank">Multimodal deep learning for preoperative invasiveness stratification of lung adenocarcinoma spectrum nodules</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 3, 2026</p>
+<p class="meta">Hongtao Zhang, Ting Xue, Zhe Zhang, Xiaoxing Ye et al. (14 authors)</p>
+<p class="tags"><span class="tag">Multimodal Learning</span><span class="tag">Deep Learning</span><span class="tag">Radiology AI</span></p>
+<p class="field">A multimodal deep learning model combines CT imaging with clinical data to stratify how invasive lung adenocarcinoma-spectrum nodules are before surgery. Better preoperative stratification could shift how aggressively borderline nodules are resected, and the fusion design is a useful reference for imaging-plus-tabular architectures.</p>
+</div><div class="card journal">
+<h3>6. <a href="https://doi.org/10.1148/ryai.260261" target="_blank">Anatomy-specific Performance of CT Angiography-based AI for Anterior Circulation Occlusion: Systematic Review and Meta-Analysis.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Jul 29, 2026</p>
+<p class="meta">Yike Liu, Chaofan Li, Zepeng Ren, Yuchen Hu et al. (7 authors)</p>
+<p class="tags"><span class="tag">Radiology AI</span><span class="tag">Model Evaluation</span><span class="tag">Clinical Validation</span></p>
+<p class="field">This systematic review and meta-analysis breaks down CT angiography AI performance for anterior circulation stroke occlusions by vessel anatomy, rather than reporting a single pooled accuracy. Sensitivity drops substantially for distal occlusions, meaning a negative AI result there carries much less reassurance than aggregate metrics suggest — a clear case study in why granular evaluation beats headline numbers.</p>
+</div><div class="card journal">
+<h3>7. <a href="https://doi.org/10.1148/ryai.260385" target="_blank">Predetermined Change Control Plan Adoption and Documentation Transparency in FDA-cleared Radiology Artificial Intelligence/Machine Learning Devices.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Jul 29, 2026</p>
+<p class="meta">Ketan Dayma, Palak Patel, Kenneth Hildreth, Tamara Jamaspishvili</p>
+<p class="tags"><span class="tag">Radiology AI</span><span class="tag">Regulation</span><span class="tag">Model Monitoring</span></p>
+<p class="field">A scoping review of FDA-cleared radiology AI/ML devices from 2015 to 2026 examines how many declare a Predetermined Change Control Plan for post-clearance model updates, and how transparently they document it. Adoption and documentation quality remain uneven, which is directly relevant to how continually-learning or periodically-retrained clinical models can legitimately be updated.</p>
+</div><div class="card journal">
+<h3>8. <a href="https://doi.org/10.1148/ryai.250888" target="_blank">Spatiotemporal Asymmetries of Longitudinal Screening Mammograms for Breast Cancer Risk Prediction.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Jul 29, 2026</p>
+<p class="meta">Zhengbo Zhou, Dooman Arefan, Margarita L Zuley, Jules H Sumkin et al. (5 authors)</p>
+<p class="tags"><span class="tag">Medical Imaging</span><span class="tag">Risk Prediction</span><span class="tag">Deep Learning</span></p>
+<p class="field">This deep learning model predicts breast cancer risk by explicitly modeling asymmetries between the two breasts and changes across sequential mammograms over time, instead of scoring a single image. Encoding bilateral and longitudinal structure as an inductive bias is a transferable idea for any imaging task where paired anatomy and prior exams are available.</p>
+</div>
+</body></html>
