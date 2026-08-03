@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citations — August 3, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.subtitle{font-size:.85rem;color:#888;margin-bottom:2.5rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem;margin-bottom:.75rem}
+h2 em{font-style:italic;text-transform:none;font-size:1rem;letter-spacing:0}
+h3{font-size:1.05rem;font-weight:500;margin:0 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.83rem;color:#666;margin-bottom:.5rem}
+.summary{font-size:.95rem;line-height:1.65;margin:.5rem 0}
+.contexts{list-style:none;padding:0;margin:.6rem 0 0}
+.ctx{font-size:.88rem;line-height:1.6;color:#444;background:#fff;border-left:3px solid #d0b0b8;padding:.5rem .9rem;margin-bottom:.4rem;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:.75rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+</style></head><body>
+<h1>New Citations — August 3, 2026</h1>
+<p class="subtitle">3 new citations found via Semantic Scholar</p>
+<h2>Citing: <em>MedSAM2: Segment Anything in 3D Medical Images and Videos</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2607.29033" target="_blank">SAM+D: Parameter-Efficient Dimensional Lifting of SAM-Family Models via Depth-Routed LoRA and Depth Shifting</a></h3>
+<p class="meta">Yu Song, Hao Sun, Shiyu Teng, I. Nishikawa et al. (5 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is grouped with SAM-Med3D and SegVol as a dedicated 3D medical foundation model that rebuilds or fully fine-tunes SAM/SAM2 with 3D components trained on massive volumetric datasets — natively modeling inter-slice context but discarding/forfeiting the 2D pretrained priors in the process. It is excluded from the paper's main comparison tables because SAM+D's four test splits fall inside MedSAM2's pretraining corpus, with only zero-shot numbers and a contamination-free private liver-cancer CT evaluation reported instead.</p>
+<ul class='contexts'><li class="ctx">Recent 3D segmentation foundation models [13,32,42] scale this paradigm by rebuilding or fully fine-tuning SAM/SAM2 with 3D components on massive datasets, where 2D priors are discarded in the process.</li><li class="ctx">At one end, fully 3D architectures such as nnU-Net [20] and dedicated 3D foundation models (SAM-Med3D [42], SegVol [13], MedSAM2 [32]) model inter-slice context natively but forfeit 2D pretrained priors or require massive volumetric corpora.</li><li class="ctx">…SAM-based methods, SAM+D surpasses the directly comparable Med-SA and MA-SAM on all four datasets; we omit SAM-Med3D [42], SegVol [13], and MedSAM2 [32] here because our test splits fall within their pretraining corpora (zero-shot numbers and a contamination-free private liver-cancer CT evaluation…</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2607.29200" target="_blank">UltraSAM3: A Concept-Driven Foundation Model for Universal Ultrasound Image Segmentation</a></h3>
+<p class="meta">Bo Xu, Quanhao Zhu, Rui Lin, Boling Zhu et al. (8 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is cited as a medical adaptation of the SAM family — alongside MedSAM — that demonstrates the potential of promptable segmentation in medical imaging, and specifically as an extension of SAM2 to 3D medical images and medical videos, which improves applicability to volumetric and temporal medical data. It is grouped with the visual-prompt-based foundation models that the paper positions itself against, since such models require expert-provided visual prompts.</p>
+<ul class='contexts'><li class="ctx">Medical adaptations such as MedSAM [11] and MedSAM2 [12] further demonstrate the potential of promptable segmentation in medical images.</li><li class="ctx">MedSAM2 [12] extends SAM2 to 3D medical images and medical videos, improving its applicability to volumetric and temporal medical data.</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2607.28771" target="_blank">Do Medical Foundation Models Generalize on the African Brain?</a></h3>
+<p class="meta">Kaouther Mouheb, Gonzalo Esteban Mosquera Rojas, J. V. Leeuwen, Stefan Klein et al. (5 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is characterized as a segmentation-specific medical foundation model — one trained directly for the segmentation task, in contrast to task-independent self-supervised feature extractors like 3DINO — and it is one of four FMs benchmarked (alongside BrainIAC, 3DINO, and Medical-SAM2) against a from-scratch baseline for generalization to African brain MRI cohorts, specifically tumor segmentation on BraTS-Africa.</p>
+<ul class='contexts'><li class="ctx">Currently, available FMs can be broadly divided into two categories: those trained specifically for segmentation, e.g. Med-SAM2 [9], and those trained as task-independent feature extractors with self-supervision, such as 3DINO [18].</li><li class="ctx">These comprise two generalist FMs, BrainIAC [13] and 3DINO [18], and two segmentation-specific FMs, MedSAM2 [9] and Medical-SAM2 [19].</li></ul>
+</div>
+</body></html>
