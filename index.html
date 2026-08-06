@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Baharoon</title>
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="styles.css?v=12">
     <link rel="icon" type="image/png" href="visual/tea.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,6 +50,24 @@
                 I am originally from, and grew up in, Riyadh, Saudi Arabia.
 
             </p>
+            <section class="news">
+                <h2>News</h2>
+                <!-- Newest first. To add an item, copy a line and edit it:
+
+                       <li><time datetime="2026-09">Sep 2026</time><span>Your update.</span></li>
+
+                     datetime is the machine-readable date and accepts YYYY,
+                     YYYY-MM or YYYY-MM-DD. The text inside <time> is what
+                     actually shows, so it can be anything you like.
+
+                     Anything past the fifth item hides behind a "show earlier"
+                     button automatically — no need to prune the list. -->
+                <ul class="news-list">
+                    <li><time datetime="2026-06">Jun 2026</time><span>We launched the <a href="https://rexrank.ai/ReXGroundingCT/challenge.html" target="_blank" rel="noopener noreferrer">ReXGroundingCT challenge</a> at MICCAI 2026.</span></li>
+                    <li><time datetime="2026-05">May 2026</time><span><a href="https://arxiv.org/abs/2603.06183" target="_blank" rel="noopener noreferrer">CRIMSON</a> was early accepted to MICCAI 2026.</span></li>
+                    <li><time datetime="2026-01">Jan 2026</time><span><a href="https://arxiv.org/abs/2509.13270" target="_blank" rel="noopener noreferrer">RadGame</a> accepted at ECR 2026.</span></li>
+                </ul>
+            </section>
             <section class="interests">
                 <h2>Outside of work</h2>
                 <p>For fun, I love rock climbing, reading Middle Eastern history, drinking tea, and listening to <a class="listening-link" href="listening.html" title="What I'm listening to">classical Arabic music</a>.</p>
@@ -257,6 +275,34 @@
                 });
 
             window.addEventListener('resize', place);
+        })();
+
+        // ── News list: keep the newest few, collapse the rest ──
+        // The list is hand-written markup, so this only hides items — nothing
+        // here needs to know what they say.
+        (function() {
+            var VISIBLE = 5;
+            var list = document.querySelector('.news-list');
+            if (!list) return;
+            var items = Array.prototype.slice.call(list.children);
+            if (items.length <= VISIBLE) return;
+
+            var hidden = items.slice(VISIBLE);
+            hidden.forEach(function(li) { li.hidden = true; });
+
+            var more = 'Show ' + hidden.length + ' earlier update' + (hidden.length > 1 ? 's' : '');
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'news-more';
+            btn.setAttribute('aria-expanded', 'false');
+            btn.textContent = more;
+            btn.addEventListener('click', function() {
+                var opening = hidden[0].hidden;
+                hidden.forEach(function(li) { li.hidden = !opening; });
+                btn.setAttribute('aria-expanded', String(opening));
+                btn.textContent = opening ? 'Hide earlier updates' : more;
+            });
+            list.parentNode.appendChild(btn);
         })();
     </script>
 
