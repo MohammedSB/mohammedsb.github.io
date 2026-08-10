@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journal Digest — week of August 10, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>From the Journals — week of August 10, 2026</h1>
+<p class="cats">NEJM AI, Nature Medicine, Nature, Nature Machine Intelligence, Nature Biomedical Engineering, npj Digital Medicine, Radiology: AI, Lancet Digital Health, Medical Image Analysis, IEEE Trans. Medical Imaging, Patterns (Cell Press)</p>
+<div class="card journal">
+<h3>1. <a href="https://doi.org/10.1148/ryai.260657" target="_blank">What LUNA25 Teaches Us about AI for Lung Cancer Screening.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Sep 2026</p>
+<p class="meta">Eduardo Moreno Júdice de Mattos Farina, Gilberto Szarf</p>
+<p class="tags"><span class="tag">Radiology AI</span><span class="tag">Chest Imaging</span><span class="tag">Benchmarking</span></p>
+<p class="field">A commentary on what the LUNA25 challenge — a large public benchmark for pulmonary nodule malignancy risk estimation on chest CT — reveals about the current state of AI for lung cancer screening. It draws lessons about how benchmark design, data curation, and reader-comparison protocols shape whether reported gains actually translate to screening practice.</p>
+</div><div class="card journal">
+<h3>2. <a href="https://www.nature.com/articles/s41746-026-03133-z" target="_blank">Multicenter evaluation of four large language models for automated spine imaging diagnosis</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 8, 2026</p>
+<p class="meta">Haolai Liu, Hao Zhang, Haixin Wei, Yao Wei et al. (9 authors)</p>
+<p class="tags"><span class="tag">LLM Evaluation</span><span class="tag">Radiology AI</span><span class="tag">Clinical AI</span></p>
+<p class="field">A multicenter study benchmarks four large language models on automated diagnosis from spine imaging data, comparing their accuracy across sites and against clinical reference standards. The results characterize where general-purpose LLMs succeed and where they degrade on real radiology workflows, which is directly relevant to evaluating text-generating models on imaging tasks.</p>
+</div><div class="card journal">
+<h3>3. <a href="https://www.nature.com/articles/s41591-026-04574-5" target="_blank">Lessons from deploying the ChatEHR system at Stanford Medicine</a></h3>
+<p class="meta">Nature Medicine &nbsp;·&nbsp; Aug 10, 2026</p>
+<p class="meta">Nigam H. Shah, Niraj Sehgal, Euan A. Ashley, Michael A. Pfeffer</p>
+<p class="tags"><span class="tag">Clinical AI</span><span class="tag">LLM Deployment</span><span class="tag">Health Systems</span></p>
+<p class="field">Stanford Medicine reports practical lessons from deploying ChatEHR, an LLM interface that lets clinicians query electronic health records in natural language, in live clinical settings. It covers the engineering, governance, safety-monitoring, and adoption issues that only surface once a medical LLM leaves the benchmark and enters the hospital.</p>
+</div><div class="card journal">
+<h3>4. <a href="https://www.nature.com/articles/s41746-026-03113-3" target="_blank">Transfer learning for text-based distractor selection rate prediction in medical multiple-choice questions: fine-tuning embedding models as a plausibility proxy</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 8, 2026</p>
+<p class="meta">Zhehan Jiang, Tianpeng Zheng, Jiayi Liu, Shicong Feng</p>
+<p class="tags"><span class="tag">AI for Medical Education</span><span class="tag">Transfer Learning</span><span class="tag">Text Embeddings</span></p>
+<p class="field">The authors fine-tune text embedding models to predict how often students select each distractor in medical multiple-choice questions, using the predicted selection rate as a proxy for answer-option plausibility. This offers an automated way to quality-check exam items before deployment, replacing the slow loop of writing questions and waiting for student response data.</p>
+</div><div class="card journal">
+<h3>5. <a href="https://doi.org/10.1109/TMI.2026.3720925" target="_blank">Hallucination Detection in Virtually-Stained Histology: A Latent Space Baseline.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Aug 6, 2026</p>
+<p class="meta">Ji-Hun Oh, Kianoush Falahkheirkhah, John Cheville, Rohit Bhargava</p>
+<p class="tags"><span class="tag">Hallucination Detection</span><span class="tag">Generative Medical Imaging</span><span class="tag">Evaluation Metrics</span></p>
+<p class="field">This paper formalizes hallucination detection for virtual staining — where a model synthesizes stained histology images instead of using physical dyes — and proposes a scalable post-hoc baseline that flags fabricated structures using latent-space signals. The framing is a useful template for anyone building faithfulness metrics for generative medical outputs, where a plausible-looking synthesis can be clinically wrong.</p>
+</div><div class="card journal">
+<h3>6. <a href="https://doi.org/10.1016/j.landig.2026.101048" target="_blank">Bixonimania and the epistemic fragility of artificial intelligence in medicine: lessons from a fabricated disease.</a></h3>
+<p class="meta">Lancet Digital Health &nbsp;·&nbsp; Aug 7, 2026</p>
+<p class="meta">Francesco Branda, Massimo Ciccozzi</p>
+<p class="tags"><span class="tag">LLM Evaluation</span><span class="tag">Clinical AI Safety</span><span class="tag">Hallucination</span></p>
+<p class="field">Researchers invented a fake disease ('bixonimania') and showed that medical AI systems will confidently elaborate on it, exposing how little epistemic grounding these models have. The study is a compact stress test for sycophancy and fabrication in clinical LLMs and argues that current evaluations reward fluency over knowing when to refuse.</p>
+</div><div class="card journal">
+<h3>7. <a href="https://www.nature.com/articles/s41746-026-03107-1" target="_blank">Sequential question answering AI for hierarchical gastric pathology diagnosis</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 10, 2026</p>
+<p class="meta">Khang Nguyen Quoc, Jinsol Song, Chaeyeon Lee, Seung-Won Jung et al. (7 authors)</p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Computational Pathology</span><span class="tag">Medical VQA</span></p>
+<p class="field">This work builds an AI system that diagnoses gastric pathology through a sequence of question-answering steps that mirror the hierarchical reasoning a pathologist uses, rather than emitting a single flat label. The staged QA formulation improves both accuracy and interpretability, and echoes structured-generation ideas that also apply to radiology report generation.</p>
+</div><div class="card journal">
+<h3>8. <a href="https://doi.org/10.1109/TMI.2026.3720503" target="_blank">Reverse Imaging: Any-Sequence Generalization for Cardiac MRI Segmentation.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Aug 5, 2026</p>
+<p class="meta">Yidong Zhao, Yi Zhang, Tongyun Yang, Masa Bozic-Iven et al. (11 authors)</p>
+<p class="tags"><span class="tag">Medical Image Segmentation</span><span class="tag">Domain Generalization</span><span class="tag">Cardiac MRI</span></p>
+<p class="field">Cardiac MRI segmentation models usually break when the imaging sequence changes, so this paper inverts the problem: it recovers the underlying tissue parameters (M0, T1, T2) that generate every contrast and segments in that shared physical space. The result is a model that generalizes to arbitrary MRI sequences without retraining, a physics-grounded alternative to brute-force augmentation.</p>
+</div>
+</body></html>
