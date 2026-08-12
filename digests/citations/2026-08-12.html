@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citations — August 12, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.subtitle{font-size:.85rem;color:#888;margin-bottom:2.5rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem;margin-bottom:.75rem}
+h2 em{font-style:italic;text-transform:none;font-size:1rem;letter-spacing:0}
+h3{font-size:1.05rem;font-weight:500;margin:0 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.83rem;color:#666;margin-bottom:.5rem}
+.summary{font-size:.95rem;line-height:1.65;margin:.5rem 0}
+.contexts{list-style:none;padding:0;margin:.6rem 0 0}
+.ctx{font-size:.88rem;line-height:1.6;color:#444;background:#fff;border-left:3px solid #d0b0b8;padding:.5rem .9rem;margin-bottom:.4rem;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:.75rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+</style></head><body>
+<h1>New Citations — August 12, 2026</h1>
+<p class="subtitle">4 new citations found via Semantic Scholar</p>
+<h2>Citing: <em>MedSAM2: Segment Anything in 3D Medical Images and Videos</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2608.09636" target="_blank">NeuroRefiner: Morphology-Aware Multi-Agent Refinement for 3D Fluorescence Microscopy Neuron Segmentation</a></h3>
+<p class="meta">Haiyang Yan, Jinyue Guo, Yanchao Zhang, Bingqing Wang et al. (9 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is characterized as a segmentation foundation model that existing agentic/tool-based pipelines rely on as a callable tool, and is faulted for handling 3D volumes slice-by-slice with 2D encoders — a limitation that, for sparse, elongated neurons, fails to preserve global topology and yields fragmented results.</p>
+<ul class='contexts'><li class="ctx">First, they depend on foundation models (e.g., MedSAM2 [25]) as tools, which process 3D volumes slice-by-slice using 2D encoders.</li></ul>
+</div><hr><h2>Citing: <em>Exploring the Design Space of 3D MLLMs for CT Report Generation</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2608.08713" target="_blank">Resolution Meets Reduction: Efficient Visual Context for 3D Radiology Report Generation</a></h3>
+<p class="meta">Jonathan Suprijadi, Raphael Stock, Moritz Langenberg, David Zimmerer et al. (13 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> The closest prior work exploring the 3D MLLM design space for CT report generation, but covering only part of it — limited to 1,287 training cases and just three projectors, one of which is native to the vision encoder it was evaluated with and therefore plausibly advantaged in that comparison.</p>
+<ul class='contexts'><li class="ctx">The closest prior study [18] explores only part of this space, but is constrained to 1,287 training cases [19] and three projectors, one native to the evaluated VE and thus plausibly favored.</li></ul>
+</div><hr><h2>Citing: <em>Evaluating General Purpose Vision Foundation Models for Medical Image Analysis: An Experimental Study of DINOv2 on Radiology Benchmarks</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2608.11076" target="_blank">Foundation Model-Enabled Efficient Data Sampling (FEEDS): A label-efficient training strategy for pan-cancer, multi-tracer PET/CT datasets</a></h3>
+<p class="meta">B. Wagle, Bashirul Azam Biswas, Grant Chau, Matthew E. Maeder et al. (8 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> DINOv2, though pretrained on 142 million natural images via self-supervision, has been shown to learn general representations of medical images well and to perform strongly on medical/radiology images — cited alongside another work as evidence supporting the use of a natural-image foundation model's embeddings for PET/CT sampling.</p>
+<ul class='contexts'><li class="ctx">…with 142 million natural images through self-supervision [23], and has been shown to learn general representations of medical images quite well [2,5]. i Lt i =1 be the foundation model embeddings of the current labeled set for tracer-type t , and U t = { z j } N Ut j =1 be the embeddings of…</li><li class="ctx">Second, DINOv2 is a general-purpose model trained on natural images [23], not radiology-or PET-specific, though it has shown strong performance on medical images [2,5].</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2608.10002" target="_blank">LoRCA: LoRA Cycle Adaptation for Histology to HiP-CT Translation with DINOv3</a></h3>
+<p class="meta">Yang Zhou, Edoardo Occhipinti, Banboye Kidzeru Elvis, Jishizhan Chen et al. (14 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> DINOv2 and similar general-purpose vision foundation models are cited as producing feature maps that capture semantic structure, making them useful for tasks requiring morphology to be preserved across domains — the motivating premise for using DINOv3 features in histology-to-HiP-CT translation, though running a separate full foundation model per modality is dismissed as computationally expensive.</p>
+<ul class='contexts'><li class="ctx">Although these foundation models generate feature maps of semantic structure and are beneficial to the tasks that require preservation of morphology across domains [1], deploying a full foundation model independently for each modality is computationally expensive.</li></ul>
+</div>
+</body></html>
