@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journal Digest — week of August 17, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>From the Journals — week of August 17, 2026</h1>
+<p class="cats">NEJM AI, Nature Medicine, Nature, Nature Machine Intelligence, Nature Biomedical Engineering, npj Digital Medicine, Radiology: AI, Lancet Digital Health, Medical Image Analysis, IEEE Trans. Medical Imaging, Patterns (Cell Press)</p>
+<div class="card journal">
+<h3>1. <a href="https://www.nature.com/articles/s41551-026-01764-x" target="_blank">An explainable biomedical foundation model via large-scale concept-enhanced vision–language pretraining</a></h3>
+<p class="meta">Nature Biomedical Engineering &nbsp;·&nbsp; Aug 17, 2026</p>
+<p class="meta">Yuxiang Nie, Sunan He, Yequan Bie, Yihui Wang et al. (27 authors)</p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Vision-Language Models</span><span class="tag">Explainable AI</span></p>
+<p class="field">This paper introduces a biomedical foundation model pretrained on large-scale image-text pairs where medical concepts are explicitly injected into the vision-language objective, so the model's predictions can be traced back to human-interpretable clinical concepts rather than opaque embeddings. It is directly relevant to CLIP-style medical pretraining, offering a route to interpretability without sacrificing the transfer performance of contrastive image-text models.</p>
+</div><div class="card journal">
+<h3>2. <a href="https://www.nature.com/articles/s41551-026-01762-z" target="_blank">Foundation models in biomedical imaging: turning hype into reality</a></h3>
+<p class="meta">Nature Biomedical Engineering &nbsp;·&nbsp; Aug 11, 2026</p>
+<p class="meta">Amgad Muneer, Kai Zhang, Ibraheem Hamdi, Rizwan Qureshi et al. (9 authors)</p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Medical Imaging</span><span class="tag">Evaluation</span></p>
+<p class="field">A perspective piece assessing where biomedical imaging foundation models actually deliver value versus where claims outrun evidence, covering data scale, benchmark design, and generalization failures across sites and scanners. It lays out what rigorous evaluation of self-supervised and multimodal imaging models should look like before clinical deployment.</p>
+</div><div class="card journal">
+<h3>3. <a href="https://www.nature.com/articles/s41746-026-03135-x" target="_blank">UniMedDiff: a knowledge-enhanced diffusion model for medical image generation from clinical reports</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 13, 2026</p>
+<p class="meta">Lexuan Liu, Peng Huang, Bowen Guo, Shuyu Liang et al. (8 authors)</p>
+<p class="tags"><span class="tag">Medical Image Generation</span><span class="tag">Vision-Language Models</span><span class="tag">Diffusion Models</span></p>
+<p class="field">UniMedDiff is a diffusion model that synthesizes medical images conditioned on free-text clinical reports, using structured medical knowledge to keep generated findings consistent with the described pathology. This is the inverse direction of report generation and is useful both for data augmentation and for probing how well text-to-image models encode radiological semantics.</p>
+</div><div class="card journal">
+<h3>4. <a href="https://www.nature.com/articles/s41551-026-01760-1" target="_blank">Deep-learning triage of three-dimensional pathology datasets for comprehensive and efficient pathologist assessments</a></h3>
+<p class="meta">Nature Biomedical Engineering &nbsp;·&nbsp; Aug 12, 2026</p>
+<p class="meta">Gan Gao, Renao Yan, Andrew H. Song, Huai-Ching Hsieh et al. (23 authors)</p>
+<p class="tags"><span class="tag">Medical Imaging</span><span class="tag">Deep Learning</span><span class="tag">Clinical Workflow</span></p>
+<p class="field">The authors use deep learning to triage large three-dimensional pathology volumes, flagging the regions most likely to matter so pathologists review a small fraction of the data instead of the whole stack. The design pattern — model as an attention router over huge volumetric data rather than a standalone diagnostic — transfers naturally to volumetric radiology workflows.</p>
+</div><div class="card journal">
+<h3>5. <a href="https://www.nature.com/articles/s41746-026-03100-8" target="_blank">CliniSense AI for automated clinical skills assessment with real-time feedback</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 15, 2026</p>
+<p class="meta">Anam Nawaz Khan, Jose Tupayachi, William Dabbs, Shaunta Chamberlin et al. (6 authors)</p>
+<p class="tags"><span class="tag">AI For Medical Education</span><span class="tag">Clinical Assessment</span><span class="tag">LLM Evaluation</span></p>
+<p class="field">CliniSense AI automatically scores trainees' clinical skills and returns real-time feedback, replacing slow and inconsistent human observation-based assessment. It is a concrete example of AI in medical education with the accompanying question of how to validate automated scoring against expert judgment.</p>
+</div><div class="card journal">
+<h3>6. <a href="https://www.nature.com/articles/s41746-026-02962-2" target="_blank">MultiMed-RAG: leveraging multi-source knowledge and agent collaboration for medical tasks</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 17, 2026</p>
+<p class="meta">Yuxing Lu, Sin Yee Goi, Xukai Zhao, J. Ben Tamo et al. (8 authors)</p>
+<p class="tags"><span class="tag">Retrieval-Augmented Generation</span><span class="tag">Medical LLMs</span><span class="tag">Multi-Agent Systems</span></p>
+<p class="field">MultiMed-RAG combines retrieval over several distinct medical knowledge sources with a set of collaborating agents that divide up reasoning across clinical tasks. It is relevant as a grounding strategy: pulling in external evidence to reduce hallucination is the same problem faced when generating factually accurate radiology reports.</p>
+</div><div class="card journal">
+<h3>7. <a href="https://www.nature.com/articles/s41746-026-03118-y" target="_blank">Uncertainty-inspired open-set model for identifying infantile fundus abnormalities</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 15, 2026</p>
+<p class="meta">Xinyu Zhao, Zhenquan Wu, Xuemei Zhu, Mengrui Zhang et al. (21 authors)</p>
+<p class="tags"><span class="tag">Medical Imaging</span><span class="tag">Uncertainty Quantification</span><span class="tag">Model Robustness</span></p>
+<p class="field">This model detects abnormalities in infant fundus images while explicitly handling open-set conditions, using uncertainty estimates to abstain on disease categories it was never trained on. Open-set awareness is a persistent weak point in medical imaging classifiers, which otherwise assign confident labels to anything they are shown.</p>
+</div><div class="card journal">
+<h3>8. <a href="https://www.nature.com/articles/d41591-026-00040-4" target="_blank">&lt;b&gt;AI decision support is scaling-up fast — can the evidence keep up?&lt;/b&gt;</a></h3>
+<p class="meta">Nature Medicine &nbsp;·&nbsp; Aug 13, 2026</p>
+<p class="meta">Paul Webster</p>
+<p class="tags"><span class="tag">Clinical AI</span><span class="tag">Evidence Generation</span><span class="tag">Deployment</span></p>
+<p class="field">This piece examines the widening gap between how quickly AI clinical decision support tools are being deployed and how slowly rigorous evidence about their effects on patient outcomes accumulates. It argues for evaluation designs that keep pace with rapid rollout, a framing worth borrowing when defending metrics for generative clinical models.</p>
+</div>
+</body></html>
