@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journal Digest — week of August 24, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>From the Journals — week of August 24, 2026</h1>
+<p class="cats">NEJM AI, Nature Medicine, Nature, Nature Machine Intelligence, Nature Biomedical Engineering, npj Digital Medicine, Radiology: AI, Lancet Digital Health, Medical Image Analysis, IEEE Trans. Medical Imaging, Patterns (Cell Press)</p>
+<div class="card journal">
+<h3>1. <a href="https://doi.org/10.1109/TMI.2026.3725265" target="_blank">Foundation Models for Medical Imaging: Status, Challenges, and Directions.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Aug 19, 2026</p>
+<p class="meta">Chuang Niu, Pengwei Wu, Bruno De Man, Ge Wang</p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Medical Imaging</span><span class="tag">Review</span></p>
+<p class="field">A review that maps the fast-moving landscape of foundation models in medical imaging, organizing it around core model components, clinical applications across modalities and anatomies, and open challenges. It contrasts the older paradigm of narrow task-specific networks with large general-purpose models that can be adapted to many imaging tasks, and lays out research directions for the field.</p>
+</div><div class="card journal">
+<h3>2. <a href="https://doi.org/10.1109/TMI.2026.3725898" target="_blank">RankByGene: Gene-Guided Histopathology Representation Learning Through Cross-Modal Ranking Consistency.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Aug 21, 2026</p>
+<p class="meta">Wentao Huang, Meilong Xu, Xiaoling Hu, Shahira Abousamra et al. (12 authors)</p>
+<p class="tags"><span class="tag">Multimodal Learning</span><span class="tag">Self-Supervised Learning</span><span class="tag">Computational Pathology</span></p>
+<p class="field">RankByGene learns histopathology image representations by supervising them with paired spatial transcriptomics data, using a cross-modal ranking-consistency objective instead of forcing direct pixel-to-gene alignment. Because ranking relationships survive spatial distortion and modality differences, the approach yields more robust image features than standard alignment-based cross-modal training.</p>
+</div><div class="card journal">
+<h3>3. <a href="https://www.nature.com/articles/s41586-026-10687-1" target="_blank">Safety and security of large language models in healthcare</a></h3>
+<p class="meta">Nature &nbsp;·&nbsp; Aug 19, 2026</p>
+<p class="meta">Jan Clusmann, Oscar Freyer, Max Ostermann, Dyke Ferber et al. (15 authors)</p>
+<p class="tags"><span class="tag">LLM Evaluation</span><span class="tag">Clinical AI</span><span class="tag">AI Safety</span></p>
+<p class="field">A Nature analysis of how large language models can fail or be attacked when deployed in healthcare, covering hallucination, data leakage, prompt manipulation, and model poisoning. It argues that clinical LLM deployment needs safety and security evaluation frameworks distinct from the general-purpose benchmarks currently used.</p>
+</div><div class="card journal">
+<h3>4. <a href="https://doi.org/10.1016/j.landig.2026.101057" target="_blank">Building safer clinical agents: the case for residency-level benchmarks in medical artificial intelligence.</a></h3>
+<p class="meta">Lancet Digital Health &nbsp;·&nbsp; Aug 20, 2026</p>
+<p class="meta">Kameron C Black, Bryan J Bunning, Yixing Jiang, Jonathan H Chen</p>
+<p class="tags"><span class="tag">LLM Evaluation</span><span class="tag">Clinical AI</span><span class="tag">Medical Education</span></p>
+<p class="field">This piece argues that exam-style medical question benchmarks are a poor proxy for clinical competence and proposes evaluating clinical AI agents against residency-level tasks instead — longitudinal reasoning, handoffs, and supervised decision-making under uncertainty. The framing borrows the graduated-autonomy structure of medical training as a template for judging when an agent is safe to act.</p>
+</div><div class="card journal">
+<h3>5. <a href="https://doi.org/10.1148/ryai.260657" target="_blank">What LUNA25 Teaches Us about AI for Lung Cancer Screening.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Sep 2026</p>
+<p class="meta">Eduardo Moreno Júdice de Mattos Farina, Gilberto Szarf</p>
+<p class="tags"><span class="tag">Radiology AI</span><span class="tag">Benchmarking</span><span class="tag">Medical Imaging</span></p>
+<p class="field">A commentary drawing lessons from the LUNA25 challenge, a large public benchmark for AI-based lung nodule malignancy risk estimation in CT screening. It discusses what the challenge results reveal about current model performance ceilings, dataset design, and the gap between leaderboard metrics and real screening deployment.</p>
+</div><div class="card journal">
+<h3>6. <a href="https://www.nature.com/articles/s41746-026-03159-3" target="_blank">Cohort-aware CT-first modeling for clinically oriented pulmonary lesion characterization and prognosis</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 21, 2026</p>
+<p class="meta">Jie Peng, Xian Liu, Yaping Quan, Zhongjun Huang et al. (9 authors)</p>
+<p class="tags"><span class="tag">Medical Imaging</span><span class="tag">Clinical AI</span><span class="tag">Prognostic Modeling</span></p>
+<p class="field">This study builds a CT-first model for characterizing pulmonary lesions and predicting patient outcomes, explicitly accounting for how the cohort a patient comes from shifts disease prevalence and label meaning. The cohort-aware design aims to make one imaging model usable across screening, incidental-finding, and referral populations without silently miscalibrating.</p>
+</div><div class="card journal">
+<h3>7. <a href="https://www.nature.com/articles/s41746-026-03167-3" target="_blank">Clinical decision support in nasopharyngeal carcinoma: comparative evaluation of large reasoning and language models</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 21, 2026</p>
+<p class="meta">Lihong Wang, Luxun Wu, Feng Jiang, Yang Yang et al. (6 authors)</p>
+<p class="tags"><span class="tag">LLM Evaluation</span><span class="tag">Clinical Decision Support</span><span class="tag">Reasoning Models</span></p>
+<p class="field">A head-to-head evaluation of large reasoning models versus standard large language models on clinical decision support for nasopharyngeal carcinoma, testing whether explicit chain-of-thought reasoning translates into better oncology recommendations. The comparison is a useful template for anyone benchmarking reasoning-tuned models on specialty-specific clinical tasks.</p>
+</div><div class="card journal">
+<h3>8. <a href="https://www.nature.com/articles/s41746-026-03165-5" target="_blank">Delays between CE mark and FDA regulatory approval of AI-enabled software for radiology</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 22, 2026</p>
+<p class="meta">Yijun Ren, Daniel Windecker, Isaac Shiri, Christoph Gräni et al. (7 authors)</p>
+<p class="tags"><span class="tag">Radiology AI</span><span class="tag">Regulatory</span><span class="tag">Clinical Translation</span></p>
+<p class="field">An analysis quantifying the lag between European CE marking and US FDA clearance for AI-enabled radiology software, showing systematic delays and asymmetries between the two regulatory pathways. The findings matter for understanding why validated imaging AI tools reach clinics in some markets years before others.</p>
+</div>
+</body></html>
