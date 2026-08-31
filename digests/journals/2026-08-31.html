@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journal Digest — week of August 31, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>From the Journals — week of August 31, 2026</h1>
+<p class="cats">NEJM AI, Nature Medicine, Nature, Nature Machine Intelligence, Nature Biomedical Engineering, npj Digital Medicine, Radiology: AI, Lancet Digital Health, Medical Image Analysis, IEEE Trans. Medical Imaging, Patterns (Cell Press)</p>
+<div class="card journal">
+<h3>1. <a href="https://doi.org/10.1016/j.landig.2026.101031" target="_blank">Performance and label efficiency of traditional deep-learning models and a retina-specific foundation model for ocular and systemic disease detection: a retrospective comparative study.</a></h3>
+<p class="meta">Lancet Digital Health &nbsp;·&nbsp; Aug 28, 2026</p>
+<p class="meta">Samantha Min Er Yew, Xiaofeng Lei, Jocelyn Hui Lin Goh, Ke Zou et al. (29 authors)</p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Self-Supervised Learning</span><span class="tag">Medical Imaging</span></p>
+<p class="field">This retrospective study benchmarks RETFound, a self-supervised retina-specific foundation model, against three ImageNet-pretrained supervised backbones (ResNet50, ViT-Base, SwinV2) for detecting ocular and systemic diseases from retinal images. It directly probes whether domain-specific SSL pretraining actually buys accuracy and label efficiency over strong generic baselines — the central question for anyone building medical vision foundation models.</p>
+</div><div class="card journal">
+<h3>2. <a href="https://www.nature.com/articles/s41746-026-03082-7" target="_blank">Evaluating foundation models on official German medical licensing examinations: Implications for high-stakes assessment and AI-assisted medical education</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 31, 2026</p>
+<p class="meta">Lasse Cirkel, Johannes Knitza, Volker Schillings, Alexander Oksche et al. (6 authors)</p>
+<p class="tags"><span class="tag">LLM Evaluation</span><span class="tag">Medical Education</span><span class="tag">Foundation Models</span></p>
+<p class="field">The authors evaluate current foundation models on Germany's official medical licensing examinations, a high-stakes, non-English benchmark that is less likely to be contaminated than USMLE-style question sets. Results are framed around what model performance means for assessment integrity and for AI-assisted medical education.</p>
+</div><div class="card journal">
+<h3>3. <a href="https://www.nature.com/articles/s41551-026-01767-8" target="_blank">nnMIL: a generalizable multiple instance learning framework for computational pathology</a></h3>
+<p class="meta">Nature Biomedical Engineering &nbsp;·&nbsp; Aug 25, 2026</p>
+<p class="meta">Xiangde Luo, Jinxi Xiang, Yuanfeng Ji, Ruijiang Li</p>
+<p class="tags"><span class="tag">Computational Pathology</span><span class="tag">Multiple Instance Learning</span><span class="tag">Generalization</span></p>
+<p class="field">nnMIL is a multiple-instance learning framework designed to work out-of-the-box across many whole-slide pathology tasks rather than being hand-tuned per dataset. It targets the reproducibility and generalization gap in weakly supervised gigapixel image analysis, offering a standardized recipe on top of patch-level foundation model features.</p>
+</div><div class="card journal">
+<h3>4. <a href="https://doi.org/10.1016/j.landig.2026.101039" target="_blank">Toward unified and comprehensive automated electroencephalogram interpretation: a multicentre development and validation of an electroencephalogram foundation model.</a></h3>
+<p class="meta">Lancet Digital Health &nbsp;·&nbsp; Aug 25, 2026</p>
+<p class="meta">Chenxi Sun, Ioannis Karakis, Aline Herlopian, Marcus C Ng et al. (66 authors)</p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Clinical AI</span><span class="tag">Multitask Learning</span></p>
+<p class="field">This multicentre study develops and externally validates a multidomain EEG foundation model that reaches expert-level performance across a broad range of interpretation tasks instead of one narrow classification problem. It is a useful template for how to scale pretraining and prove cross-site generalization for a non-image clinical signal modality.</p>
+</div><div class="card journal">
+<h3>5. <a href="https://doi.org/10.1016/j.media.2026.104279" target="_blank">Surgical instrument-tissue characterization via multi-task self-supervised instrument segmentation and motion estimation.</a></h3>
+<p class="meta">Medical Image Analysis &nbsp;·&nbsp; Aug 28, 2026</p>
+<p class="meta">Yuxuan Liu, Xinyao Zhou, Yating Luo, Yunfei Luan et al. (7 authors)</p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Segmentation</span><span class="tag">Surgical Vision</span></p>
+<p class="field">The paper jointly learns surgical instrument segmentation and tissue motion estimation in a single multi-task self-supervised model, exploiting the fact that the two tasks constrain each other. Avoiding dense manual masks and motion labels makes this a good case study in self-supervised objectives for fine-grained medical video understanding.</p>
+</div><div class="card journal">
+<h3>6. <a href="https://doi.org/10.1109/TMI.2026.3727625" target="_blank">SF-DisenNet: Self-Supervised Function-Guided Disentanglement for Fine-Tuning-Free Brain Representation.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Aug 26, 2026</p>
+<p class="meta">Kaixiang Shu, Ronglin Zhang, Jiaqiang Li, Xuegang Song et al. (6 authors)</p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Neuroimaging</span><span class="tag">Representation Learning</span></p>
+<p class="field">SF-DisenNet uses functional-connectivity information to guide self-supervised disentanglement of structural MRI representations, so one pretrained brain encoder serves many disorders instead of training a model per disease. Because the learned representation needs no fine-tuning downstream, it enables direct cross-disorder comparison — relevant to anyone chasing transferable medical image embeddings.</p>
+</div><div class="card journal">
+<h3>7. <a href="https://doi.org/10.1148/ryai.250888" target="_blank">A Deep Learning Model Incorporating Spatiotemporal Asymmetries on Longitudinal Mammograms to Predict Breast Cancer Risk.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Sep 2026</p>
+<p class="meta">Zhengbo Zhou, Dooman Arefan, Margarita L Zuley, Jules H Sumkin et al. (5 authors)</p>
+<p class="tags"><span class="tag">Medical Imaging</span><span class="tag">Risk Prediction</span><span class="tag">Deep Learning</span></p>
+<p class="field">This deep learning model predicts breast cancer risk by explicitly encoding bilateral and longitudinal asymmetries across sequential mammograms rather than scoring a single exam. Building temporal and left-right comparison into the architecture reflects how radiologists actually read priors, and the design idea transfers naturally to longitudinal chest X-ray analysis.</p>
+</div><div class="card journal">
+<h3>8. <a href="https://www.nature.com/articles/s41746-026-03144-w" target="_blank">AgentDS-BUS: a fine-tuning-free agentic breast ultrasound malignancy classification framework with decoupled segmentation and feature analysis</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Aug 29, 2026</p>
+<p class="meta">Pengze Li, Lijie Huang, Tao Wu, Francisco J. Maldonado et al. (10 authors)</p>
+<p class="tags"><span class="tag">Agentic AI</span><span class="tag">Vision-Language Models</span><span class="tag">Medical Imaging</span></p>
+<p class="field">AgentDS-BUS classifies breast ultrasound malignancy using an agent pipeline that decouples lesion segmentation from downstream feature reasoning, with no task-specific fine-tuning required. It is a concrete example of composing pretrained vision and language components into a training-free clinical imaging system, an alternative to end-to-end supervised models.</p>
+</div>
+</body></html>
