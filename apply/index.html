@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="../styles.css?v=12">
     <link rel="icon" type="image/png" href="../visual/tea.png">
     <style>
-        /* ── /apply — private page. Not linked from anywhere on the site.
-             Reuses the site tokens: crimson #800020, ink #111/#222,
-             muted #666/#888, hairline #e8e8e8, ground #f5f5f5. ── */
+        /* ── /apply — reuses the site tokens: crimson #800020,
+             ink #111/#222, muted #666/#888, hairline #e8e8e8,
+             ground #f5f5f5. ── */
 
         .apply-page {
             max-width: 780px;
@@ -18,24 +18,6 @@
             padding: 0 1.5rem;
         }
 
-        .apply-eyebrow {
-            font-size: 0.75rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: #888888;
-            margin-bottom: 0.6rem;
-        }
-
-        .apply-eyebrow::before {
-            content: "";
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #800020;
-            margin-right: 0.55rem;
-            vertical-align: 0.08em;
-        }
 
         .apply-note {
             font-size: 0.9rem;
@@ -77,6 +59,13 @@
             background: #800020;
             color: #ffffff;
             box-shadow: 0 2px 8px rgba(128, 0, 32, 0.25);
+        }
+
+        .apply-sectionnote {
+            font-size: 0.86rem;
+            color: #777777;
+            line-height: 1.65;
+            margin: -0.4rem 0 1.4rem;
         }
 
         /* ── entries ── */
@@ -232,71 +221,35 @@
     </header>
 
     <div class="apply-page">
-        <p class="apply-eyebrow">Private &middot; not linked from the site</p>
         <h1 class="listening-title">Apply</h1>
-        <p class="listening-subtitle">Things worth applying for, filtered for a first-year international PhD student in AI&nbsp;in&nbsp;Medicine.</p>
+        <p class="listening-subtitle">Things worth applying for, filtered for a first-year PhD student in AI&nbsp;in&nbsp;Medicine holding Saudi and Canadian citizenship.</p>
 
         <p class="apply-note">
-            Everything below was checked on <strong>30 August 2026</strong> and excludes anything requiring
-            US citizenship or permanent residency. Dates are copied from the official page in each case —
-            but portals move, so re-check before you build an application around one.
-            The <a href="#ruled-out" style="color:#800020;">ruled out</a> list at the bottom says what was
-            considered and why it didn't make the cut.
+            Checked <strong>31 August 2026</strong>. Nothing here requires US citizenship or permanent residency.
+            Canadian citizenship is treated as live throughout — it is what makes the Anthropic fellowship
+            viable and it is why the Cohere programme is worth waiting for. Dates come from the official page
+            in each case, but portals move, so re-check before building an application around one.
+            The <a href="#ruled-out" style="color:#800020;">checked and set aside</a> list at the bottom says
+            what else was considered and why it did not make the cut.
         </p>
 
         <div class="apply-filters">
             <button class="apply-filter" data-filter="all" aria-pressed="true">All 8</button>
             <button class="apply-filter" data-filter="open" aria-pressed="false">Open now</button>
             <button class="apply-filter" data-filter="soon" aria-pressed="false">Opens later</button>
-            <button class="apply-filter" data-filter="harvard" aria-pressed="false">Harvard</button>
-            <button class="apply-filter" data-filter="external" aria-pressed="false">External</button>
         </div>
 
-        <h2 class="listening-section-title">Deadlines</h2>
+        <h2 class="listening-section-title">Harvard</h2>
+        <p class="apply-sectionnote">
+            All four are open to you as an enrolled student. The two that involve being paid — the tutor role,
+            and any i-lab or Bok-style staffing that follows — are on-campus employment, which your F-1 already
+            authorises without separate work permission; the other two are a membership and a fellowship, so the
+            question does not arise. Confirm hours with the HIO before you sign anything.
+        </p>
         <div class="apply-list">
 
             <!-- 1 -->
-            <article class="apply-item" data-tags="open external" data-deadline="2026-09-06">
-                <div class="apply-head">
-                    <a class="apply-name" href="https://www.matsprogram.org/apply" target="_blank" rel="noopener noreferrer">MATS Winter 2027 <span class="arrow">&rarr;</span></a>
-                    <span class="apply-when">
-                        <span class="apply-date">6 Sep 2026</span>
-                        <span class="apply-countdown"></span>
-                    </span>
-                </div>
-                <p class="apply-meta"><span>ML Alignment &amp; Theory Scholars</span><span>Research fellowship</span><span>Berkeley / London</span></p>
-                <p class="apply-desc">
-                    Full-time research programme, 19 Jan – 10 Apr 2027, pairing you with a senior
-                    mentor to produce a paper. $19.2k stipend, $24k compute, free housing and food, travel covered.
-                    Stage&nbsp;1 applications close 6 September; the Neel Nanda stream closes two days earlier, on 4 September.
-                </p>
-                <p class="apply-fit"><b>Why you</b>Empirical interpretability and evaluation work is close to what CRIMSON already does — building a clinically grounded metric is an evaluation problem before it is a radiology problem. It is also the cheapest way to buy a real second research network outside Rajpurkar's lab.</p>
-                <p class="apply-flag"><b>Two catches.</b> It runs through the spring semester full-time, so it needs an arrangement with DBMI. On the other hand MATS explicitly covers the J-1 visa if needed, which makes it one of the very few programmes of this kind that is genuinely open to you.</p>
-            </article>
-
-            <!-- 2 -->
-            <article class="apply-item" data-tags="open external" data-deadline="2026-09-07">
-                <div class="apply-head">
-                    <a class="apply-name" href="https://support.claude.com/en/articles/11199177-anthropic-s-ai-for-science-program" target="_blank" rel="noopener noreferrer">Anthropic AI for Science &mdash; Claude credits <span class="arrow">&rarr;</span></a>
-                    <span class="apply-when">
-                        <span class="apply-date">Rolling</span>
-                        <span class="apply-countdown rolling">next review 7 Sep</span>
-                    </span>
-                </div>
-                <p class="apply-meta"><span>Anthropic</span><span>Compute / API grant</span><span>Remote</span></p>
-                <p class="apply-desc">
-                    Free Claude API credits for researchers at academic and non-profit institutions.
-                    Anthropic's help centre states up to <b>$20,000</b> in credits over six months; press coverage
-                    of the 27 August 2026 expansion reports up to <b>$50,000</b> per project and a widening of scope
-                    beyond biology into medicine, healthcare and computer science. Submissions are evaluated
-                    on the first Monday of each month.
-                </p>
-                <p class="apply-fit"><b>Why you</b>CRIMSON is an LLM-as-judge metric and RadGame generates automated feedback — both are pure API burn. This is the single highest value-per-hour application on this page: one form, no letters, no nomination, no citizenship condition.</p>
-                <p class="apply-flag"><b>Do this one first.</b> Next evaluation date is Monday 7 September 2026. Applying is maybe an hour of work.</p>
-            </article>
-
-            <!-- 3 -->
-            <article class="apply-item" data-tags="open harvard" data-deadline="2026-09-16">
+            <article class="apply-item" data-tags="open" data-deadline="2026-09-16">
                 <div class="apply-head">
                     <a class="apply-name" href="https://innovationlabs.harvard.edu/application/" target="_blank" rel="noopener noreferrer">Harvard i-lab &mdash; Student Membership <span class="arrow">&rarr;</span></a>
                     <span class="apply-when">
@@ -314,46 +267,8 @@
                 <p class="apply-fit"><b>Why you</b>RadGame is already a working platform with a published user study behind it, which is further than most ventures that walk in. Membership is also the front door to the President&rsquo;s Innovation Challenge below — join now and you are inside the pipeline when that call opens.</p>
             </article>
 
-            <!-- 4 -->
-            <article class="apply-item" data-tags="open external" data-deadline="">
-                <div class="apply-head">
-                    <a class="apply-name" href="https://job-boards.greenhouse.io/anthropic/jobs/5183044008" target="_blank" rel="noopener noreferrer">Anthropic Fellows Program <span class="arrow">&rarr;</span></a>
-                    <span class="apply-when">
-                        <span class="apply-date">Rolling</span>
-                        <span class="apply-countdown rolling">Jan 2027 cohort</span>
-                    </span>
-                </div>
-                <p class="apply-meta"><span>Anthropic</span><span>Research fellowship</span><span>SF / London / Ontario / US-remote</span></p>
-                <p class="apply-desc">
-                    Four months full-time on an empirical AI-safety project with an Anthropic mentor, aimed at a
-                    public paper. $3,850 per week plus roughly $15,000 a month in compute. Applications are rolling;
-                    the next cohort starts January 2027 and a further cohort begins August 2027, with that call
-                    reported to reopen in September 2026. No PhD or prior ML publishing is required.
-                </p>
-                <p class="apply-fit"><b>Why you</b>Over 40% of fellows convert to full-time roles. Even without conversion it is the strongest signal available for someone who wants a foot in frontier-lab research while staying in medicine.</p>
-                <p class="apply-flag"><b>Read this before spending time on it.</b> Anthropic states plainly that it <b>cannot sponsor visas</b> for fellows — you must already hold work authorisation in the US, UK or Canada. On F-1 that means full-time CPT through HMS, which needs programme sign-off and is not guaranteed. Worth a conversation with the DBMI programme office and the HIO before you write anything.</p>
-            </article>
-
-            <!-- 5 -->
-            <article class="apply-item" data-tags="soon external" data-deadline="">
-                <div class="apply-head">
-                    <a class="apply-name" href="https://cohere.com/research/scholars-program" target="_blank" rel="noopener noreferrer">Cohere Labs Scholars Program <span class="arrow">&rarr;</span></a>
-                    <span class="apply-when">
-                        <span class="apply-date">Opens fall 2026</span>
-                        <span class="apply-countdown rolling">just missed by a day</span>
-                    </span>
-                </div>
-                <p class="apply-meta"><span>Cohere Labs</span><span>Research fellowship</span><span>Remote-first</span></p>
-                <p class="apply-desc">
-                    A paid, full-time programme starting each January that pairs emerging researchers with a Cohere
-                    Labs mentor to publish real ML research. The last round closed <b>29 August 2026</b> — yesterday.
-                    Cohere's own page now says applications are expected to open again in fall 2026.
-                </p>
-                <p class="apply-fit"><b>Why you</b>Remote-first with no requirement to relocate, which quietly removes the visa problem that disqualifies you from most of the rest of this category. Set a reminder for late September and check the page weekly.</p>
-            </article>
-
-            <!-- 6 -->
-            <article class="apply-item" data-tags="soon harvard" data-deadline="">
+            <!-- 2 -->
+            <article class="apply-item" data-tags="soon" data-deadline="">
                 <div class="apply-head">
                     <a class="apply-name" href="https://kempnerinstitute.harvard.edu/education/graduate-fellowship/" target="_blank" rel="noopener noreferrer">Kempner Institute Graduate Fellowship <span class="arrow">&rarr;</span></a>
                     <span class="apply-when">
@@ -366,14 +281,14 @@
                     Four years of stipend, tuition, health insurance and fees, plus access to one of the largest
                     academic ML clusters anywhere and the Kempner mentoring and seminar community. Open to
                     incoming or current second-year Harvard PhD students. The next round of applications opens
-                    <b>December 2026</b>; the previous cycle's deadline was 15 February.
+                    <b>December 2026</b>; the previous cycle&rsquo;s deadline was 15 February.
                 </p>
-                <p class="apply-fit"><b>Why you</b>This is the highest-value item on the page and the timing is exactly right — you started in 2026, so you are an incoming second-year for the round that opens this December. No citizenship condition anywhere in the eligibility. Harmony is a natural-and-artificial-intelligence story if you frame the representation-learning side rather than the medical application, which is what the Kempner mission statement rewards.</p>
+                <p class="apply-fit"><b>Why you</b>The highest-value item on the page, and the timing is exactly right — you started in 2026, so you are an incoming second-year for the round that opens this December. No citizenship condition anywhere in the eligibility, which matters given how much else on this page turns on a passport. Harmony is a natural-and-artificial-intelligence story if you frame the representation-learning side rather than the medical application, which is what the Kempner mission statement rewards.</p>
                 <p class="apply-flag"><b>Start early.</b> It needs a 750-word research statement and a letter of support from Rajpurkar. Ask him in October, not in February.</p>
             </article>
 
-            <!-- 7 -->
-            <article class="apply-item" data-tags="soon harvard" data-deadline="">
+            <!-- 3 -->
+            <article class="apply-item" data-tags="soon" data-deadline="">
                 <div class="apply-head">
                     <a class="apply-name" href="https://innovationlabs.harvard.edu/presidents-innovation-challenge" target="_blank" rel="noopener noreferrer">President&rsquo;s Innovation Challenge 2027 <span class="arrow">&rarr;</span></a>
                     <span class="apply-when">
@@ -394,8 +309,8 @@
                 <p class="apply-flag"><b>Date not confirmed.</b> Harvard has not published the 2027 timeline yet — this is inferred from the 2026 cycle. The i-lab site blocks automated readers, so check it directly in early November, or ask your i-lab advisor once membership is active.</p>
             </article>
 
-            <!-- 8 -->
-            <article class="apply-item" data-tags="soon harvard" data-deadline="2027-01-05">
+            <!-- 4 -->
+            <article class="apply-item" data-tags="soon" data-deadline="2027-01-05">
                 <div class="apply-head">
                     <a class="apply-name" href="https://dso.college.harvard.edu/become-proctor-or-tutor" target="_blank" rel="noopener noreferrer">Non-Resident Tutor, 2027&ndash;28 <span class="arrow">&rarr;</span></a>
                     <span class="apply-when">
@@ -412,27 +327,122 @@
                     Mather has taken rolling applications through August.
                 </p>
                 <p class="apply-fit"><b>Why you</b>You have done this at Leverett, so this is a renewal or a lateral move rather than a cold application, and returning tutors are the easiest hires a house makes. Worth emailing the Leverett Faculty Deans in November rather than waiting for the central portal.</p>
-                <p class="apply-flag"><b>One change to check.</b> Harvard began enforcing tutor eligibility requirements in February 2026 and tightened rules on unaffiliated house tutors. Confirm the current criteria still cover you as a PhD student before assuming last year's route works.</p>
+                <p class="apply-flag"><b>One change to check.</b> Harvard began enforcing tutor eligibility requirements in February 2026 and tightened rules on unaffiliated house tutors. Confirm the current criteria still cover you as a PhD student before assuming last year&rsquo;s route works.</p>
             </article>
 
         </div>
 
-        <h2 class="listening-section-title" id="ruled-out" style="margin-top:3.5rem;">Ruled out &mdash; and why</h2>
+        <h2 class="listening-section-title" style="margin-top:3.5rem;">External</h2>
+        <p class="apply-sectionnote">
+            This is where the second passport earns its keep. Anthropic cannot sponsor a visa but accepts
+            Canadian work authorisation and runs an Ontario site; Cohere is Toronto-based and remote-first;
+            MATS covers a J-1 outright. Read the status notes — two of these need you to be physically
+            somewhere other than Cambridge for a term.
+        </p>
+        <div class="apply-list">
+
+            <!-- 5 -->
+            <article class="apply-item" data-tags="open" data-deadline="2026-09-06">
+                <div class="apply-head">
+                    <a class="apply-name" href="https://www.matsprogram.org/apply" target="_blank" rel="noopener noreferrer">MATS Winter 2027 <span class="arrow">&rarr;</span></a>
+                    <span class="apply-when">
+                        <span class="apply-date">6 Sep 2026</span>
+                        <span class="apply-countdown"></span>
+                    </span>
+                </div>
+                <p class="apply-meta"><span>ML Alignment &amp; Theory Scholars</span><span>Research fellowship</span><span>Berkeley / London</span></p>
+                <p class="apply-desc">
+                    Full-time research programme, 19 Jan – 10 Apr 2027, pairing you with a senior
+                    mentor to produce a paper. $19.2k stipend, $24k compute, free housing and food, travel covered.
+                    Stage&nbsp;1 applications close 6 September; the Neel Nanda stream closes two days earlier, on 4 September.
+                </p>
+                <p class="apply-fit"><b>Why you</b>Empirical interpretability and evaluation work is close to what CRIMSON already does — building a clinically grounded metric is an evaluation problem before it is a radiology problem. It is also the cheapest way to buy a real second research network outside Rajpurkar&rsquo;s lab.</p>
+                <p class="apply-flag"><b>Soonest deadline on the page.</b> It runs through the spring semester full-time, so it needs an arrangement with DBMI. MATS covers the J-1 outright, so unlike most of this category neither of your passports is the obstacle — the calendar is.</p>
+            </article>
+
+            <!-- 6 -->
+            <article class="apply-item" data-tags="open" data-deadline="">
+                <div class="apply-head">
+                    <a class="apply-name" href="https://support.claude.com/en/articles/11199177-anthropic-s-ai-for-science-program" target="_blank" rel="noopener noreferrer">Anthropic AI for Science &mdash; Claude credits <span class="arrow">&rarr;</span></a>
+                    <span class="apply-when">
+                        <span class="apply-date">Rolling</span>
+                        <span class="apply-countdown rolling">next review 7 Sep</span>
+                    </span>
+                </div>
+                <p class="apply-meta"><span>Anthropic</span><span>Compute / API grant</span><span>Remote</span></p>
+                <p class="apply-desc">
+                    Free Claude API credits for researchers at academic and non-profit institutions.
+                    Anthropic&rsquo;s help centre states up to <b>$20,000</b> in credits over six months; press coverage
+                    of the 27 August 2026 expansion reports up to <b>$50,000</b> per project and a widening of scope
+                    beyond biology into medicine, healthcare and computer science. Submissions are evaluated
+                    on the first Monday of each month.
+                </p>
+                <p class="apply-fit"><b>Why you</b>CRIMSON is an LLM-as-judge metric and RadGame generates automated feedback — both are pure API burn. This is the single highest value-per-hour application on this page: one form, no letters, no nomination, no citizenship condition, and nothing to relocate for.</p>
+                <p class="apply-flag"><b>Do this one first.</b> Next evaluation date is Monday 7 September 2026. Applying is maybe an hour of work.</p>
+            </article>
+
+            <!-- 7 -->
+            <article class="apply-item" data-tags="open" data-deadline="">
+                <div class="apply-head">
+                    <a class="apply-name" href="https://job-boards.greenhouse.io/anthropic/jobs/5183044008" target="_blank" rel="noopener noreferrer">Anthropic Fellows Program <span class="arrow">&rarr;</span></a>
+                    <span class="apply-when">
+                        <span class="apply-date">Rolling</span>
+                        <span class="apply-countdown rolling">Jan 2027 cohort</span>
+                    </span>
+                </div>
+                <p class="apply-meta"><span>Anthropic</span><span>Research fellowship</span><span>Ontario / SF / London / US-remote</span></p>
+                <p class="apply-desc">
+                    Four months full-time on an empirical AI-safety project with an Anthropic mentor, aimed at a
+                    public paper. $3,850 per week plus roughly $15,000 a month in compute. Applications are rolling;
+                    the next cohort starts January 2027 and a further cohort begins August 2027, with that call
+                    reported to reopen in September 2026. No PhD or prior ML publishing is required.
+                </p>
+                <p class="apply-fit"><b>Why you</b>Over 40% of fellows convert to full-time roles. Anthropic states it cannot sponsor visas and requires existing work authorisation in the US, UK <b>or Canada</b> — and it runs an Ontario site. Your Canadian citizenship satisfies that outright, which moves this from a non-starter to one of the strongest things on the page.</p>
+                <p class="apply-flag"><b>The catch is now logistical, not legal.</b> Taking the Ontario route means four months full-time outside the US mid-PhD, so it needs a leave arrangement with DBMI and a plan for re-entry on your F-1. Worth one conversation each with the programme office and the HIO before you write anything.</p>
+            </article>
+
+            <!-- 8 -->
+            <article class="apply-item" data-tags="soon" data-deadline="">
+                <div class="apply-head">
+                    <a class="apply-name" href="https://cohere.com/research/scholars-program" target="_blank" rel="noopener noreferrer">Cohere Labs Scholars Program <span class="arrow">&rarr;</span></a>
+                    <span class="apply-when">
+                        <span class="apply-date">Opens fall 2026</span>
+                        <span class="apply-countdown rolling">missed by two days</span>
+                    </span>
+                </div>
+                <p class="apply-meta"><span>Cohere Labs</span><span>Research fellowship</span><span>Remote-first &middot; Toronto</span></p>
+                <p class="apply-desc">
+                    A paid, full-time programme starting each January that pairs emerging researchers with a Cohere
+                    Labs mentor to publish real ML research. The last round closed <b>29 August 2026</b>.
+                    Cohere&rsquo;s own page now says applications are expected to open again in fall 2026.
+                </p>
+                <p class="apply-fit"><b>Why you</b>Remote-first with no requirement to relocate, and Cohere is a Toronto company — between those two facts this is the cleanest fit of anything external here on paper. You also already have Toronto research history through Bo Wang and the Vector Institute, which is not nothing when they read your name. Set a reminder for late September and check the page weekly.</p>
+            </article>
+
+        </div>
+
+        <h2 class="listening-section-title" id="ruled-out" style="margin-top:3.5rem;">Checked and set aside</h2>
         <p class="apply-desc" style="margin-bottom:1rem;">
-            All of these were checked. None are worth your time this cycle, but the reasons differ, and a few
-            are worth a calendar entry for next year.
+            All of these were looked at. None are worth your time this cycle, but the reasons differ, and
+            several are worth a calendar entry rather than a shrug.
         </p>
         <div class="apply-out">
-            <div class="apply-out-item"><span class="apply-out-name">NSF GRFP, NIH F31, DOE CSGF, Hertz, Paul &amp; Daisy Soros</span><span class="apply-out-why">All require US citizenship or permanent residency. Soros additionally requires a green card, naturalisation or DACA.</span></div>
+            <div class="apply-out-item"><span class="apply-out-name">NSERC Canada Graduate Research Scholarship &mdash; Doctoral</span><span class="apply-out-why">The painful one. $40,000 a year for 36 months, and it <b>can</b> be held abroad by a Canadian citizen — but only if you have &ldquo;completed at least one previous undergraduate or graduate degree at a Canadian institution.&rdquo; Harvard, Penn State and KSAU-HS do not qualify, and the Vector Institute stint was an internship, not a degree. Direct-to-NSERC deadline is 17 October if your circumstances ever change.</span></div>
+            <div class="apply-out-item"><span class="apply-out-name">CIHR doctoral awards</span><span class="apply-out-why">Requires enrolment in a doctoral programme at an eligible Canadian institution. Citizenship alone does not carry it.</span></div>
+            <div class="apply-out-item"><span class="apply-out-name">Vanier Canada Graduate Scholarships</span><span class="apply-out-why">Tenable only at Canadian institutions.</span></div>
+            <div class="apply-out-item"><span class="apply-out-name">NSF GRFP, NIH F31, DOE CSGF, Hertz, Paul &amp; Daisy Soros</span><span class="apply-out-why">All require US citizenship or permanent residency; Canadian citizenship does not help. Soros additionally requires a green card, naturalisation or DACA.</span></div>
+            <div class="apply-out-item"><span class="apply-out-name">Bok Center AI Research &amp; Teaching Fellows</span><span class="apply-out-why">Already applied &mdash; in flight, nothing further to do until they come back to you. Hourly, rolling, and the closest match on this list to what you actually do; chase it if you have not heard by late September.</span></div>
             <div class="apply-out-item"><span class="apply-out-name">Meta PhD Research Fellowship</span><span class="apply-out-why">Open right now — closes 20 Sep 2026, letters 6 Oct, any PhD year, worldwide. But the 2027 area list has no medical imaging, computer vision or multimodal ML area; it is dominated by AR/VR, systems and audio. Meta states it awards only within the listed areas. Applied Statistics is the closest and it is a stretch.</span></div>
             <div class="apply-out-item"><span class="apply-out-name">Two Sigma PhD Fellowship</span><span class="apply-out-why">Open 14 Aug – 25 Sep 2026, but requires 3rd year or later with two years remaining.</span></div>
             <div class="apply-out-item"><span class="apply-out-name">IBM PhD Fellowship</span><span class="apply-out-why">Faculty nomination required, and candidates must be within two years of graduating.</span></div>
             <div class="apply-out-item"><span class="apply-out-name">NVIDIA Graduate Fellowship</span><span class="apply-out-why">Needs at least one completed PhD year plus a prior in-person NVIDIA internship. The 2026–27 round closed 15 Sep 2025. Reconsider for 2028–29.</span></div>
+            <div class="apply-out-item"><span class="apply-out-name">NVIDIA Academic Grant Program</span><span class="apply-out-why">Up to 30,000 H100 hours, but NVIDIA&rsquo;s own page says it is not accepting new applications, and it needs a full-time faculty PI rather than a student applicant.</span></div>
             <div class="apply-out-item"><span class="apply-out-name">Google PhD Fellowship</span><span class="apply-out-why">University-nominated, not a direct application. The US/Canada round ran to 30 Apr 2026 with Harvard internal deadlines earlier. Ask DBMI in <b>February 2027</b> about the internal nomination.</span></div>
-            <div class="apply-out-item"><span class="apply-out-name">Apple Scholars in AI/ML</span><span class="apply-out-why">Invitation and nomination only; peer institutions' internal deadlines fell in July and early August 2026.</span></div>
+            <div class="apply-out-item"><span class="apply-out-name">Apple Scholars in AI/ML</span><span class="apply-out-why">Invitation and nomination only; peer institutions&rsquo; internal deadlines fell in July and early August 2026.</span></div>
             <div class="apply-out-item"><span class="apply-out-name">AHA Predoctoral Fellowship</span><span class="apply-out-why">Genuinely open to international students, and HyMNet makes you a real candidate — but the 2027 cycle closed 4 Aug 2026. Diary it for <b>July 2027</b>.</span></div>
-            <div class="apply-out-item"><span class="apply-out-name">Bok Center AI Research &amp; Teaching Fellows</span><span class="apply-out-why">Already applied &mdash; in flight, nothing further to do until they come back to you. Hourly, rolling, and the closest match on this list to what you actually do; chase it if you have not heard by late September.</span></div>
-            <div class="apply-out-item"><span class="apply-out-name">Bok Center Pedagogy Fellows</span><span class="apply-out-why">2026–27 applications closed 13 Mar 2026. Different programme from the AI fellows role above.</span></div>
+            <div class="apply-out-item"><span class="apply-out-name">Claude Corps</span><span class="apply-out-why">Cohorts 1 and 2 closed; cohort 3 reopens Sep 2026 for an Aug 2027 start. Wrong shape regardless — full-time in-person nonprofit placement, under two years&rsquo; work experience, and US work authorisation that does not depend on sponsorship.</span></div>
+            <div class="apply-out-item"><span class="apply-out-name">OpenAI Researcher Access Program</span><span class="apply-out-why">Open, reviewed quarterly with the next round in September — but only $1,000 in credits. Take the Anthropic credits instead; apply here too if you want cross-model comparisons in CRIMSON.</span></div>
+            <div class="apply-out-item"><span class="apply-out-name">Bok Center Pedagogy Fellows</span><span class="apply-out-why">2026–27 applications closed 13 Mar 2026. Different programme from the AI fellows role.</span></div>
             <div class="apply-out-item"><span class="apply-out-name">Berkman Klein Center fellowship</span><span class="apply-out-why">Last open call closed 5 Dec 2025 and the cohort skews to faculty, recent doctorates and practitioners rather than current PhD students.</span></div>
             <div class="apply-out-item"><span class="apply-out-name">RSNA Research Medical Student Grant</span><span class="apply-out-why">Medical students only. The resident and fellow grants require an MD.</span></div>
             <div class="apply-out-item"><span class="apply-out-name">Radiology: Artificial Intelligence Trainee Editorial Board</span><span class="apply-out-why">Strong fit, wrong month — the cycle runs 30 Mar to 15 Jul. Diary it for <b>April 2027</b>.</span></div>
@@ -444,8 +454,7 @@
         </div>
 
         <p class="apply-foot">
-            Compiled 30 August 2026. Eight live entries, eighteen checked and set aside.<br>
-            This page is deliberately unlinked and carries a <code>noindex</code> tag — it is reachable only by typing the URL.
+            Compiled 31 August 2026 &mdash; eight live entries across Harvard and external, twenty-four checked and set aside.
         </p>
     </div>
 
@@ -482,8 +491,10 @@
             });
 
             // ── filters ──
+            // Each section keeps its own top hairline, so the first *visible*
+            // entry within every list is re-marked after a filter runs.
             var buttons = document.querySelectorAll('.apply-filter');
-            var items = document.querySelectorAll('.apply-item');
+            var lists = document.querySelectorAll('.apply-list');
 
             buttons.forEach(function (btn) {
                 btn.addEventListener('click', function () {
@@ -493,15 +504,18 @@
                         b.setAttribute('aria-pressed', String(b === btn));
                     });
 
-                    items.forEach(function (item) {
-                        var tags = (item.getAttribute('data-tags') || '').split(' ');
-                        item.hidden = (want !== 'all' && tags.indexOf(want) === -1);
-                    });
+                    lists.forEach(function (list) {
+                        var items = list.querySelectorAll('.apply-item');
 
-                    // keep the hairline on whichever entry is now first
-                    var visible = Array.prototype.filter.call(items, function (i) { return !i.hidden; });
-                    items.forEach(function (i) { i.style.borderTop = ''; });
-                    if (visible.length) visible[0].style.borderTop = '1px solid #e8e8e8';
+                        items.forEach(function (item) {
+                            var tags = (item.getAttribute('data-tags') || '').split(' ');
+                            item.hidden = (want !== 'all' && tags.indexOf(want) === -1);
+                            item.style.borderTop = '';
+                        });
+
+                        var visible = Array.prototype.filter.call(items, function (i) { return !i.hidden; });
+                        if (visible.length) visible[0].style.borderTop = '1px solid #e8e8e8';
+                    });
                 });
             });
         })();
