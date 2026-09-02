@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citations — September 2, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.subtitle{font-size:.85rem;color:#888;margin-bottom:2.5rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem;margin-bottom:.75rem}
+h2 em{font-style:italic;text-transform:none;font-size:1rem;letter-spacing:0}
+h3{font-size:1.05rem;font-weight:500;margin:0 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.83rem;color:#666;margin-bottom:.5rem}
+.summary{font-size:.95rem;line-height:1.65;margin:.5rem 0}
+.contexts{list-style:none;padding:0;margin:.6rem 0 0}
+.ctx{font-size:.88rem;line-height:1.6;color:#444;background:#fff;border-left:3px solid #d0b0b8;padding:.5rem .9rem;margin-bottom:.4rem;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:.75rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+</style></head><body>
+<h1>New Citations — September 2, 2026</h1>
+<p class="subtitle">4 new citations found via Semantic Scholar</p>
+<h2>Citing: <em>CRIMSON: A Clinically-Grounded LLM-Based Metric for Generative Radiology Report Evaluation</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2609.01470" target="_blank">RadMatch: Auditable Radiology Report Evaluation via Finding-Level Matching</a></h3>
+<p class="meta"> · 2026</p>
+<p class="summary"><strong>What they say:</strong> CRIMSON is grouped with GREEN as one of the LLM-based metrics that represent the most clinically aligned line of RRG evaluation methods, and is named as the work closest to RadMatch: like GREEN it scores reports by error analysis, but it adds patient context, graded significance weights, and partial credit, with a much larger category set (24, versus GREEN's six clinically significant error categories). It also serves as one of the LLM-based baselines RadMatch compares against (using reported numbers) alongside lexical metrics (BLEU, ROUGE-L, BERTScore) and clinical-concept metrics (RadGraph-F1, RadCliQ, SRR-BERT).</p>
+<ul class='contexts'><li class="ctx">24 for CRIMSON) [4].</li><li class="ctx">As vision–language models (VLMs) are increasingly used for radiology report generation (RRG) [5,19,43], reliable evaluation has become an active research direction [1,4,15,32,46].</li><li class="ctx">Large language model (LLM)-based metrics [4,15,32] have since emerged as the most clinically aligned line of methods.</li></ul>
+</div><hr><h2>Citing: <em>ReXGroundingCT: A 3D Chest CT Dataset for Segmentation of Findings from Free-Text Reports</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2609.00447" target="_blank">Instance-Guided Report Anchoring for Text-Free 3D Abnormality Segmentation in Chest CT</a></h3>
+<p class="meta"> · 2026</p>
+<p class="summary"><strong>What they say:</strong> ReXGroundingCT is characterized as a recent benchmark that casts abnormality localization as a vision–language grounding task, pairing each chest CT volume with multiple abnormality masks and a finding sentence describing each annotated instance. It is used as the exemplar of the setup IGRA departs from — grounding methods that need report-derived findings at inference, with each forward pass limited to a single queried finding.</p>
+<ul class='contexts'><li class="ctx">Recent benchmarks such as ReXGroundingCT [3] formulate abnormality localization as a vision–language grounding task: each sample pairs a chest CT volume with multiple abnormality masks and a finding sentence describing each annotated instance.</li><li class="ctx">ReXGroundingCT [3] contains chest CT volumes with multiple finding sentences, each paired with a corresponding abnormality mask.</li></ul>
+</div><hr><h2>Citing: <em>MedSAM2: Segment Anything in 3D Medical Images and Videos</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2609.01427" target="_blank">Pix2Rep-v2: Data-Efficient Representation Learning for Dense Medical Imaging Applications</a></h3>
+<p class="meta"> · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is presented as the medical-domain counterpart to SAM 3 — a promptable model that performs segmentation and video propagation from point, box, or mask prompts. It serves as a baseline for video propagation, given the reference frame's ground-truth mask as the prompt, alongside SAM 3 and Pix2Rep-style contrastive propagation.</p>
+<ul class='contexts'><li class="ctx">Lastly, SAM 3 [19] or in the medical domain MedSAM2 [20] enable segmentation or video propagation with guidance from various prompts: points, boxes or segmentation masks.</li><li class="ctx">For video propagation, we compare to SAM 3 [19] and MedSAM2 [20] using the reference frame’s GT mask as prompt, as well as to Pix2Rep -based video propagation using their contrastive representations coupled with our proposed propagation mechanism (section 3).</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2608.28453" target="_blank">Prompt-Guided Interactive Segmentation of Interstitial Lung Disease in Thoracic CT</a></h3>
+<p class="meta">Vasilis Dedousis, Lubnaa Abdur Rahman, Lorenzo Brigatomicron, E. Dack et al. (11 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is described as adapting SAM2 to medical imaging by fine-tuning on diverse medical datasets, initializing from prompts placed on a reference slice (here the middle foreground slice) and propagating predictions bidirectionally through the volume. It served as the strongest baseline in preliminary ILD experiments — outperforming alternatives like SAM2.1-Tiny and nnInteractive in that screening — which motivated selecting the MedSAM2_2411 checkpoint as the model to adapt, and its Dice/NSD (2 mm tolerance) evaluation protocol was also adopted.</p>
+<ul class='contexts'><li class="ctx">For 3D propagation, we used the middle slice for initialization, following previous studies [14,18], and restricted selection to foreground slices where the target pattern was visible.</li><li class="ctx">We evaluated segmentation performance using the Dice similarity coefficient (DSC) and normalized surface distance (NSD, 2 mm tolerance) to assess boundary agreement [18,19].</li><li class="ctx">1-Tiny) [24], MedSAM2 (MedSAM2_2411) [18], and nnInteractive (v1.</li></ul>
+</div>
+</body></html>
