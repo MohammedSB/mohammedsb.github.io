@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citations — September 4, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.subtitle{font-size:.85rem;color:#888;margin-bottom:2.5rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem;margin-bottom:.75rem}
+h2 em{font-style:italic;text-transform:none;font-size:1rem;letter-spacing:0}
+h3{font-size:1.05rem;font-weight:500;margin:0 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.83rem;color:#666;margin-bottom:.5rem}
+.summary{font-size:.95rem;line-height:1.65;margin:.5rem 0}
+.contexts{list-style:none;padding:0;margin:.6rem 0 0}
+.ctx{font-size:.88rem;line-height:1.6;color:#444;background:#fff;border-left:3px solid #d0b0b8;padding:.5rem .9rem;margin-bottom:.4rem;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:.75rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+</style></head><body>
+<h1>New Citations — September 4, 2026</h1>
+<p class="subtitle">4 new citations found via Semantic Scholar</p>
+<h2>Citing: <em>ReXGroundingCT: A 3D Chest CT Dataset for Segmentation of Findings from Free-Text Reports</em></h2><div class="card">
+<h3><a href="https://doi.org/10.1016/j.compmedimag.2026.102816" target="_blank">TeF-SAM: Prototype memory for medical lesion segmentation with text-free inference</a></h3>
+<p class="meta">Jin-Xin Liang, Xiao-Ming Liu, Zhi-Yuan Zang, Xin Wang et al. (6 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> No citation context is available for this pair — the snippet list is empty, the citing paper's abstract wasn't provided, and my attempts to look up "TeF-SAM" on the web were denied permission. So I can't report what the paper actually says about ReXGroundingCT without inventing it.
+
+What I can offer, clearly labeled as inference rather than a description of their text: given that TeF-SAM does text-free-inference lesion segmentation, ReXGroundingCT is most plausibly cited as a 3D chest CT benchmark pairing free-text report findings with voxel-level segmentations — i.e., as either an evaluation dataset or an example of the report-grounded supervision their method aims to avoid needing at test time. Treat that as a hypothesis to verify, not a claim from the paper.
+
+To get a concrete answer, I'd need the sentences surrounding the citation (or a URL/PDF I'm allowed to fetch), or WebSearch permission for this session.</p>
+
+</div><hr><h2>Citing: <em>MedSAM2: Segment Anything in 3D Medical Images and Videos</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2609.02004" target="_blank">InstEditSeg: Instruction-Driven Image Editing for Polyp and Skin Lesion Segmentation</a></h3>
+<p class="meta">Zihao Liu, Zhe Zhu, Xuzi Shi · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is listed as one of several SAM-derived medical adaptations (alongside MedSAM, Medical SAM Adapter, SAM-Med2D, and Polyp-SAM) that extend Kirillov et al.'s zero-shot natural-image segmentation to the medical domain, distinguished as being built on SAM 2 rather than the original SAM. It appears only in this background enumeration of discriminative prompt-based baselines, which the paper contrasts with its own generative, instruction-driven editing formulation.</p>
+<ul class='contexts'><li class="ctx">SAM [3] achieved strong zero-shot segmentation on natural images, prompting medical adaptation such as MedSAM [17], Medical SAM Adapter [18], SAM-Med2D [19], Polyp-SAM [20], and MedSAM2 [21] based on SAM 2 [22].</li></ul>
+</div><hr><h2>Citing: <em>Evaluating General Purpose Vision Foundation Models for Medical Image Analysis: An Experimental Study of DINOv2 on Radiology Benchmarks</em></h2><div class="card">
+<h3><a href="https://doi.org/10.34133/csbj.0178" target="_blank">Benchmarking Vision Encoders for Image Classification in Ophthalmology</a></h3>
+<p class="meta">J. Zoellin, Colin Merk, Bence György · 2026</p>
+<p class="summary"><strong>What they say:</strong> No citation snippets were available for this pair, so this is an inference from the two papers' content rather than quoted text:
+
+Cited as prior evidence from radiology that a general-purpose, self-supervised encoder — DINOv2 — can match or outperform domain-specific medical imaging models across a large set of classification and segmentation benchmarks (including in few-shot and frozen/linear-probe regimes), supporting the premise that general vision foundation models are viable feature extractors for medical images. It is invoked as the radiology analogue of the systematic, multi-model benchmarking gap the authors set out to close for ophthalmology, where no comparable cross-encoder, cross-modality comparison existed.</p>
+
+</div><div class="card">
+<h3><a href="https://doi.org/10.1016/j.bspc.2026.111338" target="_blank">Boundary-aware segmentation of Oral Lichen Planus using parameter-efficient adaptation of DINOv2</a></h3>
+<p class="meta">Ignacio Aguilar Cano, Margarita Bachiller Mayoral, Estela Díaz López, Mariano Rincón Zamorano et al. (7 authors)</p>
+<p class="summary"><strong>What they say:</strong> No citation context or abstract was available for the citing paper, and web search isn't permitted in this session, so I can't verify the specific claim. Based only on the citing paper's title and the standard use of this reference, the most likely characterization:
+
+**Inferred (unverified):** DINOv2's self-supervised features have been shown to transfer strongly to medical imaging, matching or outperforming supervised and other self-supervised baselines across a broad suite of radiology classification and segmentation benchmarks — motivating its use as the frozen backbone for parameter-efficient adaptation to oral lichen planus segmentation.
+
+If you can supply the citing paper's PDF/text or enable web access, I can replace this with the actual sentence-level claim.</p>
+
+</div>
+</body></html>
