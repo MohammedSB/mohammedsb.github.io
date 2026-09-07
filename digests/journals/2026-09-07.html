@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journal Digest — week of September 7, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>From the Journals — week of September 7, 2026</h1>
+<p class="cats">NEJM AI, Nature Medicine, Nature, Nature Machine Intelligence, Nature Biomedical Engineering, npj Digital Medicine, Radiology: AI, Lancet Digital Health, Medical Image Analysis, IEEE Trans. Medical Imaging, Patterns (Cell Press)</p>
+<div class="card journal">
+<h3>1. <a href="https://www.nature.com/articles/s41591-026-04633-x" target="_blank">From algorithms to patient outcomes — lessons from one of the first randomized trials of AI in medicine</a></h3>
+<p class="meta">Nature Medicine &nbsp;·&nbsp; Sep 7, 2026</p>
+<p class="meta">Kristina Lång</p>
+<p class="tags"><span class="tag">Clinical AI</span><span class="tag">Randomized Trials</span><span class="tag">AI Evaluation</span></p>
+<p class="field">This Nature Medicine piece draws lessons from one of the first randomized controlled trials of an AI tool in clinical practice, examining how algorithmic performance translated (or failed to translate) into patient outcomes. It highlights the gap between retrospective benchmark accuracy and real-world clinical benefit, and argues for prospective trial designs as the standard for evaluating medical AI.</p>
+</div><div class="card journal">
+<h3>2. <a href="https://www.nature.com/articles/s41591-026-04638-6" target="_blank">Limited benchmarks constrain the conclusions of a general-purpose versus clinical AI comparison</a></h3>
+<p class="meta">Nature Medicine &nbsp;·&nbsp; Sep 3, 2026</p>
+<p class="meta">Brett Beaulieu-Jones, Shamim Nemati</p>
+<p class="tags"><span class="tag">LLM Evaluation</span><span class="tag">Clinical AI</span><span class="tag">Benchmarks</span></p>
+<p class="field">This Matters Arising letter (with the authors' reply at index 3) critiques a prior comparison of general-purpose versus clinical-specialist AI models, arguing that the limited benchmark set undermines the conclusions. The exchange is a useful case study in how benchmark selection shapes claims about medical foundation model performance.</p>
+</div><div class="card journal">
+<h3>3. <a href="https://doi.org/10.1148/ryai.260325" target="_blank">Human-AI Collaboration in Radiology: The Blind Spots.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Sep 2, 2026</p>
+<p class="meta">Su Hwan Kim, Lisa C Adams, Benedikt Wiestler, Dennis M Hedderich</p>
+<p class="tags"><span class="tag">Radiology AI</span><span class="tag">Human-AI Collaboration</span></p>
+<p class="field">This narrative synthesis argues that radiology AI research has overemphasized standalone algorithm performance while neglecting the human-AI interactions that determine real clinical value. It identifies three underrecognized determinants of effective collaboration, including cognitive factors in how radiologists integrate AI outputs into their reading workflow.</p>
+</div><div class="card journal">
+<h3>4. <a href="https://doi.org/10.1016/j.landig.2026.101092" target="_blank">Development and external validation of a contrastive learning foundation model for ECG-based prediction of cardiovascular diseases and outcomes.</a></h3>
+<p class="meta">Lancet Digital Health &nbsp;·&nbsp; Sep 1, 2026</p>
+<p class="meta">Michael Ko, Matteo Gadaleta, Eric J Topol, Evan D Muse et al. (5 authors)</p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Contrastive Learning</span><span class="tag">Cardiology AI</span></p>
+<p class="field">The authors develop ECG-CLIP, a large-scale contrastive learning foundation model for electrocardiograms that reduces reliance on task-specific labels, and externally validate it for predicting cardiovascular diseases and outcomes. It is a direct translation of CLIP-style self-supervised pretraining to a non-imaging clinical signal, with lessons for label-efficient medical representation learning.</p>
+</div><div class="card journal">
+<h3>5. <a href="https://doi.org/10.1109/TMI.2026.3728817" target="_blank">Prototype-guided Multimodal Retrieval for Knowledge-assisted Interventional Radiology.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Sep 1, 2026</p>
+<p class="meta">Jingxiong Li, Chenglu Zhu, Yuxuan Sun, Yixuan Si et al. (9 authors)</p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Retrieval-Augmented Generation</span><span class="tag">Interventional Radiology</span></p>
+<p class="field">This work presents a prototype-guided multimodal retrieval framework for knowledge-assisted interventional radiology, addressing the fact that existing medical RAG methods are text-centric and miss fine-grained visual-textual evidence. It combines procedural images with domain knowledge to support joint visual-clinical reasoning in a specialized radiology setting.</p>
+</div><div class="card journal">
+<h3>6. <a href="https://doi.org/10.1148/ryai.260100" target="_blank">Image Quality in the Era of Artificial Intelligence: Understanding the Limitations of AI-based Image Reconstruction and Postprocessing.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Sep 2, 2026</p>
+<p class="meta">Jana G Delfino, Jason L Granstedt, Frank W Samuelson, Robert Ochs et al. (5 authors)</p>
+<p class="tags"><span class="tag">Medical Imaging</span><span class="tag">Image Reconstruction</span><span class="tag">Radiology AI</span></p>
+<p class="field">This review examines how AI-based image reconstruction and postprocessing in radiology can produce images that look sharper and cleaner while introducing new failure modes that decouple perceived quality from actual diagnostic information content. It is essential reading for anyone whose downstream models or evaluations depend on AI-processed imaging inputs.</p>
+</div><div class="card journal">
+<h3>7. <a href="https://doi.org/10.1148/ryai.250888" target="_blank">A Deep Learning Model Incorporating Spatiotemporal Asymmetries on Longitudinal Mammograms to Predict Breast Cancer Risk.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Sep 2026</p>
+<p class="meta">Zhengbo Zhou, Dooman Arefan, Margarita L Zuley, Jules H Sumkin et al. (5 authors)</p>
+<p class="tags"><span class="tag">Medical Imaging</span><span class="tag">Breast Cancer Risk</span><span class="tag">Deep Learning</span></p>
+<p class="field">The authors build a deep learning risk model that explicitly encodes bilateral and longitudinal asymmetries across sequential mammograms to predict future breast cancer risk. The approach shows how temporal and contralateral structure in imaging can be exploited as an inductive bias beyond single-image classification.</p>
+</div><div class="card journal">
+<h3>8. <a href="https://doi.org/10.1148/ryai.260657" target="_blank">What LUNA25 Teaches Us about AI for Lung Cancer Screening.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Sep 2026</p>
+<p class="meta">Eduardo Moreno Júdice de Mattos Farina, Gilberto Szarf</p>
+<p class="tags"><span class="tag">Lung Cancer Screening</span><span class="tag">Radiology AI</span><span class="tag">Benchmarks</span></p>
+<p class="field">This Radiology: AI commentary reflects on what the LUNA25 challenge reveals about the state of AI for lung cancer screening on chest CT, including where nodule detection and malignancy estimation models succeed and fall short. It offers a grounded perspective on community benchmarks as drivers of thoracic imaging AI progress.</p>
+</div>
+</body></html>

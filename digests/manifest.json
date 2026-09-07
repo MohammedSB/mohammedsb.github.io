@@ -3,7 +3,7 @@
     {
       "date": "2026-09-07",
       "research": false,
-      "journals": false,
+      "journals": true,
       "news": true,
       "citations": true
     },
