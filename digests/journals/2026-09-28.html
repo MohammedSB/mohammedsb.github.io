@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journal Digest — week of September 28, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>From the Journals — week of September 28, 2026</h1>
+<p class="cats">NEJM AI, Nature Medicine, Nature, Nature Machine Intelligence, Nature Biomedical Engineering, npj Digital Medicine, Radiology: AI, Lancet Digital Health, Medical Image Analysis, IEEE Trans. Medical Imaging, Patterns (Cell Press)</p>
+<div class="card journal">
+<h3>1. <a href="https://doi.org/10.1016/j.media.2026.104340" target="_blank">CXR-LT 2026 challenge: Multi-center long-tailed and zero shot chest X-ray classification.</a></h3>
+<p class="meta">Medical Image Analysis &nbsp;·&nbsp; Sep 24, 2026</p>
+<p class="meta">Hexin Dong, Yi Lin, Pengyu Zhou, Fengnian Zhao et al. (28 authors)</p>
+<p class="tags"><span class="tag">Chest X-Ray</span><span class="tag">Zero-Shot Learning</span><span class="tag">Benchmarks</span></p>
+<p class="field">This paper reports on the CXR-LT 2026 challenge, which tests chest X-ray classifiers on data from multiple centers where rare pathologies make up a long tail of the label distribution. It also adds a zero-shot track for findings the models never saw in training, which suits vision-language models that recognize open-ended findings.</p>
+</div><div class="card journal">
+<h3>2. <a href="https://ai.nejm.org/doi/full/10.1056/AIltr2600389?af=R&amp;rss=currentIssue" target="_blank">Win, Place, or Show? Why Specialist AI May Still Win the Deployment Race in Radiology</a></h3>
+<p class="meta">NEJM AI &nbsp;·&nbsp; Sep 24, 2026</p>
+<p class="meta">Satvik Tripathi and Tessa S. Cook</p>
+<p class="tags"><span class="tag">Radiology AI</span><span class="tag">Foundation Models</span><span class="tag">Clinical Deployment</span></p>
+<p class="field">This perspective argues that specialist radiology AI tools, each built for one narrow task, may still be adopted clinically faster than general-purpose foundation models. It looks at how regulation, validation, and workflow integration favor narrow tools even as generalist models become more capable.</p>
+</div><div class="card journal">
+<h3>3. <a href="https://www.nature.com/articles/s41746-026-03248-3" target="_blank">Large language models as judges for clinical generative AI evaluation</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Sep 25, 2026</p>
+<p class="meta">Rotem Gershon, Yatir Ben-Shlomo, Shai Yitzhaki, Amiel Sberro et al. (12 authors)</p>
+<p class="tags"><span class="tag">LLM Evaluation</span><span class="tag">Clinical AI</span><span class="tag">Generative AI</span></p>
+<p class="field">This paper looks at using large language models as automated judges of clinical generative AI outputs, and at how their ratings compare with expert human assessment. It bears directly on building reliable, scalable metrics for generated clinical text such as radiology reports.</p>
+</div><div class="card journal">
+<h3>4. <a href="https://www.nature.com/articles/s41746-026-03276-z" target="_blank">Quantifying the plausibility gap in generative AI for surgical video generation with expert assessment</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Sep 26, 2026</p>
+<p class="meta">Zhen Chen, Qing Xu, Jinlin Wu, Biao Yang et al. (10 authors)</p>
+<p class="tags"><span class="tag">Generative AI</span><span class="tag">Surgical Video</span><span class="tag">Expert Evaluation</span></p>
+<p class="field">The authors measure a 'plausibility gap' in AI-generated surgical videos by having surgical experts judge whether the videos are clinically realistic. They find that generated videos can look convincing while getting procedural details wrong, which shows the limits of automated realism metrics in medical generative AI.</p>
+</div><div class="card journal">
+<h3>5. <a href="https://doi.org/10.1016/j.media.2026.104331" target="_blank">T2ID: Towards trustworthy incomplete modality diagnosis via dual-axis adaptive completion and confidence-aware integration.</a></h3>
+<p class="meta">Medical Image Analysis &nbsp;·&nbsp; Sep 23, 2026</p>
+<p class="meta">Jing Li, Qinkai Yu, Feixiang Zhou, Dongbo Zhang et al. (10 authors)</p>
+<p class="tags"><span class="tag">Multimodal Learning</span><span class="tag">Medical Imaging</span><span class="tag">Trustworthy AI</span></p>
+<p class="field">T2ID is a diagnostic framework for cases where some imaging modalities are missing. It fills in the missing modalities adaptively along two axes and weights each modality's contribution by a confidence estimate, so predictions stay robust and trustworthy with incomplete multimodal data.</p>
+</div><div class="card journal">
+<h3>6. <a href="https://www.nature.com/articles/s41746-026-03104-4" target="_blank">LEME: open large language models for ophthalmology with advanced reasoning and clinical validation</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Sep 25, 2026</p>
+<p class="meta">Hyunjae Kim, Xuguang Ai, Sahana Srinivasan, Aidan Gilson et al. (30 authors)</p>
+<p class="tags"><span class="tag">Medical LLMs</span><span class="tag">Ophthalmology</span><span class="tag">Clinical Validation</span></p>
+<p class="field">LEME is a family of open-source large language models for ophthalmology, trained to strengthen clinical reasoning. The authors test the models against clinical benchmarks and expert review, making them an open alternative to proprietary models in the specialty.</p>
+</div><div class="card journal">
+<h3>7. <a href="https://ai.nejm.org/doi/full/10.1056/AI-S2601120%4010.1056/ai_2026.3.issue-10?af=R&amp;rss=currentIssue" target="_blank">Building Clinical AI Is Hard. Getting It in Use Is Harder: Lessons Learned from 50+ Algorithms, 2000 Hospitals, and 11 Million Patients</a></h3>
+<p class="meta">NEJM AI &nbsp;·&nbsp; Sep 24, 2026</p>
+<p class="meta">Meghana Valluri and Andrew M. Ibrahim</p>
+<p class="tags"><span class="tag">Clinical AI</span><span class="tag">Deployment</span><span class="tag">Implementation Science</span></p>
+<p class="field">This article draws practical lessons from deploying more than 50 clinical AI algorithms across 2,000 hospitals and 11 million patients. It argues that the harder problems are adoption, workflow integration, and trust rather than building the model.</p>
+</div><div class="card journal">
+<h3>8. <a href="https://doi.org/10.1109/TMI.2026.3735360" target="_blank">Dictionary-based Pathology Mining with Hard-instance-assisted Classifier Debiasing for Genetic Biomarker Prediction from WSIs.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Sep 22, 2026</p>
+<p class="meta">Ling Zhang, Boxiang Yun, Ting Jin, Qingli Li et al. (6 authors)</p>
+<p class="tags"><span class="tag">Computational Pathology</span><span class="tag">Whole Slide Imaging</span><span class="tag">Biomarker Prediction</span></p>
+<p class="field">This method predicts genetic biomarkers such as microsatellite instability directly from whole slide pathology images. It learns a dictionary of pathology features and uses difficult examples to correct classifier bias, which helps it cope with the many slide regions that carry no genetic signal.</p>
+</div>
+</body></html>
