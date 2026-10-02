@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — October 2, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — October 2, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.01166" target="_blank">CineMR: Tool-Integrated Vision-Language Reasoning for Quantitative Cardiac MRI Assessment</a></h3>
+<p class="meta">Kunyang Li, Hai Nguyen, Joshua Lowe, Chenguang Zhao et al. (9 authors) &nbsp;·&nbsp; <code>2610.01166</code></p>
+<p class="tags"><span class="tag">Cardiac MRI</span><span class="tag">Vision-Language Models</span><span class="tag">Tool-Augmented Reasoning</span></p>
+<p class="field"><span class="label">TL;DR:</span> CineMR pairs a vision-language model with measurement tools so it can give quantitative, measurement-backed readings of cine cardiac MRI, rather than the purely qualitative descriptions current medical VLMs produce.</p><p class="field"><span class="label">Problem:</span> Reading cine cardiac MRI means combining visual assessment with exact numbers such as ventricular volumes, ejection fraction, myocardial mass, wall thickness and regional wall motion. Current medical VLMs handle the visual part but cannot reliably produce these numbers.</p><p class="field"><span class="label">Method:</span> The VLM acts as a reasoning agent that calls external quantitative tools, such as segmentation and measurement modules, during its reasoning. It then combines the tool outputs with what it sees in the cine sequences to reach an interpretation.</p><p class="field"><span class="label">Results:</span> The abstract excerpt is cut off before any results, but the framing points to better quantitative cardiac assessment than VLMs that rely on visual reasoning alone.</p><p class="field"><span class="label">Why it matters:</span> This is a clear template for grounding VLM-generated radiology reports in measurements, which bears directly on report generation and on how to evaluate factual and quantitative accuracy in generated reports.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.02114" target="_blank">Surface-volume self-supervised representation learning of brain MRI for genetic discovery</a></h3>
+<p class="meta">Tian Xia, Nuo Chen, Zihao Zhu, Huiwen Han et al. (7 authors) &nbsp;·&nbsp; <code>2610.02114</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Brain MRI</span><span class="tag">Imaging Genetics</span></p>
+<p class="field"><span class="label">TL;DR:</span> MEVA is a self-supervised autoencoder that learns brain MRI representations from both voxel volumes and cortical surface meshes, producing imaging phenotypes for genome-wide association studies (GWAS).</p><p class="field"><span class="label">Problem:</span> Imaging phenotypes used in GWAS come from either volumetric scans or cortical surface meshes. Each source captures only part of the heritable variation in brain anatomy.</p><p class="field"><span class="label">Method:</span> MEVA (Mesh-Enhanced Volumetric Autoencoder) encodes voxel-level volumetric information and adds surface-mesh geometry to it within a self-supervised framework. The learned latents serve as data-driven phenotypes for genetic association analysis.</p><p class="field"><span class="label">Results:</span> The abstract excerpt is truncated before results. The stated aim is phenotypes that capture more of the heritable signal than single-representation baselines.</p><p class="field"><span class="label">Why it matters:</span> It is a concrete example of multi-representation self-supervised fusion in medical imaging, and of judging representations by a downstream scientific outcome (genetic discovery) instead of classification accuracy.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.01135" target="_blank">The RSNA Intracranial Aneurysm (RSNA-ICA) Dataset</a></h3>
+<p class="meta">Maria Correia de Verdier, Rachit Saluja, Jason Sho, Maryam Vabarizad et al. (40 authors) &nbsp;·&nbsp; <code>2610.01135</code></p>
+<p class="tags"><span class="tag">Medical Imaging Datasets</span><span class="tag">Neuroradiology</span><span class="tag">Lesion Detection</span></p>
+<p class="field"><span class="label">TL;DR:</span> RSNA has released a large curated dataset for detecting and localizing intracranial aneurysms with AI, including on routine non-angiographic imaging.</p><p class="field"><span class="label">Problem:</span> Aneurysm rupture causes serious illness and death, but detection is hard, especially for small aneurysms and on routine non-angiographic scans. Public benchmarks for building and testing detection models are limited.</p><p class="field"><span class="label">Method:</span> RSNA curated and annotated a multi-institutional dataset for aneurysm detection and localization, likely the one behind the associated RSNA challenge. It is intended to support both developing and evaluating algorithms.</p><p class="field"><span class="label">Results:</span> The paper's contribution is the dataset itself, so the abstract reports a resource rather than model results; it describes annotations and modality coverage.</p><p class="field"><span class="label">Why it matters:</span> RSNA datasets tend to become standard radiology AI benchmarks. This one is useful for detection, grounding and segmentation work in neuroimaging.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.02148" target="_blank">Omni-Embed-Mini: Binding Modalities Without Forgetting via Dense Distillation</a></h3>
+<p class="meta">Mohammed Irfan Kurpath, Jaseel Muhammad Kaithakkodan, Sahal Shaji Mullappilly, Ivan Laptev et al. (5 authors) &nbsp;·&nbsp; <code>2610.02148</code></p>
+<p class="tags"><span class="tag">Multimodal Embeddings</span><span class="tag">Knowledge Distillation</span><span class="tag">Contrastive Learning</span></p>
+<p class="field"><span class="label">TL;DR:</span> Omni-Embed-Mini is a 0.9B-parameter model that places text, speech, audio, images, video and document images in one shared cosine space without changing any text-side weights.</p><p class="field"><span class="label">Problem:</span> Adding new modalities to a text embedding model usually makes its text retrieval worse. Existing omni-modal embedders make up for this by growing to billions of parameters.</p><p class="field"><span class="label">Method:</span> The text embedder is kept frozen as an anchor. Encoders for the other modalities are trained with dense distillation to align with its embedding space, so all modalities share one CLIP-style space and the original text quality is untouched.</p><p class="field"><span class="label">Results:</span> The abstract excerpt is truncated, but it reports competitive cross-modal retrieval at a small fraction of the size of multi-billion-parameter omni embedders, with text retrieval quality preserved.</p><p class="field"><span class="label">Why it matters:</span> Anchoring new modalities to a frozen embedding space is a practical way to extend CLIP-style models to new medical modalities without degrading text or report embeddings.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.01578" target="_blank">The hidden advantage of mask resampling: a theory of masked autoencoders</a></h3>
+<p class="meta">Jorge Medina Moreira, Lorenzo Bardone, Lenka Zdeborová &nbsp;·&nbsp; <code>2610.01578</code></p>
+<p class="tags"><span class="tag">Masked Autoencoders</span><span class="tag">Self-Supervised Learning Theory</span><span class="tag">High-Dimensional Statistics</span></p>
+<p class="field"><span class="label">TL;DR:</span> A theory paper showing that masked autoencoders can learn latent features that unmasked reconstruction, which is equivalent to PCA, misses, and that resampling masks is the key reason.</p><p class="field"><span class="label">Problem:</span> It is not well understood why masked prediction learns useful representations that plain reconstruction does not.</p><p class="field"><span class="label">Method:</span> The authors analyze a high-dimensional linear MAE trained on data with shared latent structure and uneven noise across features. They compare the sample complexity of masked and unmasked reconstruction.</p><p class="field"><span class="label">Results:</span> Masked linear reconstruction recovers the latent feature with a linear number of samples in regimes where unmasked reconstruction (PCA) fails, and resampling the mask is what drives this advantage.</p><p class="field"><span class="label">Why it matters:</span> It gives a principled basis for MAE-style pretraining, which is widely used in medical imaging, and can inform how masking is designed for noisy, uneven data such as chest X-rays.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.01908" target="_blank">Same Reward, Different Skills: When Multimodal RL Learns to Look</a></h3>
+<p class="meta">Haocun Ye, Xinlong Jiang, Qile Chen, Bingyu Wang et al. (9 authors) &nbsp;·&nbsp; <code>2610.01908</code></p>
+<p class="tags"><span class="tag">Multimodal Reinforcement Learning</span><span class="tag">Visual Grounding</span><span class="tag">Vision-Language Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> Reinforcement learning with verifiable rewards (RLVR) raises vision-language benchmark scores even when trained without images, and longer training on real images can weaken visual grounding while the scores stay high.</p><p class="field"><span class="label">Problem:</span> It is unclear whether multimodal RLVR actually teaches models to look at images or mostly sharpens text-only reasoning.</p><p class="field"><span class="label">Method:</span> The authors compare models trained with RLVR without images ('blind') against models trained on real images, at 3B and 7B scale. They measure how much of the gain carries over when images are given at test time, and how grounding changes over longer training.</p><p class="field"><span class="label">Results:</span> Blind-trained models recover about half of the real-image gain at 3B and nearly four-fifths at 7B. Prolonged training on real images can erode grounding while benchmark gains persist.</p><p class="field"><span class="label">Why it matters:</span> This is an important caution for RL-tuned medical VLMs: higher benchmark scores may not reflect real use of the image, which matters for evaluating report-generation and grounding models.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.01813" target="_blank">AI-assisted mitotic counting improves reproducibility and efficiency across multiple tumour types</a></h3>
+<p class="meta">Simon Graham, Mostafa Jahanifar, Quoc Dang Vu, Vygante Maskoliunaite et al. (18 authors) &nbsp;·&nbsp; <code>2610.01813</code></p>
+<p class="tags"><span class="tag">Computational Pathology</span><span class="tag">Mitosis Detection</span><span class="tag">Human-AI Collaboration</span></p>
+<p class="abstract">Mitotic counting is an important component of tumour grading, diagnosis and prognostic assessment across several tumour types, but manual assessment is time-consuming and subject to inter-pathologist variability. To help address these challenges, we developed MitPro, an AI tool designed to improve consistency and efficiency by directing pathologists towards regions with the highest predicted mitot</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.01807" target="_blank">PhaseAT: Fourier Phase Adversarial Training for Medical Image Domain Generalization</a></h3>
+<p class="meta">Ahmed Sharshar, Asif Hanif, Naveen Kumar Kummari, Mohammad Yaqub et al. (5 authors) &nbsp;·&nbsp; <code>2610.01807</code></p>
+<p class="tags"><span class="tag">Domain Generalization</span><span class="tag">Medical Imaging</span><span class="tag">Adversarial Training</span></p>
+<p class="abstract">Reliable clinical deployment of deep medical image models is hindered by distribution shifts across scanners, sites, and acquisition protocols. Existing domain generalization (DG) methods often focus on style or intensity diversification, but they can still leave networks dependent on domain-specific texture correlations. Inspired by evidence that Fourier phase encodes semantic structure, we intro</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.01542" target="_blank">Synthetic training for long-tail haemorrhagic lesion segmentation in data-scarce settings</a></h3>
+<p class="meta">Yuan Cao, Sumeet Dash, Antonia Zachariadis, Stefanie Schreiber et al. (6 authors) &nbsp;·&nbsp; <code>2610.01542</code></p>
+<p class="tags"><span class="tag">Synthetic Data</span><span class="tag">Lesion Segmentation</span><span class="tag">Brain MRI</span></p>
+<p class="abstract">Cerebral microbleeds (CMBs) and cortical superficial siderosis (cSS) are imaging markers of cerebral small vessel disease, but their automated segmentation is limited by the scarcity of positive cases and voxel-level annotations. We propose a synthetic training framework for long-tail haemorrhagic lesion segmentation that requires no real lesion annotations for training and leverages radiological </p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2610.02136" target="_blank">MIRTO: a registration-gated, multiverse-tested evaluation protocol for unsupervised anomaly segmentation in brain MRI</a></h3>
+<p class="meta">Negin Kafee Hernashki, Soumick Chatterjee &nbsp;·&nbsp; <code>2610.02136</code></p>
+<p class="tags"><span class="tag">Anomaly Detection</span><span class="tag">Brain MRI</span><span class="tag">Evaluation Protocols</span></p>
+<p class="abstract">Unsupervised anomaly detection (UAD) methods for brain MRI are ranked by a single score, yet that score rests on choices that are rarely reported: how each anomaly map is aligned with the reference, how and on which data the threshold is set, and which false-positive budget, metric, aggregation and lesion definition are used. We present MIRTO, an evaluation protocol that makes these choices explic</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2610.01938" target="_blank">A rubric landscape for evaluating clinical reasoning in large language models: what exists, what is missing, and what needs to be combined</a></h3>
+<p class="meta">Zhangshu Joshua Jiang, Zina Ibrahim, James T. Teo &nbsp;·&nbsp; <code>2610.01938</code></p>
+<p class="tags"><span class="tag">Clinical Reasoning Evaluation</span><span class="tag">Medical Education</span><span class="tag">LLM Evaluation</span></p>
+<p class="abstract">Exam-style accuracy does not establish whether large language models (LLMs) reason well over clinical records. We define clinical reasoning as integrating and updating evidence across time and sources to form, revise and justify a patient's problem representation and a defensible plan.   This structured narrative review maps three literatures: medical education assessment instruments, clinical LLM</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2610.01452" target="_blank">Uncertainty-Guided Handshake: Efficient Human-in-the-Loop Refinement for Surgical-Grade Glioma Segmentation</a></h3>
+<p class="meta">Samuel Hart, Ahmad Yahya, Ahmed Karam Eldaly &nbsp;·&nbsp; <code>2610.01452</code></p>
+<p class="tags"><span class="tag">Interactive Segmentation</span><span class="tag">Uncertainty Estimation</span><span class="tag">Glioma</span></p>
+<p class="abstract">While state-of-the-art automated models for medical image segmentation achieve high mean performance, they frequently suffer from localized, catastrophic failures that preclude safe clinical deployment, particularly in neuro-oncology. Interactive segmentation frameworks mitigate this by incorporating human oversight, but traditionally impose prohibitive cognitive and temporal workloads by requirin</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2610.00994" target="_blank">VIEScore2: Unified Image Evaluation with Spatially Grounded Explanations</a></h3>
+<p class="meta">Xianda Du, Max Ku, Weiming Ren, Zhi Rui Tam et al. (8 authors) &nbsp;·&nbsp; <code>2610.00994</code></p>
+<p class="tags"><span class="tag">Generative Image Evaluation</span><span class="tag">Grounded Explanations</span><span class="tag">Evaluation Metrics</span></p>
+<p class="abstract">Existing synthetic image evaluators typically provide only a scalar quality score and do not identify the image regions that support it. We introduce VIEScore2, a unified evaluator for image generation and editing tasks with optional conditioning images. VIEScore2 represents an image as an N x N grid and jointly predicts quality scores and defect locations in a single model pass. Its text-native g</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2610.01180" target="_blank">Skeleton-and-Strategy Prompting: Training-Free Negation Understanding for Vision-Language Models</a></h3>
+<p class="meta">Yuliang Cai, Mohammad Rostami, Jesse Thomason &nbsp;·&nbsp; <code>2610.01180</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Negation Understanding</span><span class="tag">Prompting</span></p>
+<p class="abstract">Despite the strong performance of Vision-Language Models (VLMs) on a wide range of visual question answering (VQA) tasks, these models consistently struggle to understand negation and produce incorrect answers when questions involve negated clauses. To address this limitation, we propose Skeleton-and-Strategy Prompting (\textbf{SSP}), a training-free, in-context learning method that improves VLM n</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2610.01199" target="_blank">Low-Budget Active Learning through Entropic Optimal Transport</a></h3>
+<p class="meta">Rim Hajal, Mathieu Besançon, Jérôme Malick &nbsp;·&nbsp; <code>2610.01199</code></p>
+<p class="tags"><span class="tag">Active Learning</span><span class="tag">Optimal Transport</span><span class="tag">Self-Supervised Features</span></p>
+<p class="abstract">We consider low-budget active learning, which consists of selecting a limited number of points, the coreset, such that a model can be trained to high accuracy on the selection only. This problem is particularly relevant in contexts where labeling requires costly expert intervention, as in medical applications. We leverage features extracted from a pretrained self-supervised model to represent the </p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2610.02140" target="_blank">Finetuning with Sampling: SFT Learns Better Than You Think</a></h3>
+<p class="meta">Aayush Karan, Sitan Chen, Yilun Du &nbsp;·&nbsp; <code>2610.02140</code></p>
+<p class="tags"><span class="tag">Supervised Fine-Tuning</span><span class="tag">LLM Post-Training</span><span class="tag">Generalization</span></p>
+<p class="abstract">Introducing new capabilities to frontier models has long been the goal of posttraining, which predominantly employs supervised finetuning (SFT) and reinforcement learning (RL) to this end. Conventional wisdom dictates that RL enables strong generalization on new tasks without losing existing capabilities, while SFT is prone to weak generalization and catastrophic forgetting. At the same time, SFT </p>
+</div>
+</body></html>
