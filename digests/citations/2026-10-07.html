@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citations — October 7, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.subtitle{font-size:.85rem;color:#888;margin-bottom:2.5rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem;margin-bottom:.75rem}
+h2 em{font-style:italic;text-transform:none;font-size:1rem;letter-spacing:0}
+h3{font-size:1.05rem;font-weight:500;margin:0 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.83rem;color:#666;margin-bottom:.5rem}
+.summary{font-size:.95rem;line-height:1.65;margin:.5rem 0}
+.contexts{list-style:none;padding:0;margin:.6rem 0 0}
+.ctx{font-size:.88rem;line-height:1.6;color:#444;background:#fff;border-left:3px solid #d0b0b8;padding:.5rem .9rem;margin-bottom:.4rem;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:.75rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+</style></head><body>
+<h1>New Citations — October 7, 2026</h1>
+<p class="subtitle">4 new citations found via Semantic Scholar</p>
+<h2>Citing: <em>3DReasonKnee: Advancing Grounded Reasoning in Medical Vision Language Models</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.08482" target="_blank">Knee3DVLM: Dual-Sequence Full-Volume Vision-Language Modeling for Comprehensive Knee MRI Assessment</a></h3>
+<p class="meta">Maryam Baizhigitova, A. Yu, Po-Hao Chen, Naveen Subhas et al. (10 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> 3DReasonKnee is described as the closest existing system to Knee3DVLM. It links DESS knee MRI volumes to subregion-specific diagnostic questions, bounding-box localization, clinician-authored reasoning traces, and structured MOAKS severity grades. The authors say it only partly closes the gap because it uses the DESS sequence alone and does not include complementary fluid-sensitive TSE sequences.</p>
+<ul class='contexts'><li class="ctx">The closest existing system, 3DReasonKnee, narrows this gap only partially: it introduced regional questions with localization, reasoning traces, and structured MOAKS severity assessments, but operates on DESS alone [3].</li><li class="ctx">3DReasonKnee links DESS volumes to subregion-specific diagnostic questions, bounding boxes, clinician-authored reasoning, and MOAKS grades [3].</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.04425" target="_blank">AgroGround: Multi-Granularity Grounded Recognition in Agriculture</a></h3>
+<p class="meta">Abdulla Alshehhi, Zong-Yan Han, R. Anwer · 2026</p>
+<p class="summary"><strong>What they say:</strong> 3DReasonKnee (Sambara et al., 2026) is cited, alongside UniBiomed, as a medical benchmark that requires diagnosis and localization in a single pass but scores the two separately. It is also cited as precedent for the closed-set formulation of grounded diagnosis that AgroGround copies in its recognition-and-localization instructions: the model gets four candidate targets, must pick the one that is present, and must localize its evidence.</p>
+<ul class='contexts'><li class="ctx">AgriDoctor (Zhang et al., 2026) and AgriMM (Wang &amp; Liu, 2026) carry manual boxes, but in neither does language select the target, and language-conditioned agricultural grounding data exists for pests (Yang et al., 2026b), not disease.</li><li class="ctx">UniBiomed (Wu et al., 2026) and 3DReasonKnee (Sambara et al., 2026) require diagnosis and localization in one pass but score them separately, and XBench (Luo et al., 2026) finds recognition-strong, grounding-weak VLMs.</li><li class="ctx">A recognition-and-localization instruction instead lists four candidate targets and asks the model to identify the one that is present and localize its evidence, following closed-set formulations of grounded diagnosis (Wu et al., 2026; Sambara et al., 2026).</li></ul>
+</div><hr><h2>Citing: <em>MedSAM2: Segment Anything in 3D Medical Images and Videos</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.06938" target="_blank">UniPro: Unified Multi-Mode Medical Image Segmentation from 2D Images to 3D Volumes via Propagation</a></h3>
+<p class="meta">Bang-Wei Guo, Yun-He Gao, Meng Ye, Yang Zhou et al. (8 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is cited as an example of segmentation methods built for one data dimensionality, in this case 3D volumes and videos. It also supports the claim that fine-grained refinement is most naturally done on 2D views, where local boundaries and subtle anatomical details are easier to inspect and correct. In the experiments, it serves as one of the propagation-based segmentation baselines, alongside SAM2, PAM and iSegFormer.</p>
+<ul class='contexts'><li class="ctx">Regardless of the initialization source, fine-grained refinement is naturally performed on 2D views, where local boundaries and subtle anatomical details are easier to inspect and correct [39].</li><li class="ctx">Existing methods are typically developed separately for semantic, in-context, and interactive segmentation [8, 26, 27, 38], and are further specialized to either native 2D images or 3D volumetric data [19, 20, 51, 39, 53].</li><li class="ctx">For propagation-based segmentation, we include SAM2 [41], PAM [12], MedSAM2 [39], and iSegFormer [34].</li></ul>
+</div><hr><h2>Citing: <em>Evaluating General Purpose Vision Foundation Models for Medical Image Analysis: An Experimental Study of DINOv2 on Radiology Benchmarks</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.08109" target="_blank">Beyond Training from Scratch: Foundation Models for Data-Efficient and Generalizable Cardiac MRI Reconstruction</a></h3>
+<p class="meta">Anam Hashmi, Mayug Maniparambil, Julia Dietlmeier, Kathleen M. Curran et al. (5 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> The study is one of several works ([1, 3, 29, 34]) cited as evidence that general-purpose foundation models like CLIP, BiomedCLIP and DINOv2 transfer well to medical imaging. It is cited specifically as support for DINOv2 performing well on radiology benchmarks. No particular result or method from the study is quoted; it is a group citation backing a general claim that motivates using pretrained foundation models as priors for cardiac MRI reconstruction.</p>
+<ul class='contexts'><li class="ctx">Models such as CLIP [32], BiomedCLIP [47], and DINOv2 [30] have demonstrated impressive transferability in both natural and medical imaging applications [1, 3, 29,34].</li></ul>
+</div>
+</body></html>
