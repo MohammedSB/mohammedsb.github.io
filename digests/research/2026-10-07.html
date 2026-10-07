@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — October 7, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — October 7, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.08482" target="_blank">Knee3DVLM: Dual-Sequence Full-Volume Vision-Language Modeling for Comprehensive Knee MRI Assessment</a></h3>
+<p class="meta">Maryam Baizhigitova, Andrew Seohwan Yu, Po-Hao Chen, Naveen Subhas et al. (10 authors) &nbsp;·&nbsp; <code>2610.08482</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">3D Medical Imaging</span><span class="tag">Knee MRI</span></p>
+<p class="field"><span class="label">TL;DR:</span> Knee3DVLM is a vision-language model that reads two whole knee MRI volumes together, DESS and fluid-sensitive TSE, to predict 57 diagnostic findings tied to specific anatomy.</p><p class="field"><span class="label">Problem:</span> Vision-language models for 3D medical imaging are rarely applied to knee MRI. Radiologists read several complementary MRI sequences together, and existing models do not handle that multi-sequence reading well.</p><p class="field"><span class="label">Method:</span> The model encodes full-volume DESS and fluid-sensitive TSE MRI separately for each sequence and fuses them in a language-model framework. It predicts 57 binary diagnostic targets, each tied to a specific anatomical structure. The targets are derived from clinical radiology reports, so it supervises a 3D VLM with labels mined from reports.</p><p class="field"><span class="label">Results:</span> The abstract excerpt is cut off before the results. It frames this as broad, anatomically resolved knee assessment, which suggests better performance than single-sequence or 2D baselines, but no numbers are given.</p><p class="field"><span class="label">Why it matters:</span> It moves report-supervised vision-language modeling from 2D chest X-rays to multi-sequence 3D MRI. Its report-derived, anatomy-resolved labels are a useful template for grounded radiology report generation and for evaluating it.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.08585" target="_blank">Incidental information contaminates patient notes and disrupts clinical reasoning in large language models</a></h3>
+<p class="meta">Krithik Vishwanath, Brandon Ye, Anton Alyakin, John E. Markert et al. (7 authors) &nbsp;·&nbsp; <code>2610.08585</code></p>
+<p class="tags"><span class="tag">Clinical Note Generation</span><span class="tag">LLM Evaluation</span><span class="tag">Ambient Documentation</span></p>
+<p class="field"><span class="label">TL;DR:</span> Frontier LLMs used for ambient scribing copy small talk and other incidental content into clinical notes, and that content also degrades their downstream clinical reasoning.</p><p class="field"><span class="label">Problem:</span> LLMs are increasingly used both to draft notes from patient–clinician conversations and to support clinical reasoning. Both uses can be hurt by information that is incidental to the medical encounter.</p><p class="field"><span class="label">Method:</span> The authors use 576 patient–clinician dialogues to measure how often frontier models insert non-clinical small-talk exchanges into the notes they generate. They then test how this contamination affects downstream clinical reasoning tasks.</p><p class="field"><span class="label">Results:</span> Frontier models put small talk into 35% of generated notes. The abstract also reports measurable disruption of clinical reasoning when incidental information is present.</p><p class="field"><span class="label">Why it matters:</span> This is a failure mode in generated clinical documentation that standard metrics would miss. It is directly relevant to designing evaluation metrics for generated reports, since content fidelity and relevance need to be scored separately from fluency.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.08528" target="_blank">MedCORE: Criteria-Grounded Clinical Reasoning for Interpretable Medical Image Diagnosis</a></h3>
+<p class="meta">Asim Khan, Samee Ullah Khan, Dwarikanath Mahapatra &nbsp;·&nbsp; <code>2610.08528</code></p>
+<p class="tags"><span class="tag">Interpretable Diagnosis</span><span class="tag">Clinical Reasoning</span><span class="tag">Medical Image Classification</span></p>
+<p class="field"><span class="label">TL;DR:</span> MedCORE makes medical image models reason through the morphological and textural criteria that clinicians check, instead of mapping image features straight to a disease label.</p><p class="field"><span class="label">Problem:</span> Most deep diagnostic models skip the structured criteria-based reasoning clinicians use. That makes their decisions opaque and potentially unsafe to deploy.</p><p class="field"><span class="label">Method:</span> MedCORE (Medical Criteria-Oriented REasoning) explicitly checks clinically defined morphological and textural criteria as an intermediate step. It then grounds the final diagnosis in those criteria, giving an interpretable chain from evidence to diagnosis.</p><p class="field"><span class="label">Results:</span> The abstract excerpt is truncated. It frames MedCORE as more transparent while staying competitive on diagnostic performance, but gives no numbers.</p><p class="field"><span class="label">Why it matters:</span> Criteria-grounded reasoning connects interpretable classification with structured report generation. It also suggests ways to check whether generated findings are supported by visual evidence.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.07689" target="_blank">Unlocking Fine-Grained Perception in CLIP via Structurally-Aware Latent Masked Modeling</a></h3>
+<p class="meta">Juntong Li, Lingwei Dang, Haomin Wu, Ziyan Qiu et al. (6 authors) &nbsp;·&nbsp; <code>2610.07689</code></p>
+<p class="tags"><span class="tag">CLIP</span><span class="tag">Masked Image Modeling</span><span class="tag">Dense Prediction</span></p>
+<p class="field"><span class="label">TL;DR:</span> The paper adds structurally-aware latent masked modeling to CLIP so it gains fine-grained, dense perception without losing its global image-text alignment.</p><p class="field"><span class="label">Problem:</span> CLIP aligns global semantics well but lacks fine-grained spatial perception. That hurts dense prediction tasks and limits the visual side of multimodal LLMs. Earlier fixes that distill geometric priors from vision-centric models have structural shortcomings.</p><p class="field"><span class="label">Method:</span> The authors train CLIP with a masked-modeling objective in latent space that is aware of image structure. The visual encoder learns to reconstruct structured latent targets for masked regions, which improves local features while preserving language alignment.</p><p class="field"><span class="label">Results:</span> Per the abstract, it improves fine-grained and dense prediction tasks and the visual ability of downstream MLLMs compared with CLIP baselines and prior geometric-prior methods. The truncated abstract gives no numbers.</p><p class="field"><span class="label">Why it matters:</span> This continues the MaskCLIP/SLIP line of combining masked modeling with contrastive pretraining. It applies directly to medical CLIP models used for referring segmentation and region-grounded report generation.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.08401" target="_blank">GeoPID: Decomposing and Steering Visual Information in Vision-Language Models</a></h3>
+<p class="meta">Seulgi Kim, Zhixiong Zhang, Xinwei Zhang, Jie Ling et al. (5 authors) &nbsp;·&nbsp; <code>2610.08401</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Interpretability</span><span class="tag">Modality Bias</span></p>
+<p class="field"><span class="label">TL;DR:</span> GeoPID is a training-free method that splits the information inside a VLM into redundant, modality-unique and synergistic parts, then steers the model toward using visual information more.</p><p class="field"><span class="label">Problem:</span> VLMs tend to under-use visual information and over-rely on textual context, which leads to hallucination and weak visual grounding.</p><p class="field"><span class="label">Method:</span> GeoPID applies a geometric form of partial information decomposition to internal representations. It splits multimodal information into Redundant, Modality-Unique and Synergistic components and uses that decomposition to amplify visual contributions at inference time, with no training.</p><p class="field"><span class="label">Results:</span> According to the abstract, steering with GeoPID improves visual reliance and task performance across VLM benchmarks. The excerpt gives no numbers.</p><p class="field"><span class="label">Why it matters:</span> Medical VLMs that over-rely on text are a known source of hallucinated findings in generated reports. A training-free diagnostic and steering tool could be applied to radiology VLMs.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.07729" target="_blank">Foveated Compression: Selective High-Resolution Preservation for Token-Efficient VLMs</a></h3>
+<p class="meta">Donghyun Han, Jangho Park, Yuseok Bae &nbsp;·&nbsp; <code>2610.07729</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Visual Token Compression</span><span class="tag">Efficient Inference</span></p>
+<p class="field"><span class="label">TL;DR:</span> Foveated Compression encodes an image once at full resolution, then keeps native-resolution tokens only in selected regions and compresses the rest, to stay within a fixed visual-token budget.</p><p class="field"><span class="label">Problem:</span> Visual tokens dominate VLM inference cost, and simple downsampling is a surprisingly strong compression baseline. The open question is where to keep visual detail under a fixed token budget.</p><p class="field"><span class="label">Method:</span> The image is encoded once at full resolution and represented as a mixture of native and compressed tokens. High-resolution tokens are kept selectively in important regions, like foveated vision.</p><p class="field"><span class="label">Results:</span> The abstract reports better accuracy than downsampling and token-pruning baselines at matched token budgets. The truncated excerpt gives no numbers.</p><p class="field"><span class="label">Why it matters:</span> High-resolution medical images such as chest X-rays and pathology slides need small findings kept intact under compute limits. Foveated token allocation is a practical design option for medical MLLMs.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.08109" target="_blank">Beyond Training from Scratch: Foundation Models for Data-Efficient and Generalizable Cardiac MRI Reconstruction</a></h3>
+<p class="meta">Anam Hashmi, Mayug Maniparambil, Julia Dietlmeier, Kathleen M. Curran et al. (5 authors) &nbsp;·&nbsp; <code>2610.08109</code></p>
+<p class="tags"><span class="tag">Cardiac MRI</span><span class="tag">MRI Reconstruction</span><span class="tag">Foundation Models</span></p>
+<p class="abstract">Cardiac magnetic resonance imaging reconstruction aims to recover high-quality images from undersampled acquisitions, enabling faster scans while preserving diagnostic fidelity. Recent reconstruction methods are typically trained from scratch and often require large amounts of task-specific data, limiting their robustness under data scarcity and distribution shifts. In this work, we investigate wh</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.08086" target="_blank">Multi-Dataset Diagnostic Utility of Clinical Visual Concepts in AI Systems for Dermatology</a></h3>
+<p class="meta">Linda Wermelinger, Simone Lionetti, Fabian Gröger, Nipun Ranasekara et al. (9 authors) &nbsp;·&nbsp; <code>2610.08086</code></p>
+<p class="tags"><span class="tag">Dermatology</span><span class="tag">Concept-Based Interpretability</span><span class="tag">Medical Datasets</span></p>
+<p class="abstract">The clinical integration of AI systems in digital dermatology relies heavily on human trust. Clinically interpretable visual concepts can act as intermediate representations enhancing trust and reliability. However, research in this domain is currently limited by scattered, heterogeneous dataset annotations. In this work, we introduce SkinLex, a harmonized dataset of 48 clinical morphological attr</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.08161" target="_blank">Symphony for Text Generation: Benchmarking Clinical Note Generation</a></h3>
+<p class="meta">Daniel Varab, Victor Petrén Bach Hansen, Asbjørn W. Helge, Kevin Pelgrims et al. (11 authors) &nbsp;·&nbsp; <code>2610.08161</code></p>
+<p class="tags"><span class="tag">Clinical Note Generation</span><span class="tag">Benchmarking</span><span class="tag">Ambient Documentation</span></p>
+<p class="abstract">Ambient documentation systems are rapidly gaining adoption, yet their impact on clinical note quality remains poorly characterized. We introduce MedConv, a multilingual dataset of 300 clinical encounters in English, Danish, and German, and use it alongside the Ambient Clinical Intelligence benchmark (ACI-BENCH) to compare Corti, a clinical AI platform, with two leading, accessible ambient scribe s</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2610.07726" target="_blank">Structure-aware Keypoint Localization for Videofluoroscopic Swallowing Study</a></h3>
+<p class="meta">Kai Zhou, Chuanshen Chen, Runhao Zeng, Meng Dai et al. (9 authors) &nbsp;·&nbsp; <code>2610.07726</code></p>
+<p class="tags"><span class="tag">Videofluoroscopy</span><span class="tag">Anatomical Keypoint Localization</span><span class="tag">Medical Imaging</span></p>
+<p class="abstract">Videofluoroscopic Swallowing Study (VFSS) is one of the gold standard for diagnosing swallowing disorders, providing dynamic X-ray imaging of the swallowing process. Automated kinematic analysis in VFSS relies fundamentally on precise anatomical keypoint localization. However, existing studies focus on limited keypoints (e.g., cervical vertebrae or the hyoid) and overlook critical regions such as </p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2610.07903" target="_blank">Unsupervised Long-Tailed Adaptation of Vision-Language Models</a></h3>
+<p class="meta">Keliang Chen, Yaxin Hou, Hui Liu, Yuheng Jia &nbsp;·&nbsp; <code>2610.07903</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Unsupervised Adaptation</span><span class="tag">Long-Tailed Learning</span></p>
+<p class="abstract">Adapting vision-language models to downstream tasks has achieved remarkable success by leveraging pseudo-labels generated from unlabeled data. Existing methods typically assume a uniform unlabeled data distribution, and thus the resulting pseudo-label distribution is likewise uniform. However, real-world data distributions are often long-tailed. To tackle this, we formalize a new scenario termed U</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2610.08778" target="_blank">Sherpa: Teaching LLMs to Teach Adaptively</a></h3>
+<p class="meta">Weixian Xu, Yanzhe Zhang, Zora Zhiruo Wang, Changyu Chen et al. (5 authors) &nbsp;·&nbsp; <code>2610.08778</code></p>
+<p class="tags"><span class="tag">AI for Education</span><span class="tag">LLM Tutoring</span><span class="tag">Adaptive Teaching</span></p>
+<p class="abstract">Large language models (LLMs) have become increasingly capable problem solvers, but being able to solve a problem is not the same as being able to teach it. Existing approaches to training LLMs as teachers rely on demonstrations, preference data, or predefined pedagogical criteria that specify what good teaching looks like. However, these signals are often not grounded in individual student learnin</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2610.07570" target="_blank">Unanimously Wrong: Certified Abstention from How Medical LLM Consensus Forms</a></h3>
+<p class="meta">Xiaoyang Wang, Tianrui Wang, Christopher C. Yang &nbsp;·&nbsp; <code>2610.07570</code></p>
+<p class="tags"><span class="tag">Medical QA</span><span class="tag">Uncertainty Estimation</span><span class="tag">Selective Abstention</span></p>
+<p class="abstract">In clinical practice, agreement among independent experts is treated as evidence of reliability, and multi-round consensus has become a core mechanism of agentic medical question-answering systems. When such a system must decide whether to trust its own answer, the prevailing signal is again agreement, now among the sampled answers. But agreement is a fragile proxy for correctness. A system can be</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2610.07913" target="_blank">Multimodal Knowledge Distillation for Gastric Adenocarcinoma Classification from Whole-Slide Images</a></h3>
+<p class="meta">Shrihari Dumbre, Bikash Santra &nbsp;·&nbsp; <code>2610.07913</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Knowledge Distillation</span><span class="tag">Multimodal Learning</span></p>
+<p class="abstract">Gastric adenocarcinoma (GA) is a leading cause of cancer-related mortality worldwide, and accurate histopathological subtype classification from whole-slide images (WSIs) is essential for effective treatment planning. While multimodal approaches that integrate pathology report text with WSIs can improve classification, existing methods often depend on computationally expensive transformer architec</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2610.07662" target="_blank">MS-ECG-FM: Towards a More Universal Electrocardiogram Foundation Model for Health Monitoring using Multi-source Contrastive Learning</a></h3>
+<p class="meta">Robert A. Lewis, I-Min Chiu, Kyle Verrier, Karthik Jayaraman Raghuram et al. (10 authors) &nbsp;·&nbsp; <code>2610.07662</code></p>
+<p class="tags"><span class="tag">ECG</span><span class="tag">Contrastive Learning</span><span class="tag">Foundation Models</span></p>
+<p class="abstract">Electrocardiography (ECG) records the electrical activity of the heart, aiding diagnosis by detecting abnormalities in cardiac function. ECG foundation models have demonstrated promising results, but are limited by a reliance on ECG interpretation reports as their sole supervision. Because interpretation reports only capture the subset of waveform information routinely recognized by clinicians, th</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2610.07987" target="_blank">VisionWeave: Weaving Elastic Visual Representations as a Native Capability of MLLMs</a></h3>
+<p class="meta">Yuan Feng, Qize Yang, Ruizhe Chen, Sibo Song et al. (12 authors) &nbsp;·&nbsp; <code>2610.07987</code></p>
+<p class="tags"><span class="tag">Multimodal LLMs</span><span class="tag">Adaptive Visual Tokens</span><span class="tag">Efficient Inference</span></p>
+<p class="abstract">Multimodal large language models have become the dominant paradigm for visual understanding, but incur substantial costs by encoding inputs into dense, fixed-size patch tokens. However, visual information is unevenly distributed: some regions require fine-grained detail, while others admit compact representations. Downsampling sacrifices this detail, while existing token pruning and adaptive appro</p>
+</div>
+</body></html>
