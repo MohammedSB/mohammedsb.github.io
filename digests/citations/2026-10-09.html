@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citations — October 9, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.subtitle{font-size:.85rem;color:#888;margin-bottom:2.5rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem;margin-bottom:.75rem}
+h2 em{font-style:italic;text-transform:none;font-size:1rem;letter-spacing:0}
+h3{font-size:1.05rem;font-weight:500;margin:0 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.83rem;color:#666;margin-bottom:.5rem}
+.summary{font-size:.95rem;line-height:1.65;margin:.5rem 0}
+.contexts{list-style:none;padding:0;margin:.6rem 0 0}
+.ctx{font-size:.88rem;line-height:1.6;color:#444;background:#fff;border-left:3px solid #d0b0b8;padding:.5rem .9rem;margin-bottom:.4rem;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:.75rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+</style></head><body>
+<h1>New Citations — October 9, 2026</h1>
+<p class="subtitle">4 new citations found via Semantic Scholar</p>
+<h2>Citing: <em>3DReasonKnee: Advancing Grounded Reasoning in Medical Vision Language Models</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.10238" target="_blank">Geometry-Supervised Visual Representation Learning for Multi-Phenotype Lesion Interpretation in Medical VLMs</a></h3>
+<p class="meta">Hao Wang, Qi-Wei Zeng, Shu-Chang Ye, Jing-Hao Lin et al. (8 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> No citing sentences were available, so this answer is inferred from the citing paper's abstract and what 3DReasonKnee is. 3DReasonKnee is most likely cited as a grounded medical VLM reasoning resource: a 3D knee MRI benchmark that pairs diagnostic reasoning with anatomical localization and severity grading. It probably appears as an example of how scarce fine-grained, multi-phenotype lesion annotations are, or of medical VLM methods that rely on semantic supervision without geometric constraints in the visual embedding space. The exact claim can't be confirmed without the citation context.</p>
+
+</div><hr><h2>Citing: <em>ReXGroundingCT: A 3D Chest CT Dataset for Segmentation of Findings from Free-Text Reports</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.10286" target="_blank">$\Delta$Representation: Geometry Supervised Representation Learning of Phenotypes via Counterfactual Reasoning for Medical VLMs</a></h3>
+<p class="meta">Hao Wang, Qi-Wei Zeng, Jing-Hao Lin, Shu-Chang Ye et al. (9 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> The citing paper gives no sentences that mention ReXGroundingCT, so I can only infer how it is used. It is most likely cited as a 3D chest CT dataset whose free-text report findings are paired with voxel-level lesion segmentation masks. That would make it a source of grounded, lesion-specific phenotype annotations for training or evaluating how well the medical VLM's phenotype representations match localized pathology relative to normal anatomy.</p>
+
+</div><hr><h2>Citing: <em>MedSAM2: Segment Anything in 3D Medical Images and Videos</em></h2><div class="card">
+<h3><a href="https://doi.org/10.1109/TMI.2026.3716658" target="_blank">DiffShape: Decoupling Shape Priors With Conditional Diffusion for Robust Brain Extraction</a></h3>
+<p class="meta">Yi-Fan Li, Zi-Zhen Li, Hao-Yu Wang, Yu-Cheng Lu et al. (7 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is one of three recently released models, alongside SAM-Med3D and LifespanStrip, that serve as baselines for comparison with DiffShape on brain extraction (skull stripping).</p>
+<ul class='contexts'><li class="ctx">We further include three recently released models, SAM-Med3D [36], MedSAM2 [20], and LifespanStrip [37].</li></ul>
+</div><div class="card">
+<h3><a href="https://doi.org/10.1109/JBHI.2026.3677444" target="_blank">MedSegAgent: A Universal and Scalable Multi-Agent System for Instructive Medical Image Segmentation</a></h3>
+<p class="meta">Zi-Yan Huang, Hao-Yu Wang, Jin Ye, Yuan-Feng Ji et al. (16 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSegAgent uses MedSAM2 as one of its state-of-the-art general-purpose segmentation baselines, alongside TotalSegmentator, SAM-Med3D, SegVol and SAT-Pro. The authors report that in the scenarios they tested, specialized nnU-Net models beat prompt-based universal methods like MedSAM2 on both accuracy and efficiency (Table VI).</p>
+<ul class='contexts'><li class="ctx">We compare MedSegAgent with state-of-the-art general-purpose segmentation models: TotalSegmentator [6], Med-SAM2 [59], SAM-Med3D [60], SegVol [10], and SAT-Pro [9].</li><li class="ctx">In our evaluated scenarios, specialized nnU-Net [15] models outperform prompt-based universal methods such as MedSAM2 [59], SegVol [10], and SAT-Pro [9] in both accuracy and efﬁciency (Table VI, Fig.</li></ul>
+</div>
+</body></html>
