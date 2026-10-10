@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Baharoon</title>
-    <link rel="stylesheet" href="styles.css?v=12">
+    <link rel="stylesheet" href="styles.css?v=13">
     <link rel="icon" type="image/png" href="visual/tea.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,7 +47,7 @@
 
                 <br><br>
 
-                I am originally from, and grew up in, <a href="https://whc.unesco.org/en/list/1329/" target="_blank" rel="noopener noreferrer" title="At-Turaif in ad-Dir'iyah, the mud-brick Najdi capital on the edge of the city">Riyadh</a>, Saudi Arabia.
+                I am originally from, and grew up in, <span class="place-ref" tabindex="0">Riyadh<span class="place-card"><img src="visual/turaif.jpg" alt="Mud-brick walls of At-Turaif in ad-Dir&rsquo;iyah under a clear blue sky" loading="lazy" width="640" height="480"><span class="place-caption">At-Turaif, ad-Dir&rsquo;iyah &mdash; the mud-brick Najdi capital on the edge of Riyadh, and the birthplace of the first Saudi state. UNESCO World Heritage since 2010.</span><span class="place-credit">Photo: Rados&#322;aw Botev, <a href="https://commons.wikimedia.org/wiki/File:At-Turaif_District_in_ad-Dir%27iyah_(5).jpg" target="_blank" rel="noopener noreferrer">CC BY 3.0</a></span></span></span>, Saudi Arabia.
 
             </p>
             <section class="news">
@@ -278,6 +278,25 @@
                     refs.forEach(function(ref) { ref.style.borderBottom = 'none'; ref.style.cursor = 'inherit'; });
                 });
 
+            window.addEventListener('resize', place);
+        })();
+
+        // ── Place cards in the bio ──
+        // Same right-edge flip as the venue hovers, kept separate because those
+        // wait on papers.json and these have nothing to load.
+        (function() {
+            var refs = document.querySelectorAll('.place-ref');
+            if (!refs.length) return;
+
+            function place() {
+                var panel = Math.min(300, window.innerWidth * 0.74);
+                refs.forEach(function(ref) {
+                    var left = ref.getBoundingClientRect().left;
+                    ref.classList.toggle('flip-tooltip', left + panel > window.innerWidth - 12);
+                });
+            }
+
+            place();
             window.addEventListener('resize', place);
         })();
 

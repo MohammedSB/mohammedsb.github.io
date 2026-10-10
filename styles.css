@@ -261,6 +261,96 @@ h1 {
     display: flex;
 }
 
+/* Place mentions in the bio: hover (or focus/tap) to see a photo. Same reveal
+   mechanism and look as .venue-tooltip, sized for an image instead of a list. */
+.place-ref {
+    position: relative;
+    cursor: default;
+    border-bottom: 1px dashed #800020;
+}
+
+.place-card {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+    width: min(300px, 74vw);
+    background: #fff;
+    border: 1px solid rgba(128, 0, 32, 0.2);
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    z-index: 100;
+    flex-direction: column;
+    gap: 0.45rem;
+    text-align: left;
+    white-space: normal;
+}
+
+/* Invisible bridge over the 10px gap, so the pointer can travel into the card
+   to reach the credit link without the card closing on the way. */
+.place-card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -12px;
+    height: 12px;
+}
+
+.place-card::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 16px;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-left: 1px solid rgba(128, 0, 32, 0.2);
+    border-top: 1px solid rgba(128, 0, 32, 0.2);
+    transform: rotate(45deg);
+}
+
+.place-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.place-caption {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: #333333;
+    padding: 0 0.2rem;
+}
+
+.place-credit {
+    font-size: 0.72rem;
+    color: #999999;
+    padding: 0 0.2rem 0.1rem;
+}
+
+.place-credit a { color: #999999; }
+
+/* Anchored right when the card would run off screen; set by JS as for venues. */
+.place-ref.flip-tooltip .place-card {
+    left: auto;
+    right: 0;
+}
+
+.place-ref.flip-tooltip .place-card::before {
+    left: auto;
+    right: 16px;
+}
+
+.place-ref:hover .place-card,
+.place-ref:focus .place-card,
+.place-ref:focus-within .place-card {
+    display: flex;
+}
+
 .venue-tooltip-head {
     font-size: 0.72rem;
     font-weight: 600;
