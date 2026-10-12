@@ -403,6 +403,10 @@ h1 {
     color: #333333;
 }
 
+.bio-arabic {
+    font-family: 'Amiri', serif;
+}
+
 /* ── News / updates ─────────────────────────────────────────────────────────
    Hand-maintained in index.html rather than loaded from a data file: editing
    one <li> is easier than editing JSON, and a typo shows up immediately
