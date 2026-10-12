@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citations — October 12, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.subtitle{font-size:.85rem;color:#888;margin-bottom:2.5rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem;margin-bottom:.75rem}
+h2 em{font-style:italic;text-transform:none;font-size:1rem;letter-spacing:0}
+h3{font-size:1.05rem;font-weight:500;margin:0 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.83rem;color:#666;margin-bottom:.5rem}
+.summary{font-size:.95rem;line-height:1.65;margin:.5rem 0}
+.contexts{list-style:none;padding:0;margin:.6rem 0 0}
+.ctx{font-size:.88rem;line-height:1.6;color:#444;background:#fff;border-left:3px solid #d0b0b8;padding:.5rem .9rem;margin-bottom:.4rem;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:.75rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+</style></head><body>
+<h1>New Citations — October 12, 2026</h1>
+<p class="subtitle">3 new citations found via Semantic Scholar</p>
+<h2>Citing: <em>ReXGroundingCT: A 3D Chest CT Dataset for Segmentation of Findings from Free-Text Reports</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.13237" target="_blank">The Predictability Bias of Joint-Embedding Predictive Learning in Medical Imaging</a></h3>
+<p class="meta">F. Drexel, Bernhard Kainz, J. Kather, D. Rueckert et al. (7 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> The paper likely uses ReXGroundingCT as a downstream benchmark for localized pathology in chest CT. That fits its argument: TAP-JEPA should capture sporadic, focal findings that point-prediction JEPAs miss. ReXGroundingCT pairs free-text report findings with 3D segmentation masks, so it can test whether the encoder represents pathology that the surrounding anatomy doesn't predict, alongside comparisons with encoders like COLIPRI. No citation sentences were provided, though, so this comes from the abstract and the dataset's purpose, not from the paper's own wording.</p>
+
+</div><hr><h2>Citing: <em>MedSAM2: Segment Anything in 3D Medical Images and Videos</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.13056" target="_blank">A4-MR: Abnormality-aware Anatomical Alignment for MR</a></h3>
+<p class="meta">Noel DSouza, Zhi-Jian Yang, Nishank Singla, Pranay Doshi et al. (17 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is described as a promptable medical segmentation foundation model that takes 2D box prompts and propagates them through a 3D volume. A4-MR uses it as the representative baseline for 3D organ localization, because the authors know of no public model that predicts organ bounding boxes directly from full 3D MRI volumes.</p>
+<ul class='contexts'><li class="ctx">We therefore compare against MedSAM2 [23], a promptable medical foundation model that propagates 2D box prompts through the volume.</li><li class="ctx">• MedSAM2 [23], a promptable medical segmentation foundation model that propagates 2D box prompts through a 3D volume.</li><li class="ctx">To our knowledge, no public model predicts organ bounding boxes directly from full 3D MRI volumes, so we use MedSAM2 [23] as a representative medical foundation model.</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2603.05911" target="_blank">CORE-Seg: Reasoning-Driven Segmentation for Complex Lesions via Reinforcement Learning</a></h3>
+<p class="meta">Yuxi Xie, Yuming Chen, Yi-Shuai Yang, Yi Zhou et al. (8 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> They use pre-trained MedSAM2 as the segmentation backbone of their reasoning-driven lesion segmentation framework. It handles the pixel-level mask generation, while the multimodal LLM, trained with reinforcement learning, supplies the reasoning.</p>
+<ul class='contexts'><li class="ctx">We use the pre-trained MedSAM2 [61] as the segmentation backbone.</li></ul>
+</div>
+</body></html>
