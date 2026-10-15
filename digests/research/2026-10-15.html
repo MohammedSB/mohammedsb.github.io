@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — October 15, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — October 15, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.19466" target="_blank">DeBoneDiT: Depth-Driven Conditional Bridge Diffusion Transformers for Bone Suppression in Chest X-Ray Images</a></h3>
+<p class="meta">Yifei Sun, Fenglei Fan, Junhao Jia, Wenming Deng et al. (7 authors) &nbsp;·&nbsp; <code>2610.19466</code></p>
+<p class="tags"><span class="tag">Chest X-ray</span><span class="tag">Diffusion Models</span><span class="tag">Bone Suppression</span></p>
+<p class="field"><span class="label">TL;DR:</span> DeBoneDiT is a bridge diffusion transformer conditioned on depth that removes overlapping bone from chest X-rays without dual-energy subtraction hardware.</p><p class="field"><span class="label">Problem:</span> Ribs and clavicles overlap the lung fields on chest X-rays and can hide important findings. Dual-energy subtraction is the clinical standard for removing them, but it needs special hardware and adds radiation dose.</p><p class="field"><span class="label">Method:</span> The authors treat bone suppression as an image-to-image bridge diffusion problem solved with a diffusion transformer. The model gets depth-driven conditioning, which gives it structural cues for separating bone from soft tissue, and it maps a standard CXR directly to a soft-tissue image.</p><p class="field"><span class="label">Results:</span> The abstract (truncated) presents DeBoneDiT as a software alternative to dual-energy subtraction. Specific numbers were not visible, so check the paper for quantitative results on bone-suppression benchmarks.</p><p class="field"><span class="label">Why it matters:</span> This is directly in your chest X-ray area. Bone-suppressed images could serve as a preprocessing step or extra input view for CXR report generation and segmentation models.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.19901" target="_blank">Multimodal Medical Image Parsing with Task-Specific Low-Rank Adapters</a></h3>
+<p class="meta">Taha Sabir, Alberto Montero Molina, Thinh Quang Ly, Veronika Dmitrenko et al. (6 authors) &nbsp;·&nbsp; <code>2610.19901</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Medical Image Parsing</span><span class="tag">Parameter-Efficient Fine-Tuning</span></p>
+<p class="field"><span class="label">TL;DR:</span> This FLARE 2026 Task 3 system adapts one frozen 4-bit Qwen3.5-9B vision-language model to six medical image-parsing task families across seven imaging modalities, using task-specific LoRA adapters chosen from the input question.</p><p class="field"><span class="label">Problem:</span> A single vision-language model struggles to cover very different medical parsing tasks and imaging modalities, because each task needs different training choices.</p><p class="field"><span class="label">Method:</span> A shared, frozen, quantized Qwen3.5-9B backbone is paired with several LoRA adapters, and the input question decides which adapter is used. Adapter ranks and prompts are tuned per task family.</p><p class="field"><span class="label">Results:</span> The system was evaluated on the multi-modality FLARE 2026 Task 3 benchmark. Routing to task-specific adapters is reported to beat a single shared adaptation, but the abstract does not give exact scores.</p><p class="field"><span class="label">Why it matters:</span> It offers a practical recipe for turning a general VLM into a multi-task medical vision-language model, which applies directly to radiology VLM work on report generation and grounding.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.20494" target="_blank">Quantifying privacy risks in foundation model representations of brain MRI</a></h3>
+<p class="meta">Imen Bajar, Héber Hwang Arcolezi, Antoine Boutet, Carole Frindel et al. (5 authors) &nbsp;·&nbsp; <code>2610.20494</code></p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Brain MRI</span><span class="tag">Privacy</span></p>
+<p class="field"><span class="label">TL;DR:</span> The authors test how much patient-identifying information survives in frozen foundation-model embeddings of brain MRI.</p><p class="field"><span class="label">Problem:</span> Pretrained image embeddings are increasingly shared in place of raw scans on the assumption that this protects privacy. How much patient-specific information the embeddings still carry is not known.</p><p class="field"><span class="label">Method:</span> Five frozen pretrained encoders are evaluated, covering different architectures, pretraining objectives and data sources. Privacy attacks are run on their brain MRI representations to measure how much patient-specific information can be recovered.</p><p class="field"><span class="label">Results:</span> The study finds that the representations retain measurable patient-specific information, and the amount differs across encoders and pretraining objectives. Exact attack success rates are in the full paper.</p><p class="field"><span class="label">Why it matters:</span> Self-supervised and CLIP-style medical encoders are often released or used as privacy-preserving feature extractors. This work tests that assumption and is relevant to how you would share embeddings from your own models.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.20533" target="_blank">Generative Representation Learning for Scalable Latent Tokenization</a></h3>
+<p class="meta">Alan Baade, Kyle Sargent, Vincent Sitzmann, Eric Ryan Chan et al. (7 authors) &nbsp;·&nbsp; <code>2610.20533</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Image Tokenization</span><span class="tag">Generative Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> A self-supervised objective based on pointwise mutual information learns representations built to serve as scalable latent tokenizers for generative modeling.</p><p class="field"><span class="label">Problem:</span> Most latent tokenizers are trained for reconstruction, and most self-supervised representations are trained for discrimination. Neither objective is designed for representations that downstream generative models can learn from easily.</p><p class="field"><span class="label">Method:</span> The representation loss factorizes the pointwise mutual information of the data. That quantity is estimated from information differences between conditional predictions of a learned generative model. The authors also give a theoretical justification for the objective.</p><p class="field"><span class="label">Results:</span> The learned tokenizers are reported to scale well and support strong generative modeling. Concrete benchmarks are in the paper.</p><p class="field"><span class="label">Why it matters:</span> It ties self-supervised representation learning to generative modeling. The same ideas could guide tokenizer design for medical image generation and report-conditioned synthesis.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.20158" target="_blank">Dataset-Level Regularization for Joint-Embedding Self-Supervised Learning</a></h3>
+<p class="meta">Konstantinos Almpanakis, Anna Kreshuk &nbsp;·&nbsp; <code>2610.20158</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Joint-Embedding Methods</span><span class="tag">Representation Regularization</span></p>
+<p class="field"><span class="label">TL;DR:</span> Out-of-batch regularization stores a dataset-level state in CPU memory so that joint-embedding SSL can regularize against global rather than minibatch statistics.</p><p class="field"><span class="label">Problem:</span> Joint-embedding SSL methods use regularization to prevent collapse and shape the overall representation distribution. Most of them compute that regularization only on the current minibatch, which gives a noisy estimate of the dataset-wide distribution, especially at small batch sizes.</p><p class="field"><span class="label">Method:</span> The method keeps a dataset-level state in cheap CPU memory and uses these global statistics in the regularization term. It can be added to existing joint-embedding objectives.</p><p class="field"><span class="label">Results:</span> The paper reports better representations than minibatch-only regularization. This should matter most when batches are small, a common situation with large 3D medical volumes.</p><p class="field"><span class="label">Why it matters:</span> It is a simple addition to SSL pipelines like the ones you might use to pretrain medical imaging encoders under tight GPU memory.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.19443" target="_blank">More Than Seeing: Vision as Scalable Anchors in Native Multimodal Pre-Training</a></h3>
+<p class="meta">Haoyuan Wu, Aoqi Wu, Jiani Hu, Bei Yu &nbsp;·&nbsp; <code>2610.19443</code></p>
+<p class="tags"><span class="tag">Multimodal Pretraining</span><span class="tag">Scaling Laws</span><span class="tag">Vision-Language Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> Controlled ablations across model sizes and training budgets suggest visual data acts as a scalable anchor in native multimodal pretraining and supports capabilities beyond visual understanding.</p><p class="field"><span class="label">Problem:</span> Native multimodal models are trained from scratch on mixed text and image data. How the visual signal affects scaling, and whether it helps non-visual abilities, is still unclear.</p><p class="field"><span class="label">Method:</span> The authors run controlled ablations of the visual content in the pretraining mix, varying model size and training budget, and measure the effect on scaling behavior and downstream capabilities.</p><p class="field"><span class="label">Results:</span> The paper reports that visual data acts as a scalable anchor in native multimodal pretraining and helps more than visual understanding alone, per the title and abstract.</p><p class="field"><span class="label">Why it matters:</span> Its findings on how much image–text data to include, and how it interacts with scale, can inform pretraining-mix choices for vision-language foundation models, medical ones included.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.20217" target="_blank">Continual pretraining Prostate MRI ViT Encoder for task alignment</a></h3>
+<p class="meta">Bilal A. Sidiqi, Yipei Wang, Shaheer U. Saeed, Shiqi Huang et al. (6 authors) &nbsp;·&nbsp; <code>2610.20217</code></p>
+<p class="tags"><span class="tag">Prostate MRI</span><span class="tag">Continual Pretraining</span><span class="tag">Vision Transformers</span></p>
+<p class="abstract">Building foundation models for MRI has emerged as a promising direction for advancing medical image analysis and improving accessibility of task specific models. Existing approaches primarily focus on effective pretraining strategies and evaluating their performance across diverse downstream tasks. While these methods show performance gains, limited attention has been given to understanding task a</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.19327" target="_blank">SonoWorld: Towards Interactive Pose-Controllable Ultrasound World Models</a></h3>
+<p class="meta">Zefan Yang, Zheyuan Zhang, Boris Maihe, Yikang Liu et al. (10 authors) &nbsp;·&nbsp; <code>2610.19327</code></p>
+<p class="tags"><span class="tag">Ultrasound</span><span class="tag">World Models</span><span class="tag">Robotic Imaging</span></p>
+<p class="abstract">Robotic ultrasound can standardize image acquisition and reduce operator workload and variability, but policy learning remains limited by the lack of realistic, controllable simulation environments. While controllable world models have advanced rapidly in natural-image domains, ultrasound world modeling remains challenging because each frame captures only a cross-section of unobserved 3D anatomy, </p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.20509" target="_blank">VascuSR: Iterative Anatomy-Aware Diffusion for CT Super-Resolution</a></h3>
+<p class="meta">Hairong Ni, Jiahe Huang, Minghao Guo, Wojciech Matusik et al. (5 authors) &nbsp;·&nbsp; <code>2610.20509</code></p>
+<p class="tags"><span class="tag">CT Super-Resolution</span><span class="tag">Diffusion Models</span><span class="tag">Vascular Anatomy</span></p>
+<p class="abstract">Generative super-resolution (SR) can recover sharp detail in computed tomography (CT) images from severely downsampled observations, but the missing high-frequency content is not uniquely determined by the low-resolution input. Consequently, visually plausible reconstructions may contain anatomically unsupported vascular detail, such as missing, spurious, or incorrectly connected vessels. To overc</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2610.20073" target="_blank">GDBA-Net: A Gated Dual-Branch Adaptation of SAM2 for Robust Cross-Domain Nuclei Segmentation</a></h3>
+<p class="meta">Biplab Poudel, Betserai Albert Magarire, Anish Kumar Shah, Jiacheng Xie et al. (5 authors) &nbsp;·&nbsp; <code>2610.20073</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Nuclei Segmentation</span><span class="tag">Segment Anything</span></p>
+<p class="abstract">Accurate nuclei segmentation underpins quantitative computational pathology, yet remains challenging due to morphological variability, weak boundaries, nuclear crowding, and pronounced domain shifts arising from differences in tissue preparation, staining, and acquisition. While deep learning and recent foundation models have improved segmentation performance under matched distributions with the o</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2610.20608" target="_blank">Representation Conditioning for Generation</a></h3>
+<p class="meta">Saeed Razavi, Xingjian Leng, Liang Zheng &nbsp;·&nbsp; <code>2610.20608</code></p>
+<p class="tags"><span class="tag">Diffusion Transformers</span><span class="tag">Representation Alignment</span><span class="tag">Image Generation</span></p>
+<p class="abstract">Representation-alignment methods effectively accelerate the diffusion transformer training. REPA, for example, uses a pretrained vision encoder to supervise an intermediate layer through an MLP projection head which is discarded after training. It aims to import semantics from the vision encoder to the diffusion backbone. While this objective is achieved at early layers by back-propagating the ali</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2610.20352" target="_blank">ReferFlow: Beyond Final-Target Localization for Complex Referring Expressions</a></h3>
+<p class="meta">Tianyi Gao, Han Fang, Xin Wei, Yaoyao Zhong et al. (14 authors) &nbsp;·&nbsp; <code>2610.20352</code></p>
+<p class="tags"><span class="tag">Referring Expression Comprehension</span><span class="tag">Visual Grounding</span><span class="tag">Multimodal LLMs</span></p>
+<p class="abstract">Multimodal Large Language Models have made significant progress in referring expression comprehension (REC), yet most REC benchmarks still focus on final-target localization. Complex queries often involve intermediate visual references with different dependencies on prior grounding, but final-only evaluation leaves this process unexamined. To address this gap, we formulate trajectory-level REC, in</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2610.20461" target="_blank">Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR</a></h3>
+<p class="meta">Nguyen Nguyen, Yongyi Zang &nbsp;·&nbsp; <code>2610.20461</code></p>
+<p class="tags"><span class="tag">Evaluation Metrics</span><span class="tag">OCR</span><span class="tag">LLM-as-Judge</span></p>
+<p class="abstract">Character Error Rate (CER), the standard metric for OCR and vision-language models (VLMs), charges a typo as much as a wrong name. We introduce semCER, which keeps CER's alignment and denominator and charges each grapheme edit a severity from an LLM judge, with no word segmentation. Normalized CER keeps the score of a whole transcription, where it tracks readers as well as semCER or better, and se</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2610.19407" target="_blank">Vision-Language Models Integrate Conflicting Evidence Like Biased Bayesian Observers</a></h3>
+<p class="meta">Josh Barua, Kyle Mahowald, William Rudman &nbsp;·&nbsp; <code>2610.19407</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Modality Bias</span><span class="tag">Bayesian Cue Integration</span></p>
+<p class="abstract">Vision-language models must reconcile conflicting text and images. Prior work has characterized the resulting behavior in terms of modality biases--e.g., a "blind faith in text"--but why preferences vary across models, domains, and input conditions remains unclear. We develop a predictive account from a Bayesian perspective, positing that VLMs combine conditionally independent evidence from each m</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2610.19892" target="_blank">On the Limits of Representation-Based Test-Time Adaptation for Multimodal LLMs</a></h3>
+<p class="meta">Mikołaj Piórczyński, Wojciech Masarczyk, Damian Sójka, Sebastian Cygert et al. (5 authors) &nbsp;·&nbsp; <code>2610.19892</code></p>
+<p class="tags"><span class="tag">Test-Time Adaptation</span><span class="tag">Multimodal LLMs</span><span class="tag">Distribution Shift</span></p>
+<p class="abstract">Vision-language models suffer significant accuracy drops under common corruptions. While test-time adaptation (TTA) successfully mitigates these shifts in CLIP-like contrastive models, its application to generative multimodal large language models (MLLMs) remains underexplored and uniquely challenging due to their sequential token generation. In this work, we demonstrate that representation-based </p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2610.20292" target="_blank">Taking the PULSE of Medical Reasoning: Step-Level Retrieval Timing for Knowledge-Grounded Inference</a></h3>
+<p class="meta">Danyang Zhao, Sendong Zhao, Yanrui Du, Haochun Wang et al. (9 authors) &nbsp;·&nbsp; <code>2610.20292</code></p>
+<p class="tags"><span class="tag">Medical Reasoning</span><span class="tag">Retrieval-Augmented Generation</span><span class="tag">LLM Reasoning</span></p>
+<p class="abstract">Reliable medical reasoning requires LLMs to dynamically access external biomedical evidence to improve factual trustworthiness and reasoning accuracy. However, indiscriminate retrieval can introduce noise and latency, raising a critical retrieval-timing problem: at each reasoning step, the system must decide whether the model's internal knowledge is reliable or external evidence is needed. We prop</p>
+</div>
+</body></html>
