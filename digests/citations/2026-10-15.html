@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citations — October 15, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.subtitle{font-size:.85rem;color:#888;margin-bottom:2.5rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem;margin-bottom:.75rem}
+h2 em{font-style:italic;text-transform:none;font-size:1rem;letter-spacing:0}
+h3{font-size:1.05rem;font-weight:500;margin:0 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.83rem;color:#666;margin-bottom:.5rem}
+.summary{font-size:.95rem;line-height:1.65;margin:.5rem 0}
+.contexts{list-style:none;padding:0;margin:.6rem 0 0}
+.ctx{font-size:.88rem;line-height:1.6;color:#444;background:#fff;border-left:3px solid #d0b0b8;padding:.5rem .9rem;margin-bottom:.4rem;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:.75rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+</style></head><body>
+<h1>New Citations — October 15, 2026</h1>
+<p class="subtitle">7 new citations found via Semantic Scholar</p>
+<h2>Citing: <em>CRIMSON: A Clinically-Grounded LLM-Based Metric for Generative Radiology Report Evaluation</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.19901" target="_blank">Multimodal Medical Image Parsing with Task-Specific Low-Rank Adapters</a></h3>
+<p class="meta">Taha Sabir, Alberto Montero Molina, Thinh Quang Ly, V. Dmitrenko et al. (6 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> CRIMSON is a language-model-based metric, and it is the evaluation metric for report generation in the FLARE 2026 Task 3 benchmark. Counting and regression tasks in the same benchmark are scored with mean absolute error instead.</p>
+<ul class='contexts'><li class="ctx">Counting and regression use mean absolute error (MAE), and report generation uses the language-model-based CRIMSON metric [1].</li></ul>
+</div><hr><h2>Citing: <em>MedSAM2: Segment Anything in 3D Medical Images and Videos</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.20073" target="_blank">GDBA-Net: A Gated Dual-Branch Adaptation of SAM2 for Robust Cross-Domain Nuclei Segmentation</a></h3>
+<p class="meta">Biplab Poudel, Betserai Albert Magarire, Anish Kumar Shah, Jia-Cheng Xie et al. (5 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is grouped with MedSAM as a medical-domain fine-tuning approach that makes SAM-family models more usable for medical images and reduces the need to train task-specific models from scratch. Unlike parameter-efficient adapters such as SAMed and SAM-Adapter, it relies on full or partial fine-tuning on curated medical datasets.</p>
+<ul class='contexts'><li class="ctx">Medical fine-tuning approaches like MedSAM [18], and MedSAM2 [19], and parameter-efficient adaptation methods like SAMed [20], SAM-Adapter [21], SAM2-Adapter [22], and the Medical SAM Adapter [23], have improved their applicability while reducing the need to train task-specific models from scratch.</li><li class="ctx">MedSAM [18] and MedSAM2 [19] instead rely on full or partial fine-tuning on curated medical datasets.</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.16548" target="_blank">NoduleFlow: Automatic 3D Lung Nodule Detection and Segmentation</a></h3>
+<p class="meta">G. Romoli, Filippo Ruffini, Francesco Di Feola, V. Guarrasi et al. (6 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> NoduleFlow uses MedSAM2 (abbreviated MS2) as one of the baselines it compares against, alongside TotalSegmentator and NoduleNet. They describe MedSAM2 as a prompt-driven segmentation model built on the Segment Anything Model approach.</p>
+<ul class='contexts'><li class="ctx">…[29] (TS), an nnU-Net framework that automatically segments lung nodules on CT scans; NoduleNet (NNet) [10], a 3D deep Convolutional Neural Network for nodule detection and segmen-6 tation; and MedSAM2 [17] (MS2), a prompt-driven segmentation model derived from the Segment Anything Model paradigm.</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.17354" target="_blank">MID: Mask-Image Distributional Divergence for Evaluating Medical Image Segmentation</a></h3>
+<p class="meta">Vincenzo Marcianó, Xiao-Ming Zhang, Gianluca Guglielmo, Sébastien Ourselin et al. (6 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 appears in a list of "pan-organ foundation models" that, alongside single-anatomy specialist models, show how much deep learning has advanced automatic medical image segmentation. It is only background context: the model the experiments actually run, frozen and with synthetic prompts derived from the ground-truth masks on non-vascular datasets, is the original MedSAM [27], not MedSAM2.</p>
+<ul class='contexts'><li class="ctx">Deep learning has substantially advanced automatic medical image segmentation, yielding models that range from single-anatomy specialists [17, 30, 25] to pan-organ foundation models [18, 26, 27, 38, 41].</li><li class="ctx">SwinUNETR [25] and MedSAM [27] are kept frozen and used directly for inference: SwinUNETR is applied to abdominal CT datasets, while MedSAM is applied across non-vascular datasets using synthetic prompts derived from ground-truth masks.</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2502.04356" target="_blank">Open Foundation Models in Healthcare: Challenges, Paradoxes, and Opportunities with GenAI Driven Personalized Prescription</a></h3>
+<p class="meta">Mahdi Alkaeed, Sofiat Abioye, Adnan Qayyum, Y. Mekki et al. (9 authors) · 2025</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is described as a recent extension built on SAM2 that adds prompt-based segmentation of 3D volumes and videos. The citing paper says this narrows the gap for volumetric CT/MRI scans and for endoscopic and ultrasound video sequences.</p>
+<ul class='contexts'><li class="ctx">In addition, recent extensions such as MedSAM2 build on SAM2 to support prompt segmentation in 3D volumes and videos, narrowing the gap for volumetric CT/MRI and endoscopic/ultrasound sequences [86].</li></ul>
+</div><hr><h2>Citing: <em>Evaluating General Purpose Vision Foundation Models for Medical Image Analysis: An Experimental Study of DINOv2 on Radiology Benchmarks</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2610.18543" target="_blank">Beyond the Encoder: Object-Centric Representations Emerging from Segmentation Foundation Models</a></h3>
+<p class="meta">Michalis Pistos, Bartlomiej W. Papiez · 2026</p>
+<p class="summary"><strong>What they say:</strong> It's cited alongside Huang et al. (2024) and Prokop et al. (2023) as evidence that encoder representations from general-purpose vision foundation models like DINO/DINOv2 transfer well across medical imaging datasets and tasks. The authors use this to set up their contrast: transfer from encoders is well studied, while object-level representations from segmentation models like SAM2 have barely been explored.</p>
+<ul class='contexts'><li class="ctx">…has been widely studied with general-purpose vision foundation models such as DINO and DINOv2 (Caron et al., 2021; Oquab et al., 2023), whose encoder representations transfer effectively across medical imaging datasets and tasks (Huang et al., 2024; Baharoon et al., 2023; Prokop et al., 2023).</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2605.20337" target="_blank">Capability ≠ Interpretability: Human Interpretability of Vision Foundation Models</a></h3>
+<p class="meta">Julien Colin, L. Goetschalckx, Nuria Oliver, Thomas Serre · 2026</p>
+<p class="summary"><strong>What they say:</strong> It's cited as one of several examples ([11–14]) of general-purpose vision foundation models being used in clinical decision support, here radiology and medical image analysis with DINOv2. The point is that in high-stakes settings like these, users need to understand what the model is actually responding to, which motivates measuring how interpretable these models are.</p>
+<ul class='contexts'><li class="ctx">The same models are increasingly deployed in high-stakes settings—clinical decision support [11–14], autonomous driving [15, 16]—where a user often needs to understand what a model is actually responding to.</li></ul>
+</div>
+</body></html>
