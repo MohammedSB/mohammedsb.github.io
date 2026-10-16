@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — October 16, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — October 16, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.22094" target="_blank">SCCL-DT: Semantic-Conflict-Aware Contrastive Learning with Dual-Rule Teacher Distillation for Zero-Shot Chest X-Ray Diagnosis</a></h3>
+<p class="meta">Ting Liu, Haoran Lai,  HaobinChen, Ming Liu et al. (5 authors) &nbsp;·&nbsp; <code>2610.22094</code></p>
+<p class="tags"><span class="tag">Chest X-ray</span><span class="tag">Vision-Language Pretraining</span><span class="tag">Zero-Shot Diagnosis</span></p>
+<p class="field"><span class="label">TL;DR:</span> SCCL-DT changes CLIP-style chest X-ray pretraining so that image-report pairs from different patients with the same findings are no longer pushed apart as negatives, and adds rule-based teacher distillation to improve zero-shot diagnosis.</p><p class="field"><span class="label">Problem:</span> Standard contrastive vision-language objectives treat every other image-report pair in a batch as a negative. In radiology, many different patients share the same findings, so some of these 'negatives' actually describe the same thing. The authors call this false-negative supervision a semantic conflict.</p><p class="field"><span class="label">Method:</span> The authors first audit training traces to show where semantic conflicts happen during contrastive pretraining. They then add a conflict-aware contrastive objective that softens or reweights off-diagonal pairs whose findings are compatible. They also distill from a dual-rule teacher that provides finding-level guidance.</p><p class="field"><span class="label">Results:</span> The paper reports better zero-shot chest X-ray diagnosis than standard contrastive baselines. The abstract excerpt does not include exact figures.</p><p class="field"><span class="label">Why it matters:</span> This targets a known weakness of CLIP-style medical pretraining: false negatives in the contrastive loss. It applies directly to your work on vision-language foundation models for chest X-ray and could carry over to MaskCLIP- or SLIP-style setups.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.21794" target="_blank">MedPAO-VL: Interpretable and Protocol-Compliant Agent for Structured Radiology Report Generation</a></h3>
+<p class="meta">Shrish Shrinath Vaidya, Gowthamaan Palani, Minmini Selvam, Gokulraja Srinivasaraja et al. (5 authors) &nbsp;·&nbsp; <code>2610.21794</code></p>
+<p class="tags"><span class="tag">Radiology Report Generation</span><span class="tag">Medical AI Agents</span><span class="tag">Structured Reporting</span></p>
+<p class="field"><span class="label">TL;DR:</span> MedPAO-VL is an agent that generates structured radiology reports by following a reporting protocol, so each finding is grounded in the image and the output is interpretable, instead of producing a black-box end-to-end report.</p><p class="field"><span class="label">Problem:</span> End-to-end report generators hallucinate findings, do not ground them in the image, and often ignore domain-specific reporting structures. This makes them unreliable for clinical use.</p><p class="field"><span class="label">Method:</span> Report generation is split into protocol-driven agentic steps. A vision-language backbone extracts and checks findings stage by stage, and the final report follows the required structure. Because the steps are explicit, the reasoning can be inspected.</p><p class="field"><span class="label">Results:</span> The authors report better clinical accuracy and protocol compliance than end-to-end baselines. The truncated abstract does not give exact metrics.</p><p class="field"><span class="label">Why it matters:</span> This is directly about radiology report generation. Its focus on structure and factual grounding also connects to how generated reports should be evaluated, beyond surface metrics.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.21809" target="_blank">From Adults to Children: Benchmarking Foundation Models for Chest X-Ray Classification under Domain Shift</a></h3>
+<p class="meta">Sara Inácio, Hugo Proença, João C. Neves &nbsp;·&nbsp; <code>2610.21809</code></p>
+<p class="tags"><span class="tag">Chest X-ray</span><span class="tag">Foundation Models</span><span class="tag">Domain Shift</span></p>
+<p class="field"><span class="label">TL;DR:</span> The authors describe this as the first benchmark of several medical foundation models on transfer from adult to pediatric chest X-ray classification.</p><p class="field"><span class="label">Problem:</span> Medical foundation models are mostly trained on adult data, and it is unclear whether they stay robust when applied to children, whose anatomy and disease patterns differ.</p><p class="field"><span class="label">Method:</span> Several foundation models are trained or adapted on adult chest X-rays and then tested on pediatric chest X-rays. Performance is compared to measure each model's robustness to this population shift.</p><p class="field"><span class="label">Results:</span> The benchmark shows how much performance drops between adult and pediatric data, and that the drop differs across foundation models. The abstract excerpt does not give exact numbers.</p><p class="field"><span class="label">Why it matters:</span> This gives evidence on how far chest X-ray foundation models generalize across populations. That matters when choosing pretrained backbones for radiology AI and for checking claims that a model is clinically ready.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.21937" target="_blank">Flow-CLIP: Image-Conditioned Residual Scoring for CompositionalImage-Text Matching</a></h3>
+<p class="meta">Minghong Wei, Enguang Zhu, Pu Cao, Lu Yang et al. (5 authors) &nbsp;·&nbsp; <code>2610.21937</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">CLIP</span><span class="tag">Compositional Reasoning</span></p>
+<p class="field"><span class="label">TL;DR:</span> Flow-CLIP adds an image-conditioned residual scoring mechanism on top of CLIP-style matching so it can tell apart captions that use the same objects and attributes but bind them differently.</p><p class="field"><span class="label">Problem:</span> Sentence-level image-text alignment in CLIP is not enough for compositional matching. Captions that mention the same elements with different bindings (e.g., which attribute belongs to which object) get similar scores.</p><p class="field"><span class="label">Method:</span> Instead of relying only on global cosine similarity, Flow-CLIP adds a residual score that is conditioned on the image. This score models how the caption's composition fits the visual content, which helps separate captions with the same words but different bindings.</p><p class="field"><span class="label">Results:</span> The paper reports gains on compositional image-text matching benchmarks over CLIP-style baselines.</p><p class="field"><span class="label">Why it matters:</span> Medical findings are also compositional (laterality, location, severity). Fine-grained binding like this matters for CLIP-style radiology retrieval and grounding, and for referring segmentation.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.21323" target="_blank">AdaLoop: Thinking with the Vision Encoder</a></h3>
+<p class="meta">Xinran Nicole Han, Yiyang Lu, Katelyn Gan, Todd Zickler &nbsp;·&nbsp; <code>2610.21323</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Adaptive Computation</span><span class="tag">Visual Reasoning</span></p>
+<p class="field"><span class="label">TL;DR:</span> AdaLoop makes the vision encoder of a VLM recurrent and conditioned on the question, so the depth of visual processing adapts to what is being asked.</p><p class="field"><span class="label">Problem:</span> Most VLMs use the vision encoder as a fixed feature extractor: the image is encoded once, regardless of the question, and all reasoning is left to the language model.</p><p class="field"><span class="label">Method:</span> AdaLoop loops the visual encoding layers, conditions each pass on the question, and adapts how many passes are run. Harder questions get deeper visual processing.</p><p class="field"><span class="label">Results:</span> The paper reports better performance on visual reasoning tasks while adapting compute to each question. Exact figures are not in the excerpt.</p><p class="field"><span class="label">Why it matters:</span> Question-conditioned visual processing could help medical visual question answering and referring segmentation, where the visual evidence needed depends on the query.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.22182" target="_blank">LAMP: Layerwise Adaptive Mixing of Predictors for Training-Free Few-Shot Vision-Language Adaptation</a></h3>
+<p class="meta">Zhipeng Ye, Feng Jiang, Qiufeng Wang, Hao Li &nbsp;·&nbsp; <code>2610.22182</code></p>
+<p class="tags"><span class="tag">Few-Shot Learning</span><span class="tag">Vision-Language Models</span><span class="tag">Training-Free Adaptation</span></p>
+<p class="field"><span class="label">TL;DR:</span> LAMP is a training-free way to adapt vision-language models with few labeled examples by mixing predictors built from global and regional features of several encoder layers.</p><p class="field"><span class="label">Problem:</span> Few-shot adaptation usually uses only the encoder's final global representation and ignores complementary information in intermediate layers. Combining layers is hard because their dimensions differ and their usefulness depends on the task.</p><p class="field"><span class="label">Method:</span> LAMP builds a predictor for each layer from both global and regional features and combines them with weights set adaptively per task. No gradient training is needed.</p><p class="field"><span class="label">Results:</span> The paper reports improvements over training-free few-shot baselines on standard benchmarks.</p><p class="field"><span class="label">Why it matters:</span> Training-free few-shot adaptation of CLIP-style models suits medical imaging, where labels are scarce. Using intermediate layers may help with subtle findings that the final layer misses.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.21638" target="_blank">Spurious Attention Heads in Vision Transformers: Mechanistic Identification of Annotation-Driven Bias in Medical Chest X-Ray Analysis</a></h3>
+<p class="meta">Joshua Muhumuza, Cornelius Kalenzi &nbsp;·&nbsp; <code>2610.21638</code></p>
+<p class="tags"><span class="tag">Mechanistic Interpretability</span><span class="tag">Chest X-ray</span><span class="tag">Shortcut Learning</span></p>
+<p class="abstract">Vision Transformers deployed in medical imaging exploit spurious correlations, yet the internal mechanisms remain unidentified and impossible to fix. We apply mechanistic interpretability to locate one such mechanism in ViT-Base 16: a single attention head (L8H10) that functions as a dedicated annotation-reader on chest X-rays, attending to corner text rather than lung pathology in 62% of 200 COVI</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.21040" target="_blank">Recursive Reward Improvement via Adversarial Meta-Prompt Evolution</a></h3>
+<p class="meta">Wei Dai, Qianchu Liu, Guanghui Qin, Xing Han et al. (7 authors) &nbsp;·&nbsp; <code>2610.21040</code></p>
+<p class="tags"><span class="tag">Clinical Report Generation</span><span class="tag">Recursive Self-Improvement</span><span class="tag">Reward Modeling</span></p>
+<p class="abstract">Recursive Self-Improvement (RSI) has gained wide attention for its ability to work with limited data. In a proposer-solver loop, a proposer model writes training tasks and a solver model learns to solve them through reinforcement learning. Such loops have succeeded in mathematics and coding, where every answer can be checked automatically. Open-ended expert tasks, like clinical report generations,</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.21356" target="_blank">L2GSSL: Label-Efficient Local-to-Global Self-Supervised Learning for Volumetric Healthcare Data</a></h3>
+<p class="meta">Po-Cheng Cheng, Hung-Hsuan Chen &nbsp;·&nbsp; <code>2610.21356</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">CT Imaging</span><span class="tag">Label Efficiency</span></p>
+<p class="abstract">Healthcare institutions routinely accumulate high-dimensional computed tomography (CT) volumes, but only a fraction can be annotated by experts. We present L2GSSL, a local-to-global self-supervised learning framework that leverages unlabeled volumes by decomposing pretraining into intra-slice and inter-slice representation spaces. A slice encoder learns view-invariant local features, and a global </p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2610.22087" target="_blank">Pathology foundation models for training-free case retrieval in salivary gland tumors</a></h3>
+<p class="meta">Maximilian J. Roesel, Niklas Kiermeyer, Philipp Keyl, Frederick Klauschen &nbsp;·&nbsp; <code>2610.22087</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Foundation Models</span><span class="tag">Content-Based Retrieval</span></p>
+<p class="abstract">In pathology, pattern recognition relies on a frame of reference built through extensive training and experience, which may still fall short when encountering rare cancer subtypes. Archives of previously diagnosed tumors often contain relevant precedents, yet identifying the most relevant cases remains challenging. Here we explore whether content-based retrieval with current pathology foundation m</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2610.21616" target="_blank">A Decision-Aware Evaluation Protocol for Uncertainty in Medical Image Segmentation</a></h3>
+<p class="meta">Saket Maganti, Shreyank N Gowda &nbsp;·&nbsp; <code>2610.21616</code></p>
+<p class="tags"><span class="tag">Medical Image Segmentation</span><span class="tag">Uncertainty Quantification</span><span class="tag">Evaluation Metrics</span></p>
+<p class="abstract">Medical segmentation uncertainty is often evaluated with calibration error or pixel-level error-detection scores, but these metrics do not show whether uncertainty improves downstream review decisions. We propose a decision-aware evaluation protocol that separates uncertainty estimation from deferral policy and evaluates their combination under fixed review budgets: which pixels, regions, or image</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2610.21703" target="_blank">Mixture of Multi-Sequence Feature Difference for Contrast-Enhanced MRI Synthesis</a></h3>
+<p class="meta">Jonghun Kim, Junmo Kwon, Hyunjin Park &nbsp;·&nbsp; <code>2610.21703</code></p>
+<p class="tags"><span class="tag">MRI Synthesis</span><span class="tag">Brain Tumor Imaging</span><span class="tag">Image-to-Image Translation</span></p>
+<p class="abstract">Contrast-enhanced magnetic resonance imaging (CE-MRI) is crucial for accurately diagnosing and segmenting brain tumors. However, the acquisition of CE-MRI requires injecting contrast agents, which poses potential health risks and increases scan costs. Here, we propose a CE-MRI synthesis method from non-contrast sequences, reducing both risk and cost. Unlike existing methods that rely on channel-wi</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2610.22091" target="_blank">Beyond the Dominant Label: Recovering Coexisting Lesion Evidence with Multiple Instance Learning</a></h3>
+<p class="meta">Lubin Gan, Jing Zhang, Xinming Zhang, Chengpeng Xu et al. (6 authors) &nbsp;·&nbsp; <code>2610.22091</code></p>
+<p class="tags"><span class="tag">Multiple Instance Learning</span><span class="tag">Histopathology</span><span class="tag">Weak Supervision</span></p>
+<p class="abstract">Whole-slide images may contain coexisting lesions, yet weak supervision typically provides only the most severe diagnosis. We formulate this setting as dominant-label multiple instance learning, where the observed label is the maximum-severity element of a latent lesion set. Standard multiclass MIL treats it as a complete one-hot description and therefore suppresses lower-severity evidence wheneve</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2610.22298" target="_blank">AI Consilium: a Benchmark of LLM Clinical Multidisciplinary Second Opinions</a></h3>
+<p class="meta">Alexey A. Bokov, Ivan I. Panin, Nikolay B. Nechaev, Mikhail Yu. Valkov et al. (13 authors) &nbsp;·&nbsp; <code>2610.22298</code></p>
+<p class="tags"><span class="tag">Clinical LLM Benchmark</span><span class="tag">Diagnostic Reasoning</span><span class="tag">LLM-as-Judge</span></p>
+<p class="abstract">Large language models (LLMs) can generate differential diagnoses for complex cases, but a useful second opinion must also be factually grounded, clinically coherent, actionable, and safe. We developed a multidimensional benchmark using 300 diagnostically resolved NEJM--MedQA cases: 110 for physician reference ratings and Judge calibration and 190 for held-out evaluation. Eight single-model pipelin</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2610.21266" target="_blank">TRACER: A Multimodal Harness for Patient Care in Hospitals</a></h3>
+<p class="meta">Zane Durante, Paul Tang, Keshigeyan Chandrasegaran, Amit Kaushal et al. (14 authors) &nbsp;·&nbsp; <code>2610.21266</code></p>
+<p class="tags"><span class="tag">Clinical Video Understanding</span><span class="tag">Multimodal Agents</span><span class="tag">Patient Monitoring</span></p>
+<p class="abstract">Continuous video and clinical records provide complementary information for understanding how patient behavior evolves over a hospital stay. A central challenge is how to represent behavior across the entire stay while preserving access to fine-grained visual and clinical evidence. We introduce TRACER, a training-free multimodal harness that constructs minute-level action records from video and co</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2610.21470" target="_blank">Cross-Prompt Inference Mitigates Rare-Class Suppression in Imbalanced VLM Finetuning</a></h3>
+<p class="meta">Emanuel Ben Baruch, Sivan Biham, Alon Shoshan, Yochai Zvik et al. (5 authors) &nbsp;·&nbsp; <code>2610.21470</code></p>
+<p class="tags"><span class="tag">Vision-Language Fine-Tuning</span><span class="tag">Class Imbalance</span><span class="tag">Prompting</span></p>
+<p class="abstract">When a vision-language model is finetuned on class-imbalanced data, rare-class recall can fall well below the model's own zero-shot performance. In this regime, we uncover a surprising matched-prompt penalty whereby the standard choice of reusing the descriptive finetuning prompt at inference can yield lower rare-class recall than using a different descriptive prompt. We call this inference-time s</p>
+</div>
+</body></html>
