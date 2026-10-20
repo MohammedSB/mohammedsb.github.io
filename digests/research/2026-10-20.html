@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — October 20, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — October 20, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.26271" target="_blank">TIM: Temporal Decoupling with Iterative Mutual-Refinement Model for Longitudinal Radiology Report Generation</a></h3>
+<p class="meta">Yiheng Dong, Yi Lin, Shilong Huang, Xiyan Yang et al. (5 authors) &nbsp;·&nbsp; <code>2610.26271</code></p>
+<p class="tags"><span class="tag">Radiology Report Generation</span><span class="tag">Longitudinal Imaging</span><span class="tag">Chest X-ray</span></p>
+<p class="field"><span class="label">TL;DR:</span> TIM decouples stable from changing findings across longitudinal exams and iteratively refines them to generate radiology reports that capture disease progression.</p><p class="field"><span class="label">Problem:</span> Most radiology report generation systems analyze a single timepoint and miss how disease evolves across serial examinations. Existing longitudinal approaches incorporate prior studies but do not cleanly separate persistent findings from temporal change.</p><p class="field"><span class="label">Method:</span> The authors propose a Temporal Decoupling with Iterative Mutual-Refinement model. Current and prior image representations are split into time-invariant and time-varying components, and the two streams refine each other over iterations before a decoder produces the report conditioned on both.</p><p class="field"><span class="label">Results:</span> The abstract reports improved longitudinal report generation over single-timepoint and prior longitudinal baselines, with better capture of change-related language.</p><p class="field"><span class="label">Why it matters:</span> This is squarely in your report generation lane and tackles the comparison-with-priors problem that dominates real chest X-ray reporting, which also stresses current evaluation metrics.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.26805" target="_blank">What Language Adds, and at What Cost: Four Controlled Probes of Pathology Vision-Language Models</a></h3>
+<p class="meta">Wenhao Zhang, Zhongliang Zhou, Yi Ping, Zirui Wang et al. (5 authors) &nbsp;·&nbsp; <code>2610.26805</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Histopathology</span><span class="tag">Evaluation Methodology</span></p>
+<p class="field"><span class="label">TL;DR:</span> Four controlled probes using released checkpoints test what language actually adds to pathology vision-language models beyond their vision backbones.</p><p class="field"><span class="label">Problem:</span> Pathology VLMs are almost always evaluated by their own developers on self-chosen test sets, so it is unclear whether language improves performance or merely rides on the vision encoder. Published evidence is graded by how it was produced.</p><p class="field"><span class="label">Method:</span> The authors reuse released checkpoints and public data to run four controlled probes isolating the contribution of the language component. Each probe holds the vision backbone fixed and asks whether adding language changes downstream accuracy, robustness, or reporting quality, and at what cost.</p><p class="field"><span class="label">Results:</span> The abstract indicates that several published claims about language benefits weaken under controlled comparison, with language adding less than the vision backbone in some settings.</p><p class="field"><span class="label">Why it matters:</span> This is an evidence audit of exactly the CLIP-style medical VLM paradigm you work in, and the probe design is a template for honest ablations in radiology VLM work.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.26255" target="_blank">XGLASS: X-Ray, Gaze and Language Assisted Slice Sequencing for CT Volumes</a></h3>
+<p class="meta">Michael Glöckler, Timo Ropinski &nbsp;·&nbsp; <code>2610.26255</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">CT Imaging</span><span class="tag">Gaze-Guided Learning</span></p>
+<p class="field"><span class="label">TL;DR:</span> XGLASS uses X-ray projections, radiologist gaze, and language cues to select and order the few CT slices a 2D VLM should read, bridging strong 2D models to 3D volumes.</p><p class="field"><span class="label">Problem:</span> 3D medical VLMs lag behind 2D ones because of scarce volumetric training data and 2D-centric foundation architectures. Applying 2D VLMs to CT volumes with hundreds of slices requires picking the slices that matter.</p><p class="field"><span class="label">Method:</span> The system sequences CT slices using three guidance signals: synthesized or paired X-ray views, eye-gaze patterns, and language prompts describing the clinical question. The chosen slice sequence is fed to a frozen 2D VLM for volumetric interpretation.</p><p class="field"><span class="label">Results:</span> The abstract reports that guided slice sequencing lets 2D VLMs reach competitive performance on CT tasks compared to native 3D approaches at lower data cost.</p><p class="field"><span class="label">Why it matters:</span> A practical route for reusing chest X-ray VLM expertise on CT, and the gaze component connects to human-in-the-loop and education-oriented radiology AI.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.26863" target="_blank">Text-to-Image Generative Modeling Without Language Pretraining</a></h3>
+<p class="meta">Keshigeyan Chandrasegaran, Yue Zhao, Armin W. Thomas, Ehsan Adeli et al. (8 authors) &nbsp;·&nbsp; <code>2610.26863</code></p>
+<p class="tags"><span class="tag">Text-to-Image Generation</span><span class="tag">Multimodal Foundation Models</span><span class="tag">Autoregressive Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> Halcyon shows that early-fusion multimodal autoregressive models trained from scratch on 100M image-text pairs can beat language-pretrained text-to-image baselines.</p><p class="field"><span class="label">Problem:</span> Modern text-to-image systems assume internet-scale language pretraining is required for text conditioning. The paper asks whether that assumption holds.</p><p class="field"><span class="label">Method:</span> The authors introduce Halcyon, a family of early-fusion autoregressive models trained entirely from scratch on GPIC, a 100M image-text pair dataset. Text and image tokens are modeled jointly without any separately pretrained language encoder.</p><p class="field"><span class="label">Results:</span> Halcyon-0.52B outperforms LlamaGen-XL/8 on the reported generation metric, with the abstract noting consistent gains across model sizes.</p><p class="field"><span class="label">Why it matters:</span> Medical imaging rarely has web-scale language data, so evidence that joint image-text pretraining from scratch works at modest scale is directly relevant to building domain multimodal models.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.26216" target="_blank">RoAR-VAE: Improving Latent Diffusability through Robust Prediction</a></h3>
+<p class="meta">Yang Yue, Fangyun Wei, Yitong Wang, Jinjing Zhao et al. (7 authors) &nbsp;·&nbsp; <code>2610.26216</code></p>
+<p class="tags"><span class="tag">Visual Tokenizers</span><span class="tag">Latent Diffusion</span><span class="tag">Representation Learning</span></p>
+<p class="field"><span class="label">TL;DR:</span> RoAR-VAE improves latent diffusability by keeping only the robust semantic prediction objective from REPA-E and dropping its diffusion loss and generative blocks.</p><p class="field"><span class="label">Problem:</span> Visual tokenizers must preserve reconstruction fidelity while producing latents that diffusion models can learn efficiently. Prior methods use semantic alignment or joint tokenizer-diffusion training, but it is unclear which ingredients matter.</p><p class="field"><span class="label">Method:</span> Revisiting REPA-E, the authors remove its diffusion objective and dedicated generative blocks while retaining semantic prediction, then add a robust prediction formulation. The resulting tokenizer is trained independently and plugged into standard latent diffusion.</p><p class="field"><span class="label">Results:</span> The abstract reports that the simplified tokenizer matches or improves diffusability and generation quality relative to the full REPA-E recipe at lower training cost.</p><p class="field"><span class="label">Why it matters:</span> Tokenizer design determines what latent diffusion can model, which matters for medical synthesis and self-supervised pretraining where you choose or train the encoder yourself.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.25836" target="_blank">Where RL Breaks: Localizing and Repairing Failures via Targeted Continued Pretraining</a></h3>
+<p class="meta">Xinyi Wang, Danqi Chen &nbsp;·&nbsp; <code>2610.25836</code></p>
+<p class="tags"><span class="tag">Reinforcement Learning</span><span class="tag">LLM Reasoning</span><span class="tag">Continued Pretraining</span></p>
+<p class="field"><span class="label">TL;DR:</span> RLVR failures are localized to specific missing base-model knowledge, and targeted continued pretraining on those gaps repairs them.</p><p class="field"><span class="label">Problem:</span> Reinforcement learning with verifiable rewards mostly sharpens what the base model already can do. When RL fails, it is unclear what the base model lacks.</p><p class="field"><span class="label">Method:</span> The authors inspect the RL policy's own rollouts and find that failure is strongly predicted by localized gaps. They then construct targeted continued-pretraining data for those gaps and retrain before RL.</p><p class="field"><span class="label">Results:</span> The abstract reports that targeted continued pretraining recovers performance on the failure regions where plain RL plateaued.</p><p class="field"><span class="label">Why it matters:</span> The diagnose-then-repair recipe applies to medical reasoning models where RL on clinical QA often stalls on knowledge the base model never saw.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.26586" target="_blank">Scaling Vision Foundation Models for Toxicologic Pathology</a></h3>
+<p class="meta">Jessica Loo, Theodoros Pissas, Byunghak Kang, Vincent A. Ella et al. (10 authors) &nbsp;·&nbsp; <code>2610.26586</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Foundation Models</span><span class="tag">Toxicologic Pathology</span></p>
+<p class="abstract">Here, we present TOX-FM, a family of non-clinical PFMs trained on large-scale diverse histopathology datasets of over one million whole slide images consisting of over 60 organs across six animal species from over 14,000 toxicology studies across six decades. We introduce a comprehensive benchmark of 18 non-clinical downstream tasks, incorporate an established benchmark of 9 clinical downstream ta</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.25617" target="_blank">CheXFuse: Guided Differential Joint Attention Fusion for Robust Multimodal Chest X-Ray Classification in Data-Scarce Medical Settings</a></h3>
+<p class="meta">Muntaqim Ahmed Raju, Priyanka Siddappa, Md Shifat Haider Al Amin, Ruizhe Ma et al. (5 authors) &nbsp;·&nbsp; <code>2610.25617</code></p>
+<p class="tags"><span class="tag">Chest X-ray</span><span class="tag">Multimodal Fusion</span><span class="tag">Low-Data Learning</span></p>
+<p class="abstract">A central challenge in multimodal learning is how to fuse modalities that differ substantially in predictive strength. When one modality provides a much stronger representation than another, indiscriminate cross-modal interaction can introduce weak, redundant, or unstable signals, limiting or even degrading performance relative to the strongest unimodal representation. To address this problem, we </p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.25765" target="_blank">TRACE: Tracking Multimodal Clinical Trajectories for Inpatient Risk Prediction</a></h3>
+<p class="meta">Minjun Kim, Jong Hak Moon &nbsp;·&nbsp; <code>2610.25765</code></p>
+<p class="tags"><span class="tag">EHR Modeling</span><span class="tag">Multimodal Clinical Prediction</span><span class="tag">Chest X-ray</span></p>
+<p class="abstract">Accurate inpatient risk prediction requires modeling heterogeneous clinical evidence that accumulates irregularly over time. This challenge spans in-hospital mortality, prolonged length of stay, and readmission, each with task-specific observation windows. Existing multimodal approaches combine structured health record data, chest x-rays, and clinical text, but primarily focus on modality fusion o</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2610.26292" target="_blank">Localization Gains from Explanation Regularization Should Not Be Interpreted as Faithfulness Gains.</a></h3>
+<p class="meta">Amrin Akter, Mauro Dalla Mura, Diana Mateus, Dawood Al Chanti &nbsp;·&nbsp; <code>2610.26292</code></p>
+<p class="tags"><span class="tag">Explainability</span><span class="tag">Medical Imaging</span><span class="tag">Saliency Faithfulness</span></p>
+<p class="abstract">Training-time explanation regularization is often evaluated by whether saliency maps become more concentrated within annotated regions. We argue that this criterion alone is insufficient: transformation consistency, lesion localization, and faithfulness to the classifier are distinct properties and should be evaluated separately, particularly in medical imaging. We examine this distinction through</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2610.25904" target="_blank">Multi-scale Fusion of Fast Vision Mamba and Foundation Model Features for Patch-Level Gleason Grading in Computational Pathology</a></h3>
+<p class="meta">Zihe Zhang, Weimiao Yu, Piumi Don Simonge &nbsp;·&nbsp; <code>2610.25904</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Gleason Grading</span><span class="tag">Vision Mamba</span></p>
+<p class="abstract">Automated Gleason grading of prostate whole slide images (WSIs) enables faster and more consistent cancer risk stratification. However, it remains a challenging task due to the subtle morphological differences between grades, the severe class imbalance arising from rare patterns, and the diagnostic features that span multiple spatial scales. Pathology foundation models (FMs) extract strong patch r</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2610.26457" target="_blank">Progressive multi-scale tumor-state memory for incomplete multimodal brain tumor segmentation</a></h3>
+<p class="meta">Milad Rostamian, Mohammadreza Mohammadi, Mohsen Soryani &nbsp;·&nbsp; <code>2610.26457</code></p>
+<p class="tags"><span class="tag">Brain Tumor Segmentation</span><span class="tag">Missing Modalities</span><span class="tag">MRI</span></p>
+<p class="abstract">Brain tumor segmentation uses complementary magnetic resonance imaging (MRI) sequences, but some sequences may be unavailable in practice. Their absence changes the information available for segmenting different tumor regions. Fusion methods can support different input subsets. However, fusion at several scales does not by itself specify how tumor evidence is retained and updated to guide fusion a</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2610.25641" target="_blank">Visual Memory and Textual Alignment for Cross-Modal Few-Shot Segmentation</a></h3>
+<p class="meta">Tianqi Wei, Zhi Chen, Xin Yu, Scott Chapman et al. (5 authors) &nbsp;·&nbsp; <code>2610.25641</code></p>
+<p class="tags"><span class="tag">Few-Shot Segmentation</span><span class="tag">SAM 3</span><span class="tag">Cross-Modal Learning</span></p>
+<p class="abstract">Few-shot segmentation (FSS) aims to segment target objects with limited annotated examples. Recent studies have begun to explore large foundation models to improve generalization for this task. In particular, SAM 3 provides strong visual representations and supports text-guided segmentation. However, its performance remains limited in specialized domains, where semantic prompts and visual represen</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2610.26404" target="_blank">LaMER: Language-Conditioned Multi-Expert Routing for Weakly Supervised Referring Expression Comprehension</a></h3>
+<p class="meta">Yu Yu Chang, Tzu-Hsuan Weng, Youssef Mohamed Amin, Mohaned Ahmed Elsayed et al. (7 authors) &nbsp;·&nbsp; <code>2610.26404</code></p>
+<p class="tags"><span class="tag">Referring Expression Comprehension</span><span class="tag">Weak Supervision</span><span class="tag">Mixture of Experts</span></p>
+<p class="abstract">Referring Expression Comprehension (REC) localizes the image region described by a natural language expression, underpinning applications such as autonomous navigation, human-robot interaction, and medical image analysis. Under weak supervision, REC is challenged by the visual-linguistic semantic gap and the difficulty of inferring region-text correspondences from coarse image-level signals alone.</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2610.26693" target="_blank">Parallel Language Models via Variational Decoding</a></h3>
+<p class="meta">Felix Draxler, Robin C. Geyer, Daniel Geyfman, Farrin Marouf Sofian et al. (16 authors) &nbsp;·&nbsp; <code>2610.26693</code></p>
+<p class="tags"><span class="tag">Parallel Decoding</span><span class="tag">Language Models</span><span class="tag">Variational Inference</span></p>
+<p class="abstract">Autoregressive language models emit one token per forward pass. This causes high inference latency, in particular as models are scaled up for quality. In this paper, we introduce Parallel Language Models (PLMs), which generate mutually consistent tokens in one forward pass by routing dependencies through latent auxiliary variables. PLMs are trained using a variational bound that reduces to an auto</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2610.25964" target="_blank">Token-Set Choice Confounds POPE: A Systematic Audit of Yes/No Extraction in VLM Hallucination Evaluation</a></h3>
+<p class="meta">Kesav Kumar Jayakumar, Karthigeyan Thilak &nbsp;·&nbsp; <code>2610.25964</code></p>
+<p class="tags"><span class="tag">VLM Hallucination</span><span class="tag">Benchmark Audit</span><span class="tag">Evaluation Methodology</span></p>
+<p class="abstract">We set out to reproduce a recent hallucination-mitigation result on the POPE benchmark. The LLaVA-1.5-7B baseline we measured, 82.21 F1 on the adversarial split, sat 1.21 to 8.67 points above the adversarial baselines we planned to compare against (81.00, 79.30, and 73.54). We looked at the evaluation code and found a readout choice that moves F1 on its own. A two-token logit readout decides yes v</p>
+</div>
+</body></html>
