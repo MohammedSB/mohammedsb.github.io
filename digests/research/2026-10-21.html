@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — October 21, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — October 21, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.28289" target="_blank">CPVB-RG: Cross-Prior Visual Bridging for Prior-Aware Chest X-Ray Report Generation</a></h3>
+<p class="meta">Sike Xiang, Shuang Chen, Julie Cox, Amir Atapour-Abarghouei &nbsp;·&nbsp; <code>2610.28289</code></p>
+<p class="tags"><span class="tag">Radiology Report Generation</span><span class="tag">Chest X-ray</span><span class="tag">Longitudinal Imaging</span></p>
+<p class="field"><span class="label">TL;DR:</span> CPVB-RG generates chest X-ray reports by explicitly bridging current and prior radiographs so that interval changes are distinguished from stable anatomy.</p><p class="field"><span class="label">Problem:</span> Radiologists read follow-up chest X-rays by comparing against prior studies, but most report generation systems either ignore the prior exam or fuse its features without separating what changed from what stayed the same.</p><p class="field"><span class="label">Method:</span> The authors propose a prior-aware framework that combines current and prior radiograph representations through a cross-prior visual bridging mechanism. The design aims to make the model's conditioning reflect new, resolved, or progressing findings rather than a naive concatenation of two image encodings.</p><p class="field"><span class="label">Results:</span> The abstract is truncated, but the framing indicates improved report generation on longitudinal chest X-ray benchmarks relative to prior-agnostic and naive-fusion baselines.</p><p class="field"><span class="label">Why it matters:</span> This sits squarely on your core interest in chest X-ray report generation and temporal comparison, and its modeling of interval change is directly relevant to how generated reports should be evaluated.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.28411" target="_blank">Brain2Vec: A Self-Supervised 3D Foundation Model for Structural Brain MRI</a></h3>
+<p class="meta">Spiros Maggioros, Guray Erus, Gareth Harman, George Aidinis et al. (7 authors) &nbsp;·&nbsp; <code>2610.28411</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Foundation Models</span><span class="tag">Brain MRI</span></p>
+<p class="field"><span class="label">TL;DR:</span> Brain2Vec is a self-supervised 3D foundation model pretrained on over 74k T1-weighted brain MRI scans that works both as a weight initializer and as a frozen feature extractor.</p><p class="field"><span class="label">Problem:</span> Training 3D medical imaging models end-to-end for each new task is hard because labeled data are scarce and compute is limited, and no widely shared structural MRI foundation model fills that gap.</p><p class="field"><span class="label">Method:</span> The authors pool T1-weighted MRI scans from many studies and pretrain a 3D model with self-supervision. The resulting encoder is intended to be reused across downstream tasks through fine-tuning or linear probing on frozen embeddings.</p><p class="field"><span class="label">Results:</span> The abstract is truncated, but the paper positions Brain2Vec as a reusable backbone that improves downstream brain MRI tasks over training from scratch.</p><p class="field"><span class="label">Why it matters:</span> A large-scale 3D self-supervised medical foundation model is a direct reference point for your own self-supervised pretraining work, including choices about data pooling and probing versus fine-tuning.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.28118" target="_blank">Reliability-Guided Vision-Language Decoding with Text-Aware Skip Refinement for Medical Image Segmentation</a></h3>
+<p class="meta">Sivan Talaei, Fatemeh Daneshfar, Mustaqeem Khan, Abdulhady Abas Abdullah et al. (5 authors) &nbsp;·&nbsp; <code>2610.28118</code></p>
+<p class="tags"><span class="tag">Medical Image Segmentation</span><span class="tag">Vision-Language Models</span><span class="tag">Text-Guided Segmentation</span></p>
+<p class="field"><span class="label">TL;DR:</span> RELiF fuses medical text into a segmentation decoder only where the text guidance is estimated to be reliable, avoiding harm from uninformative or misleading descriptions.</p><p class="field"><span class="label">Problem:</span> Medical segmentation targets often have weak visual distinction or irregular shape, and text can disambiguate them, but indiscriminate text fusion can inject unreliable guidance and degrade masks.</p><p class="field"><span class="label">Method:</span> The framework uses reliability-guided decoding together with text-aware skip refinement so that language features modulate decoder features in a gated, confidence-dependent way. This lets the model exploit text where it helps and fall back to visual evidence where it does not.</p><p class="field"><span class="label">Results:</span> The abstract is truncated, but the authors report improved segmentation across multiple imaging modalities compared with vision-only and naive text-fusion baselines.</p><p class="field"><span class="label">Why it matters:</span> This is a close cousin of referring segmentation in the medical setting, and the reliability gating idea is a useful design pattern for any text-conditioned medical vision model.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.27851" target="_blank">LaLa-World: Scaling Latent World Models with Natural Language Actions</a></h3>
+<p class="meta">Junha Song, Geonmo Gu, Jeongeun Park, Heejeong Nam et al. (8 authors) &nbsp;·&nbsp; <code>2610.27851</code></p>
+<p class="tags"><span class="tag">World Models</span><span class="tag">JEPA</span><span class="tag">Language-Conditioned Learning</span></p>
+<p class="field"><span class="label">TL;DR:</span> LaLa-World shows that JEPA-style latent world models can be scaled across diverse domains by adopting the language-conditioned action interface of video generation models.</p><p class="field"><span class="label">Problem:</span> Latent world models have mostly been trained on narrow domains with low-level action spaces, which limits the data they can learn from and their usefulness for planning and policy learning.</p><p class="field"><span class="label">Method:</span> The authors condition a latent predictive world model on natural language actions, which lets heterogeneous video sources be unified under one interface. The model is then used for planning with imagination and for downstream policy fine-tuning.</p><p class="field"><span class="label">Results:</span> The abstract is truncated, but the paper reports that the language-conditioned latent model is an effective and efficient basis for planning and policy adaptation across domains.</p><p class="field"><span class="label">Why it matters:</span> Language-conditioned latent prediction is a natural bridge between the self-supervised and vision-language directions you care about, and the recipe could transfer to video-based medical data like endoscopy or ultrasound.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.28559" target="_blank">Large Flow Language Models</a></h3>
+<p class="meta">Arnav Chavan, Chanhyuk Lee, Udbhav Bamba, Jaehoon Yoo et al. (7 authors) &nbsp;·&nbsp; <code>2610.28559</code></p>
+<p class="tags"><span class="tag">Flow Matching</span><span class="tag">Language Models</span><span class="tag">Parallel Decoding</span></p>
+<p class="field"><span class="label">TL;DR:</span> Lafa is a continuous flow language model scaled to 8B parameters in a data-efficient way, offering parallel generation with control and acceleration tools unavailable to discrete diffusion.</p><p class="field"><span class="label">Problem:</span> Continuous flow language models promise parallel, controllable generation, but practical techniques for building them at billion-parameter scale have been poorly established.</p><p class="field"><span class="label">Method:</span> The authors build a blockwise flow language model and develop training recipes that let it reach 8B parameters without the full data budget of autoregressive pretraining. The continuous formulation enables guidance and acceleration methods borrowed from flow matching.</p><p class="field"><span class="label">Results:</span> The abstract is truncated, but the authors describe Lafa as fast and high-performing relative to existing non-autoregressive language models.</p><p class="field"><span class="label">Why it matters:</span> Flow-based text generation is an emerging alternative to autoregressive decoding, and its controllability could eventually matter for structured outputs like radiology reports.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.27960" target="_blank">Efficient SAM3 Adaptation for Multi-Class Semantic Segmentation via Dense Competitive Representations</a></h3>
+<p class="meta">Wenbin Liao, Hao Zhu, Yike Ma, Hao Jiang et al. (5 authors) &nbsp;·&nbsp; <code>2610.27960</code></p>
+<p class="tags"><span class="tag">Semantic Segmentation</span><span class="tag">Segment Anything</span><span class="tag">Parameter-Efficient Adaptation</span></p>
+<p class="field"><span class="label">TL;DR:</span> This paper adapts SAM3 to multi-class semantic segmentation by learning dense competitive representations so that many concepts can be segmented simultaneously instead of one noun phrase at a time.</p><p class="field"><span class="label">Problem:</span> SAM3 excels at promptable single-concept segmentation but fails in real scenes where multiple categories must be separated jointly, and it has no native notion of mutual exclusion between classes.</p><p class="field"><span class="label">Method:</span> The authors introduce an efficient adaptation that produces dense per-pixel representations competing across classes, turning the promptable model into a multi-class segmenter. The adaptation is designed to be lightweight relative to retraining the backbone.</p><p class="field"><span class="label">Results:</span> The abstract is truncated, but the paper reports competitive multi-class segmentation with low adaptation cost compared with full fine-tuning or per-concept prompting.</p><p class="field"><span class="label">Why it matters:</span> Adapting SAM-family models to multi-class anatomy is a common need in medical imaging, and this recipe could be a direct starting point for organ or lesion segmentation with text prompts.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2610.28000" target="_blank">Beyond the Evidence Boundary: Behavioral Mirage Under Progressive Degradation in Medical VLMs</a></h3>
+<p class="meta">Edric Castel C. Hao, Rez Samantha Z. Floresca &nbsp;·&nbsp; <code>2610.28000</code></p>
+<p class="tags"><span class="tag">Medical VLM Evaluation</span><span class="tag">Robustness</span><span class="tag">Calibration</span></p>
+<p class="abstract">VLMs for medical image interpretation are typically evaluated on clean inputs, despite the progressive evidence loss that can occur in high stakes clinical settings. Existing robustness studies show that performance can degrade while confidence remains high, but do not establish when a previously reliable model-case pair ceases to behave reliably. We introduce a baseline-anchored framework that tr</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2610.27656" target="_blank">PACE-MoE: Adaptive Domain Sampling and Domain-Specific LoRA for Medical Visual Grounding</a></h3>
+<p class="meta">Zhenxuan Wang, Jisheng Dang, Ronghao Lin, Bimei Wang et al. (9 authors) &nbsp;·&nbsp; <code>2610.27656</code></p>
+<p class="tags"><span class="tag">Medical Visual Grounding</span><span class="tag">Mixture of Experts</span><span class="tag">LoRA</span></p>
+<p class="abstract">Medical visual grounding requires models to align clinical descriptions with spatial evidence across heterogeneous imaging domains. However, existing multi-domain post-training strategies typically rely on fixed domain sampling and shared parameter updates, overlooking the need to adapt both which domains receive training and where their updates are applied. To address this issue, we propose PACE-</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2610.28255" target="_blank">Convergent Performance, Divergent Mechanisms in LoRA-Adapted Vision Foundation Models for Brain MRI</a></h3>
+<p class="meta">Cecilia Diana-Albelda, Fiona Kekwick, Raghav Mehta, Aleksandra Kulbaka et al. (9 authors) &nbsp;·&nbsp; <code>2610.28255</code></p>
+<p class="tags"><span class="tag">Brain MRI</span><span class="tag">Vision Foundation Models</span><span class="tag">Representation Analysis</span></p>
+<p class="abstract">Adapting Vision Foundation Models (VFMs) to medical imaging via LoRA has become standard practice, yet model selection is guided almost entirely by downstream task metrics, treating backbones with similar performance as interchangeable. We investigate whether equal performance implies equal internal representational shift. We analyse four ViT-B/16 backbones, DINOv3, SigLIP2, MerMED-FM, and BiomedC</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2610.28350" target="_blank">Gated Prototype Transfer for Zero-Support Medical Vision Language Model</a></h3>
+<p class="meta">Sumaiya Fazal, Rizwan Qureshi, Laleh Behjat, Samira Ebrahimi Kahou &nbsp;·&nbsp; <code>2610.28350</code></p>
+<p class="tags"><span class="tag">Medical Vision-Language Models</span><span class="tag">Few-Shot Adaptation</span><span class="tag">Prototype Learning</span></p>
+<p class="abstract">Realistic few-shot adaptation of medical vision-language models (VLMs) can leave low-prevalence classes without any labeled support. The training-free SS- Text+ solver remains operational in this setting, but its zero-support prototypes receive no visual adaptation and fall back to a purely textual class prototype. We in- troduce Gated Knowledge-Guided Prototype Transfer (GProtoT), a pre-repulsion</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2610.28179" target="_blank">CAPS: Clinically-Verifiable Anatomy-Prioritized Synthesis for Missing MRI Imputation in Brain Tumor Segmentation</a></h3>
+<p class="meta">Cecilia Diana-Albelda, Arthur Longuefosse, Mario Rubén Paz Campos, Álvaro García-Martín et al. (5 authors) &nbsp;·&nbsp; <code>2610.28179</code></p>
+<p class="tags"><span class="tag">Brain Tumor Segmentation</span><span class="tag">Missing Modality Synthesis</span><span class="tag">MRI</span></p>
+<p class="abstract">Multi-parametric MRI is the gold standard for neuro-oncology, yet acquiring complete 4-modality protocols may be unfeasible in real-world clinical practice. When handling missing modalities, existing automated systems force a critical compromise: robust segmenters operate as uninterpretable "black boxes" that bypass image generation, while standard synthesis models often produce blurry reconstruct</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2610.27605" target="_blank">DART: Scaling a Shape Representation Across Anatomical Classes and Imaging Modalities</a></h3>
+<p class="meta">Koushik Swarna, Pedro R. A. S. Bassi, Lam Ngo, Wenxuan Li et al. (7 authors) &nbsp;·&nbsp; <code>2610.27605</code></p>
+<p class="tags"><span class="tag">Shape Priors</span><span class="tag">Medical Image Segmentation</span><span class="tag">Multi-Modality</span></p>
+<p class="abstract">Current state-of-the-art segmentation models still produce anatomically implausible shapes, such as broken vessels and fragmented glands, on the structures that are hardest to segment. Learned shape representations capture what structures look like and can help correct these errors, but most cover a fixed set of anatomical classes. Extending this coverage across classes and imaging modalities is c</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2610.28007" target="_blank">AdaptMIL: Domain Adaptation for Multiple Instance Learning in Digital Pathology</a></h3>
+<p class="meta">Ben Vardi, Dana Schonberger, Yuval Friedmann, Zohar Yakhini et al. (7 authors) &nbsp;·&nbsp; <code>2610.28007</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Multiple Instance Learning</span><span class="tag">Domain Adaptation</span></p>
+<p class="abstract">Pathology foundation models (PFMs) support a wide range of histopathology tasks on whole-slide images through multiple instance learning (MIL). Despite recent progress, these models remain sensitive to cross-hospital distribution shifts: performance often degrades when a task head (e.g., classification) is trained on data from one hospital and then used on data from another hospital. To address th</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2610.28339" target="_blank">HistoLoop: Iterative Contextual Inference with a Looped Transformer for Histology-Based Spatial Gene Expression Prediction</a></h3>
+<p class="meta">Ziang Liu, Jie Liu, Shuai Li, Yigui Feng et al. (5 authors) &nbsp;·&nbsp; <code>2610.28339</code></p>
+<p class="tags"><span class="tag">Spatial Transcriptomics</span><span class="tag">Histopathology</span><span class="tag">Looped Transformers</span></p>
+<p class="abstract">Predicting spatial gene expression from H&amp;E images offers a scalable complement to experimental spatial transcriptomics. However, despite progress in spatial context modeling, how to construct subsequent context from spot states updated by earlier contextual interactions remains underexplored. We introduce HistoLoop, a looped Transformer that formulates prediction as iterative contextual inference</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2610.28083" target="_blank">IECG: Weakly-Supervised Interpretability-Enhancing Foundation Model for Electrocardiogram</a></h3>
+<p class="meta">Huynh Dang Nguyen, Trong-Thang Pham, Anh-Thuan Do, Phuong-Nhi Dinh et al. (7 authors) &nbsp;·&nbsp; <code>2610.28083</code></p>
+<p class="tags"><span class="tag">ECG Foundation Models</span><span class="tag">Weakly-Supervised Localization</span><span class="tag">Interpretability</span></p>
+<p class="abstract">Electrocardiography (ECG) is a cornerstone of cardiac diagnosis, yet most machine learning methods for ECG analysis lack interpretability, limiting their clinical adoption. We present IECG, a weakly-supervised ECG foundation model that jointly performs diagnostic classification and abnormality localization without requiring manual abnormal region annotations, overcoming a long-standing bottleneck </p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2610.28086" target="_blank">MoDDiT: Simple Token Routing in Diffusion Transformers</a></h3>
+<p class="meta">Jarek Liesen, Matthew T. Jackson, Benjamin Ellis, Shimon Whiteson et al. (5 authors) &nbsp;·&nbsp; <code>2610.28086</code></p>
+<p class="tags"><span class="tag">Diffusion Transformers</span><span class="tag">Token Routing</span><span class="tag">Efficient Generation</span></p>
+<p class="abstract">Real-time video generation, interactive world models, and on-device image synthesis are almost a reality. Diffusion Transformers (DiT) achieve excellent sample quality, shifting the bottleneck to the throughput of the models themselves. Natural images are inherently sparse, as large portions of an image are often background, contribute little to the scene content, and are easy to denoise. DiTs fai</p>
+</div>
+</body></html>
