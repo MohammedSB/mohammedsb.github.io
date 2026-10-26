@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journal Digest — week of October 26, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>From the Journals — week of October 26, 2026</h1>
+<p class="cats">NEJM AI, Nature Medicine, Nature, Nature Machine Intelligence, Nature Biomedical Engineering, npj Digital Medicine, Radiology: AI, Lancet Digital Health, Medical Image Analysis, IEEE Trans. Medical Imaging, Patterns (Cell Press)</p>
+<div class="card journal">
+<h3>1. <a href="https://doi.org/10.1109/TMI.2026.3745973" target="_blank">Stochastic Siamese MAE Pretraining for Longitudinal Medical Images.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Oct 22, 2026</p>
+<p class="meta">Taha Emre, Arunava Chakravarty, Thomas Pinetz, Dmitrii Lachinov et al. (12 authors)</p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Medical Imaging</span><span class="tag">Foundation Models</span></p>
+<p class="field">STAMP extends masked autoencoder pretraining with a stochastic Siamese design so that learned representations of 3D medical volumes capture temporal change across longitudinal scans. This addresses a known gap in MAE-style self-supervision, which learns strong single-image features but ignores disease progression over time.</p>
+</div><div class="card journal">
+<h3>2. <a href="https://doi.org/10.1148/ryai.260161" target="_blank">Interpretable Deep Learning for Opportunistic Screening of Left Ventricular Dysfunction Screening Using Chest Radiographs.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Oct 21, 2026</p>
+<p class="meta">Sowon Jang, Dong Hyun Lee, Hye Soo Cho, Sun-Ju Byeon et al. (8 authors)</p>
+<p class="tags"><span class="tag">Chest X-Ray</span><span class="tag">Interpretable AI</span><span class="tag">Clinical AI</span></p>
+<p class="field">An interpretable deep learning model detects reduced left ventricular ejection fraction from routine chest radiographs using same-day CXR-echocardiography pairs from health checkup populations. The work frames CXR AI as an opportunistic prescreening tool to select who should receive echocardiography, a practical deployment angle for chest X-ray models.</p>
+</div><div class="card journal">
+<h3>3. <a href="https://doi.org/10.1016/j.landig.2026.101050" target="_blank">Examining reliance patterns on AI advice in medical imaging: a mixed-methods, randomised, crossover experiment.</a></h3>
+<p class="meta">Lancet Digital Health &nbsp;·&nbsp; Oct 23, 2026</p>
+<p class="meta">Susanne Gaube, Ekaterina Jussupow, Eesha Kokje, Timo K Koch et al. (13 authors)</p>
+<p class="tags"><span class="tag">Human-AI Collaboration</span><span class="tag">Medical Imaging</span><span class="tag">Clinical AI</span></p>
+<p class="field">A randomised crossover experiment measured how experts and novices rely on AI advice when reading medical images, documenting both over-reliance and under-reliance. The results help explain why clinician-plus-AI teams often fail to beat either the human or the model alone, which matters for anyone designing or evaluating assistive radiology tools.</p>
+</div><div class="card journal">
+<h3>4. <a href="https://doi.org/10.1148/ryai.260234" target="_blank">Agentic Automation of BT-RADS Scoring Using an End-to-End System for Standardized Glioma Follow-up Assessment.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Oct 21, 2026</p>
+<p class="meta">Mohamed Sobhi Jabal, Jikai Zhang, Dominic LaBella, Jessica L Houk et al. (9 authors)</p>
+<p class="tags"><span class="tag">LLM Agents</span><span class="tag">Radiology AI</span><span class="tag">Neuroimaging</span></p>
+<p class="field">A multi-agent system combining large language models with a convolutional network automates BT-RADS scoring for post-treatment glioma MRI, integrating imaging trends, medication effects, and radiation timing. Evaluated on over five hundred cases, it is a concrete example of agentic LLM pipelines producing standardized structured radiology assessments.</p>
+</div><div class="card journal">
+<h3>5. <a href="https://doi.org/10.1148/ryai.260538" target="_blank">TRAM-AI: A Framework for Transparency in Reporting of Medical Imaging Datasets for Artificial Intelligence Development.</a></h3>
+<p class="meta">Radiology: AI &nbsp;·&nbsp; Oct 21, 2026</p>
+<p class="meta">Kartik Bose, Pankaj Gupta, Lisa Adams, Rupesh Agrawal et al. (36 authors)</p>
+<p class="tags"><span class="tag">Medical Imaging</span><span class="tag">Datasets</span><span class="tag">Reporting Standards</span></p>
+<p class="field">TRAM-AI is a Delphi-derived consensus checklist for verifying whether medical imaging datasets described as public are actually usable for AI development. It targets the common frustration of papers citing datasets that are inaccessible, undocumented, or incomplete in practice.</p>
+</div><div class="card journal">
+<h3>6. <a href="https://doi.org/10.1016/j.landig.2026.101056" target="_blank">Foundation artificial intelligence models for health recognition by use of face photographs (FAHR-Face): a model development and validation study.</a></h3>
+<p class="meta">Lancet Digital Health &nbsp;·&nbsp; Jun 16, 2027</p>
+<p class="meta">Fridolin Haugg, Grace Lee, John He, Leonard Nürnberg et al. (17 authors)</p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Clinical AI</span><span class="tag">Computer Vision</span></p>
+<p class="field">FAHR-Face is a foundation model trained on over forty million facial photographs and fine-tuned for biological age estimation and survival prediction. It demonstrates the large-scale pretrain-then-finetune recipe applied to a non-radiological health signal, with validation of the downstream prognostic tasks.</p>
+</div><div class="card journal">
+<h3>7. <a href="https://doi.org/10.1016/j.media.2026.104354" target="_blank">ConComp: Constraining and compensating latent representations for semi-supervised medical image segmentation.</a></h3>
+<p class="meta">Medical Image Analysis &nbsp;·&nbsp; Oct 24, 2026</p>
+<p class="meta">Jie Yang, Yongchao Wang, Junchao Fan, Yang Wei et al. (7 authors)</p>
+<p class="tags"><span class="tag">Semi-Supervised Learning</span><span class="tag">Medical Image Segmentation</span></p>
+<p class="field">ConComp tackles internal covariate shift in semi-supervised medical image segmentation by constraining and compensating latent representations, improving pseudo-label reliability during training. It is relevant to anyone working on segmentation with scarce annotations, where consistency regularization and pseudo-labeling are the standard tools.</p>
+</div><div class="card journal">
+<h3>8. <a href="https://www.nature.com/articles/s41746-026-03372-0" target="_blank">From simulation to pedagogy: multi-model and randomized evaluation of structured AI standardized patients</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Oct 23, 2026</p>
+<p class="meta">Ping Wu, Yu Han, Jing Zhang, Yunqi Li et al. (11 authors)</p>
+<p class="tags"><span class="tag">AI For Medical Education</span><span class="tag">LLM Evaluation</span></p>
+<p class="field">This study evaluates structured AI standardized patients across multiple language models with a randomized design, moving from simulation feasibility toward pedagogical evidence. It offers a template for rigorously assessing LLM-driven tools in clinical training rather than relying on anecdotal demonstrations.</p>
+</div>
+</body></html>
