@@ -1,7 +1,7 @@
 {
-  "generated": "2026-07-31T20:43:43Z",
+  "generated": "2026-11-01T15:00:02Z",
   "source": "semanticscholar:2253396549",
-  "count": 14,
+  "count": 16,
   "papers": [
     {
       "id": "84c65a406994d8d57628f09f1e47b3521196efc9",
@@ -177,6 +177,22 @@
       "overridden": false
     },
     {
+      "id": "9a21ef9a91054d3175f53c02d069fa79b9832199",
+      "title": "ReXrank: A Public Leaderboard for AI-Powered Radiology Report Generation",
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2411.15122",
+      "arxiv": "2411.15122",
+      "doi": "10.48550/arXiv.2411.15122",
+      "venues": [
+        {
+          "name": "AAAI Bridge Program",
+          "short": "AAAI Bridge Program"
+        }
+      ],
+      "preprint": false,
+      "overridden": false
+    },
+    {
       "id": "0a214a62d84e0f384ad1ab690c909bc63649b0cf",
       "title": "Segment Anything in Medical Images and Videos: Benchmark and Deployment",
       "year": 2024,
@@ -205,6 +221,17 @@
       "url": "https://www.semanticscholar.org/paper/cd281e29a0692b10f2617c91e2fae26b4eea17f3",
       "arxiv": "2312.02366",
       "doi": "10.48550/arXiv.2312.02366",
+      "venues": [],
+      "preprint": true,
+      "overridden": false
+    },
+    {
+      "id": "054128138d768850d547e9ab87dc8182c9f1e242",
+      "title": "Multi-Scale Computational Framework for the Longitudinal Analysis of Enlarged Perivascular Space Distributions Under Sleep Deprivation”",
+      "year": null,
+      "url": "https://www.semanticscholar.org/paper/054128138d768850d547e9ab87dc8182c9f1e242",
+      "arxiv": null,
+      "doi": null,
       "venues": [],
       "preprint": true,
       "overridden": false
