@@ -585,16 +585,15 @@ h1 {
     border-top: 1px solid #e0e0e0;
 }
 
-/* Line drawings of At-Turaif, ad-Diriyah, riding the bottom of the window
-   while you read the bio, then stopping at its last line (the papers below
-   run full width). Two pieces, both at the sidebar's scale (260px per 300
-   drawing units):
-   - one wide scene that starts under the photo and runs on into the right
-     margin, so that side is a single drawing with one ground line;
-   - a smaller one in the left margin, across the text from it.
-   The left one is fixed to the window and lifted by script
-   (--skyline-shift) once the bio ends; the wide one is sticky inside a
-   track the script sizes to end where the bio ends. */
+/* Line drawings of At-Turaif, ad-Diriyah, on one fixed layer at the bottom
+   of the window, so both sides always stand on the same ground line. A
+   script lifts the layer (--skyline-shift) once the bio's last line passes
+   the bottom of the window, so they stop with the bio; the papers below run
+   full width. Both are at the sidebar's scale (260px per 300 drawing units):
+   - left: a watchtower and house in the left margin;
+   - wide: starts under the photo and runs on into the right margin. Its
+     photo half is kept low (houses, palms) so a short window doesn't push
+     it into the photo; the tall towers and the palace are in the margin. */
 .skyline {
     position: fixed;
     left: 80px;
@@ -606,43 +605,30 @@ h1 {
     transform: translateY(var(--skyline-shift, 0px));
 }
 
-.skyline-left {
+.skyline-left,
+.skyline-wide {
     position: absolute;
     bottom: 0;
+    height: 100%;
+    background: left bottom / contain no-repeat;
+}
+
+.skyline-left {
     left: calc(50% - 485px - 260px);
     width: 260px;
-    height: 100%;
-    background: url("visual/diriyah-left.svg") center bottom / contain no-repeat;
+    background-image: url("visual/diriyah-left.svg");
 }
 
-.sidebar-scene {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-/* Twice the sidebar's width: the right half overhangs into the margin. */
-.sidebar-scene-art {
-    position: sticky;
-    bottom: 0;
-    width: 200%;
-    aspect-ratio: 600 / 400;
-    flex-shrink: 0;
-    pointer-events: none;
-    background: url("visual/diriyah-wide.svg") left bottom / contain no-repeat;
-}
-
-/* The overhang can pass the window's right edge; clip it rather than let
-   the page scroll sideways. clip, unlike hidden, keeps position: sticky. */
-html {
-    overflow-x: clip;
+/* Lines up with the sidebar (photo) column, then overhangs the margin. */
+.skyline-wide {
+    left: calc(50% + 196px);
+    width: 520px;
+    background-image: url("visual/diriyah-wide.svg");
 }
 
 /* Margins under ~140px would squeeze the drawings to nothing. */
 @media (max-width: 1330px) {
-    .skyline,
-    .sidebar-scene {
+    .skyline {
         display: none;
     }
 }

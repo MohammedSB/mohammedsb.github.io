@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Baharoon</title>
-    <link rel="stylesheet" href="styles.css?v=22">
+    <link rel="stylesheet" href="styles.css?v=23">
     <link rel="icon" type="image/png" href="visual/tea.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="banner"></div>
-    <div class="skyline" aria-hidden="true"><div class="skyline-left"></div></div>
+    <div class="skyline" aria-hidden="true"><div class="skyline-left"></div><div class="skyline-wide"></div></div>
     <header class="site-header">
         <nav class="nav-links">
             <a class="nav-item" href="docs/CV.pdf" target="_blank" rel="noopener noreferrer" title="CV">CV</a>
@@ -114,7 +114,6 @@
         <div class="sidebar">
             <img class="profile-photo" src="visual/portrait.jpg" alt="Portrait of Mohammed Baharoon">
             <p class="location">Cambridge, Massachusetts</p>
-            <div class="sidebar-scene" aria-hidden="true"><div class="sidebar-scene-art"></div></div>
         </div>
     </div>
 
@@ -284,28 +283,15 @@
         })();
 
         // ── Diriyah drawings ──
-        // They ride the bottom of the window while you read the bio, then
-        // stop at the bio's last line, because the papers below run full
-        // width under the photo column. CSS can't see across columns, so the track
-        // it sticks inside is sized here to end exactly where the bio ends.
+        // A fixed layer at the bottom of the window. Once the bio's last line
+        // rises above the bottom edge, lift the layer by the same amount, so
+        // the drawings stop with the bio; the papers below run full width.
         (function() {
-            var track = document.querySelector('.sidebar-scene');
             var bio = document.querySelector('.bio');
-            var art = document.querySelector('.sidebar-scene-art');
-            if (!track || !bio || !art) return;
-
-            function size() {
-                track.style.height = '0px';
-                var h = bio.getBoundingClientRect().bottom - track.getBoundingClientRect().top;
-                // Never shorter than the art itself, or it would spill up over the photo.
-                track.style.height = Math.max(h, art.offsetHeight) + 'px';
-            }
-
-            // The margin drawings are fixed to the window; once the bio's last
-            // line rises above the bottom edge, lift them by the same amount so
-            // all three stop together.
+            if (!bio) return;
             var root = document.documentElement;
             var queued = false;
+
             function shift() {
                 queued = false;
                 var over = bio.getBoundingClientRect().bottom - window.innerHeight;
@@ -315,12 +301,11 @@
                 if (!queued) { queued = true; requestAnimationFrame(shift); }
             }
 
-            function both() { size(); shift(); }
-            both();
-            window.addEventListener('load', both);      // photo and fonts change the layout
-            window.addEventListener('resize', both);
+            shift();
+            window.addEventListener('load', shift);     // photo and fonts change the layout
+            window.addEventListener('resize', shift);
             window.addEventListener('scroll', onScroll, { passive: true });
-            if (document.fonts && document.fonts.ready) document.fonts.ready.then(both);
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(shift);
         })();
 
         // ── Place cards in the bio ──
