@@ -586,24 +586,40 @@ h1 {
 }
 
 /* Line drawings of At-Turaif, ad-Diriyah, one in each side margin of the
-   home page, fixed to the bottom of the window. Each is sized to exactly the
-   margin beside the 970px content column (capped so huge screens don't get
-   giant towers), so no line ever crosses text. A fixed pseudo-element rather
-   than background-attachment: fixed, which iOS Safari ignores. Starts right
-   of the Sadu banner. */
-.home::before {
-    content: "";
+   home page, riding the bottom of the window. All three drawings (these two
+   and the one under the photo) share one scale, the sidebar's 260px, so the
+   right-margin one can sit flush against the sidebar one and their ground
+   lines meet. The left one ends where the content column's padding begins.
+   A script lifts the whole layer once the bio's last line passes the bottom
+   of the window (--skyline-shift), so the drawings stop with the bio. */
+.skyline {
     position: fixed;
-    top: 0;
+    left: 80px;
     right: 0;
     bottom: 0;
-    left: 80px;
+    height: calc(260px * 400 / 300);
     z-index: -1;
     pointer-events: none;
-    background-image: url("visual/diriyah-left.svg"), url("visual/diriyah-right.svg");
-    background-position: left bottom, right bottom;
-    background-size: min(calc((100% - 970px) / 2), 420px) auto;
-    background-repeat: no-repeat;
+    transform: translateY(var(--skyline-shift, 0px));
+}
+
+.skyline-left,
+.skyline-right {
+    position: absolute;
+    bottom: 0;
+    width: 260px;
+    height: 100%;
+    background: center bottom / contain no-repeat;
+}
+
+.skyline-left {
+    left: calc(50% - 485px - 260px);
+    background-image: url("visual/diriyah-left.svg");
+}
+
+.skyline-right {
+    left: calc(50% + 456px);
+    background-image: url("visual/diriyah-right.svg");
 }
 
 /* A third drawing fills the empty column under the photo. Its track is
@@ -628,7 +644,7 @@ h1 {
 
 /* Margins under ~140px would squeeze the drawings to nothing. */
 @media (max-width: 1330px) {
-    .home::before {
+    .skyline {
         display: none;
     }
 }

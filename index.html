@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Baharoon</title>
-    <link rel="stylesheet" href="styles.css?v=20">
+    <link rel="stylesheet" href="styles.css?v=21">
     <link rel="icon" type="image/png" href="visual/tea.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
-<body class="home">
+<body>
     <div class="banner"></div>
+    <div class="skyline" aria-hidden="true"><div class="skyline-left"></div><div class="skyline-right"></div></div>
     <header class="site-header">
         <nav class="nav-links">
             <a class="nav-item" href="docs/CV.pdf" target="_blank" rel="noopener noreferrer" title="CV">CV</a>
@@ -282,10 +283,10 @@
             window.addEventListener('resize', place);
         })();
 
-        // ── Diriyah drawing under the photo ──
-        // It rides the bottom of the window while you read the bio, then
-        // stops at the bio's last line, because the papers below run full
-        // width under this column. CSS can't see across columns, so the track
+        // ── Diriyah drawings ──
+        // They ride the bottom of the window while you read the bio, then
+        // stop at the bio's last line, because the papers below run full
+        // width under the photo column. CSS can't see across columns, so the track
         // it sticks inside is sized here to end exactly where the bio ends.
         (function() {
             var track = document.querySelector('.sidebar-scene');
@@ -300,10 +301,26 @@
                 track.style.height = Math.max(h, art.offsetHeight) + 'px';
             }
 
-            size();
-            window.addEventListener('load', size);      // photo and fonts change the layout
-            window.addEventListener('resize', size);
-            if (document.fonts && document.fonts.ready) document.fonts.ready.then(size);
+            // The margin drawings are fixed to the window; once the bio's last
+            // line rises above the bottom edge, lift them by the same amount so
+            // all three stop together.
+            var root = document.documentElement;
+            var queued = false;
+            function shift() {
+                queued = false;
+                var over = bio.getBoundingClientRect().bottom - window.innerHeight;
+                root.style.setProperty('--skyline-shift', Math.min(0, over) + 'px');
+            }
+            function onScroll() {
+                if (!queued) { queued = true; requestAnimationFrame(shift); }
+            }
+
+            function both() { size(); shift(); }
+            both();
+            window.addEventListener('load', both);      // photo and fonts change the layout
+            window.addEventListener('resize', both);
+            window.addEventListener('scroll', onScroll, { passive: true });
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(both);
         })();
 
         // ── Place cards in the bio ──
