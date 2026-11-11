@@ -585,10 +585,12 @@ h1 {
     border-top: 1px solid #e0e0e0;
 }
 
-/* Line drawing of At-Turaif, ad-Diriyah, fixed in the home page's side
-   margins like a watermark. A fixed pseudo-element rather than
-   background-attachment: fixed, which iOS Safari ignores. Starts right of
-   the Sadu banner. */
+/* Line drawings of At-Turaif, ad-Diriyah, one in each side margin of the
+   home page, fixed to the bottom of the window. Each is sized to exactly the
+   margin beside the 970px content column (capped so huge screens don't get
+   giant towers), so no line ever crosses text. A fixed pseudo-element rather
+   than background-attachment: fixed, which iOS Safari ignores. Starts right
+   of the Sadu banner. */
 .home::before {
     content: "";
     position: fixed;
@@ -598,11 +600,17 @@ h1 {
     left: 80px;
     z-index: -1;
     pointer-events: none;
-    background: url("visual/diriyah.svg") center bottom / contain no-repeat;
-    /* Only in the side margins: faded out across the 960px content column
-       (papers run its full width), so no line ever crosses text. */
-    -webkit-mask-image: linear-gradient(to right, #000 calc(50% - 540px), transparent calc(50% - 485px), transparent calc(50% + 485px), #000 calc(50% + 540px));
-    mask-image: linear-gradient(to right, #000 calc(50% - 540px), transparent calc(50% - 485px), transparent calc(50% + 485px), #000 calc(50% + 540px));
+    background-image: url("visual/diriyah-left.svg"), url("visual/diriyah-right.svg");
+    background-position: left bottom, right bottom;
+    background-size: min(calc((100% - 970px) / 2), 420px) auto;
+    background-repeat: no-repeat;
+}
+
+/* Margins under ~140px would squeeze the drawings to nothing. */
+@media (max-width: 1330px) {
+    .home::before {
+        display: none;
+    }
 }
 
 .proverb-arabic {
@@ -904,11 +912,6 @@ h1 {
 }
 
 @media (max-width: 900px) {
-    /* One column of text edge to edge: no room for the skyline. */
-    .home::before {
-        display: none;
-    }
-
     .container {
         max-width: 100%;
         margin: 2rem auto;
