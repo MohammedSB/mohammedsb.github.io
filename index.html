@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Baharoon</title>
-    <link rel="stylesheet" href="styles.css?v=19">
+    <link rel="stylesheet" href="styles.css?v=20">
     <link rel="icon" type="image/png" href="visual/tea.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,6 +113,7 @@
         <div class="sidebar">
             <img class="profile-photo" src="visual/portrait.jpg" alt="Portrait of Mohammed Baharoon">
             <p class="location">Cambridge, Massachusetts</p>
+            <div class="sidebar-scene" aria-hidden="true"><div class="sidebar-scene-art"></div></div>
         </div>
     </div>
 
@@ -279,6 +280,30 @@
                 });
 
             window.addEventListener('resize', place);
+        })();
+
+        // ── Diriyah drawing under the photo ──
+        // It rides the bottom of the window while you read the bio, then
+        // stops at the bio's last line, because the papers below run full
+        // width under this column. CSS can't see across columns, so the track
+        // it sticks inside is sized here to end exactly where the bio ends.
+        (function() {
+            var track = document.querySelector('.sidebar-scene');
+            var bio = document.querySelector('.bio');
+            var art = document.querySelector('.sidebar-scene-art');
+            if (!track || !bio || !art) return;
+
+            function size() {
+                track.style.height = '0px';
+                var h = bio.getBoundingClientRect().bottom - track.getBoundingClientRect().top;
+                // Never shorter than the art itself, or it would spill up over the photo.
+                track.style.height = Math.max(h, art.offsetHeight) + 'px';
+            }
+
+            size();
+            window.addEventListener('load', size);      // photo and fonts change the layout
+            window.addEventListener('resize', size);
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(size);
         })();
 
         // ── Place cards in the bio ──

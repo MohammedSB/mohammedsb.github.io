@@ -606,6 +606,26 @@ h1 {
     background-repeat: no-repeat;
 }
 
+/* A third drawing fills the empty column under the photo. Its track is
+   sized by script to end where the bio ends; inside it the art sits at the
+   track's foot and sticks to the window's bottom edge until that point. */
+.sidebar-scene {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.sidebar-scene-art {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    aspect-ratio: 300 / 400;
+    flex-shrink: 0;
+    pointer-events: none;
+    background: url("visual/diriyah-middle.svg") center bottom / contain no-repeat;
+}
+
 /* Margins under ~140px would squeeze the drawings to nothing. */
 @media (max-width: 1330px) {
     .home::before {
@@ -912,6 +932,11 @@ h1 {
 }
 
 @media (max-width: 900px) {
+    /* The photo moves above the text: no empty column to fill. */
+    .sidebar-scene {
+        display: none;
+    }
+
     .container {
         max-width: 100%;
         margin: 2rem auto;
