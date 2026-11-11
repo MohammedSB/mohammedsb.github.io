@@ -579,18 +579,24 @@ h1 {
 
 .proverb-footer {
     max-width: 960px;
-    margin: 0 auto;
+    margin: 0 auto 3rem;
     padding: 2rem 1.5rem;
     text-align: center;
     border-top: 1px solid #e0e0e0;
 }
 
-/* Line drawing of At-Turaif, ad-Diriyah, closing the page. Generated SVG;
-   the strokes carry their own low opacity so it reads as background. */
-.skyline {
-    max-width: 1200px;
-    aspect-ratio: 1600 / 360;
-    margin: -0.5rem auto 0;
+/* Line drawing of At-Turaif, ad-Diriyah, fixed behind the home page like a
+   watermark. A fixed pseudo-element rather than background-attachment: fixed,
+   which iOS Safari ignores. Starts right of the Sadu banner. */
+.home::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 80px;
+    z-index: -1;
+    pointer-events: none;
     background: url("visual/diriyah.svg") center bottom / contain no-repeat;
 }
 
@@ -949,6 +955,10 @@ h1 {
         padding-left: 50px;
     }
 
+    .home::before {
+        left: 50px;
+    }
+
     .site-header {
         padding: 0.75rem 1rem 0;
     }
@@ -1031,6 +1041,10 @@ h1 {
 
     body {
         padding-left: 32px;
+    }
+
+    .home::before {
+        left: 32px;
     }
 
     .site-header {
