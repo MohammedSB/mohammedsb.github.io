@@ -585,9 +585,10 @@ h1 {
     border-top: 1px solid #e0e0e0;
 }
 
-/* Line drawing of At-Turaif, ad-Diriyah, fixed behind the home page like a
-   watermark. A fixed pseudo-element rather than background-attachment: fixed,
-   which iOS Safari ignores. Starts right of the Sadu banner. */
+/* Line drawing of At-Turaif, ad-Diriyah, fixed in the home page's side
+   margins like a watermark. A fixed pseudo-element rather than
+   background-attachment: fixed, which iOS Safari ignores. Starts right of
+   the Sadu banner. */
 .home::before {
     content: "";
     position: fixed;
@@ -598,18 +599,10 @@ h1 {
     z-index: -1;
     pointer-events: none;
     background: url("visual/diriyah.svg") center bottom / contain no-repeat;
-}
-
-/* Soft panels: each text block sits on a patch of the page colour that
-   feathers out at the edges, so the skyline shows around the text, not
-   through it. The sidebar comes later in the DOM and paints over this. */
-.home .content,
-.home .papers,
-.home .journey-section,
-.home .message-section,
-.home .proverb-footer {
-    background: #f5f5f5;
-    box-shadow: 0 0 40px 28px #f5f5f5;
+    /* Only in the side margins: faded out across the 960px content column
+       (papers run its full width), so no line ever crosses text. */
+    -webkit-mask-image: linear-gradient(to right, #000 calc(50% - 540px), transparent calc(50% - 485px), transparent calc(50% + 485px), #000 calc(50% + 540px));
+    mask-image: linear-gradient(to right, #000 calc(50% - 540px), transparent calc(50% - 485px), transparent calc(50% + 485px), #000 calc(50% + 540px));
 }
 
 .proverb-arabic {
