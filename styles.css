@@ -616,14 +616,14 @@ h1 {
 .skyline-left {
     left: calc(50% - 485px - 260px);
     width: 260px;
-    background-image: url("visual/diriyah-left.svg");
+    background-image: url("visual/diriyah-left.svg?v=2");
 }
 
 /* Lines up with the sidebar (photo) column, then overhangs the margin. */
 .skyline-wide {
     left: calc(50% + 196px);
     width: 520px;
-    background-image: url("visual/diriyah-wide.svg");
+    background-image: url("visual/diriyah-wide.svg?v=2");
 }
 
 /* Margins under ~140px would squeeze the drawings to nothing. */
