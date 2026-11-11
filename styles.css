@@ -600,6 +600,18 @@ h1 {
     background: url("visual/diriyah.svg") center bottom / contain no-repeat;
 }
 
+/* Soft panels: each text block sits on a patch of the page colour that
+   feathers out at the edges, so the skyline shows around the text, not
+   through it. The sidebar comes later in the DOM and paints over this. */
+.home .content,
+.home .papers,
+.home .journey-section,
+.home .message-section,
+.home .proverb-footer {
+    background: #f5f5f5;
+    box-shadow: 0 0 40px 28px #f5f5f5;
+}
+
 .proverb-arabic {
     font-family: 'Amiri', 'Traditional Arabic', 'Noto Naskh Arabic', serif;
     font-size: 1.6rem;
@@ -899,6 +911,11 @@ h1 {
 }
 
 @media (max-width: 900px) {
+    /* One column of text edge to edge: no room for the skyline. */
+    .home::before {
+        display: none;
+    }
+
     .container {
         max-width: 100%;
         margin: 2rem auto;
@@ -953,10 +970,6 @@ h1 {
 
     body {
         padding-left: 50px;
-    }
-
-    .home::before {
-        left: 50px;
     }
 
     .site-header {
@@ -1041,10 +1054,6 @@ h1 {
 
     body {
         padding-left: 32px;
-    }
-
-    .home::before {
-        left: 32px;
     }
 
     .site-header {
