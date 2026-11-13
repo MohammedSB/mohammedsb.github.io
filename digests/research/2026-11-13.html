@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — November 13, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — November 13, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2611.16393" target="_blank">TransXplainRRG: A Radiologist-Evaluated LVLM for Chest Radiograph Report Generation</a></h3>
+<p class="meta">Chayan Mondal, Duc-Son Pham, Tele Tan, Ashu Gupta et al. (7 authors) &nbsp;·&nbsp; <code>2611.16393</code></p>
+<p class="tags"><span class="tag">Radiology Report Generation</span><span class="tag">Chest X-ray</span><span class="tag">Explainability</span></p>
+<p class="field"><span class="label">TL;DR:</span> TransXplainRRG is a large vision-language model for chest radiograph report generation that targets both report quality and expert-facing explainability, with radiologist evaluation.</p><p class="field"><span class="label">Problem:</span> LVLM-based X-ray report generators often neglect clinical context, overlook workflow integration, and lack explainability. These gaps raise interpretability and reliability concerns that hinder clinical adoption.</p><p class="field"><span class="label">Method:</span> The paper proposes an LVLM for chest radiograph report generation that addresses performance and expert explainability together. Per the title, the system is evaluated by radiologists; the truncated abstract does not give architectural details.</p><p class="field"><span class="label">Results:</span> The available abstract excerpt does not report quantitative results; the stated contribution is a radiologist-evaluated, explainable report generation model.</p><p class="field"><span class="label">Why it matters:</span> This sits squarely on your core interests in chest X-ray report generation and its evaluation. The radiologist-evaluation protocol is worth comparing against automated report metrics.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2611.16210" target="_blank">FGCARL: Fisher-Guided Continuously Adaptive Representation Learning for Medical Image Segmentation</a></h3>
+<p class="meta">Xiaobing Yu, Jin Yang, Peijie Qiu, Weiwei Ma et al. (5 authors) &nbsp;·&nbsp; <code>2611.16210</code></p>
+<p class="tags"><span class="tag">Medical Image Segmentation</span><span class="tag">Continual Learning</span><span class="tag">Domain Shift</span></p>
+<p class="field"><span class="label">TL;DR:</span> FGCARL uses Fisher-information guidance to continually adapt segmentation representations across clinical sites, modalities, and class sets.</p><p class="field"><span class="label">Problem:</span> Medical images are collected independently across sites, so differences in modality, acquisition protocol, and intensity distribution cause substantial domain shift. The abstract also flags the segmentation class set as a further issue, but is cut off before explaining it.</p><p class="field"><span class="label">Method:</span> Per the title, the method is Fisher-guided continuously adaptive representation learning for segmentation, which suggests Fisher information steers how representations are updated. The truncated abstract does not describe the mechanism further.</p><p class="field"><span class="label">Results:</span> The available abstract excerpt does not include quantitative results.</p><p class="field"><span class="label">Why it matters:</span> Continual, cross-site adaptation matters for any medical segmentation model you deploy, including referring segmentation. It may offer ideas for adapting pretrained medical encoders without forgetting.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2611.16869" target="_blank">Raysemble: Metric 3D Bone Reconstruction from a Single X-ray</a></h3>
+<p class="meta">Xiaoyang Li, Xinghao Yan, Yuan Chai &nbsp;·&nbsp; <code>2611.16869</code></p>
+<p class="tags"><span class="tag">X-ray</span><span class="tag">3D Reconstruction</span><span class="tag">Musculoskeletal Imaging</span></p>
+<p class="field"><span class="label">TL;DR:</span> Raysemble reconstructs eight lumbar and pelvic bones in metric 3D from a single X-ray by separating shape prediction from placement.</p><p class="field"><span class="label">Problem:</span> Recovering metrically accurate 3D bone anatomy from one 2D radiograph is ill-posed, because shape, depth, and scale are entangled in a single projection.</p><p class="field"><span class="label">Method:</span> Each 3D query samples regional and global image features at its projection, and a shared decoder predicts normalized bone shapes. Predicted depth and camera geometry then set each bone's 3D center and scale, and the shapes are resampled onto a common millimeter grid.</p><p class="field"><span class="label">Results:</span> Evaluation uses 23 held-out patients; the truncated abstract does not give the numerical outcomes.</p><p class="field"><span class="label">Why it matters:</span> It shows how projection-aware feature sampling can extract 3D structure from plain radiographs. That is useful background for X-ray representation learning beyond 2D tasks.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2611.17334" target="_blank">Unbundling Multimodal Vision Encoding</a></h3>
+<p class="meta">Ellis Brown, Chris Hoang, Shengyi Qian, Shang-Wen Li et al. (12 authors) &nbsp;·&nbsp; <code>2611.17334</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">Vision Encoders</span><span class="tag">Multimodal LLMs</span></p>
+<p class="field"><span class="label">TL;DR:</span> This paper separates the design choices bundled into a multimodal LLM's vision encoder: the pretrained visual prior, dedicated vision capacity, and pre-fusion placement of that capacity.</p><p class="field"><span class="label">Problem:</span> It is still debated how multimodal language models should encode images. Most use a pretrained vision encoder, while some recent recipes train the encoder from scratch with the language model or remove it entirely.</p><p class="field"><span class="label">Method:</span> The authors treat a vision encoder as a bundle of three separable choices: a visual prior from upstream pretraining, dedicated vision capacity, and placing that capacity before fusion. The framing implies controlled comparisons that vary each factor independently; the truncated abstract does not detail the experiments.</p><p class="field"><span class="label">Results:</span> The available abstract excerpt does not state the findings.</p><p class="field"><span class="label">Why it matters:</span> It bears directly on whether CLIP-style pretrained encoders are still needed in VLMs. That question shapes how you would build medical vision-language models and report generators.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2611.16984" target="_blank">ElasticDino: Dense Semantic Features Using Elastic Deformations</a></h3>
+<p class="meta">Ulysse Mizrahi, Sean Zaretzky, Dov Danon, Amit H. Bermano &nbsp;·&nbsp; <code>2611.16984</code></p>
+<p class="tags"><span class="tag">Dense Visual Features</span><span class="tag">Vision Transformers</span><span class="tag">Feature Upsampling</span></p>
+<p class="field"><span class="label">TL;DR:</span> ElasticDino is a lightweight adapter that produces high-resolution dense semantic feature maps from ViT backbones using elastic deformations.</p><p class="field"><span class="label">Problem:</span> ViTs underpin dense prediction tasks such as segmentation and depth estimation, but the quadratic cost of self-attention severely limits feature resolution and induces spatial artifacts.</p><p class="field"><span class="label">Method:</span> A lightweight adapter on top of a DINO-style ViT outputs high-resolution feature maps. Per the title, elastic deformations are the core mechanism; the truncated abstract does not explain how they are used.</p><p class="field"><span class="label">Results:</span> The available abstract excerpt does not report quantitative results.</p><p class="field"><span class="label">Why it matters:</span> High-resolution dense features from frozen self-supervised backbones could help medical segmentation and referring segmentation, where fine anatomical detail matters.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2611.16639" target="_blank">Asymmetric Multimodal Learning with Decomposed JEPAs</a></h3>
+<p class="meta">Yusuf Shihata &nbsp;·&nbsp; <code>2611.16639</code></p>
+<p class="tags"><span class="tag">JEPA</span><span class="tag">Multimodal Representation Learning</span><span class="tag">Visual Question Answering</span></p>
+<p class="field"><span class="label">TL;DR:</span> This paper argues that cross-modal alignment as the sole objective is lossy when modalities are informationally asymmetric, and proposes decomposed JEPAs instead.</p><p class="field"><span class="label">Problem:</span> Alignment is the standard objective for multimodal representations, but it loses information when neither modality can express what the other carries. In VQA, for example, a question is a selective relational operator over a dense visual field.</p><p class="field"><span class="label">Method:</span> The authors analyze why alignment alone fails under informational asymmetry. Per the title, they propose an asymmetric multimodal learning scheme built on decomposed joint-embedding predictive architectures; the truncated abstract gives no further detail.</p><p class="field"><span class="label">Results:</span> The available abstract excerpt does not report quantitative results.</p><p class="field"><span class="label">Why it matters:</span> Image-report pairs are highly asymmetric, since a report describes only part of the image. This critique of CLIP-style alignment and its JEPA alternative applies directly to medical vision-language pretraining.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2611.17105" target="_blank">Predicting Ethanol Drinking Status from Nonhuman Primate Liver Histology: A Proof of Concept for Parameter-efficient Fine-tuning in Few-Shot Vision-Language Modeling</a></h3>
+<p class="meta">Amirmohammad Mohammadi, Rupak Khadka, Kathleen A. Grant, Mary Lauren Benton et al. (5 authors) &nbsp;·&nbsp; <code>2611.17105</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Vision-Language Models</span><span class="tag">Parameter-Efficient Fine-Tuning</span></p>
+<p class="abstract">Combining vision-language models (VLMs) with parameter-efficient fine-tuning (PEFT) offers a promising approach to few-shot whole-slide image (WSI) classification in computational pathology. This study evaluates this approach for predicting ethanol drinking status from nonhuman primate liver histology. Adapters are evaluated against non-PEFT configurations on a subset of the Monkey Alcohol Tissue </p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2611.16608" target="_blank">Towards Democratising Low-Data Medical Image Classification: CPU-Trainable ZACH-ViT and Its Geometric Variants</a></h3>
+<p class="meta">Athanasios Angelakis &nbsp;·&nbsp; <code>2611.16608</code></p>
+<p class="tags"><span class="tag">Medical Image Classification</span><span class="tag">Low-Data Learning</span><span class="tag">Compact Vision Transformers</span></p>
+<p class="abstract">Medical image classification in resource-constrained settings must contend with limited annotations and computational capacity. We evaluate four ZACH-ViT variants with linear, Euclidean prototype, Poincare and spherical heads alongside two compact multiple-instance-learning baselines. All models are trained from scratch with fewer than 260,000 parameters across seven MedMNIST+ datasets and three e</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2611.17031" target="_blank">Your Vision Foundation Model Is Secretly an EEG Foundation Model</a></h3>
+<p class="meta">Guoan Wang, Feng Liu &nbsp;·&nbsp; <code>2611.17031</code></p>
+<p class="tags"><span class="tag">EEG</span><span class="tag">Vision Foundation Models</span><span class="tag">Transfer Learning</span></p>
+<p class="abstract">Electroencephalography (EEG) foundation models are pretrained on thousands of hours of recordings, yet their frozen features transfer poorly to downstream tasks, and this transfer does not consistently improve with larger models or more pretraining data. We show that a vision foundation model that has never seen EEG is a stronger frozen EEG encoder than these specialized models, once the signals a</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2611.16907" target="_blank">Automated PD-L1 Tumor Proportion Scoring with Uncertainty-Guided Triage in Non-Small Cell Lung Cancer</a></h3>
+<p class="meta">Kesi Xu, Ayesha Azam, Tanvier Kaur, Monika Kondratowicz et al. (10 authors) &nbsp;·&nbsp; <code>2611.16907</code></p>
+<p class="tags"><span class="tag">Computational Pathology</span><span class="tag">PD-L1 Scoring</span><span class="tag">Uncertainty Estimation</span></p>
+<p class="abstract">Programmed death-ligand 1 (PD-L1) tumor proportion score (TPS) informs immunotherapy selection in non-small cell lung cancer. Near the 1% and 50% cutoffs, the score should also indicate when closer review is warranted. We designed a three-stage framework to follow the sequence of TPS assessment. Stage 1 identifies tumor regions and excludes macrophage-rich patches. Stage 2, a dual-branch cell coun</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2611.17240" target="_blank">Objects as Addresses: Instance Binding in Vision Transformer Attention</a></h3>
+<p class="meta">Khalil Sabri, Guillaume-Alexandre Bilodeau, Nicolas Saunier, Wassim Bouachir &nbsp;·&nbsp; <code>2611.17240</code></p>
+<p class="tags"><span class="tag">Vision Transformers</span><span class="tag">Object Binding</span><span class="tag">Mechanistic Interpretability</span></p>
+<p class="abstract">Humans naturally parse visual scenes into coherent individual objects rather than scattered features, a capability cognitive science calls object binding. While recent work shows that pretrained Vision Transformers (ViTs) intrinsically acquire this ability, how native self-attention computations mechanistically keep object instances separate remains unresolved. By studying this across eight pretra</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2611.16418" target="_blank">Model Distribution-Aware Multimodal Dataset Distillation</a></h3>
+<p class="meta">Jiajun Shen, Yonglin Wu, Ruonan Yu, Xinchao Wang &nbsp;·&nbsp; <code>2611.16418</code></p>
+<p class="tags"><span class="tag">Dataset Distillation</span><span class="tag">Vision-Language Pretraining</span></p>
+<p class="abstract">Multimodal dataset distillation (MDD) aims to reduce the cost of vision-language pre-training by synthesizing compact image-text datasets. Although recent feature-matching methods have improved distillation efficiency, synthetic data may become specialized to the model representations encountered during optimization, limiting generalization to unseen model states. We propose Model Distribution-Awa</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2611.16402" target="_blank">Teach with Blinks: Breaking Linguistic Momentum in On-Policy Distillation for Fine-Grained Multimodal Perception</a></h3>
+<p class="meta">Tangzheng Lian, Hang Zhang, Guanyu Hu, Renjiu Hu et al. (7 authors) &nbsp;·&nbsp; <code>2611.16402</code></p>
+<p class="tags"><span class="tag">Multimodal LLMs</span><span class="tag">On-Policy Distillation</span><span class="tag">Fine-Grained Perception</span></p>
+<p class="abstract">On-policy distillation (OPD) has emerged as an effective post-training approach to improving fine-grained perception in multimodal large language models by amortizing costly inference-time zooming operations into a single-pass recipe. However, vanilla OPD is inherently susceptible to linguistic momentum: the teacher can follow the student's erroneous prefixes, thus weakening corrective supervision</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2611.16373" target="_blank">Description-Guided CLIP Adaptation with Local Evidence Calibration for Few-Shot Plant Disease Recognition</a></h3>
+<p class="meta">Zhenkun Ye, Qian Zhou, Hua Zou &nbsp;·&nbsp; <code>2611.16373</code></p>
+<p class="tags"><span class="tag">CLIP Adaptation</span><span class="tag">Few-Shot Learning</span><span class="tag">Fine-Grained Recognition</span></p>
+<p class="abstract">Accurate plant disease recognition is essential for intelligent agriculture, but few-shot settings provide limited labeled samples that may not capture diagnostic symptoms and intra-class variations. Pretrained vision-language models (VLMs), such as CLIP, offer transferable visual-semantic knowledge. However, existing CLIP-based methods often rely on coarse class semantics and global visual repres</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2611.17019" target="_blank">Temporal Regularized Learning: Self-Supervised Learning Local in Space and Time</a></h3>
+<p class="meta">Davide Wiest &nbsp;·&nbsp; <code>2611.17019</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Local Learning Rules</span></p>
+<p class="abstract">Layer-local self-supervised objectives remove the backward pass between layers, but almost all still compute their loss over a batch of samples and are therefore local in space but not in time. We introduce Temporal Regularized Learning (TeReL), a spatially and temporally local learning rule for self-supervised representation learning from sequential input streams. The key idea is to instantiate a</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2611.16986" target="_blank">Primer: An AI Framework for Instructor-Centered Educational Simulation Creation</a></h3>
+<p class="meta">Ethan Mollick, Lilach Mollick, Ben Przystanski, LJ Ciccarelli et al. (6 authors) &nbsp;·&nbsp; <code>2611.16986</code></p>
+<p class="tags"><span class="tag">AI For Education</span><span class="tag">Educational Simulations</span><span class="tag">LLM Applications</span></p>
+<p class="abstract">Educational simulations are a well-established pedagogical technique that gives learners opportunities to apply knowledge, respond to challenges, and reflect on their performance. High-quality simulations, however, are difficult to build, requiring instructor input, scenario design, character development, scaffolding, technical implementation, and repeated revision. This paper presents Primer, an </p>
+</div>
+</body></html>
