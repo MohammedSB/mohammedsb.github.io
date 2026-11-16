@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journal Digest — week of November 16, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>From the Journals — week of November 16, 2026</h1>
+<p class="cats">NEJM AI, Nature Medicine, Nature, Nature Machine Intelligence, Nature Biomedical Engineering, npj Digital Medicine, Radiology: AI, Lancet Digital Health, Medical Image Analysis, IEEE Trans. Medical Imaging, Patterns (Cell Press)</p>
+<div class="card journal">
+<h3>1. <a href="https://doi.org/10.1109/TMI.2026.3753143" target="_blank">Clinical-SAM: Agentic Test-Time Adaptation of SAM via Physician-in-the-Loop for Clinical Tumor Segmentation.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Nov 12, 2026</p>
+<p class="meta">Nourhan Bayasi, Jamil Fayyad, Fereshteh Yousefirizi, Arman Rahmim</p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Medical Image Segmentation</span><span class="tag">Human-in-the-Loop</span></p>
+<p class="field">Segmentation foundation models like SAM often perform worse when deployed at new hospitals, and current test-time adaptation methods either remove the physician or add a heavy annotation burden. Clinical-SAM proposes an agentic, physician-in-the-loop test-time adaptation of SAM for tumor segmentation, aiming to keep clinical grounding while reducing how much physicians have to annotate.</p>
+</div><div class="card journal">
+<h3>2. <a href="https://doi.org/10.1109/TMI.2026.3753036" target="_blank">CPCLNet: Advancing Cross-Modal Few-Shot Medical Image Segmentation with Clustering-Inspired Prototype Consistency Learning.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Nov 12, 2026</p>
+<p class="meta">Peng Zhang, Chen Liu, Yida Wu, Heyang Zhao et al. (8 authors)</p>
+<p class="tags"><span class="tag">Few-Shot Learning</span><span class="tag">Medical Image Segmentation</span><span class="tag">Cross-Modal Learning</span></p>
+<p class="field">Cross-modal few-shot medical image segmentation tries to segment targets in a new imaging modality from a few labeled examples, but differences between modalities corrupt the prototypes and similarity maps. CPCLNet uses clustering-inspired prototype consistency learning to make support-query matching more robust and improve segmentation in the target modality.</p>
+</div><div class="card journal">
+<h3>3. <a href="https://www.nature.com/articles/s41746-026-03469-6" target="_blank">Multicenter benchmarking of large language models for bladder cancer management recommendations from mpMRI reports</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Nov 13, 2026</p>
+<p class="meta">Zongyu Li, Chengzhang Zhang, Xiaoni Chen, Liangqi Kang et al. (22 authors)</p>
+<p class="tags"><span class="tag">LLM Evaluation</span><span class="tag">Radiology Reports</span><span class="tag">Clinical Decision Support</span></p>
+<p class="field">This multicenter study benchmarks large language models on producing bladder cancer management recommendations from multiparametric MRI radiology reports. It is relevant to evaluating language models that reason over radiology text in real clinical workflows.</p>
+</div><div class="card journal">
+<h3>4. <a href="https://doi.org/10.1016/j.landig.2026.101056" target="_blank">Foundation artificial intelligence models for health recognition by use of face photographs (FAHR-Face): a model development and validation study.</a></h3>
+<p class="meta">Lancet Digital Health &nbsp;·&nbsp; Jun 16, 2027</p>
+<p class="meta">Fridolin Haugg, Grace Lee, John He, Leonard Nürnberg et al. (17 authors)</p>
+<p class="tags"><span class="tag">Foundation Models</span><span class="tag">Self-Supervised Learning</span><span class="tag">Health Prediction</span></p>
+<p class="field">FAHR-Face is a foundation model trained on more than 40 million facial photographs and then fine-tuned to estimate biological age and predict survival. It shows how large-scale pretraining on non-invasive images can be adapted to several downstream health-prediction tasks.</p>
+</div><div class="card journal">
+<h3>5. <a href="https://www.nature.com/articles/s41746-026-03410-x" target="_blank">Challenges for human oversight in detecting system malfunctions in AI-assisted medical diagnostics</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Nov 13, 2026</p>
+<p class="meta">Nadine Schlicker, Constanze Tepohl, Ali Kholmovaia, Noëlle Steffens et al. (9 authors)</p>
+<p class="tags"><span class="tag">Human-AI Interaction</span><span class="tag">Clinical AI Safety</span><span class="tag">Diagnostic AI</span></p>
+<p class="field">This paper looks at how well clinicians who supervise AI-assisted diagnostic systems can notice when those systems malfunction. It describes the challenges that make human oversight an unreliable safeguard in medical AI deployment.</p>
+</div><div class="card journal">
+<h3>6. <a href="https://www.nature.com/articles/s41746-026-03458-9" target="_blank">Learning uncertainty fields for joint brain stroke diagnosis and intrinsic lesion localization in CT and MRI</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Nov 14, 2026</p>
+<p class="meta">Zehao Jin, Shuzhen Xu, Xiaojun Dong, Jieyi Yang et al. (7 authors)</p>
+<p class="tags"><span class="tag">Medical Imaging</span><span class="tag">Uncertainty Estimation</span><span class="tag">Weakly Supervised Localization</span></p>
+<p class="field">The authors propose learning uncertainty fields that both diagnose brain stroke and localize lesions directly within the model, across both CT and MRI. The goal is to provide interpretable lesion localization alongside the diagnosis without separate segmentation labels.</p>
+</div><div class="card journal">
+<h3>7. <a href="https://www.nature.com/articles/s41746-026-03446-z" target="_blank">Measurement fidelity and external validation of automated breast DCE-MRI segmentation</a></h3>
+<p class="meta">npj Digital Medicine &nbsp;·&nbsp; Nov 14, 2026</p>
+<p class="meta">Chunlei Tan, Li Chen, Jinling Xu, Jian Zheng et al. (6 authors)</p>
+<p class="tags"><span class="tag">Medical Image Segmentation</span><span class="tag">External Validation</span><span class="tag">Breast MRI</span></p>
+<p class="field">This study evaluates how accurately automated breast DCE-MRI segmentation tools reproduce clinically meaningful measurements, and tests them on external data. It highlights the gap between good segmentation overlap scores and reliable downstream measurements.</p>
+</div><div class="card journal">
+<h3>8. <a href="https://doi.org/10.1109/TMI.2026.3752023" target="_blank">Multi-phase liver CT virtual contrast enhancement and diagnosis based on phase-aware diffusion network.</a></h3>
+<p class="meta">IEEE Trans. Medical Imaging &nbsp;·&nbsp; Nov 10, 2026</p>
+<p class="meta">Ziang Di, Wei Zhao, Rongjun Ge, Zhan Wu et al. (8 authors)</p>
+<p class="tags"><span class="tag">Generative Models</span><span class="tag">Diffusion Models</span><span class="tag">Medical Imaging</span></p>
+<p class="field">A phase-aware diffusion network generates virtual multi-phase contrast-enhanced liver CT from non-contrast CT, which could reduce radiation exposure and remove the need for contrast agents. The synthesized images are also used for liver tumor diagnosis, so the paper addresses both image generation quality and clinical usefulness.</p>
+</div>
+</body></html>
