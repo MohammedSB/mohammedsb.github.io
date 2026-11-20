@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — November 20, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — November 20, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2611.26492" target="_blank">Multimodal Error Detection in Chest X-ray Reports: A Large Language Model Reading Image Evidence</a></h3>
+<p class="meta">Yanda Cheng, Bo Wen, Yuhao Lu &nbsp;·&nbsp; <code>2611.26492</code></p>
+<p class="tags"><span class="tag">Chest X-ray</span><span class="tag">Radiology Report Error Detection</span><span class="tag">Multimodal LLMs</span></p>
+<p class="field"><span class="label">TL;DR:</span> Rad-Linter flags likely errors in chest X-ray reports by checking the report text against pathology scores from an image classifier, using a small LoRA-fine-tuned language model.</p><p class="field"><span class="label">Problem:</span> Radiology reports can contain findings that contradict the image, and text-only checks cannot catch these. Reviewers need an automated tool that compares a report against what the image actually shows.</p><p class="field"><span class="label">Method:</span> A pretrained chest X-ray classifier produces scores for nine pathologies. A 1.5B-parameter language model, fine-tuned with LoRA on 1,816 examples, judges whether the report agrees with those scores and flags mismatches for human review. It is compared with a keyword-and-negation rule baseline that receives the same reports and scores.</p><p class="field"><span class="label">Results:</span> The learned checker is benchmarked against the rule-based baseline on the same image evidence. The abstract excerpt is cut off before any quantitative results.</p><p class="field"><span class="label">Why it matters:</span> This sits where your report-generation and report-evaluation work meet: it is a reference-free, image-grounded way to check report consistency. It could serve as a metric or a filter for generated CXR reports.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2611.25309" target="_blank">VoxForge: A Unified Foundation Model for Dense 3D Features Across MRI, CT and PET</a></h3>
+<p class="meta">Rushil Anirudh, Jayaraman J. Thiagarajan &nbsp;·&nbsp; <code>2611.25309</code></p>
+<p class="tags"><span class="tag">Medical Foundation Models</span><span class="tag">3D Medical Imaging</span><span class="tag">Self-Supervised Learning</span></p>
+<p class="field"><span class="label">TL;DR:</span> VoxForge is a single 3D foundation model that produces dense, frozen voxel-level features for MRI, CT and PET, aiming to match specialist models on segmentation, classification and registration.</p><p class="field"><span class="label">Problem:</span> Current 3D medical foundation models either need separate backbones for localized tasks (segmentation) and global tasks (classification), or cover only one modality. There is also concern that training across modalities weakens each one.</p><p class="field"><span class="label">Method:</span> One 3D backbone is trained across MRI, CT and PET to produce dense features that are reused frozen. Localized, global and registration tasks run on these shared features through lightweight heads.</p><p class="field"><span class="label">Results:</span> The paper reports that the frozen unified features are competitive with modality-specific specialists across segmentation, classification and registration. The excerpt gives no exact numbers.</p><p class="field"><span class="label">Why it matters:</span> Shared dense features across modalities are a strong base for referring segmentation and grounded report generation beyond 2D chest X-rays. This is a likely backbone candidate for 3D vision-language work.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2611.25840" target="_blank">Harnessing Medical Visual-Language Models with Agentic Evidence Management</a></h3>
+<p class="meta">Qiming Huang, Hanze Dong, Jipeng Zhang, Mike Zheng Shou et al. (6 authors) &nbsp;·&nbsp; <code>2611.25840</code></p>
+<p class="tags"><span class="tag">Medical Vision-Language Models</span><span class="tag">Agentic AI</span><span class="tag">Medical Image Segmentation</span></p>
+<p class="field"><span class="label">TL;DR:</span> A benchmark and framework that separate how well a medical VLM agent uses segmentation evidence from how good the segmentation mask is.</p><p class="field"><span class="label">Problem:</span> Medical VLM agents increasingly call segmentation tools, but prior work treats a good mask as the end goal. Whether the agent actually reasons correctly from that mask has gone unmeasured.</p><p class="field"><span class="label">Method:</span> The authors build a benchmark covering multiple medical image types. It controls mask quality so that evidence use can be measured separately from segmentation accuracy. They then propose agentic evidence management so the VLM organizes and uses tool outputs more effectively in its reasoning.</p><p class="field"><span class="label">Results:</span> Current agents often fail to exploit good masks. The proposed evidence-management approach improves downstream answers across image types.</p><p class="field"><span class="label">Why it matters:</span> This applies directly to segmentation-grounded medical VLMs and to judging whether grounding evidence actually reaches the final output. That concern carries over to grounded report generation.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2611.25747" target="_blank">SAM 3 Sees More Than It Detects: Promptable Concept Maps Beyond Categories</a></h3>
+<p class="meta">Yu-Huan Wu, Yun Liu, Liangli Zhen &nbsp;·&nbsp; <code>2611.25747</code></p>
+<p class="tags"><span class="tag">Promptable Segmentation</span><span class="tag">Foundation Models</span><span class="tag">Dense Prediction</span></p>
+<p class="field"><span class="label">TL;DR:</span> SAM 3's promptable concept segmentation is extended from noun instances to class-agnostic dense maps such as saliency, camouflage, shadows, transparency and structure.</p><p class="field"><span class="label">Problem:</span> Promptable segmenters answer "what is this thing". Many dense tasks instead ask class-agnostic questions: what stands out, what is hidden, or how light is blocked or reflected. These are usually handled by separate specialist models.</p><p class="field"><span class="label">Method:</span> The authors define promptable concept maps (PCM), which reuse SAM 3's concept-prompting interface to produce dense maps for these non-noun concepts. This shows that SAM 3's features already encode more than its detection outputs reveal.</p><p class="field"><span class="label">Results:</span> A single promptable model covers a wide range of dense prediction tasks. The finding is that SAM 3 represents far more than it detects.</p><p class="field"><span class="label">Why it matters:</span> Concept-prompted dense prediction is closely related to referring segmentation. The idea of exposing hidden capacity in a frozen segmenter could carry over to medical concepts such as opacities or effusions.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2611.25419" target="_blank">DiLE: Discrimination-Aware Latent-Space Learning for Universal Multimodal Embeddings</a></h3>
+<p class="meta">Ben Kang, Junda Wang, Yuxuan Yuan, Hang Li et al. (12 authors) &nbsp;·&nbsp; <code>2611.25419</code></p>
+<p class="tags"><span class="tag">Multimodal Embeddings</span><span class="tag">Contrastive Learning</span><span class="tag">Vision-Language Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> DiLE trains MLLM-based universal multimodal embedding models in latent space so that embeddings keep the details needed to tell relevant items apart from confusable ones.</p><p class="field"><span class="label">Problem:</span> MLLMs improve how embedding models understand their inputs. That does not guarantee the final embedding preserves the fine-grained evidence that separates a match from a hard negative.</p><p class="field"><span class="label">Method:</span> DiLE adds latent-space learning objectives that explicitly preserve discriminative evidence. This goes beyond standard contrastive alignment, targeting confusable alternatives.</p><p class="field"><span class="label">Results:</span> The paper reports improved retrieval on universal multimodal embedding benchmarks over prior MLLM-based embedders, especially on hard negatives.</p><p class="field"><span class="label">Why it matters:</span> This is a successor to the CLIP-style line for retrieval. Fine-grained discrimination matters a great deal in medical image-text retrieval, where near-duplicate reports differ in one finding.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2611.26627" target="_blank">RL Post-Training in Diffusion Transformers Is Activation Steering</a></h3>
+<p class="meta">Tuna Han Salih Meral, Kaan Oktay, Alec Helbling, Atakan Kara et al. (6 authors) &nbsp;·&nbsp; <code>2611.26627</code></p>
+<p class="tags"><span class="tag">Diffusion Transformers</span><span class="tag">Reinforcement Learning</span><span class="tag">Activation Steering</span></p>
+<p class="field"><span class="label">TL;DR:</span> Much of what RL post-training adds to diffusion transformers can be reproduced by simple activation steering, not complex prompt-dependent transformations.</p><p class="field"><span class="label">Problem:</span> RL post-training improves text rendering and composition in diffusion transformers. It is commonly assumed this requires learning complex, input-dependent changes to the weights.</p><p class="field"><span class="label">Method:</span> The authors isolate how much of RL's gain can be explained by simple, largely input-independent shifts in the model's activations. They compare RL-tuned models with base models plus steering vectors.</p><p class="field"><span class="label">Results:</span> Activation steering recovers a large share of the RL improvements in visual quality, text rendering and compositional accuracy.</p><p class="field"><span class="label">Why it matters:</span> This is a cheap, interpretable alternative to RL fine-tuning for generative models. It is relevant if you consider preference or RL tuning for medical image or report generators.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2611.25418" target="_blank">Bilateral Evidence Selection and Reasoning for Mammography Vision--Language Models</a></h3>
+<p class="meta">Zhengbo Zhou, Dooman Arefan, Shandong Wu &nbsp;·&nbsp; <code>2611.25418</code></p>
+<p class="tags"><span class="tag">Mammography</span><span class="tag">Medical Vision-Language Models</span><span class="tag">Visual Token Compression</span></p>
+<p class="abstract">Medical vision--language models (VLMs) often need to identify small, subtle lesions within high-resolution images containing extensive normal anatomy and redundant visual information. Visual-token compression improves efficiency, but preserving salient regions alone can discard the context needed for diagnostic interpretation. This context can extend across images: in bilateral mammography, the op</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2611.25335" target="_blank">Breaking Noise Shortcuts in Self-Supervised Learning Via Noise-Aligned View Generation</a></h3>
+<p class="meta">Oankar R. Patil, May D. Wang &nbsp;·&nbsp; <code>2611.25335</code></p>
+<p class="tags"><span class="tag">Self-Supervised Learning</span><span class="tag">Scientific Imaging</span><span class="tag">Data Augmentation</span></p>
+<p class="abstract">Self-supervised learning (SSL) is increasingly applied to scientific imaging domains, such as microscopy, where labels are scarce but noisy data is abundant. These domains exhibit significant signal-dependent noise, which can create a representational shortcut: since both augmented views derive from the same noisy image, the encoder can boost view agreement by also encoding noise patterns rather t</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2611.25640" target="_blank">Erasing the Wrong Thing: Conditional Attribute Leakage and Concept Erasure in Shared Foundation-Model Embeddings</a></h3>
+<p class="meta">Haijun He, Fei Li, Donghong Ji, Junjun He &nbsp;·&nbsp; <code>2611.25640</code></p>
+<p class="tags"><span class="tag">Medical Image Embeddings</span><span class="tag">Privacy</span><span class="tag">Concept Erasure</span></p>
+<p class="abstract">Medical-image embeddings are increasingly shared in place of raw images for authorized downstream tasks, yet they may reveal sensitive attributes. Standard concept-erasure methods target population-level guardedness. However, we prove that, when binary task and sensitive labels are associated, global and task-conditional linear guardedness cannot both hold while a nonzero linear task signal is pre</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2611.26370" target="_blank">Fast Self-Supervised Generative CT Denoising via Few-Step Sampling</a></h3>
+<p class="meta">Xingyi Yao, Zhengtao Ma, Zhennong Chen &nbsp;·&nbsp; <code>2611.26370</code></p>
+<p class="tags"><span class="tag">CT Denoising</span><span class="tag">Self-Supervised Learning</span><span class="tag">Generative Models</span></p>
+<p class="abstract">Low-dose and thin-slice computed tomography (CT) images suffer from elevated noise that obscures anatomical detail, while clean references for supervised denoising are often unavailable. Although Noise2Noise permits self-supervised training from noisy pairs, direct regression tends to oversmooth fine structure. Averaging multiple independently generated samples mitigates this blur, though repeatin</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2611.26386" target="_blank">SEEC: A Large-Scale Dataset and Benchmark for Self-Supervised External-Eye Representation Learning</a></h3>
+<p class="meta">George R. Nahass, Michelle Fleishaker, Sanjay Ganesh, Sasha Hubschman et al. (9 authors) &nbsp;·&nbsp; <code>2611.26386</code></p>
+<p class="tags"><span class="tag">Ophthalmology</span><span class="tag">Self-Supervised Learning</span><span class="tag">Benchmark Dataset</span></p>
+<p class="abstract">External-eye photography captures clinically relevant periocular anatomy at low acquisition cost, yet no large-scale standardized resource exists for evaluating self-supervised external-eye representations. We introduce a 4.35-million-image Standardized External-Eye Corpus (SEEC) derived from fourteen heterogeneous public face datasets, together with a benchmark for external-eye representation lea</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2611.26316" target="_blank">C-LiTE: A Lightweight Foundation Model for Cellular feature learning in Histopathology</a></h3>
+<p class="meta">Esha Sadia Nasir, Jiaqi Lv, Gozde N. Gunesli, Shan E Ahmed Raza &nbsp;·&nbsp; <code>2611.26316</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Foundation Models</span><span class="tag">Cell-Level Representation</span></p>
+<p class="abstract">Characterising individual cells is fundamental to computational pathology, as cellular morphology informs tasks such as tumour grading, mitotic assessment and immune profiling. However, most pathology foundation models are trained on tissue patches and capture cellular features only implicitly, while existing cell-level models are either restricted to specific cell populations or rely on computati</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2611.26159" target="_blank">When Foundation Models Disagree: Representational Heterogeneity for Calibrated Uncertainty in Whole-Slide Image Classification</a></h3>
+<p class="meta">Yekai Shen, Yuqian Wang, Zishun Liao, Rongsheng Wang et al. (7 authors) &nbsp;·&nbsp; <code>2611.26159</code></p>
+<p class="tags"><span class="tag">Whole-Slide Imaging</span><span class="tag">Uncertainty Calibration</span><span class="tag">Pathology Foundation Models</span></p>
+<p class="abstract">Pathology foundation models supply strong representations for whole-slide image classification, yet the confidence attached to their predictions remains hard to trust. Prevailing uncertainty estimators act within a single feature space and thereby overlook the uncertainty that the choice of foundation-model representation itself induces. This work introduces CALIFUSE, a calibration-oriented framew</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2611.26562" target="_blank">Multi-institutional grading of Barrett's esophagus dysplasia without stain normalization using a pathology foundation model and multiple instance learning</a></h3>
+<p class="meta">Amirali Khosravi, Jaidip M. Jagtap, D. Chamil Codipilly, Catherine E. Hagen et al. (14 authors) &nbsp;·&nbsp; <code>2611.26562</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Multiple Instance Learning</span><span class="tag">Multi-Institutional Validation</span></p>
+<p class="abstract">Barrett's esophagus dysplasia grading suffers substantial inter-observer variability, particularly for low-grade dysplasia, complicating clinical decision-making. We conducted a retrospective multi-institutional diagnostic accuracy study of a foundation model-based deep learning system for dysplasia grading, using 969 H\&amp;E-stained whole slide images from four institutions. Patch-level classifiers </p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2611.25814" target="_blank">What Does Anti-Hallucination Training Buy? Saying Less, Cheap Pruning, and the Rest</a></h3>
+<p class="meta">Lingkai Bu, Qian Gao &nbsp;·&nbsp; <code>2611.25814</code></p>
+<p class="tags"><span class="tag">VLM Hallucination</span><span class="tag">Preference Optimization</span><span class="tag">Evaluation Methodology</span></p>
+<p class="abstract">Preference training is the standard recipe for reducing object hallucination in vision-language models, and each new method reports a lower CHAIR score. We ask what that reduction consists of. Every trained system is compared with its base model's caption truncated to the same object recall, which removes the part of the gain that comes from saying less; the remainder is compared with what a delib</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2611.25481" target="_blank">Uncertainty-Aware Multimodal Deep Learning for Prediction of Radiation-Induced Xerostomia in Head and Neck Cancer</a></h3>
+<p class="meta">Jin Yang, Tian Liu, Jose Penagaricano, Jing Wang et al. (8 authors) &nbsp;·&nbsp; <code>2611.25481</code></p>
+<p class="tags"><span class="tag">Radiotherapy Outcome Prediction</span><span class="tag">Multimodal Learning</span><span class="tag">Uncertainty Estimation</span></p>
+<p class="abstract">To develop and evaluate an uncertainty-aware multimodal learning framework for predicting radiation-induced xerostomia in patients receiving head-and-neck cancer radiotherapy. We developed a Bidirectional Attention-enhanced Diffusion Transformer (BA-DiT) that combines self-supervised multimodal representation learning with supervised Bayesian fine-tuning. The model integrates pretreatment CT image</p>
+</div>
+</body></html>
