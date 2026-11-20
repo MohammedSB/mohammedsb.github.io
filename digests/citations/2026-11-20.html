@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citations — November 20, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.subtitle{font-size:.85rem;color:#888;margin-bottom:2.5rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem;margin-bottom:.75rem}
+h2 em{font-style:italic;text-transform:none;font-size:1rem;letter-spacing:0}
+h3{font-size:1.05rem;font-weight:500;margin:0 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.83rem;color:#666;margin-bottom:.5rem}
+.summary{font-size:.95rem;line-height:1.65;margin:.5rem 0}
+.contexts{list-style:none;padding:0;margin:.6rem 0 0}
+.ctx{font-size:.88rem;line-height:1.6;color:#444;background:#fff;border-left:3px solid #d0b0b8;padding:.5rem .9rem;margin-bottom:.4rem;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:.75rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+</style></head><body>
+<h1>New Citations — November 20, 2026</h1>
+<p class="subtitle">10 new citations found via Semantic Scholar</p>
+<h2>Citing: <em>ReXGroundingCT: A 3D Chest CT Dataset for Segmentation of Findings from Free-Text Reports</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2611.23862" target="_blank">Grounding Radiology Reports in 3D Chest CT: Results of the ReXGrounding Challenge</a></h3>
+<p class="meta">Mohammed Baharoon, Mahmoud Hussain Alabbad, Sung Eun Kim, Xiao-Man Zhang et al. (62 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> ReXGroundingCT supplied the challenge's 2,992 training and 200 validation chest CT scans. Before the challenge, its public leaderboard evaluated models on a 100-scan subset of the challenge test set. It is also cited, with Bannur et al. (2024), to support the point that radiology reports describe where findings are only in words (e.g., "a 5 mm nodule in the posterior segment…"), so linking each finding to a segmentation makes reports checkable against the image.</p>
+<ul class='contexts'><li class="ctx">Before the challenge, the public ReXGroundingCT leaderboard evaluated models on a 100-scan subset of the challenge test set (Baharoon et al., 2026a).</li><li class="ctx">Radiology reports describe the location of each finding only in words, such as a “5 mm nodule in the posterior seg-∗ able against the image (Bannur et al., 2024; Baharoon et al., 2026a).</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2611.23529" target="_blank">ORGANIC3D: Grounding 3D CT Vision Language Models in Organ Level Image Text Coupling</a></h3>
+<p class="meta">Ze-Long Liu, Hamza Ahmed, Wynn Wingyi Lee, Mickael Torjman et al. (10 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> ORGANIC3D uses ReXGroundingCT as one of its evaluation datasets. The authors describe it as radiologist-annotated chest lesion masks for 464 CT-RATE test scans and use it for lesion-level tests. They also treat it as an example of conventional spatial grounding, meaning report sentences are matched to segmented findings to localize them directly. They contrast this with their own controlled-edit approach, which removes or alters the image evidence for a finding and checks whether the model's prediction changes.</p>
+<ul class='contexts'><li class="ctx">…other public datasets, including RAD-ChestCT [16] (3,630 chest volumes), and two datasets with radiologist-annotated lesion masks for lesion-level tests, ReXGroundingCT [2] (chest lesions in 464 CT-RATE test scans) and AbdomenAtlas 3.0 [4] (liver, pancreas and kidney tumors in 926 test scans).</li><li class="ctx">Alignment is usually inferred from classification accuracy, sentence grounding to radiologist-segmented findings in ReXGroundingCT [2], or attention maps [29, 55].</li><li class="ctx">Unlike conventional spatial grounding, which directly localizes findings [2], controlled edits test whether its prediction changes when the image evidence for the finding is removed or altered.</li></ul>
+</div><hr><h2>Citing: <em>MedSAM2: Segment Anything in 3D Medical Images and Videos</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2611.24443" target="_blank">NativeSeg: Native Vision Language Segmentation of 3D Computed Tomography via Spatial Visual Tokens and Verified Local Zoom</a></h3>
+<p class="meta">Chengqian Ma, Gao-Le Dai, Zi-Jie Meng, Wei-Xuan Jin et al. (8 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is treated as a stateless external refiner in a cascade. It gets a bounding box for each active slice but has no empty-slice screening, no global-to-local VLM context and no closed-loop error verification, so it often overwrites masks that were already accurate. In the authors' benchmark, running box-prompted MedSAM2 (or the LRN refiner) on every slice made the 2D nnU-Net baseline worse, dropping its score to about 87 (the excerpt cuts off the exact figure).</p>
+<ul class='contexts'><li class="ctx">Running external refiners MedSAM2 [32] or perturbation trained LRN [3] across every slice degrades 2D nnU-Net to 87 .</li><li class="ctx">Third, interactive tool calling agents [17, 18, 28, 53] and cascade refiners [3, 32] hand bounding boxes or isolated crops to stateless external segmenters without native empty slice screening, global to local VLM self attention, or closed loop error verification, frequently overwriting accurate…</li><li class="ctx">External baselines LRN † (perturbation trained CNN refiner on TotalSegmentator [3]) and MedSAM2 [32] (box prompted per active slice of M spec 0 ) are evaluated on the exact same organ slice evaluations.</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2611.23189" target="_blank">Retrieval-Augmented Correction for Generalist Medical Image Segmentation</a></h3>
+<p class="meta">V. Marcianó, Xiao-Ming Zhang, M. Antonelli, S. Ourselin et al. (5 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> No sentences citing this work were available, so this is inferred from the abstract. MedSAM2 is most likely cited as an example of a generalist or foundation segmentation model for 3D medical images and videos. In that role it would produce the initial masks whose leftover structural errors GRACE then corrects using retrieved prior cases, or serve as a comparison point for a single model that works across many anatomies.</p>
+
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2611.17743" target="_blank">X-Strata: Separating Aneurysms and Overlapping Vessels into Layers from 2D X-ray Angiography</a></h3>
+<p class="meta">Zhi-Hong Wen, Cong-Zhou Chen, Hu-Cheng Li, Xun Han et al. (12 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> No sentences citing MedSAM2 were available, so this is an inference from the abstract, not something the paper says. MedSAM2 is probably cited as a promptable segmentation foundation model for 3D medical images and videos, possibly used as a baseline. Such a model would only outline the visible aneurysm frame by frame in a cine angiogram. It could not recover the parts hidden behind crossing vessels or split the image into overlapping depth-ordered layers, which is the problem X-Strata is built to solve.</p>
+
+</div><div class="card">
+<h3><a href="https://doi.org/10.1007/s00530-026-02790-0" target="_blank">GaborMix: Adaptive Gabor configuration mixing for boundary-aware medical image segmentation</a></h3>
+<p class="meta">Neng-Xian Zhang, Bao-Jiang Zhong, Ming-Hao Piao, Kai-Kuang Ma · 2026</p>
+<p class="summary"><strong>What they say:</strong> MedSAM2 is mentioned only in passing, as one of several recent foundation-model-based approaches (along with MedSAM) in a list of general-purpose and 3D medical segmentation systems that also includes nnU-Net, SegMamba and LK-UNet. These systems are given as examples of the field broadening toward strong general-purpose models, and nothing is said about MedSAM2's methods or results.</p>
+<ul class='contexts'><li class="ctx">Recent medical segmentation research has also expanded toward strong general-purpose and 3D segmentation systems, as well as foundation-model-based approaches, including nnU-Net [32], SegMamba [33], LK-UNet [34], MedSAM [35], and MedSAM2 [36].</li></ul>
+</div><hr><h2>Citing: <em>State-of-the-Art Text-Prompted Medical Segmentation Models Struggle to Ground Chest CT Findings</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2611.23862" target="_blank">Grounding Radiology Reports in 3D Chest CT: Results of the ReXGrounding Challenge</a></h3>
+<p class="meta">Mohammed Baharoon, Mahmoud Hussain Alabbad, Sung Eun Kim, Xiao-Man Zhang et al. (62 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> Baharoon et al. (2025) is cited as evidence that general text-promptable medical segmentation models fail out of the box at grounding the descriptive findings in chest CT radiology reports. These models are trained mostly on short category-level prompts, such as names of anatomical structures and lesion classes. Report sentences instead identify the target by size, laterality, lobe or segment, and morphology, and the models could not handle them.</p>
+<ul class='contexts'><li class="ctx">Current text-promptable segmentation models, trained mostly on short category-level prompts, fail on the descriptive findings written in radiology reports (Zhao et al., 2025c,a,b; Du et al., 2024; Subramanian et al., 2026; Baharoon et al., 2025).</li><li class="ctx">…(Antonelli et al., 2022; Bilic et al., 2023; Heller et al., 2021; Ma et al., 2024a; Heller et al., 2023; Kavur et al., 2021; Dorent et al., 2024; Luo et al., 2025; Ma et al., 2024b): a model must read a sentence that specifies the target by size, laterality, lobe or segment and morphology, and…</li><li class="ctx">General text-promptable segmentation models, which are trained on names of anatomical structures and lesion classes rather than on descriptive findings, failed out of the box (Baharoon et al., 2025).</li></ul>
+</div><hr><h2>Citing: <em>ReXrank: A Public Leaderboard for AI-Powered Radiology Report Generation</em></h2><div class="card">
+<h3><a href="https://arxiv.org/abs/2611.23862" target="_blank">Grounding Radiology Reports in 3D Chest CT: Results of the ReXGrounding Challenge</a></h3>
+<p class="meta">Mohammed Baharoon, Mahmoud Hussain Alabbad, Sung Eun Kim, Xiao-Man Zhang et al. (62 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> ReXrank (Zhang et al., 2024) is named as the leaderboard platform that hosted the ReXGrounding Challenge, which ran at MICCAI 2026. The challenge has its own page on ReXrank at https://rexrank.ai/ReXGroundingCT.</p>
+<ul class='contexts'><li class="ctx">The ReXGrounding Challenge was held as part of MICCAI 2026 and hosted on the ReXrank leaderboard platform (Zhang et al., 2024) ( https://rexrank.ai/ReXGroundingCT ).</li></ul>
+</div><div class="card">
+<h3><a href="https://arxiv.org/abs/2609.01470" target="_blank">RadMatch: Auditable Radiology Report Evaluation via Finding-Level Matching</a></h3>
+<p class="meta">Charles Corbière, Léo Machado, Baptiste Callard, Aubin Charley et al. (8 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> RadMatch uses ReXrank's data splits as its chest X-ray benchmark for scoring 10 report-generation models (MAIRA-2, RGRG, CheXagent-2, CheXOne, MedGemma, Lingshu-7B and others). The splits it uses are IU-Xray (590 studies), MIMIC-CXR (2,347 studies) and CheXpert Plus (62 studies with a findings section).</p>
+<ul class='contexts'><li class="ctx">We score 10 chest X-ray models on the ReXrank [87] splits of MIMIC-CXR [35], IU-Xray [22] and CheXpert Plus [11], and 13 CT models, from general medical VLMs such as MedGemma [59] and RadFM [74] to CT-specialized models such as NV-Reason-CT [47] and HoloCT [75], on four CT datasets: Merlin-CT [10],…</li><li class="ctx">On chest X-ray, we use the ReXrank [87] splits of IU-Xray [13, 22] (590 studies), MIMIC-CXR [35] (2,347) and CheXpert Plus [11] (62 studies with a findings section) and ten models: MAIRA-2 [9], RGRG [68], CheXagent-2 3B [14], CheXOne [88], MedGemma 4B and 27B [60], MedGemma 1.5 4B [59], Lingshu-7B…</li></ul>
+</div><hr><h2>Citing: <em>Evaluating General Purpose Vision Foundation Models for Medical Image Analysis: An Experimental Study of DINOv2 on Radiology Benchmarks</em></h2><div class="card">
+<h3><a href="https://doi.org/10.1007/s11263-026-03127-0" target="_blank">APEX: Exploiting Anatomical and Pathological Insights for Context-Aware Gaze Estimation</a></h3>
+<p class="meta">Shao-Nan Liu, Jie Liu, Jia Long, Zhuo-Ru Wu et al. (8 authors) · 2026</p>
+<p class="summary"><strong>What they say:</strong> They cite it, with Oquab et al. and Jose et al., as evidence that DINOv2 keeps spatial and structural information at the patch level. They say this lets it perform well on dense prediction and learn representations of objects and their parts, which makes it a good structural basis for locating anatomy in their gaze-estimation model.</p>
+<ul class='contexts'><li class="ctx">…spatial and structural information at the patch level and has shown strong capability in dense prediction and in learning representations of objects and their parts (Baharoon et al., 2023; Jose et al., 2025; Oquab et al., 2023), providing a suitable structural basis for anatomical localization.</li></ul>
+</div>
+</body></html>
