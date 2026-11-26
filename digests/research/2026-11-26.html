@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv Digest — November 26, 2026</title>
+<style>
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:860px;margin:0 auto;padding:1.5rem;color:#222;background:#f5f5f5}
+h1{font-size:1.8rem;font-weight:300;color:#800020;border-bottom:2px solid #800020;padding-bottom:.5rem;margin-bottom:.4rem}
+.cats{font-size:.82rem;color:#888;margin-bottom:2rem}
+h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#800020;margin-top:2.5rem}
+h3{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .25rem}
+h3 a{color:#800020;text-decoration:none}
+h3 a:hover{text-decoration:underline}
+.meta{font-size:.85rem;color:#666;margin-bottom:.4rem}
+.tags{margin:.1rem 0 .6rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:500;background:#f0e6e9;color:#800020;padding:.12em .55em;border-radius:999px;margin:0 .3rem .3rem 0;letter-spacing:.02em}
+.label{font-weight:600;color:#444}
+.field{margin:.4rem 0;font-size:.95rem;line-height:1.65}
+.abstract{font-size:.93rem;line-height:1.7;color:#333;background:#fff;padding:1rem;border-left:3px solid #e0e0e0;border-radius:0 4px 4px 0}
+.card{background:#fff;border-radius:6px;padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card.journal{border-left:3px solid #800020}
+hr{border:none;border-top:1px solid #e0e0e0;margin:2rem 0}
+code{font-size:.85em;background:#f0f0f0;padding:.1em .3em;border-radius:3px}
+</style></head><body>
+<h1>arXiv Digest — November 26, 2026</h1>
+<p class="cats">Categories: cs.CV, cs.LG, cs.AI, cs.CL, eess.IV</p>
+<h2>Top Medical AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2611.33958" target="_blank">Where Does Free-Text 3D Grounding Fail? An Error Analysis of Report-Sentence Segmentation in Chest CT</a></h3>
+<p class="meta">Abdullah Arif Sheikh, Kamalaker Dadi, Raju S. Bapi &nbsp;·&nbsp; <code>2611.33958</code></p>
+<p class="tags"><span class="tag">Referring Segmentation</span><span class="tag">Chest CT</span><span class="tag">Radiology Report Grounding</span></p>
+<p class="field"><span class="label">TL;DR:</span> An error analysis of VoxTell, a free-text 3D grounding model, on all 381 ReXGroundingCT validation findings shows where segmentation from radiology-report sentences succeeds and where it fails.</p><p class="field"><span class="label">Problem:</span> Segmenting the CT region that one report sentence describes could link reports to images at scale. Aggregate scores do not show where current models go wrong.</p><p class="field"><span class="label">Method:</span> The authors run the publicly released VoxTell model on all 381 findings in the 200-scan ReXGroundingCT validation set. They then sort its failures by type, such as wrong lesion, wrong side, or extent and boundary errors, to find out what actually limits grounding quality.</p><p class="field"><span class="label">Results:</span> VoxTell grounds 53.5% of findings. Its failures are rarely about picking the wrong lesion or the wrong side, which suggests that the remaining errors come mostly from other factors such as extent, size, or the type of finding.</p><p class="field"><span class="label">Why it matters:</span> This applies referring segmentation directly to radiology report text, which sits where your report-generation and referring-segmentation interests meet. Its error taxonomy could guide grounding-based metrics for evaluating generated reports.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2611.34575" target="_blank">Sage-Med: Scaling Medical Multimodal Intelligence</a></h3>
+<p class="meta">Sage-Med Team,  :, Ming Hu, Cheng Tang et al. (109 authors) &nbsp;·&nbsp; <code>2611.34575</code></p>
+<p class="tags"><span class="tag">Medical Multimodal LLMs</span><span class="tag">Scaling Laws</span><span class="tag">Foundation Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> Sage-Med is a family of medical multimodal LLMs built to find scaling recipes that actually improve multimodal perception, not only text ability.</p><p class="field"><span class="label">Problem:</span> In the authors' systematic evaluation, existing medical MLLMs often trail frontier general-purpose MLLMs on medical tasks. Making these models bigger mostly improves text ability rather than multimodal perception, and turning on reasoning does not reliably help.</p><p class="field"><span class="label">Method:</span> The team runs a large benchmark of medical and general MLLMs to diagnose these scaling failures. They then build Sage-Med around data and training choices aimed at scaling medical visual perception together with language ability.</p><p class="field"><span class="label">Results:</span> Sage-Med is reported to narrow or close the gap with frontier general MLLMs across a broad set of medical imaging tasks. Full numbers are in the paper.</p><p class="field"><span class="label">Why it matters:</span> It gives direct evidence on whether domain-specific medical VLMs are still worth building compared with general frontier models. That matters for anyone choosing backbones for radiology VLM work.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2611.33836" target="_blank">Can Its Own Misses Teach an MLLM to Find Small Brain Metastases?</a></h3>
+<p class="meta">Yixuan Duan, Kexin Geng, Hanwen Xu, Wei Qiu &nbsp;·&nbsp; <code>2611.33836</code></p>
+<p class="tags"><span class="tag">Brain MRI</span><span class="tag">Small Lesion Detection</span><span class="tag">Medical MLLMs</span></p>
+<p class="field"><span class="label">TL;DR:</span> The paper asks whether an MLLM can get better at localizing small brain metastases by training on the lesions it previously missed.</p><p class="field"><span class="label">Problem:</span> MLLMs are increasingly used as general medical image readers but are poor at finding small abnormalities. At 384 px a 0.1 mL metastasis covers less than a quarter of one visual token, and fine-tuning on a single dataset transfers poorly.</p><p class="field"><span class="label">Method:</span> The authors measure how frontier MLLMs detect lesions of different sizes. They then propose a self-improvement scheme in which the model's own misses (false negatives) become targeted training signal for small-lesion localization.</p><p class="field"><span class="label">Results:</span> At one false positive per scan, frontier MLLMs find fewer than 30% of 0.1–1 mL lesions. The miss-driven training is reported to improve small-lesion detection and cross-dataset transfer.</p><p class="field"><span class="label">Why it matters:</span> Token-resolution limits on small findings affect chest X-ray and CT VLMs just as much. The failure-driven training recipe could carry over to detecting subtle radiology findings.</p>
+</div><h2>Top General AI Papers — Full Summary</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2611.34083" target="_blank">MulCLIP: A Multi-level Alignment Framework for Enhancing Fine-grained Long-context CLIP</a></h3>
+<p class="meta">Chau Truong, Hieu Ta Quang, Zhenzhen Liu, Dung D. Le &nbsp;·&nbsp; <code>2611.34083</code></p>
+<p class="tags"><span class="tag">Vision-Language Models</span><span class="tag">CLIP</span><span class="tag">Long-Text Alignment</span></p>
+<p class="field"><span class="label">TL;DR:</span> MulCLIP is an end-to-end, multi-level alignment framework that lets CLIP handle long, detailed captions without costly region proposals.</p><p class="field"><span class="label">Problem:</span> CLIP-style models are trained on short captions and struggle with long, fine-grained descriptions. Recent fixes align region proposals with individual sentences, which is expensive to deploy.</p><p class="field"><span class="label">Method:</span> MulCLIP uses the natural structure of long text (the whole caption, its sentences, and finer phrases) and aligns each level with matching visual granularity in one end-to-end model. No external region-proposal stage is needed.</p><p class="field"><span class="label">Results:</span> It is reported to improve long-text and fine-grained retrieval over long-context CLIP baselines while costing less to deploy than region-based methods.</p><p class="field"><span class="label">Why it matters:</span> Radiology reports are exactly the long, multi-sentence, finding-level text that breaks standard CLIP. Multi-level sentence and phrase alignment of this kind fits report-image pretraining for chest X-rays well.</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2611.34579" target="_blank">Tune for Retention, Not Just Gain: SFT Forgets Far Less than You Think</a></h3>
+<p class="meta">Nirmit Joshi, Nathan Srebro, Eran Malach &nbsp;·&nbsp; <code>2611.34579</code></p>
+<p class="tags"><span class="tag">Fine-Tuning</span><span class="tag">Catastrophic Forgetting</span><span class="tag">LLM Training</span></p>
+<p class="field"><span class="label">TL;DR:</span> Supervised fine-tuning (SFT) causes far less catastrophic forgetting than widely believed once hyperparameters are tuned for retention as well as task gain.</p><p class="field"><span class="label">Problem:</span> SFT is often said to cause severe forgetting, and recent work blames its off-policy nature and recommends on-policy learning instead.</p><p class="field"><span class="label">Method:</span> The authors re-run comparisons while tuning SFT hyperparameters, such as learning rate and training length, to preserve earlier capabilities rather than only to maximize gains on the new task. They then compare forgetting against on-policy alternatives.</p><p class="field"><span class="label">Results:</span> With retention-aware tuning, SFT keeps most prior capabilities and stays competitive with on-policy methods, which undercuts the claim that it is inherently prone to forgetting.</p><p class="field"><span class="label">Why it matters:</span> It is practical guidance for adapting general VLMs or LLMs to medical data without losing their general skills. Tuning for retention may matter more than switching to RL-style training.</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2611.34935" target="_blank">Can image generation help visual reasoning? An empirical study</a></h3>
+<p class="meta">Xueyang Yu, Yifan Jing, Taiming Lu, Linrong Cai et al. (8 authors) &nbsp;·&nbsp; <code>2611.34935</code></p>
+<p class="tags"><span class="tag">Multimodal Reasoning</span><span class="tag">Image Generation</span><span class="tag">Vision-Language Models</span></p>
+<p class="field"><span class="label">TL;DR:</span> Across 13 pairs of vision-language model and image generator, letting the model generate a helper image before answering lowers visual question-answering accuracy.</p><p class="field"><span class="label">Problem:</span> Models that 'think in images' are a popular idea, but whether a generated helper image actually improves visual reasoning has not been tested carefully.</p><p class="field"><span class="label">Method:</span> In a controlled protocol, a VLM describes the helper image it needs, a generator produces it, and the VLM answers using the original and generated images together. The setup is repeated across many VLM–generator combinations and benchmarks.</p><p class="field"><span class="label">Results:</span> Generation lowers mean accuracy by 3.7 percentage points, with declines on nine of the ten settings reported.</p><p class="field"><span class="label">Why it matters:</span> It is a useful caution before adding generative 'visual chain-of-thought' steps to medical VQA or report pipelines. Generated images can add noise rather than evidence.</p>
+</div><hr><h2>Notable Papers — Abstract</h2><div class="card">
+<h3>1. <a href="https://arxiv.org/abs/2611.34930" target="_blank">A gene informed benchmark for BioScoring of pathology foundation models</a></h3>
+<p class="meta">Paul Vilars, Vincent Quoc-Huy Trinh, Maria Vakalopoulou, Dimitris Samaras et al. (6 authors) &nbsp;·&nbsp; <code>2611.34930</code></p>
+<p class="tags"><span class="tag">Histopathology</span><span class="tag">Foundation Model Benchmarking</span><span class="tag">Spatial Transcriptomics</span></p>
+<p class="abstract">Pathology foundation models are usually compared by their performance on downstream tasks such as classification and retrieval. While such benchmarks measure how useful a model is, they provide no insight into the biology it represents. We introduce BioScore, a benchmark that quantifies how well an image encoder captures cell identities, with spatial transcriptomics of the same tissue as the refer</p>
+</div><div class="card">
+<h3>2. <a href="https://arxiv.org/abs/2611.34465" target="_blank">Evidence-Aligned Benchmarking and Learning for Medical Video Language Models</a></h3>
+<p class="meta">Zhongpai Gao, Anwesa Choudhuri, Meng Zheng, Benjamin Planche et al. (6 authors) &nbsp;·&nbsp; <code>2611.34465</code></p>
+<p class="tags"><span class="tag">Medical Video Understanding</span><span class="tag">Benchmark Shortcuts</span><span class="tag">Vision-Language Models</span></p>
+<p class="abstract">A medical video language model should answer from the visual evidence its question asks about. We find three places where this breaks down and address each with an approach we call MedEvidU. First, benchmarks reward answers that ignore the video: on one dataset, the position of a clip within its recording predicts the surgical step in 37% of questions, and a constant answer beats every trained mod</p>
+</div><div class="card">
+<h3>3. <a href="https://arxiv.org/abs/2611.33777" target="_blank">Agentic Reinforcement Learning with Immediate and Prospective Credit Assignment for Medical Visual Reasoning</a></h3>
+<p class="meta">Yuqi Cheng, Rui Meng, Yijin Li, Chandra Sekhar Reddy Edula et al. (5 authors) &nbsp;·&nbsp; <code>2611.33777</code></p>
+<p class="tags"><span class="tag">Medical VQA</span><span class="tag">Agentic Reinforcement Learning</span><span class="tag">Credit Assignment</span></p>
+<p class="abstract">Medical visual question answering (VQA) requires acquiring useful evidence and deciding where to look next. Yet final-answer rewards do not reveal which observations support answering or guide subsequent inspection. We introduce MedPACT, an agentic reinforcement learning framework that learns selective observation policies through immediate answer support and prospective guidance. Our content-cont</p>
+</div><div class="card">
+<h3>4. <a href="https://arxiv.org/abs/2611.33935" target="_blank">BayesPath: Reliability-Aware Bayesian Reasoning for Whole-Slide Pathology Agents</a></h3>
+<p class="meta">Bryan Wong, Xun Xu, Jongwoo Kim, Huazhu Fu et al. (6 authors) &nbsp;·&nbsp; <code>2611.33935</code></p>
+<p class="tags"><span class="tag">Whole-Slide Imaging</span><span class="tag">Medical Agents</span><span class="tag">Bayesian Reasoning</span></p>
+<p class="abstract">Diagnosing whole-slide images (WSIs) requires hypothesis-driven reasoning: pathologists form a differential diagnosis, seek discriminative evidence, weigh its reliability, and stop once it suffices. However, existing training-free WSI agents lack an explicit framework for such reasoning. They typically use a large language model (LLM) to aggregate the region descriptions of a multimodal LLM (MLLM)</p>
+</div><div class="card">
+<h3>5. <a href="https://arxiv.org/abs/2611.34523" target="_blank">Rank Before You Encode: Reading a Few Percent of a Whole-Slide Image</a></h3>
+<p class="meta">Haoyu He, Mahdi S. Hosseini &nbsp;·&nbsp; <code>2611.34523</code></p>
+<p class="tags"><span class="tag">Whole-Slide Imaging</span><span class="tag">Efficient Inference</span><span class="tag">Tile Selection</span></p>
+<p class="abstract">Classifying a whole-slide image requires encoding thousands of high-resolution tiles with a pathology foundation model, which accounts for most of the inference cost. Existing efficient methods reduce this cost by selecting fewer tiles, but typically train a new model around their selection strategy. A largely unexplored alternative is to keep an existing full-bag model frozen and run it on select</p>
+</div><div class="card">
+<h3>6. <a href="https://arxiv.org/abs/2611.34427" target="_blank">Mitigating Hallucinations in Medical Question Answering on ESC Cardiology Guidelines: Evaluation and Retrieval Optimization</a></h3>
+<p class="meta">Ilkin Masimov, Rufana Baghirli, Muhammad Rashid &nbsp;·&nbsp; <code>2611.34427</code></p>
+<p class="tags"><span class="tag">Medical QA</span><span class="tag">Hallucination Mitigation</span><span class="tag">Retrieval-Augmented Generation</span></p>
+<p class="abstract">Background: Large language models produce hallucinations in medical question answering (QA). Verify-and-revise pipelines that check atomic claims against retrieved guideline evidence are a standard mitigation, but evaluations almost universally treat the verifier's output as ground truth, an assumption rarely tested. Objective: To measure, claim by claim against human judgement, how such a pipelin</p>
+</div><div class="card">
+<h3>7. <a href="https://arxiv.org/abs/2611.34622" target="_blank">Beyond Pose Control: Anatomically Consistent Ultrasound Video Generation</a></h3>
+<p class="meta">Yue Zhou, Fangxu Han, Tony Danjun Wang, Nassir Navab et al. (5 authors) &nbsp;·&nbsp; <code>2611.34622</code></p>
+<p class="tags"><span class="tag">Ultrasound</span><span class="tag">Video Generation</span><span class="tag">Anatomical Priors</span></p>
+<p class="abstract">Camera-controlled video generation anticipates how a scene appears from new viewpoints by relying on a prior learned implicitly from large-scale data. Ultrasound poses the same problem, with the probe pose as the viewpoint, but under opposite conditions: anatomy offers an explicit prior that every sonographer relies on, whereas tracked scans are too scarce to learn it implicitly. As a result, pose</p>
+</div><div class="card">
+<h3>8. <a href="https://arxiv.org/abs/2611.33671" target="_blank">Look at What Matters: Learning Lesion Prototypes from Severity Labels for Domain-Generalized Diabetic Retinopathy Grading</a></h3>
+<p class="meta">Ziyang Zhang, Juming Xiong, Yanfan Zhu, Yuechen Yang et al. (11 authors) &nbsp;·&nbsp; <code>2611.33671</code></p>
+<p class="tags"><span class="tag">Diabetic Retinopathy</span><span class="tag">Domain Generalization</span><span class="tag">Prototype Learning</span></p>
+<p class="abstract">Deep learning models for diabetic retinopathy (DR) grading often generalize poorly to unseen imaging domains, in part because predictions may exploit correlations specific to source datasets rather than retinal pathology. We address this challenge by constructing grading decisions from lesion evidence learned using only image severity labels. Clinical implications of DR grades provide multiple ins</p>
+</div><div class="card">
+<h3>9. <a href="https://arxiv.org/abs/2611.34207" target="_blank">Beyond Logits: Coherent Hallucination Mitigation via Attention Contrastive Decoding</a></h3>
+<p class="meta">Yujia Chen, Rui Sun, Huayu Mai, Wangkai Li et al. (9 authors) &nbsp;·&nbsp; <code>2611.34207</code></p>
+<p class="tags"><span class="tag">Hallucination Mitigation</span><span class="tag">Contrastive Decoding</span><span class="tag">Vision-Language Models</span></p>
+<p class="abstract">Large Vision-Language Models (LVLMs) demonstrate impressive multimodal capabilities, yet suffer from hallucination - generating factually inaccurate content. Contrastive Decoding (CD) mitigates this by contrasting amateur and expert branches at the logit level. However, our investigation reveals that such logit-level interventions fundamentally compromise generation coherence, necessitating restri</p>
+</div><div class="card">
+<h3>10. <a href="https://arxiv.org/abs/2611.34801" target="_blank">Guidance as Variance Matching</a></h3>
+<p class="meta">Ali Backour, Artem Lukoianov, Frank Permenter, Tommi Jaakkola et al. (6 authors) &nbsp;·&nbsp; <code>2611.34801</code></p>
+<p class="tags"><span class="tag">Diffusion Models</span><span class="tag">Classifier-Free Guidance</span><span class="tag">Generative Model Theory</span></p>
+<p class="abstract">Guidance repels the prediction of a diffusion model away from a weaker reference prediction. It substantially improves sample quality, but its mechanism remains poorly understood. We first find that, at the scales used in practice, guidance does not improve the prediction of the posterior mean (the model's training target); it makes the prediction worse, while samples improve. Second, posterior-me</p>
+</div>
+</body></html>
